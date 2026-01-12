@@ -1,1 +1,29 @@
-site_name: My Docs
+site_name: Jarvis Docs
+site_url: https://pengxuan-zhu-phys.github.io/Jarvis-Docs/
+
+theme:
+  name: material
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - toc.integrate
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+
+plugins:
+  - search
+
+nav:
+  - Home: index.md
+  - Tutorial:
+      - Eggbox (Start Here): tutorial/eggbox.md
+  - Core:
+      - YAML Overview: core/yaml_overview.md
+      - Calculator Contract: core/calculator_contract.md
+  - Jarvis-HEP:
+      - Overview: jarvis-hep/overview.md
+  - JarvisPLOT:
+      - Overview: jarvisplot/overview.md

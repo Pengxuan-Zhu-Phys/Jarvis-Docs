@@ -1,6 +1,17 @@
 # Jarvis Documentation
 
-Welcome to the documentation site for the Jarvis ecosystem.
+## Tutorial (start here)
 
-- Start with the **Eggbox tutorial** to understand the workflow abstraction.
-- Then read the **YAML overview** and **calculator contract**.
+- **Eggbox tutorial** — a minimal end-to-end scan example: [tutorial/eggbox.md](tutorial/eggbox.md)
+
+## Core concepts
+
+- **YAML configuration** — structure, blocks, and common patterns: [core/yaml_overview.md](core/yaml_overview.md)
+- **Calculator contract** — `input.json` → run → `output.json`: [core/calculator_contract.md](core/calculator_contract.md)
+
+## Projects
+
+- **Jarvis-HEP (docs)**: [jarvis-hep/overview.md](jarvis-hep/overview.md)  
+  Source code: https://github.com/Pengxuan-Zhu-Phys/Jarvis-HEP
+- **JarvisPLOT (docs)**: [jarvisplot/overview.md](jarvisplot/overview.md)  
+  Source code: https://github.com/Pengxuan-Zhu-Phys/JarvisPLOT

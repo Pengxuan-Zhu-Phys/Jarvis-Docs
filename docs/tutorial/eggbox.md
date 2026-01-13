@@ -98,7 +98,7 @@ You do not write scripts to glue these together.
 You **declare** them in YAML.
 
 See:
-- [Guide to YAML](guide_to_yaml.md)
+- [Guide to YAML](../yaml/yaml_introduction.md)
 
 ---
 

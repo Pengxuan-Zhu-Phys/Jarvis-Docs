@@ -218,14 +218,11 @@ Options include:
 
 ## Recommended References
 
-- YAML Official Specification  
-  https://yaml.org/spec/
+- [YAML Official Specification](https://yaml.org/spec/)
 
-- YAML Tutorial (Learn X in Y Minutes)  
-  https://learnxinyminutes.com/docs/yaml/
+- [YAML Tutorial (Learn X in Y Minutes)](https://learnxinyminutes.com/docs/yaml/)
 
-- PyYAML Documentation  
-  https://pyyaml.org/wiki/PyYAMLDocumentation
+- [PyYAML Documentation](https://pyyaml.org/wiki/PyYAMLDocumentation)
 
 These resources provide deeper explanations and advanced usage examples.
 

@@ -6,7 +6,7 @@ Jarvis-HEP (Just a Robust and Versatile Interface Suite for High Energy) is a `P
 
 - [Installation]()
 
-- **Eggbox tutorial** — a minimal end-to-end scan example: [tutorial/eggbox.md](tutorial/eggbox.md)
+- [**Eggbox tutorial**](tutorial/eggbox.md) — a minimal end-to-end scan example
 
 ## Core concepts
 

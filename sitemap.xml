@@ -2,10 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://pengxuan-zhu-phys.github.io/Jarvis-Docs/</loc>
-         <lastmod>2026-01-12</lastmod>
+         <lastmod>2026-01-13</lastmod>
+    </url>
+    <url>
+         <loc>https://pengxuan-zhu-phys.github.io/Jarvis-Docs/tutorial/eggbox/</loc>
+         <lastmod>2026-01-13</lastmod>
     </url>
     <url>
          <loc>https://pengxuan-zhu-phys.github.io/Jarvis-Docs/yaml/yaml_introduction/</loc>
-         <lastmod>2026-01-12</lastmod>
+         <lastmod>2026-01-13</lastmod>
     </url>
 </urlset>

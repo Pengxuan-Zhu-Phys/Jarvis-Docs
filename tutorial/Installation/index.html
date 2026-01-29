@@ -11,6 +11,10 @@
         <link rel="canonical" href="https://pengxuan-zhu-phys.github.io/Jarvis-Docs/tutorial/Installation/">
       
       
+        <link rel="prev" href="../..">
+      
+      
+        <link rel="next" href="../eggbox/">
       
       
         
@@ -43,6 +47,8 @@
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
     
     <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -218,8 +224,10 @@
       
   
   
+    
   
   
+  
     
     
     
@@ -230,13 +238,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
@@ -257,7 +263,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -267,6 +273,203 @@
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requirements
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-the-source-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Getting the Source Code
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Getting the Source Code">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#clone-the-repository-from-github" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Clone the repository from GitHub:
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#downloading-a-released-version-recommended" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Downloading a Released Version (Recommended)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installing-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installing Dependencies
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Installing Dependencies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#using-pyenv-optional-example-with-python-31012" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Using pyenv (optional): example with Python 3.10.12
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#running-jarvis-hep" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Running Jarvis-HEP
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#external-physics-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        External Physics Tools
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Issues
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next Steps
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
             
               
                 
@@ -386,7 +589,7 @@
   <span class="md-ellipsis">
     
   
-    Background & References
+    YAML Configuration
   
 
     
@@ -402,7 +605,206 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Background & References
+    YAML Configuration
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/summary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Main structure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/samplers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Samplers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/library/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Libraries
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/calculator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Calculators
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/environment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    EnvReqs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Concepts & Conventions
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Concepts & Conventions
   
 
           </label>
@@ -436,9 +838,29 @@
 
               
             
-          </ul>
-        </nav>
-      
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/symbol/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Symbolic Expressions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -451,14 +873,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../core/calculator_contract.md" class="md-nav__link">
+      <a href="../../core/utils/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Calculator Contract
+    Utils
   
 
     
@@ -467,6 +889,42 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/io_summary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IO file type
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -511,7 +969,7 @@
   <span class="md-ellipsis">
     
   
-    Jarvis-HEP
+    High Energy Physics Package Wikis
   
 
     
@@ -527,7 +985,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Jarvis-HEP
+    High Energy Physics Package Wikis
   
 
           </label>
@@ -540,14 +998,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../jarvis-hep/overview.md" class="md-nav__link">
+      <a href="../../package/summary/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Overview
+    HEP Packages
   
 
     
@@ -600,7 +1058,7 @@
   <span class="md-ellipsis">
     
   
-    JarvisPLOT
+    Data Visulisation
   
 
     
@@ -616,7 +1074,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    JarvisPLOT
+    Data Visulisation
   
 
           </label>
@@ -629,14 +1087,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../jarvisplot/overview.md" class="md-nav__link">
+      <a href="../../jarvisplot/jarvisplot/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Overview
+    Jarvis-PLOT
   
 
     
@@ -653,6 +1111,33 @@
           </ul>
         </nav>
       
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../examples/examples/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Case studies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -773,17 +1258,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#editable-installation-optional" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Editable Installation (Optional)
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#external-physics-tools" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -871,7 +1345,7 @@ cd Jarvis-HEP
 stable <strong>released versions</strong>.</p>
 <p>Released versions are recommended for users who prefer a fixed and
 well-tested snapshot of the code.</p>
-<p>You can download a released source archive from the GitHub Releases page:</p>
+<p>You can download a released source archive from the <a href="https://github.com/Pengxuan-Zhu-Phys/Jarvis-HEP/releases">GitHub Releases page</a>:</p>
 <ul>
 <li>Navigate to the <em>Releases</em> section of the repository</li>
 <li>Download the corresponding <code>.zip</code> or <code>.tar.gz</code> source archive</li>
@@ -897,17 +1371,11 @@ pip install -r requirements.txt
 <p><code>Jarvis-HEP</code> does not require a formal installation step.</p>
 <p>Once the dependencies are installed, it can be executed directly from the
 source directory:</p>
-<pre><code class="language-bash">python jarvis.py your_config.yaml
+<pre><code class="language-bash">Jarvis ./bin/EggBox/Example_Bridson.yaml
 </code></pre>
+<p>To run the EggBox example, which is detailed explained in the <a href="../eggbox/">next</a> page. </p>
 <p>Alternatively, <code>Jarvis-HEP</code> can be imported and used as a Python module in
 custom scripts.</p>
-<hr />
-<h2 id="editable-installation-optional">Editable Installation (Optional)</h2>
-<p>If you plan to develop or extend <code>Jarvis-HEP</code>, you may install it in editable
-mode:</p>
-<pre><code class="language-bash">pip install -e .
-</code></pre>
-<p>This allows local source code changes to take effect immediately.</p>
 <hr />
 <h2 id="external-physics-tools">External Physics Tools</h2>
 <p><code>Jarvis-HEP</code> serves as a workflow and sampling engine.</p>
@@ -920,8 +1388,7 @@ according to the requirements of each analysis.</p>
 <ul>
 <li>
 <p><strong>Missing dependencies</strong><br />
-  Ensure all packages listed in <code>requirements.txt</code> are installed in the active
-  Python environment.</p>
+  Ensure all packages listed in <code>requirements.txt</code> are installed in the active Python environment.</p>
 </li>
 <li>
 <p><strong>Multiple Python versions</strong><br />
@@ -935,9 +1402,8 @@ according to the requirements of each analysis.</p>
 <h2 id="next-steps">Next Steps</h2>
 <p>After installation, proceed to:</p>
 <ul>
-<li>Quick Start</li>
-<li>YAML Configuration Overview</li>
-<li>Examples and Case Studies</li>
+<li><a href="../eggbox/">Quick Start with Eggbox</a></li>
+<li><a href="../../yaml/yaml_introduction/">YAML Format Introduction</a></li>
 </ul>
 
 

@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://pengxuan-zhu-phys.github.io/Jarvis-Docs/yaml/yaml_introduction/">
+        <link rel="canonical" href="https://pengxuan-zhu-phys.github.io/Jarvis-Docs/core/io_summary/">
       
       
-        <link rel="prev" href="../../core/environment/">
+        <link rel="prev" href="../utils/">
       
       
-        <link rel="next" href="../../core/symbol/">
+        <link rel="next" href="../../package/summary/">
       
       
         
@@ -25,7 +25,7 @@
     
     
       
-        <title>YAML Format introduction - Jarvis-HEP Documentation</title>
+        <title>IO file type - Jarvis-HEP Documentation</title>
       
     
     
@@ -67,11 +67,6 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
-        
-        <a href="#practical-introduction-to-yaml-format" class="md-skip">
-          Skip to content
-        </a>
-      
     </div>
     <div data-md-component="announce">
       
@@ -103,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              YAML Format introduction
+              IO file type
             
           </span>
         </div>
@@ -449,7 +444,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../core/summary/" class="md-nav__link">
+      <a href="../summary/" class="md-nav__link">
         
   
   
@@ -477,7 +472,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../core/samplers/" class="md-nav__link">
+      <a href="../samplers/" class="md-nav__link">
         
   
   
@@ -505,7 +500,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../core/library/" class="md-nav__link">
+      <a href="../library/" class="md-nav__link">
         
   
   
@@ -533,7 +528,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../core/calculator/" class="md-nav__link">
+      <a href="../calculator/" class="md-nav__link">
         
   
   
@@ -561,7 +556,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../core/environment/" class="md-nav__link">
+      <a href="../environment/" class="md-nav__link">
         
   
   
@@ -645,37 +640,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    YAML Format introduction
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../yaml/yaml_introduction/" class="md-nav__link">
         
   
   
@@ -691,242 +659,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#what-is-yaml" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        What Is YAML?
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#core-syntax-rules" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Core Syntax Rules
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Core Syntax Rules">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-indentation-matters" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. Indentation Matters
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-keyvalue-pairs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. Key–Value Pairs
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-lists" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. Lists
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-strings-and-quoting" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. Strings and Quoting
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5-numbers-and-booleans" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5. Numbers and Booleans
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#6-comments" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        6. Comments
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#common-mistakes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Common Mistakes
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Common Mistakes">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#using-tabs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ❌ Using Tabs
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#inconsistent-indentation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ❌ Inconsistent Indentation
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#missing-spaces-after-colon" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ❌ Missing Spaces After Colon
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ambiguous-values" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ❌ Ambiguous Values
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#useful-features-optional" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Useful Features (Optional)
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Useful Features (Optional)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#anchors-and-aliases" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Anchors and Aliases
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-to-validate-yaml" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        How to Validate YAML
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#recommended-references" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Recommended References
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#summary" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Summary
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -939,7 +671,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../core/symbol/" class="md-nav__link">
+      <a href="../symbol/" class="md-nav__link">
         
   
   
@@ -967,7 +699,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../core/utils/" class="md-nav__link">
+      <a href="../utils/" class="md-nav__link">
         
   
   
@@ -992,10 +724,17 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../core/io_summary/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1011,6 +750,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -1253,232 +993,6 @@
   
   
   
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#what-is-yaml" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        What Is YAML?
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#core-syntax-rules" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Core Syntax Rules
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Core Syntax Rules">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-indentation-matters" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. Indentation Matters
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-keyvalue-pairs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. Key–Value Pairs
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-lists" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. Lists
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-strings-and-quoting" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. Strings and Quoting
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5-numbers-and-booleans" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5. Numbers and Booleans
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#6-comments" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        6. Comments
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#common-mistakes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Common Mistakes
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Common Mistakes">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#using-tabs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ❌ Using Tabs
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#inconsistent-indentation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ❌ Inconsistent Indentation
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#missing-spaces-after-colon" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ❌ Missing Spaces After Colon
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ambiguous-values" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ❌ Ambiguous Values
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#useful-features-optional" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Useful Features (Optional)
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Useful Features (Optional)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#anchors-and-aliases" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Anchors and Aliases
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-to-validate-yaml" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        How to Validate YAML
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#recommended-references" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Recommended References
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#summary" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Summary
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
   
 </nav>
                   </div>
@@ -1495,162 +1009,9 @@
 
 
 
-<h1 id="practical-introduction-to-yaml-format">Practical Introduction to YAML Format</h1>
-<p><em>Author: Pengxuan Zhu</em></p>
-<hr />
-<p>This document provides a <strong>short, practical introduction to YAML</strong> for users who are not familiar with the format. This document assumes no prior knowledge of YAML.
-It is intended to help you read and write YAML files correctly before using them to configure Jarvis-HEP. </p>
-<p>YAML is a human-readable data-serialization format commonly used for configuration files.</p>
-<hr />
-<h2 id="what-is-yaml">What Is YAML?</h2>
-<p>YAML stands for <strong>“YAML Ain’t Markup Language”</strong>.
-It is designed to be:</p>
-<ul>
-<li>Easy to read and write</li>
-<li>Indentation-based</li>
-<li>Friendly to version control systems</li>
-</ul>
-<p>YAML is often used as an alternative to JSON or XML for configuration purposes.</p>
-<hr />
-<h2 id="core-syntax-rules">Core Syntax Rules</h2>
-<h3 id="1-indentation-matters">1. Indentation Matters</h3>
-<p>YAML uses <strong>indentation to represent structure</strong>.
-Spaces define hierarchy.</p>
-<ul>
-<li>Use <strong>spaces</strong>, not tabs</li>
-<li>Be consistent (commonly 2 or 4 spaces)</li>
-</ul>
-<p><strong>Correct</strong></p>
-<pre><code class="language-yaml">parent:
-  child:
-    key: value
-</code></pre>
-<p><strong>Incorrect</strong></p>
-<pre><code class="language-yaml">parent:
- child:
-    key: value
-</code></pre>
-<hr />
-<h3 id="2-keyvalue-pairs">2. Key–Value Pairs</h3>
-<p>A basic YAML element is a key–value pair:</p>
-<pre><code class="language-yaml">key: value
-</code></pre>
-<p>Keys are strings.
-Values can be strings, numbers, booleans, lists, or mappings.</p>
-<hr />
-<h3 id="3-lists">3. Lists</h3>
-<p>Lists are written using hyphens (<code>-</code>), equivalent to the List object in Python: </p>
-<pre><code class="language-yaml">items:
-  - apple
-  - orange
-  - banana
-</code></pre>
-<p>Lists of mappings are also common, equivalent to the Dict object in Python:</p>
-<pre><code class="language-yaml">users:
-  - name: Alice
-    role: admin
-  - name: Bob
-    role: user
-</code></pre>
-<hr />
-<h3 id="4-strings-and-quoting">4. Strings and Quoting</h3>
-<p>Most strings do <strong>not</strong> require quotes.</p>
-<pre><code class="language-yaml">name: example
-path: /tmp/data
-</code></pre>
-<p>Use quotes when:
-- The string contains special characters
-- The value could be misinterpreted</p>
-<pre><code class="language-yaml">expression: &quot;a &gt; b&quot;
-version: &quot;1.0&quot;
-</code></pre>
-<hr />
-<h3 id="5-numbers-and-booleans">5. Numbers and Booleans</h3>
-<p>YAML automatically interprets numbers and booleans.</p>
-<pre><code class="language-yaml">count: 10
-ratio: 0.5
-enabled: true
-disabled: false
-</code></pre>
-<p>Avoid quoting numbers unless they must be treated as strings.</p>
-<hr />
-<h3 id="6-comments">6. Comments</h3>
-<p>Comments start with <code>#</code>.</p>
-<pre><code class="language-yaml"># This is a comment
-key: value  # Inline comment
-</code></pre>
-<p>Comments are ignored by the parser.</p>
-<hr />
-<h2 id="common-mistakes">Common Mistakes</h2>
-<h3 id="using-tabs">❌ Using Tabs</h3>
-<pre><code class="language-yaml">key:
-\tchild: value
-</code></pre>
-<p>Tabs are not allowed. Always use spaces.</p>
-<hr />
-<h3 id="inconsistent-indentation">❌ Inconsistent Indentation</h3>
-<pre><code class="language-yaml">key:
-  child1: value
-   child2: value
-</code></pre>
-<p>Even a single extra space changes the structure.</p>
-<hr />
-<h3 id="missing-spaces-after-colon">❌ Missing Spaces After Colon</h3>
-<pre><code class="language-yaml">key:value
-</code></pre>
-<p>Correct form:</p>
-<pre><code class="language-yaml">key: value
-</code></pre>
-<hr />
-<h3 id="ambiguous-values">❌ Ambiguous Values</h3>
-<pre><code class="language-yaml">yes: no
-on: off
-</code></pre>
-<p>These may be interpreted as booleans in YAML 1.1.
-Use explicit values or quotes if unsure.</p>
-<hr />
-<h2 id="useful-features-optional">Useful Features (Optional)</h2>
-<h3 id="anchors-and-aliases">Anchors and Aliases</h3>
-<p>YAML supports reusable blocks using anchors (<code>&amp;</code>) and aliases (<code>*</code>).</p>
-<pre><code class="language-yaml">defaults: &amp;defaults
-  timeout: 10
-  retries: 3
+  <h1>IO file type</h1>
 
-task1:
-  &lt;&lt;: *defaults
-  name: task_one
-</code></pre>
-<p>This reduces duplication in large configuration files.</p>
-<hr />
-<h2 id="how-to-validate-yaml">How to Validate YAML</h2>
-<p>Before using a YAML file, it is strongly recommended to validate it.</p>
-<p>Options include:
-- Online validators (e.g. yamllint)
-- Command-line tools
-- Parsing the file in Python using <code>yaml.safe_load</code></p>
-<hr />
-<h2 id="recommended-references">Recommended References</h2>
-<ul>
-<li>
-<p><a href="https://yaml.org/spec/">YAML Official Specification</a></p>
-</li>
-<li>
-<p><a href="https://learnxinyminutes.com/docs/yaml/">YAML Tutorial (Learn X in Y Minutes)</a></p>
-</li>
-<li>
-<p><a href="https://pyyaml.org/wiki/PyYAMLDocumentation">PyYAML Documentation</a></p>
-</li>
-</ul>
-<p>These resources provide deeper explanations and advanced usage examples.</p>
-<hr />
-<h2 id="summary">Summary</h2>
-<ul>
-<li>YAML is indentation-based and human-readable</li>
-<li>Consistent spacing is critical</li>
-<li>Start simple and validate often</li>
-<li>When in doubt, prefer clarity over brevity</li>
-</ul>
-<p>Now, you can proceed to the Jarvis-HEP tutorial.</p>
+
 
 
 

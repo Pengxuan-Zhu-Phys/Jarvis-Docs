@@ -1,0 +1,50 @@
+.md-header__title {
+  color: #d7ebff !important;   /* 蓝色，可换 */
+}
+.md-typeset h1 {
+  color: #1a237e;
+}
+.md-typeset h2 {
+  color: #283593;
+}
+
+.md-typeset h3 {
+  color: #303f9f;
+}
+/* Navigation section titles */
+.md-nav__title {
+  color: #0d47a1;   /* 深蓝，强烈推荐 */
+  font-weight: 600;
+}
+.md-nav__item--section > .md-nav__link--active {
+  color: #1565c0;
+}
+
+/* ===== Navigation: top-level section titles ===== */
+.md-nav__item--section > .md-nav__link {
+  color: #0d47a1;
+  font-weight: 600;
+}
+
+/* Active top-level section */
+.md-nav__item--section > .md-nav__link--active {
+  color: #1565c0;
+}
+
+/* Hover */
+.md-nav__item--section > .md-nav__link:hover {
+  color: #1976d2;
+}
+
+/* ===== Navigation: section subtitles (non-clickable) ===== */
+.md-nav__title {
+  color: #0d47a1;
+  font-weight: 600;
+}
+
+/* ===== Force color for expandable nav section headers (e.g. "High Energy Physics Package Wikis") ===== */
+.md-nav__item--section > label.md-nav__link,
+.md-nav__item--section > a.md-nav__link {
+  color: #0d47a1 !important;
+  font-weight: 600;
+}

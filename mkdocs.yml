@@ -12,6 +12,8 @@ theme:
     - search.suggest
     - search.highlight
     - content.code.copy
+extra_css:
+  - stylesheets/extra.css
 
 plugins:
   - search
@@ -19,12 +21,22 @@ plugins:
 nav:
   - Home: index.md
   - Get Start:
+      - Installation: tutorial/Installation.md
       - Eggbox (Start Here): tutorial/eggbox.md
   - Documentations:
-      - Background & References:
+      - YAML Configuration:    
+          - Main structure: core/summary.md 
+          - Samplers:   core/samplers.md 
+          - Libraries:  core/library.md
+          - Calculators: core/calculator.md
+          - EnvReqs:    core/environment.md
+      - Concepts & Conventions:
           - YAML Format introduction: yaml/yaml_introduction.md
-      - Calculator Contract: core/calculator_contract.md
-  - Jarvis-HEP:
-      - Overview: jarvis-hep/overview.md
-  - JarvisPLOT:
-      - Overview: jarvisplot/overview.md
+          - Symbolic Expressions: core/symbol.md
+          - Utils:  core/utils.md
+          - IO file type: core/io_summary.md
+  - High Energy Physics Package Wikis: 
+      - HEP Packages: package/summary.md 
+  - Data Visulisation:
+      - Jarvis-PLOT: jarvisplot/jarvisplot.md
+  - Case studies: examples/examples.md

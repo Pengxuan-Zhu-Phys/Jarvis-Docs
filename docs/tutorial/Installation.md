@@ -46,7 +46,7 @@ stable **released versions**.
 Released versions are recommended for users who prefer a fixed and
 well-tested snapshot of the code.
 
-You can download a released source archive from the GitHub Releases page:
+You can download a released source archive from the [GitHub Releases page](https://github.com/Pengxuan-Zhu-Phys/Jarvis-HEP/releases):
 
 - Navigate to the *Releases* section of the repository
 - Download the corresponding `.zip` or `.tar.gz` source archive
@@ -89,24 +89,13 @@ Once the dependencies are installed, it can be executed directly from the
 source directory:
 
 ```bash
-python jarvis.py your_config.yaml
+Jarvis ./bin/EggBox/Example_Bridson.yaml
 ```
+
+To run the EggBox example, which is detailed explained in the [next](./eggbox.md) page. 
 
 Alternatively, `Jarvis-HEP` can be imported and used as a Python module in
 custom scripts.
-
----
-
-## Editable Installation (Optional)
-
-If you plan to develop or extend `Jarvis-HEP`, you may install it in editable
-mode:
-
-```bash
-pip install -e .
-```
-
-This allows local source code changes to take effect immediately.
 
 ---
 
@@ -125,8 +114,7 @@ Please refer to the corresponding tutorials for concrete examples.
 ## Common Issues
 
 - **Missing dependencies**  
-  Ensure all packages listed in `requirements.txt` are installed in the active
-  Python environment.
+  Ensure all packages listed in `requirements.txt` are installed in the active Python environment.
 
 - **Multiple Python versions**  
   Verify that `python` and `pip` refer to the same environment:
@@ -141,6 +129,5 @@ Please refer to the corresponding tutorials for concrete examples.
 
 After installation, proceed to:
 
-- Quick Start
-- YAML Configuration Overview
-- Examples and Case Studies
+- [Quick Start with Eggbox](./eggbox.md)
+- [YAML Format Introduction](../yaml/yaml_introduction.md)

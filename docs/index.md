@@ -15,7 +15,12 @@ Jarvis-HEP (Just a Robust and Versatile Interface Suite for High Energy) is a `P
 
 ## Projects
 
-- **Jarvis-HEP (docs)**: [jarvis-hep/overview.md](jarvis-hep/overview.md)  
-  Source code: https://github.com/Pengxuan-Zhu-Phys/Jarvis-HEP
-- **JarvisPLOT (docs)**: [jarvisplot/overview.md](jarvisplot/overview.md)  
-  Source code: https://github.com/Pengxuan-Zhu-Phys/JarvisPLOT
+- **Jarvis-HEP (docs)**: 
+  
+  Source code: [https://github.com/Pengxuan-Zhu-Phys/Jarvis-HEP](https://github.com/Pengxuan-Zhu-Phys/Jarvis-HEP)
+
+- **JarvisPLOT (docs)**:   
+  
+  [JarvisPLOT](jarvisplot/jarvisplot.md)
+
+  Source code: [https://github.com/Pengxuan-Zhu-Phys/Jarvis-PLOT](https://github.com/Pengxuan-Zhu-Phys/Jarvis-PLOT)

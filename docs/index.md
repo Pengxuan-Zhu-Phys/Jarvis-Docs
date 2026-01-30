@@ -1,4 +1,4 @@
-# Jarvis-HEP's Documentation
+#![Jarvis-HEP](assets/title_docs.png)
 
 Jarvis-HEP (Just a Robust and Versatile Interface Suite for High Energy) is a `Python` project to deploy parameter scan, packages link and data visulization. 
 
@@ -45,7 +45,8 @@ published projects using Jarvis-HEP, with YAML configurations and notes on Jarvi
 ## Citing Jarvis-HEP Tools
 
 ## Note 
-If you encounter any bugs or unexpected behaviour, you are encouraged to report a bug in our [Github Issues pages](https://github.com/Pengxuan-Zhu-Phys/Jarvis-HEP/issues).
+Jarvis-HEP is a **User demand driven** project. 
+If you encounter any bugs or unexpected behaviour and/or any functional requests, you are encouraged to report a bug and/or to write down your needs in our [Github Issues pages](https://github.com/Pengxuan-Zhu-Phys/Jarvis-HEP/issues).
 
 ## License 
 All Jarvis-HEP Tools (including Jarvis-HEP and Jarvis-PLOT) are released under the [MIT](https://choosealicense.com/licenses/mit/) license. The generated output code of Jarvis-HEP can be freely used according to the MIT license, but as they rely on other (PyPI) released libraries also their License has to be taken into account.

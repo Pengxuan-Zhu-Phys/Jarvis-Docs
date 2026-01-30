@@ -39,4 +39,5 @@ nav:
       - HEP Packages: package/summary.md 
   - Data Visulisation:
       - Jarvis-PLOT: jarvisplot/jarvisplot.md
-  - Case studies: examples/examples.md
+  - Case studies: 
+      - Published Works: examples/examples.md

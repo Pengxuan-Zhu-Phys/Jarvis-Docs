@@ -1,5 +1,7 @@
 #![Jarvis-HEP](assets/title_docs.png)
 
+**Still in construction, coming soon**
+
 Jarvis-HEP (Just a Robust and Versatile Interface Suite for High Energy) is a `Python` project to deploy parameter scan, packages link and data visulization. 
 
 ## Quick Start
@@ -35,12 +37,23 @@ published projects using Jarvis-HEP, with YAML configurations and notes on Jarvi
 ## Projects
 
 - **Jarvis-HEP** — main framework repository  
-  GitHub: [https://github.com/Pengxuan-Zhu-Phys/Jarvis-HEP](https://github.com/Pengxuan-Zhu-Phys/Jarvis-HEP)  
-  Download the latest version: [https://github.com/Pengxuan-Zhu-Phys/Jarvis-HEP/releases](https://github.com/Pengxuan-Zhu-Phys/Jarvis-HEP/releases)
+  
+    - GitHub: [https://github.com/Pengxuan-Zhu-Phys/Jarvis-HEP](https://github.com/Pengxuan-Zhu-Phys/Jarvis-HEP)  
+    - Download the latest version: [https://github.com/Pengxuan-Zhu-Phys/Jarvis-HEP/releases](https://github.com/Pengxuan-Zhu-Phys/Jarvis-HEP/releases)
 
 - **JarvisPLOT** — companion data visualisation framework  
-  GitHub: [https://github.com/Pengxuan-Zhu-Phys/Jarvis-PLOT](https://github.com/Pengxuan-Zhu-Phys/Jarvis-PLOT)  
-  Download the latest version: [https://github.com/Pengxuan-Zhu-Phys/Jarvis-PLOT/releases](https://github.com/Pengxuan-Zhu-Phys/Jarvis-PLOT/releases)
+  
+    - GitHub: [https://github.com/Pengxuan-Zhu-Phys/Jarvis-PLOT](https://github.com/Pengxuan-Zhu-Phys/Jarvis-PLOT)  
+  
+
+    - Installation via `PyPI` (Recommanded): 
+      ``` 
+      pip install jarvisplot
+      ```
+
+      
+     - Or download the latest version in GitHub: [https://github.com/Pengxuan-Zhu-Phys/Jarvis-PLOT/releases](https://github.com/Pengxuan-Zhu-Phys/Jarvis-PLOT/releases)
+
 
 ## Citing Jarvis-HEP Tools
 

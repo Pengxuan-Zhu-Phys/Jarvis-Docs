@@ -38,6 +38,24 @@ nav:
   - High Energy Physics Package Wikis: 
       - HEP Packages: package/summary.md 
   - Data Visulisation:
-      - Jarvis-PLOT: jarvisplot/jarvisplot.md
+      - Jarvis-PLOT:
+          - Overview: jarvisplot/jarvisplot.md
+          - Quick Start: jarvisplot/quickstart.md
+          - CLI: jarvisplot/cli.md
+          - YAML Schema: jarvisplot/yaml-schema.md
+          - DataSet: jarvisplot/dataset.md
+          - Figures and Layers: jarvisplot/figures-layers.md
+          - Transforms: jarvisplot/transforms.md
+          - Profiling and Cache: jarvisplot/profiling-preprofiling-cache.md
+          - Plot Methods: jarvisplot/methods.md
+          - Rect and Ternary Axes: jarvisplot/axes-rect-ternary.md
+          - Functions and Interpolators: jarvisplot/functions-interpolators.md
+          - FAQ: jarvisplot/faq-troubleshooting.md
+          - Gallery:
+              - EggBox Dynesty: jarvisplot/pub/eggbox.md
+              - GM95 Excess: jarvisplot/pub/gm95excess.md
+              - HinoLLP: jarvisplot/pub/hinollp.md
+              - SUSY Run2: jarvisplot/pub/susy-ewmssm.md
+              - CEPC: jarvisplot/pub/cepc.md
   - Case studies: 
       - Published Works: examples/examples.md

@@ -1,0 +1,2306 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://pengxuan-zhu-phys.github.io/Jarvis-Docs/jarvisplot/pub/gm95excess/">
+      
+      
+        <link rel="prev" href="../eggbox/">
+      
+      
+        <link rel="next" href="../hinollp/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/JarvisHEP.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>GM95 Excess - Jarvis-HEP Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#example-gm95-excess" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Jarvis-HEP Documentation" class="md-header__button md-logo" aria-label="Jarvis-HEP Documentation" data-md-component="logo">
+      
+  <img src="../../../assets/JarvisHEP.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Jarvis-HEP Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              GM95 Excess
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Jarvis-HEP Documentation" class="md-nav__button md-logo" aria-label="Jarvis-HEP Documentation" data-md-component="logo">
+      
+  <img src="../../../assets/JarvisHEP.png" alt="logo">
+
+    </a>
+    Jarvis-HEP Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Get Start
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Get Start
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorial/Installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorial/eggbox/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Eggbox (Start Here)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Documentations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Documentations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    YAML Configuration
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    YAML Configuration
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../core/summary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Main structure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../core/samplers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Samplers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../core/library/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Libraries
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../core/calculator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Calculators
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../core/environment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    EnvReqs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Concepts & Conventions
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Concepts & Conventions
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../yaml/yaml_introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    YAML Format introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../core/symbol/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Symbolic Expressions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../core/utils/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Utils
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../core/io_summary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IO file type
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    High Energy Physics Package Wikis
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    High Energy Physics Package Wikis
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/summary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HEP Packages
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Visulisation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Data Visulisation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Jarvis-PLOT
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Jarvis-PLOT
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../jarvisplot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quickstart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cli/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../yaml-schema/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    YAML Schema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dataset/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DataSet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../figures-layers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Figures and Layers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../transforms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Transforms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../profiling-preprofiling-cache/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Profiling and Cache
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../methods/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plot Methods
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../axes-rect-ternary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rect and Ternary Axes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../functions-interpolators/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Functions and Interpolators
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq-troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1_13" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5_1_13" id="__nav_5_1_13_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gallery
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_1_13_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5_1_13">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Gallery
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../eggbox/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    EggBox Dynesty
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GM95 Excess
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GM95 Excess
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#publication-note" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Publication Note
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#yaml-and-run" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        YAML and Run
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#figure-gallery-all-png-pdf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Figure Gallery (All PNG + PDF)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Figure Gallery (All PNG + PDF)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brb0brbxgamma" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BRB0BRBXGamma
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#excess" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Excess
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kappa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kappa
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#st" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ST
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mh5mh3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        mH5mh3
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mh5sinhxbr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        mH5sinHxBR
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mhmh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        mHmh
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#palphamhin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        pAlphaMHin
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pl2l4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        pL2L4
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pl3l5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        pL3L5
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#psinthmhin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        pSinTHMhin
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pmhmh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        pmHmh
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hinollp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HinoLLP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../susy-ewmssm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SUSY Run2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cepc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CEPC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Case studies
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Case studies
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../examples/examples/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Published Works
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#publication-note" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Publication Note
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#yaml-and-run" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        YAML and Run
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#figure-gallery-all-png-pdf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Figure Gallery (All PNG + PDF)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Figure Gallery (All PNG + PDF)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#brb0brbxgamma" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BRB0BRBXGamma
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#excess" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Excess
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kappa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kappa
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#st" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ST
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mh5mh3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        mH5mh3
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mh5sinhxbr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        mH5sinHxBR
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mhmh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        mHmh
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#palphamhin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        pAlphaMHin
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pl2l4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        pL2L4
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pl3l5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        pL3L5
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#psinthmhin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        pSinTHMhin
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pmhmh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        pmHmh
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="example-gm95-excess">Example: GM95 Excess</h1>
+<h2 id="publication-note">Publication Note</h2>
+<p><code>GM95excess</code> corresponds to the formal research work:
+"Unified interpretation of 95 GeV di-photon and di-tau Excesses in the Georgi-Machacek Model"
+by Qin Chang, Xiaokang Du (corresponding author), and Pengxuan Zhu.</p>
+<ul>
+<li>ArXiv: <a href="https://arxiv.org/abs/2509.26155">2509.26155</a></li>
+<li>INSPIRE-HEP: <a href="https://inspirehep.net/arxiv/2509.26155">record</a></li>
+<li>Contact to us:<ul>
+<li>Xiaokang Du (<a href="mailto:xkdu@hnas.ac.cn">xkdu@hnas.ac.cn</a>);</li>
+<li>Pengxuan Zhu(<a href="mailto:pengxuan.zhu@adelaide.edu.au">pengxuan.zhu@adelaide.edu.au</a>). </li>
+</ul>
+</li>
+</ul>
+<h2 id="yaml-and-run">YAML and Run</h2>
+<p>YAML files for direct access (put these 6 files under <code>docs/jarvisplot/pub/GM95excess/</code>):</p>
+<table>
+<thead>
+<tr>
+<th>Group</th>
+<th>YAML</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>total</td>
+<td><a href="../GM95excess/total.yaml">total.yaml</a></td>
+</tr>
+<tr>
+<td>total-kappa</td>
+<td><a href="../GM95excess/total-kappa.yaml">total-kappa.yaml</a></td>
+</tr>
+<tr>
+<td>X295</td>
+<td><a href="../GM95excess/X295.yaml">X295.yaml</a></td>
+</tr>
+<tr>
+<td>X2EW</td>
+<td><a href="../GM95excess/X2EW.yaml">X2EW.yaml</a></td>
+</tr>
+<tr>
+<td>X2Higgs</td>
+<td><a href="../GM95excess/X2Higgs.yaml">X2Higgs.yaml</a></td>
+</tr>
+<tr>
+<td>X2kappa</td>
+<td><a href="../GM95excess/X2kappa.yaml">X2kappa.yaml</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="figure-gallery-all-png-pdf">Figure Gallery (All PNG + PDF)</h2>
+<p>Current assets in this folder: <strong>70 PNG</strong> and <strong>70 PDF</strong>.</p>
+<p>Layout rule: 2 rows x 3 columns per observable. Click image to open PDF.</p>
+<h3 id="brb0brbxgamma">BRB0BRBXGamma</h3>
+<table class="gm95-grid">
+  <colgroup><col /><col /><col /></colgroup>
+  <thead><tr><th>total</th><th>total-kappa</th><th>X295</th></tr></thead>
+  <tbody><tr><td><a class="gm95-imglink" href="../GM95excess/total/total-BRB0BRBXGamma_ProfLogL.pdf" target="_blank" rel="noopener"><img src="../GM95excess/total/total-BRB0BRBXGamma_ProfLogL.png" alt="total-BRB0BRBXGamma" /></a></td><td><a class="gm95-imglink" href="../GM95excess/total-kappa/total-kappa-BRB0BRBXGamma_ProfLogL.pdf" target="_blank" rel="noopener"><img src="../GM95excess/total-kappa/total-kappa-BRB0BRBXGamma_ProfLogL.png" alt="total-kappa-BRB0BRBXGamma" /></a></td><td><a class="gm95-imglink" href="../GM95excess/X295/X295-BRB0BRBXGamma_ProfLogL.pdf" target="_blank" rel="noopener"><img src="../GM95excess/X295/X295-BRB0BRBXGamma_ProfLogL.png" alt="X295-BRB0BRBXGamma" /></a></td></tr></tbody>
+</table>
+
+<table class="gm95-grid">
+  <colgroup><col /><col /><col /></colgroup>
+  <thead><tr><th>X2EW</th><th>X2Higgs</th><th>X2kappa</th></tr></thead>
+  <tbody><tr><td><a class="gm95-imglink" href="../GM95excess/X2EW/X2EW-BRB0BRBXGamma_ProfLogL.pdf" target="_blank" rel="noopener"><img src="../GM95excess/X2EW/X2EW-BRB0BRBXGamma_ProfLogL.png" alt="X2EW-BRB0BRBXGamma" /></a></td><td><a class="gm95-imglink" href="../GM95excess/X2Higgs/X2Higgs-BRB0BRBXGamma_ProfLogL.pdf" target="_blank" rel="noopener"><img src="../GM95excess/X2Higgs/X2Higgs-BRB0BRBXGamma_ProfLogL.png" alt="X2Higgs-BRB0BRBXGamma" /></a></td><td><a class="gm95-imglink" href="../GM95excess/X2kappa/X2kappa-BRB0BRBXGamma_ProfLogL.pdf" target="_blank" rel="noopener"><img src="../GM95excess/X2kappa/X2kappa-BRB0BRBXGamma_ProfLogL.png" alt="X2kappa-BRB0BRBXGamma" /></a></td></tr></tbody>
+</table>
+
+<h3 id="excess">Excess</h3>
+<table class="gm95-grid">
+  <colgroup><col /><col /><col /></colgroup>
+  <thead><tr><th>total</th><th>total-kappa</th><th>X295</th></tr></thead>
+  <tbody><tr><td><a class="gm95-imglink" href="../GM95excess/total/total-Excess_ProfLogL.pdf" target="_blank" rel="noopener"><img src="../GM95excess/total/total-Excess_ProfLogL.png" alt="total-Excess" /></a></td><td><a class="gm95-imglink" href="../GM95excess/total-kappa/total-kappa-Excess_ProfLogL.pdf" target="_blank" rel="noopener"><img src="../GM95excess/total-kappa/total-kappa-Excess_ProfLogL.png" alt="total-kappa-Excess" /></a></td><td><a class="gm95-imglink" href="../GM95excess/X295/X295-Excess_ProfLogL.pdf" target="_blank" rel="noopener"><img src="../GM95excess/X295/X295-Excess_ProfLogL.png" alt="X295-Excess" /></a></td></tr></tbody>
+</table>
+
+<table class="gm95-grid">
+  <colgroup><col /><col /><col /></colgroup>
+  <thead><tr><th>X2EW</th><th>X2Higgs</th><th>X2kappa</th></tr></thead>
+  <tbody><tr><td><a class="gm95-imglink" href="../GM95excess/X2EW/X2EW-Excess_ProfLogL.pdf" target="_blank" rel="noopener"><img src="../GM95excess/X2EW/X2EW-Excess_ProfLogL.png" alt="X2EW-Excess" /></a></td><td><a class="gm95-imglink" href="../GM95excess/X2Higgs/X2Higgs-Excess_ProfLogL.pdf" target="_blank" rel="noopener"><img src="../GM95excess/X2Higgs/X2Higgs-Excess_ProfLogL.png" alt="X2Higgs-Excess" /></a></td><td><a class="gm95-imglink" href="../GM95excess/X2kappa/X2kappa-Excess_ProfLogL.pdf" target="_blank" rel="noopener"><img src="../GM95excess/X2kappa/X2kappa-Excess_ProfLogL.png" alt="X2kappa-Excess" /></a></td></tr></tbody>
+</table>
+
+<h3 id="kappa">Kappa</h3>
+<table class="gm95-grid">
+  <colgroup><col /><col /><col /></colgroup>
+  <thead><tr><th>total</th><th>total-kappa</th><th>X295</th></tr></thead>
+  <tbody><tr><td><a class="gm95-imglink" href="../GM95excess/total/total-Kappa_ProfLogL.pdf" target="_blank" rel="noopener"><img src="../GM95excess/total/total-Kappa_ProfLogL.png" alt="total-Kappa" /></a></td><td><a class="gm95-imglink" href="../GM95excess/total-kappa/total-kappa-Kappa_ProfLogL.pdf" target="_blank" rel="noopener"><img src="../GM95excess/total-kappa/total-kappa-Kappa_ProfLogL.png" alt="total-kappa-Kappa" /></a></td><td><a class="gm95-imglink" href="../GM95excess/X295/X295-Kappa_ProfLogL.pdf" target="_blank" rel="noopener"><img src="../GM95excess/X295/X295-Kappa_ProfLogL.png" alt="X295-Kappa" /></a></td></tr></tbody>
+</table>
+
+<table class="gm95-grid">
+  <colgroup><col /><col /><col /></colgroup>
+  <thead><tr><th>X2EW</th><th>X2Higgs</th><th>X2kappa</th></tr></thead>
+  <tbody><tr><td><a class="gm95-imglink" href="../GM95excess/X2EW/X2EW-Kappa_ProfLogL.pdf" target="_blank" rel="noopener"><img src="../GM95excess/X2EW/X2EW-Kappa_ProfLogL.png" alt="X2EW-Kappa" /></a></td><td><a class="gm95-imglink" href="../GM95excess/X2Higgs/X2Higgs-Kappa_ProfLogL.pdf" target="_blank" rel="noopener"><img src="../GM95excess/X2Higgs/X2Higgs-Kappa_ProfLogL.png" alt="X2Higgs-Kappa" /></a></td><td><a class="gm95-imglink" href="../GM95excess/X2kappa/X2kappa-Kappa_ProfLogL.pdf" target="_blank" rel="noopener"><img src="../GM95excess/X2kappa/X2kappa-Kappa_ProfLogL.png" alt="X2kappa-Kappa" /></a></td></tr></tbody>
+</table>
+
+<h3 id="st">ST</h3>
+<table class="gm95-grid">
+  <colgroup><col /><col /><col /></colgroup>
+  <thead><tr><th>total</th><th>total-kappa</th><th>X295</th></tr></thead>
+  <tbody><tr><td><a class="gm95-imglink" href="../GM95excess/total/total-ST_ProfLogL.pdf" target="_blank" rel="noopener"><img src="../GM95excess/total/total-ST_ProfLogL.png" alt="total-ST" /></a></td><td><a class="gm95-imglink" href="../GM95excess/total-kappa/total-kappa-ST_ProfLogL.pdf" target="_blank" rel="noopener"><img src="../GM95excess/total-kappa/total-kappa-ST_ProfLogL.png" alt="total-kappa-ST" /></a></td><td><a class="gm95-imglink" href="../GM95excess/X295/X295-ST_ProfLogL.pdf" target="_blank" rel="noopener"><img src="../GM95excess/X295/X295-ST_ProfLogL.png" alt="X295-ST" /></a></td></tr></tbody>
+</table>
+
+<table class="gm95-grid">
+  <colgroup><col /><col /><col /></colgroup>
+  <thead><tr><th>X2EW</th><th>X2Higgs</th><th>X2kappa</th></tr></thead>
+  <tbody><tr><td><a class="gm95-imglink" href="../GM95excess/X2EW/X2EW-ST_ProfLogL.pdf" target="_blank" rel="noopener"><img src="../GM95excess/X2EW/X2EW-ST_ProfLogL.png" alt="X2EW-ST" /></a></td><td><a class="gm95-imglink" href="../GM95excess/X2Higgs/X2Higgs-ST_ProfLogL.pdf" target="_blank" rel="noopener"><img src="../GM95excess/X2Higgs/X2Higgs-ST_ProfLogL.png" alt="X2Higgs-ST" /></a></td><td><a class="gm95-imglink" href="../GM95excess/X2kappa/X2kappa-ST_ProfLogL.pdf" target="_blank" rel="noopener"><img src="../GM95excess/X2kappa/X2kappa-ST_ProfLogL.png" alt="X2kappa-ST" /></a></td></tr></tbody>
+</table>
+
+<h3 id="mh5mh3">mH5mh3</h3>
+<table class="gm95-grid">
+  <colgroup><col /><col /><col /></colgroup>
+  <thead><tr><th>total</th><th>total-kappa</th><th>X295</th></tr></thead>
+  <tbody><tr><td><a class="gm95-imglink" href="../GM95excess/total/total-mH5mh3_ProfLogL.pdf" target="_blank" rel="noopener"><img src="../GM95excess/total/total-mH5mh3_ProfLogL.png" alt="total-mH5mh3" /></a></td><td><a class="gm95-imglink" href="../GM95excess/total-kappa/total-kappa-mH5mh3_ProfLogL.pdf" target="_blank" rel="noopener"><img src="../GM95excess/total-kappa/total-kappa-mH5mh3_ProfLogL.png" alt="total-kappa-mH5mh3" /></a></td><td><a class="gm95-imglink" href="../GM95excess/X295/X295-mH5mh3_ProfLogL.pdf" target="_blank" rel="noopener"><img src="../GM95excess/X295/X295-mH5mh3_ProfLogL.png" alt="X295-mH5mh3" /></a></td></tr></tbody>
+</table>
+
+<table class="gm95-grid">
+  <colgroup><col /><col /><col /></colgroup>
+  <thead><tr><th>X2EW</th><th>X2Higgs</th><th>X2kappa</th></tr></thead>
+  <tbody><tr><td><a class="gm95-imglink" href="../GM95excess/X2EW/X2EW-mH5mh3_ProfLogL.pdf" target="_blank" rel="noopener"><img src="../GM95excess/X2EW/X2EW-mH5mh3_ProfLogL.png" alt="X2EW-mH5mh3" /></a></td><td><a class="gm95-imglink" href="../GM95excess/X2Higgs/X2Higgs-mH5mh3_ProfLogL.pdf" target="_blank" rel="noopener"><img src="../GM95excess/X2Higgs/X2Higgs-mH5mh3_ProfLogL.png" alt="X2Higgs-mH5mh3" /></a></td><td><a class="gm95-imglink" href="../GM95excess/X2kappa/X2kappa-mH5mh3_ProfLogL.pdf" target="_blank" rel="noopener"><img src="../GM95excess/X2kappa/X2kappa-mH5mh3_ProfLogL.png" alt="X2kappa-mH5mh3" /></a></td></tr></tbody>
+</table>
+
+<h3 id="mh5sinhxbr">mH5sinHxBR</h3>
+<table class="gm95-grid">
+  <colgroup><col /><col /><col /></colgroup>
+  <thead><tr><th>total</th><th>total-kappa</th><th>X295</th></tr></thead>
+  <tbody><tr><td><a class="gm95-imglink" href="../GM95excess/total/total-mH5sinHxBR_ProfLogL.pdf" target="_blank" rel="noopener"><img src="../GM95excess/total/total-mH5sinHxBR_ProfLogL.png" alt="total-mH5sinHxBR" /></a></td><td><a class="gm95-imglink" href="../GM95excess/total-kappa/total-kappa-mH5sinHxBR_ProfLogL.pdf" target="_blank" rel="noopener"><img src="../GM95excess/total-kappa/total-kappa-mH5sinHxBR_ProfLogL.png" alt="total-kappa-mH5sinHxBR" /></a></td><td><a class="gm95-imglink" href="../GM95excess/X295/X295-mH5sinHxBR_ProfLogL.pdf" target="_blank" rel="noopener"><img src="../GM95excess/X295/X295-mH5sinHxBR_ProfLogL.png" alt="X295-mH5sinHxBR" /></a></td></tr></tbody>
+</table>
+
+<table class="gm95-grid">
+  <colgroup><col /><col /><col /></colgroup>
+  <thead><tr><th>X2EW</th><th>X2Higgs</th><th>X2kappa</th></tr></thead>
+  <tbody><tr><td><a class="gm95-imglink" href="../GM95excess/X2EW/X2EW-mH5sinHxBR_ProfLogL.pdf" target="_blank" rel="noopener"><img src="../GM95excess/X2EW/X2EW-mH5sinHxBR_ProfLogL.png" alt="X2EW-mH5sinHxBR" /></a></td><td><a class="gm95-imglink" href="../GM95excess/X2Higgs/X2Higgs-mH5sinHxBR_ProfLogL.pdf" target="_blank" rel="noopener"><img src="../GM95excess/X2Higgs/X2Higgs-mH5sinHxBR_ProfLogL.png" alt="X2Higgs-mH5sinHxBR" /></a></td><td><a class="gm95-imglink" href="../GM95excess/X2kappa/X2kappa-mH5sinHxBR_ProfLogL.pdf" target="_blank" rel="noopener"><img src="../GM95excess/X2kappa/X2kappa-mH5sinHxBR_ProfLogL.png" alt="X2kappa-mH5sinHxBR" /></a></td></tr></tbody>
+</table>
+
+<h3 id="mhmh">mHmh</h3>
+<table class="gm95-grid">
+  <colgroup><col /><col /><col /></colgroup>
+  <thead><tr><th>total</th><th>total-kappa</th><th>X295</th></tr></thead>
+  <tbody><tr><td><div class="gm95-missing">Missing image</div></td><td><a class="gm95-imglink" href="../GM95excess/total-kappa/total-kappa-mHmh_ProfLogL.pdf" target="_blank" rel="noopener"><img src="../GM95excess/total-kappa/total-kappa-mHmh_ProfLogL.png" alt="total-kappa-mHmh" /></a></td><td><a class="gm95-imglink" href="../GM95excess/X295/X295-mHmh_ProfLogL.pdf" target="_blank" rel="noopener"><img src="../GM95excess/X295/X295-mHmh_ProfLogL.png" alt="X295-mHmh" /></a></td></tr></tbody>
+</table>
+
+<table class="gm95-grid">
+  <colgroup><col /><col /><col /></colgroup>
+  <thead><tr><th>X2EW</th><th>X2Higgs</th><th>X2kappa</th></tr></thead>
+  <tbody><tr><td><a class="gm95-imglink" href="../GM95excess/X2EW/X2EW-mHmh_ProfLogL.pdf" target="_blank" rel="noopener"><img src="../GM95excess/X2EW/X2EW-mHmh_ProfLogL.png" alt="X2EW-mHmh" /></a></td><td><a class="gm95-imglink" href="../GM95excess/X2Higgs/X2Higgs-mHmh_ProfLogL.pdf" target="_blank" rel="noopener"><img src="../GM95excess/X2Higgs/X2Higgs-mHmh_ProfLogL.png" alt="X2Higgs-mHmh" /></a></td><td><a class="gm95-imglink" href="../GM95excess/X2kappa/X2kappa-mHmh_ProfLogL.pdf" target="_blank" rel="noopener"><img src="../GM95excess/X2kappa/X2kappa-mHmh_ProfLogL.png" alt="X2kappa-mHmh" /></a></td></tr></tbody>
+</table>
+
+<h3 id="palphamhin">pAlphaMHin</h3>
+<table class="gm95-grid">
+  <colgroup><col /><col /><col /></colgroup>
+  <thead><tr><th>total</th><th>total-kappa</th><th>X295</th></tr></thead>
+  <tbody><tr><td><a class="gm95-imglink" href="../GM95excess/total/total-pAlphaMHin_ProfLogL.pdf" target="_blank" rel="noopener"><img src="../GM95excess/total/total-pAlphaMHin_ProfLogL.png" alt="total-pAlphaMHin" /></a></td><td><a class="gm95-imglink" href="../GM95excess/total-kappa/total-kappa-pAlphaMHin_ProfLogL.pdf" target="_blank" rel="noopener"><img src="../GM95excess/total-kappa/total-kappa-pAlphaMHin_ProfLogL.png" alt="total-kappa-pAlphaMHin" /></a></td><td><a class="gm95-imglink" href="../GM95excess/X295/X295-pAlphaMHin_ProfLogL.pdf" target="_blank" rel="noopener"><img src="../GM95excess/X295/X295-pAlphaMHin_ProfLogL.png" alt="X295-pAlphaMHin" /></a></td></tr></tbody>
+</table>
+
+<table class="gm95-grid">
+  <colgroup><col /><col /><col /></colgroup>
+  <thead><tr><th>X2EW</th><th>X2Higgs</th><th>X2kappa</th></tr></thead>
+  <tbody><tr><td><a class="gm95-imglink" href="../GM95excess/X2EW/X2EW-pAlphaMHin_ProfLogL.pdf" target="_blank" rel="noopener"><img src="../GM95excess/X2EW/X2EW-pAlphaMHin_ProfLogL.png" alt="X2EW-pAlphaMHin" /></a></td><td><a class="gm95-imglink" href="../GM95excess/X2Higgs/X2Higgs-pAlphaMHin_ProfLogL.pdf" target="_blank" rel="noopener"><img src="../GM95excess/X2Higgs/X2Higgs-pAlphaMHin_ProfLogL.png" alt="X2Higgs-pAlphaMHin" /></a></td><td><a class="gm95-imglink" href="../GM95excess/X2kappa/X2kappa-pAlphaMHin_ProfLogL.pdf" target="_blank" rel="noopener"><img src="../GM95excess/X2kappa/X2kappa-pAlphaMHin_ProfLogL.png" alt="X2kappa-pAlphaMHin" /></a></td></tr></tbody>
+</table>
+
+<h3 id="pl2l4">pL2L4</h3>
+<table class="gm95-grid">
+  <colgroup><col /><col /><col /></colgroup>
+  <thead><tr><th>total</th><th>total-kappa</th><th>X295</th></tr></thead>
+  <tbody><tr><td><a class="gm95-imglink" href="../GM95excess/total/total-pL2L4_ProfLogL.pdf" target="_blank" rel="noopener"><img src="../GM95excess/total/total-pL2L4_ProfLogL.png" alt="total-pL2L4" /></a></td><td><a class="gm95-imglink" href="../GM95excess/total-kappa/total-kappa-pL2L4_ProfLogL.pdf" target="_blank" rel="noopener"><img src="../GM95excess/total-kappa/total-kappa-pL2L4_ProfLogL.png" alt="total-kappa-pL2L4" /></a></td><td><a class="gm95-imglink" href="../GM95excess/X295/X295-pL2L4_ProfLogL.pdf" target="_blank" rel="noopener"><img src="../GM95excess/X295/X295-pL2L4_ProfLogL.png" alt="X295-pL2L4" /></a></td></tr></tbody>
+</table>
+
+<table class="gm95-grid">
+  <colgroup><col /><col /><col /></colgroup>
+  <thead><tr><th>X2EW</th><th>X2Higgs</th><th>X2kappa</th></tr></thead>
+  <tbody><tr><td><a class="gm95-imglink" href="../GM95excess/X2EW/X2EW-pL2L4_ProfLogL.pdf" target="_blank" rel="noopener"><img src="../GM95excess/X2EW/X2EW-pL2L4_ProfLogL.png" alt="X2EW-pL2L4" /></a></td><td><a class="gm95-imglink" href="../GM95excess/X2Higgs/X2Higgs-pL2L4_ProfLogL.pdf" target="_blank" rel="noopener"><img src="../GM95excess/X2Higgs/X2Higgs-pL2L4_ProfLogL.png" alt="X2Higgs-pL2L4" /></a></td><td><a class="gm95-imglink" href="../GM95excess/X2kappa/X2kappa-pL2L4_ProfLogL.pdf" target="_blank" rel="noopener"><img src="../GM95excess/X2kappa/X2kappa-pL2L4_ProfLogL.png" alt="X2kappa-pL2L4" /></a></td></tr></tbody>
+</table>
+
+<h3 id="pl3l5">pL3L5</h3>
+<table class="gm95-grid">
+  <colgroup><col /><col /><col /></colgroup>
+  <thead><tr><th>total</th><th>total-kappa</th><th>X295</th></tr></thead>
+  <tbody><tr><td><a class="gm95-imglink" href="../GM95excess/total/total-pL3L5_ProfLogL.pdf" target="_blank" rel="noopener"><img src="../GM95excess/total/total-pL3L5_ProfLogL.png" alt="total-pL3L5" /></a></td><td><a class="gm95-imglink" href="../GM95excess/total-kappa/total-kappa-pL3L5_ProfLogL.pdf" target="_blank" rel="noopener"><img src="../GM95excess/total-kappa/total-kappa-pL3L5_ProfLogL.png" alt="total-kappa-pL3L5" /></a></td><td><a class="gm95-imglink" href="../GM95excess/X295/X295-pL3L5_ProfLogL.pdf" target="_blank" rel="noopener"><img src="../GM95excess/X295/X295-pL3L5_ProfLogL.png" alt="X295-pL3L5" /></a></td></tr></tbody>
+</table>
+
+<table class="gm95-grid">
+  <colgroup><col /><col /><col /></colgroup>
+  <thead><tr><th>X2EW</th><th>X2Higgs</th><th>X2kappa</th></tr></thead>
+  <tbody><tr><td><a class="gm95-imglink" href="../GM95excess/X2EW/X2EW-pL3L5_ProfLogL.pdf" target="_blank" rel="noopener"><img src="../GM95excess/X2EW/X2EW-pL3L5_ProfLogL.png" alt="X2EW-pL3L5" /></a></td><td><a class="gm95-imglink" href="../GM95excess/X2Higgs/X2Higgs-pL3L5_ProfLogL.pdf" target="_blank" rel="noopener"><img src="../GM95excess/X2Higgs/X2Higgs-pL3L5_ProfLogL.png" alt="X2Higgs-pL3L5" /></a></td><td><a class="gm95-imglink" href="../GM95excess/X2kappa/X2kappa-pL3L5_ProfLogL.pdf" target="_blank" rel="noopener"><img src="../GM95excess/X2kappa/X2kappa-pL3L5_ProfLogL.png" alt="X2kappa-pL3L5" /></a></td></tr></tbody>
+</table>
+
+<h3 id="psinthmhin">pSinTHMhin</h3>
+<table class="gm95-grid">
+  <colgroup><col /><col /><col /></colgroup>
+  <thead><tr><th>total</th><th>total-kappa</th><th>X295</th></tr></thead>
+  <tbody><tr><td><a class="gm95-imglink" href="../GM95excess/total/total-pSinTHMhin_ProfLogL.pdf" target="_blank" rel="noopener"><img src="../GM95excess/total/total-pSinTHMhin_ProfLogL.png" alt="total-pSinTHMhin" /></a></td><td><a class="gm95-imglink" href="../GM95excess/total-kappa/total-kappa-pSinTHMhin_ProfLogL.pdf" target="_blank" rel="noopener"><img src="../GM95excess/total-kappa/total-kappa-pSinTHMhin_ProfLogL.png" alt="total-kappa-pSinTHMhin" /></a></td><td><a class="gm95-imglink" href="../GM95excess/X295/X295-pSinTHMhin_ProfLogL.pdf" target="_blank" rel="noopener"><img src="../GM95excess/X295/X295-pSinTHMhin_ProfLogL.png" alt="X295-pSinTHMhin" /></a></td></tr></tbody>
+</table>
+
+<table class="gm95-grid">
+  <colgroup><col /><col /><col /></colgroup>
+  <thead><tr><th>X2EW</th><th>X2Higgs</th><th>X2kappa</th></tr></thead>
+  <tbody><tr><td><a class="gm95-imglink" href="../GM95excess/X2EW/X2EW-pSinTHMhin_ProfLogL.pdf" target="_blank" rel="noopener"><img src="../GM95excess/X2EW/X2EW-pSinTHMhin_ProfLogL.png" alt="X2EW-pSinTHMhin" /></a></td><td><a class="gm95-imglink" href="../GM95excess/X2Higgs/X2Higgs-pSinTHMhin_ProfLogL.pdf" target="_blank" rel="noopener"><img src="../GM95excess/X2Higgs/X2Higgs-pSinTHMhin_ProfLogL.png" alt="X2Higgs-pSinTHMhin" /></a></td><td><a class="gm95-imglink" href="../GM95excess/X2kappa/X2kappa-pSinTHMhin_ProfLogL.pdf" target="_blank" rel="noopener"><img src="../GM95excess/X2kappa/X2kappa-pSinTHMhin_ProfLogL.png" alt="X2kappa-pSinTHMhin" /></a></td></tr></tbody>
+</table>
+
+<h3 id="pmhmh">pmHmh</h3>
+<table class="gm95-grid">
+  <colgroup><col /><col /><col /></colgroup>
+  <thead><tr><th>total</th><th>total-kappa</th><th>X295</th></tr></thead>
+  <tbody><tr><td><div class="gm95-missing">Missing image</div></td><td><a class="gm95-imglink" href="../GM95excess/total-kappa/total-kappa-pmHmh_ProfLogL.pdf" target="_blank" rel="noopener"><img src="../GM95excess/total-kappa/total-kappa-pmHmh_ProfLogL.png" alt="total-kappa-pmHmh" /></a></td><td><a class="gm95-imglink" href="../GM95excess/X295/X295-pmHmh_ProfLogL.pdf" target="_blank" rel="noopener"><img src="../GM95excess/X295/X295-pmHmh_ProfLogL.png" alt="X295-pmHmh" /></a></td></tr></tbody>
+</table>
+
+<table class="gm95-grid">
+  <colgroup><col /><col /><col /></colgroup>
+  <thead><tr><th>X2EW</th><th>X2Higgs</th><th>X2kappa</th></tr></thead>
+  <tbody><tr><td><a class="gm95-imglink" href="../GM95excess/X2EW/X2EW-pmHmh_ProfLogL.pdf" target="_blank" rel="noopener"><img src="../GM95excess/X2EW/X2EW-pmHmh_ProfLogL.png" alt="X2EW-pmHmh" /></a></td><td><a class="gm95-imglink" href="../GM95excess/X2Higgs/X2Higgs-pmHmh_ProfLogL.pdf" target="_blank" rel="noopener"><img src="../GM95excess/X2Higgs/X2Higgs-pmHmh_ProfLogL.png" alt="X2Higgs-pmHmh" /></a></td><td><a class="gm95-imglink" href="../GM95excess/X2kappa/X2kappa-pmHmh_ProfLogL.pdf" target="_blank" rel="noopener"><img src="../GM95excess/X2kappa/X2kappa-pmHmh_ProfLogL.png" alt="X2kappa-pmHmh" /></a></td></tr></tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

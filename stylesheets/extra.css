@@ -48,3 +48,43 @@
   color: #0d47a1 !important;
   font-weight: 600;
 }
+
+/* GM95 example gallery: keep 3 columns equal width even when one image is missing */
+.md-typeset table.gm95-grid {
+  width: 100%;
+  table-layout: fixed;
+}
+
+.md-typeset table.gm95-grid col {
+  width: 33.333%;
+}
+
+.md-typeset table.gm95-grid td,
+.md-typeset table.gm95-grid th {
+  vertical-align: top;
+}
+
+.md-typeset table.gm95-grid img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.md-typeset a.gm95-imglink {
+  display: block;
+}
+
+.md-typeset a.gm95-imglink:hover img {
+  filter: brightness(0.98);
+}
+
+.md-typeset .gm95-missing {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border: 1px dashed #b0bec5;
+  border-radius: 4px;
+  display: grid;
+  place-items: center;
+  color: #607d8b;
+  font-size: 0.85rem;
+}

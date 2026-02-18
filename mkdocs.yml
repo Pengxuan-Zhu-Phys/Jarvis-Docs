@@ -37,6 +37,7 @@ nav:
           - IO file type: core/io_summary.md
   - High Energy Physics Package Wikis: 
       - HEP Packages: package/summary.md 
+      - Jarvis-Operas: package/jarvis-operas.md
   - Data Visulisation:
       - Jarvis-PLOT:
           - Overview: jarvisplot/jarvisplot.md

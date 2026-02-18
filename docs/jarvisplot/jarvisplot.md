@@ -36,7 +36,7 @@ For large tables, JarvisPLOT also applies preprofiling and project-local caching
 - [EggBox Dynesty](pub/eggbox.md)
 - [GM95 Excess](pub/gm95excess.md)
 - [HinoLLP](pub/hinollp.md)
-- [SUSY Run2 (EWMSSM and GEWMSSM)](pub/susy-ewmssm.md)
+- [SUSY Run2 (EWMSSM)](pub/susy-ewmssm.md)
 - [CEPC](pub/cepc.md)
 
 ## Covered feature set

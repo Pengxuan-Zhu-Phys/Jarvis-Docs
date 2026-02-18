@@ -68,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#example-susy-run2-ewmssm-and-gewmssm" class="md-skip">
+        <a href="#example-susyrun2-ewmssm" class="md-skip">
           Skip to content
         </a>
       
@@ -850,6 +850,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../package/jarvis-operas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Jarvis-Operas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1500,10 +1528,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#why-these-are-production-style-references" class="md-nav__link">
+  <a href="#yaml-and-run" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Why these are production-style references
+        YAML and Run
       
     </span>
   </a>
@@ -1511,24 +1539,63 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#run" class="md-nav__link">
+  <a href="#figure-gallery" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Run
+        Figure Gallery
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Figure Gallery">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#global-profile-maps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Global Profile Maps
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#what-to-observe" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#composition-maps" class="md-nav__link">
     <span class="md-ellipsis">
       
-        What to observe
+        Composition Maps
       
     </span>
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#profile-maps-under-component-constraints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Profile Maps Under Component Constraints
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ternary-composition-profiles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ternary Composition Profiles
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1708,10 +1775,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#why-these-are-production-style-references" class="md-nav__link">
+  <a href="#yaml-and-run" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Why these are production-style references
+        YAML and Run
       
     </span>
   </a>
@@ -1719,24 +1786,63 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#run" class="md-nav__link">
+  <a href="#figure-gallery" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Run
+        Figure Gallery
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Figure Gallery">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#global-profile-maps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Global Profile Maps
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#what-to-observe" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#composition-maps" class="md-nav__link">
     <span class="md-ellipsis">
       
-        What to observe
+        Composition Maps
       
     </span>
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#profile-maps-under-component-constraints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Profile Maps Under Component Constraints
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ternary-composition-profiles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ternary Composition Profiles
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1757,29 +1863,92 @@
 
 
 
-<h1 id="example-susy-run2-ewmssm-and-gewmssm">Example: SUSY Run2 (EWMSSM and GEWMSSM)</h1>
-<p>Source files:</p>
+<h1 id="example-susyrun2-ewmssm">Example: SUSYRun2 (EWMSSM)</h1>
+<h2 id="yaml-and-run">YAML and Run</h2>
 <ul>
-<li><code>JarvisPLOT/bin/SUSYRun2_EWMSSM.yaml</code></li>
-<li><code>JarvisPLOT/bin/SUSYRun2_GEWMSSM.yaml</code></li>
+<li>YAML: <a href="../SUSYRun2/SUSYRun2_EWMSSM.yaml">SUSYRun2_EWMSSM.yaml</a></li>
 </ul>
-<h2 id="why-these-are-production-style-references">Why these are production-style references</h2>
-<p>These configs show large, realistic likelihood plotting workflows:</p>
-<ul>
-<li>HDF5 input with <code>dataset</code>, <code>is_gambit</code>, <code>columnmap</code></li>
-<li>long transform chains (<code>add_column</code>, <code>sortby</code>, <code>filter</code>, <code>profile</code>)</li>
-<li>many <code>voronoi</code> profile maps</li>
-<li>both rectangular and ternary profile settings</li>
-</ul>
-<h2 id="run">Run</h2>
-<pre><code class="language-bash">jplot ./bin/SUSYRun2_EWMSSM.yaml
-jplot ./bin/SUSYRun2_GEWMSSM.yaml
+<pre><code class="language-bash">jplot SUSYRun2_EWMSSM.yaml
 </code></pre>
-<h2 id="what-to-observe">What to observe</h2>
-<ul>
-<li>how preprocessing and cache reduce repeated cost across many figures</li>
-<li>how ternary profiles are configured alongside regular 2D maps</li>
-</ul>
+<p>Or using the following command to generate the plots without the gambit icon</p>
+<pre><code class="language-bash">jplot SUSYRun2_EWMSSM.yaml --print
+</code></pre>
+<h2 id="figure-gallery">Figure Gallery</h2>
+<h3 id="global-profile-maps">Global Profile Maps</h3>
+<table>
+  <tr>
+    <td><a href="../SUSYRun2/pm1m2_ProfLogL.png" target="_blank" rel="noopener"><img src="../SUSYRun2/pm1m2_ProfLogL.png" alt="pm1m2_ProfLogL" /></a><br/><code>pm1m2_ProfLogL</code></td>
+    <td><a href="../SUSYRun2/pm1mu_ProfLogL.png" target="_blank" rel="noopener"><img src="../SUSYRun2/pm1mu_ProfLogL.png" alt="pm1mu_ProfLogL" /></a><br/><code>pm1mu_ProfLogL</code></td>
+    <td><a href="../SUSYRun2/pm2mu_ProfLogL.png" target="_blank" rel="noopener"><img src="../SUSYRun2/pm2mu_ProfLogL.png" alt="pm2mu_ProfLogL" /></a><br/><code>pm2mu_ProfLogL</code></td>
+  </tr>
+  <tr>
+    <td><a href="../SUSYRun2/pmutb_ProfLogL.png" target="_blank" rel="noopener"><img src="../SUSYRun2/pmutb_ProfLogL.png" alt="pmutb_ProfLogL" /></a><br/><code>pmutb_ProfLogL</code></td>
+    <td><a href="../SUSYRun2/mN2mN1_ProfLogL.png" target="_blank" rel="noopener"><img src="../SUSYRun2/mN2mN1_ProfLogL.png" alt="mN2mN1_ProfLogL" /></a><br/><code>mN2mN1_ProfLogL</code></td>
+    <td><a href="../SUSYRun2/mC1mN1_ProfLogL_filtered.png" target="_blank" rel="noopener"><img src="../SUSYRun2/mC1mN1_ProfLogL_filtered.png" alt="mC1mN1_ProfLogL_filtered" /></a><br/><code>mC1mN1_ProfLogL_filtered</code></td>
+  </tr>
+</table>
+
+<h3 id="composition-maps">Composition Maps</h3>
+<table>
+  <tr>
+    <td><a href="../SUSYRun2/mN2mN1_binoComp.png" target="_blank" rel="noopener"><img src="../SUSYRun2/mN2mN1_binoComp.png" alt="mN2mN1_binoComp" /></a><br/><code>mN2mN1_binoComp</code></td>
+    <td><a href="../SUSYRun2/mN2mN1_winoComp.png" target="_blank" rel="noopener"><img src="../SUSYRun2/mN2mN1_winoComp.png" alt="mN2mN1_winoComp" /></a><br/><code>mN2mN1_winoComp</code></td>
+    <td><a href="../SUSYRun2/mN2mN1_hinoComp.png" target="_blank" rel="noopener"><img src="../SUSYRun2/mN2mN1_hinoComp.png" alt="mN2mN1_hinoComp" /></a><br/><code>mN2mN1_hinoComp</code></td>
+  </tr>
+  <tr>
+    <td><a href="../SUSYRun2/mN2mN1_N2binoComp.png" target="_blank" rel="noopener"><img src="../SUSYRun2/mN2mN1_N2binoComp.png" alt="mN2mN1_N2binoComp" /></a><br/><code>mN2mN1_N2binoComp</code></td>
+    <td><a href="../SUSYRun2/mN2mN1_N2winoComp.png" target="_blank" rel="noopener"><img src="../SUSYRun2/mN2mN1_N2winoComp.png" alt="mN2mN1_N2winoComp" /></a><br/><code>mN2mN1_N2winoComp</code></td>
+    <td><a href="../SUSYRun2/mN2mN1_N2hinoComp.png" target="_blank" rel="noopener"><img src="../SUSYRun2/mN2mN1_N2hinoComp.png" alt="mN2mN1_N2hinoComp" /></a><br/><code>mN2mN1_N2hinoComp</code></td>
+  </tr>
+  <tr>
+    <td><a href="../SUSYRun2/mC1mN1_binoComp.png" target="_blank" rel="noopener"><img src="../SUSYRun2/mC1mN1_binoComp.png" alt="mC1mN1_binoComp" /></a><br/><code>mC1mN1_binoComp</code></td>
+    <td><a href="../SUSYRun2/mC1mN1_winoComp.png" target="_blank" rel="noopener"><img src="../SUSYRun2/mC1mN1_winoComp.png" alt="mC1mN1_winoComp" /></a><br/><code>mC1mN1_winoComp</code></td>
+    <td><a href="../SUSYRun2/mC1mN1_hinoComp.png" target="_blank" rel="noopener"><img src="../SUSYRun2/mC1mN1_hinoComp.png" alt="mC1mN1_hinoComp" /></a><br/><code>mC1mN1_hinoComp</code></td>
+  </tr>
+  <tr>
+    <td><a href="../SUSYRun2/mC1mN1_N2binoComp.png" target="_blank" rel="noopener"><img src="../SUSYRun2/mC1mN1_N2binoComp.png" alt="mC1mN1_N2binoComp" /></a><br/><code>mC1mN1_N2binoComp</code></td>
+    <td><a href="../SUSYRun2/mC1mN1_N2winoComp.png" target="_blank" rel="noopener"><img src="../SUSYRun2/mC1mN1_N2winoComp.png" alt="mC1mN1_N2winoComp" /></a><br/><code>mC1mN1_N2winoComp</code></td>
+    <td><a href="../SUSYRun2/mC1mN1_N2hinoComp.png" target="_blank" rel="noopener"><img src="../SUSYRun2/mC1mN1_N2hinoComp.png" alt="mC1mN1_N2hinoComp" /></a><br/><code>mC1mN1_N2hinoComp</code></td>
+  </tr>
+</table>
+
+<h3 id="profile-maps-under-component-constraints">Profile Maps Under Component Constraints</h3>
+<table>
+  <tr>
+    <td><a href="../SUSYRun2/mN2mN1_BinoN1_ProfLogL.png" target="_blank" rel="noopener"><img src="../SUSYRun2/mN2mN1_BinoN1_ProfLogL.png" alt="mN2mN1_BinoN1_ProfLogL" /></a><br/><code>mN2mN1_BinoN1_ProfLogL</code></td>
+    <td><a href="../SUSYRun2/mN2mN1_WinoN1_ProfLogL.png" target="_blank" rel="noopener"><img src="../SUSYRun2/mN2mN1_WinoN1_ProfLogL.png" alt="mN2mN1_WinoN1_ProfLogL" /></a><br/><code>mN2mN1_WinoN1_ProfLogL</code></td>
+    <td><a href="../SUSYRun2/mN2mN1_HinoN1_ProfLogL.png" target="_blank" rel="noopener"><img src="../SUSYRun2/mN2mN1_HinoN1_ProfLogL.png" alt="mN2mN1_HinoN1_ProfLogL" /></a><br/><code>mN2mN1_HinoN1_ProfLogL</code></td>
+  </tr>
+  <tr>
+    <td><a href="../SUSYRun2/mN2mN1_BinoN1_HinoN2_ProfLogL.png" target="_blank" rel="noopener"><img src="../SUSYRun2/mN2mN1_BinoN1_HinoN2_ProfLogL.png" alt="mN2mN1_BinoN1_HinoN2_ProfLogL" /></a><br/><code>mN2mN1_BinoN1_HinoN2_ProfLogL</code></td>
+    <td><a href="../SUSYRun2/mN2mN1_BinoN1_HinoN2_pure_ProfLogL.png" target="_blank" rel="noopener"><img src="../SUSYRun2/mN2mN1_BinoN1_HinoN2_pure_ProfLogL.png" alt="mN2mN1_BinoN1_HinoN2_pure_ProfLogL" /></a><br/><code>mN2mN1_BinoN1_HinoN2_pure_ProfLogL</code></td>
+    <td><a href="../SUSYRun2/mN2mN1_BinoN1_WinoN2_ProfLogL.png" target="_blank" rel="noopener"><img src="../SUSYRun2/mN2mN1_BinoN1_WinoN2_ProfLogL.png" alt="mN2mN1_BinoN1_WinoN2_ProfLogL" /></a><br/><code>mN2mN1_BinoN1_WinoN2_ProfLogL</code></td>
+  </tr>
+  <tr>
+    <td><a href="../SUSYRun2/mC1mN1_BinoN1_ProfLogL.png" target="_blank" rel="noopener"><img src="../SUSYRun2/mC1mN1_BinoN1_ProfLogL.png" alt="mC1mN1_BinoN1_ProfLogL" /></a><br/><code>mC1mN1_BinoN1_ProfLogL</code></td>
+    <td><a href="../SUSYRun2/mC1mN1_WinoN1_ProfLogL.png" target="_blank" rel="noopener"><img src="../SUSYRun2/mC1mN1_WinoN1_ProfLogL.png" alt="mC1mN1_WinoN1_ProfLogL" /></a><br/><code>mC1mN1_WinoN1_ProfLogL</code></td>
+    <td><a href="../SUSYRun2/mC1mN1_HinoN1_ProfLogL.png" target="_blank" rel="noopener"><img src="../SUSYRun2/mC1mN1_HinoN1_ProfLogL.png" alt="mC1mN1_HinoN1_ProfLogL" /></a><br/><code>mC1mN1_HinoN1_ProfLogL</code></td>
+  </tr>
+  <tr>
+    <td><a href="../SUSYRun2/mC1mN1_BinoN1_HinoN2_ProfLogL.png" target="_blank" rel="noopener"><img src="../SUSYRun2/mC1mN1_BinoN1_HinoN2_ProfLogL.png" alt="mC1mN1_BinoN1_HinoN2_ProfLogL" /></a><br/><code>mC1mN1_BinoN1_HinoN2_ProfLogL</code></td>
+    <td><a href="../SUSYRun2/mC1mN1_BinoN1_HinoN2_pure_ProfLogL.png" target="_blank" rel="noopener"><img src="../SUSYRun2/mC1mN1_BinoN1_HinoN2_pure_ProfLogL.png" alt="mC1mN1_BinoN1_HinoN2_pure_ProfLogL" /></a><br/><code>mC1mN1_BinoN1_HinoN2_pure_ProfLogL</code></td>
+    <td><a href="../SUSYRun2/mC1mN1_BinoN1_WinoN2_ProfLogL.png" target="_blank" rel="noopener"><img src="../SUSYRun2/mC1mN1_BinoN1_WinoN2_ProfLogL.png" alt="mC1mN1_BinoN1_WinoN2_ProfLogL" /></a><br/><code>mC1mN1_BinoN1_WinoN2_ProfLogL</code></td>
+  </tr>
+</table>
+
+<h3 id="ternary-composition-profiles">Ternary Composition Profiles</h3>
+<table>
+  <tr>
+    <td><a href="../SUSYRun2/N1_comps_prof.png" target="_blank" rel="noopener"><img src="../SUSYRun2/N1_comps_prof.png" alt="N1_comps_prof" /></a><br/><code>N1_comps_prof</code></td>
+    <td><a href="../SUSYRun2/N2_comps_prof.png" target="_blank" rel="noopener"><img src="../SUSYRun2/N2_comps_prof.png" alt="N2_comps_prof" /></a><br/><code>N2_comps_prof</code></td>
+    <td><a href="../SUSYRun2/N3_comps_prof.png" target="_blank" rel="noopener"><img src="../SUSYRun2/N3_comps_prof.png" alt="N3_comps_prof" /></a><br/><code>N3_comps_prof</code></td>
+  </tr>
+  <tr>
+    <td><a href="../SUSYRun2/N4_comps_prof.png" target="_blank" rel="noopener"><img src="../SUSYRun2/N4_comps_prof.png" alt="N4_comps_prof" /></a><br/><code>N4_comps_prof</code></td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>
 
 
 

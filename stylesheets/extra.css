@@ -88,3 +88,46 @@
   color: #607d8b;
   font-size: 0.85rem;
 }
+
+/* GM95 YAML table: full width with 4:6 column split */
+.md-typeset table.gm95-yaml-table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  border: 1px solid #c7d2e2;
+  background: #ffffff;
+}
+
+.md-typeset table.gm95-yaml-table col:first-child {
+  width: 40%;
+}
+
+.md-typeset table.gm95-yaml-table col:last-child {
+  width: 60%;
+}
+
+.md-typeset table.gm95-yaml-table th,
+.md-typeset table.gm95-yaml-table td {
+  border: 1px solid #d7dfeb;
+  padding: 0.55rem 0.75rem;
+}
+
+.md-typeset table.gm95-yaml-table th {
+  text-align: left;
+  font-weight: 600;
+  background: repeating-linear-gradient(
+    -45deg,
+    #edf3ff 0,
+    #edf3ff 8px,
+    #e6efff 8px,
+    #e6efff 16px
+  );
+}
+
+.md-typeset table.gm95-yaml-table tbody tr:nth-child(even) td {
+  background: #f7f9fc;
+}
+
+.md-typeset table.gm95-yaml-table tbody tr:hover td {
+  background: #edf4ff;
+}

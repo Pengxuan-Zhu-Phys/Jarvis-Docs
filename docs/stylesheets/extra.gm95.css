@@ -1,0 +1,133 @@
+.md-header__title {
+  color: #d7ebff !important;   /* 蓝色，可换 */
+}
+.md-typeset h1 {
+  color: #1a237e;
+}
+.md-typeset h2 {
+  color: #283593;
+}
+
+.md-typeset h3 {
+  color: #303f9f;
+}
+/* Navigation section titles */
+.md-nav__title {
+  color: #0d47a1;   /* 深蓝，强烈推荐 */
+  font-weight: 600;
+}
+.md-nav__item--section > .md-nav__link--active {
+  color: #1565c0;
+}
+
+/* ===== Navigation: top-level section titles ===== */
+.md-nav__item--section > .md-nav__link {
+  color: #0d47a1;
+  font-weight: 600;
+}
+
+/* Active top-level section */
+.md-nav__item--section > .md-nav__link--active {
+  color: #1565c0;
+}
+
+/* Hover */
+.md-nav__item--section > .md-nav__link:hover {
+  color: #1976d2;
+}
+
+/* ===== Navigation: section subtitles (non-clickable) ===== */
+.md-nav__title {
+  color: #0d47a1;
+  font-weight: 600;
+}
+
+/* ===== Force color for expandable nav section headers (e.g. "High Energy Physics Package Wikis") ===== */
+.md-nav__item--section > label.md-nav__link,
+.md-nav__item--section > a.md-nav__link {
+  color: #0d47a1 !important;
+  font-weight: 600;
+}
+
+/* GM95 example gallery: keep 3 columns equal width even when one image is missing */
+.md-typeset table.gm95-grid {
+  width: 100%;
+  table-layout: fixed;
+}
+
+.md-typeset table.gm95-grid col {
+  width: 33.333%;
+}
+
+.md-typeset table.gm95-grid td,
+.md-typeset table.gm95-grid th {
+  vertical-align: top;
+}
+
+.md-typeset table.gm95-grid img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.md-typeset a.gm95-imglink {
+  display: block;
+}
+
+.md-typeset a.gm95-imglink:hover img {
+  filter: brightness(0.98);
+}
+
+.md-typeset .gm95-missing {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border: 1px dashed #b0bec5;
+  border-radius: 4px;
+  display: grid;
+  place-items: center;
+  color: #607d8b;
+  font-size: 0.85rem;
+}
+
+/* GM95 YAML table: full width with 4:6 column split */
+.md-typeset table.gm95-yaml-table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  border: 1px solid #c7d2e2;
+  background: #ffffff;
+}
+
+.md-typeset table.gm95-yaml-table col:first-child {
+  width: 40%;
+}
+
+.md-typeset table.gm95-yaml-table col:last-child {
+  width: 60%;
+}
+
+.md-typeset table.gm95-yaml-table th,
+.md-typeset table.gm95-yaml-table td {
+  border: 1px solid #d7dfeb;
+  padding: 0.55rem 0.75rem;
+}
+
+.md-typeset table.gm95-yaml-table th {
+  text-align: left;
+  font-weight: 600;
+  background: repeating-linear-gradient(
+    -45deg,
+    #edf3ff 0,
+    #edf3ff 8px,
+    #e6efff 8px,
+    #e6efff 16px
+  );
+}
+
+.md-typeset table.gm95-yaml-table tbody tr:nth-child(even) td {
+  background: #f7f9fc;
+}
+
+.md-typeset table.gm95-yaml-table tbody tr:hover td {
+  background: #edf4ff;
+}

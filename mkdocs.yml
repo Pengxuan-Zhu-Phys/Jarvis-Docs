@@ -27,6 +27,7 @@ nav:
       - YAML Configuration:    
           - Main structure: core/summary.md 
           - Samplers:   core/samplers.md 
+          - Sampler Details: samplers/index.md
           - Libraries:  core/library.md
           - Calculators: core/calculator.md
           - EnvReqs:    core/environment.md

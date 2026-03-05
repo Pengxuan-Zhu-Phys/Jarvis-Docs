@@ -34,9 +34,9 @@ YAML files for direct access (put these 6 files under `docs/jarvisplot/pub/gm95e
   </tbody>
 </table>
 
-## Figure Gallery (All PNG + PDF) 
+## Figure Gallery (All PNG) 
 
-Current assets in this folder: **70 PNG** and **70 PDF**.
+Current **72 PNG**.
 
 Layout rule: 2 rows x 3 columns per observable. Click image to open PDF.
 

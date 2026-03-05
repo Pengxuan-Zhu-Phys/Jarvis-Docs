@@ -14,14 +14,14 @@
         <link rel="prev" href="../summary/">
       
       
-        <link rel="next" href="../library/">
+        <link rel="next" href="../../samplers/">
       
       
         
       
       
       <link rel="icon" href="../../assets/JarvisHEP.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.4">
     
     
       
@@ -66,6 +66,11 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
+      
+        
+        <a href="#samplers-overview" class="md-skip">
+          Skip to content
+        </a>
       
     </div>
     <div data-md-component="announce">
@@ -478,6 +483,26 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Samplers
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -496,6 +521,75 @@
 
       </a>
       
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sampler-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sampler List
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#samplingmethod-values" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sampling.Method Values
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../samplers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sampler Details
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -1649,6 +1743,38 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sampler-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sampler List
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#samplingmethod-values" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sampling.Method Values
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -1665,9 +1791,66 @@
 
 
 
-  <h1>Samplers</h1>
-
-
+<h1 id="samplers-overview">Samplers Overview</h1>
+<p>This page lists all samplers currently available in Jarvis-HEP and points to one dedicated page per sampler.</p>
+<h2 id="sampler-list">Sampler List</h2>
+<ul>
+<li>Basic samplers</li>
+<li><a href="../../samplers/bridson/">Bridson</a></li>
+<li><a href="../../samplers/random/">Random</a></li>
+<li><a href="../../samplers/grid/">Grid</a></li>
+<li><a href="../../samplers/dnn/">DNN</a></li>
+<li><a href="../../samplers/diver/">Diver</a></li>
+<li>Nested samplers</li>
+<li><a href="../../samplers/dynesty/">Dynesty</a></li>
+<li><a href="../../samplers/multinest/">MultiNest</a></li>
+<li>MCMC family</li>
+<li><a href="../../samplers/mcmc/">MCMC</a></li>
+<li><a href="../../samplers/toymcmc/">ToyMCMC</a></li>
+<li><a href="../../samplers/ammcmc/">AMMCMC</a></li>
+<li><a href="../../samplers/robustam/">RobustAM</a></li>
+<li><a href="../../samplers/dram/">DRAM</a></li>
+<li><a href="../../samplers/demcmc/">DEMCMC</a></li>
+<li><a href="../../samplers/dream/">DREAM</a></li>
+<li><a href="../../samplers/dreamlite/">DREAMLite / DREAM-lite</a></li>
+<li><a href="../../samplers/ensemblemcmc/">EnsembleMCMC</a></li>
+<li><a href="../../samplers/tpmcmc/">TPMCMC</a></li>
+<li><a href="../../samplers/ptensemble/">PTEnsemble</a></li>
+<li><a href="../../samplers/slicemcmc/">SliceMCMC</a></li>
+<li><a href="../../samplers/ess/">ESS</a></li>
+<li><a href="../../samplers/mala/">MALA</a></li>
+<li><a href="../../samplers/hmc/">HMC</a></li>
+<li><a href="../../samplers/nuts/">NUTS</a></li>
+<li>Nuisance sub-sampler</li>
+<li><a href="../../samplers/nuisance-profile1d/">Profile1D</a></li>
+</ul>
+<h2 id="samplingmethod-values"><code>Sampling.Method</code> Values</h2>
+<p>Use one of the following method names in YAML:</p>
+<ul>
+<li><code>Bridson</code></li>
+<li><code>Dynesty</code></li>
+<li><code>MultiNest</code></li>
+<li><code>Grid</code></li>
+<li><code>Random</code></li>
+<li><code>DNN</code></li>
+<li><code>Diver</code></li>
+<li><code>MCMC</code></li>
+<li><code>ToyMCMC</code></li>
+<li><code>AMMCMC</code></li>
+<li><code>RobustAM</code></li>
+<li><code>DRAM</code></li>
+<li><code>DEMCMC</code></li>
+<li><code>DREAM</code></li>
+<li><code>DREAMLite</code> or <code>DREAM-lite</code></li>
+<li><code>EnsembleMCMC</code></li>
+<li><code>TPMCMC</code></li>
+<li><code>PTEnsemble</code></li>
+<li><code>SliceMCMC</code></li>
+<li><code>ESS</code></li>
+<li><code>MALA</code></li>
+<li><code>HMC</code></li>
+<li><code>NUTS</code></li>
+</ul>
 
 
 

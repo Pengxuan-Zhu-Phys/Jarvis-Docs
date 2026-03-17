@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://pengxuan-zhu-phys.github.io/Jarvis-Docs/tutorial/Common_workflow01/">
+        <link rel="canonical" href="https://pengxuan-zhu-phys.github.io/Jarvis-Docs/tutorial/Common_workflow/">
       
       
       
@@ -811,21 +811,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#what-this-workflow-covers" class="md-nav__link">
+  <a href="#design-philosophy" class="md-nav__link">
     <span class="md-ellipsis">
       
-        What this workflow covers
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#prerequisites" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Prerequisites
+        Design Philosophy
       
     </span>
   </a>
@@ -878,10 +867,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#4-export-csv-optional" class="md-nav__link">
+  <a href="#4-convert-data-files-to-csv-optional" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4) Export CSV (optional)
+        4) Convert data files to CSV (optional)
       
     </span>
   </a>
@@ -899,27 +888,27 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#6-monitoring-a-runing-job-optional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6) Monitoring a runing job (optional)
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#common-variations" class="md-nav__link">
+  <a href="#congratulations-you-made-it-from-0-to-1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Common variations
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#troubleshooting-tips" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Troubleshooting tips
+        Congratulations, you made it from 0 to 1!
       
     </span>
   </a>
@@ -944,100 +933,278 @@
 
 
 <h1 id="from-0-to-1-common-workflow">From 0 to 1: Common workflow</h1>
-<h2 id="what-this-workflow-covers">What this workflow covers</h2>
-<p>This page shows the typical end-to-end flow for running a Jarvis-HEP scan, exporting tabular results, and preparing plots with Jarvis-PLOT.</p>
-<p>You will:</p>
-<ul>
-<li>Create a clean project scaffold</li>
-<li>Author a YAML task card (<code>task.yaml</code>)</li>
-<li>Run the scan and locate outputs</li>
-<li>(Optional) Re-export CSV from an existing run</li>
-<li>(Optional) Generate a Jarvis-PLOT config and render figures</li>
-</ul>
-<h2 id="prerequisites">Prerequisites</h2>
-<ul>
-<li>A working Python environment where <code>Jarvis</code> is available on <code>PATH</code></li>
-<li>(Optional, for plotting) JarvisPLOT installed so <code>jplot</code> is available</li>
-</ul>
+<h2 id="design-philosophy">Design Philosophy</h2>
+<p><img alt="concept-flow.png" src="../workflow/concept-flow.png" /></p>
+<p>This diagram summarizes the end-to-end Jarvis workflow: you prepare the packages, write a scan card (Task YAML), and choose a sampler. Jarvis orchestrates the execution—including environment requirements and calculator backends—runs the scan, and produces structured outputs that can be post-processed and visualized (e.g., with Jarvis-PLOT).</p>
+<p><strong>Jarvis acts as a sampling manager.</strong> </p>
+<ol>
+<li>It builds a Worker factory based on your task YAML file and the packages you provided. </li>
+<li>Jarvis monitors the sampler and factory, assigns each sample from the sampler as a task, and submits tasks to the factory asynchronously—waiting for each result before submitting the next one. </li>
+<li>the Worker factory accepts each task and executes calculations according to the calculation flowchart. </li>
+<li>all results—including samples, logs, and data files—are collected in the output folder. </li>
+</ol>
+<p>Users can then process data using their own tools or visualize it using <strong>JarvisPLOT</strong> (when it is available). </p>
 <h2 id="step-by-step-from-0-to-1">Step-by-step (from 0 to 1)</h2>
 <h3 id="1-create-a-project-scaffold">1) Create a project scaffold</h3>
 <p>Create a new project folder with the standard layout:</p>
 <pre><code class="language-bash">Jarvis --mkproject MyProject
 </code></pre>
-<p>You should see (at least): </p>
-<pre><code>📁 MyProfject
-├── 📁 bin
-│   ├── quickstart_csv_operas.yaml
-│   └── quickstart_mcmc_operas.yaml
-├── 📁 data
-│   └── points.csv
-├── 📁 deps
-│   └── environment_default.yaml
-├── jarvis.project.yaml
-└── README.md
-
+<p>You should see a folder :folders: <code>MyProject</code> contains (at least):</p>
+<pre><code>📁 MyProject
+        ├── 📁 bin
+        │      ├──  📋 quickstart_csv_operas.yaml
+        │      └──  📋 quickstart_mcmc_operas.yaml
+        ├── 📁 data
+        │      └──  🗃️ points.csv
+        ├── 📁 deps
+        │      └──  📋 environment_default.yaml
+        ├── 📋 jarvis.project.yaml
+        └── 📖 README.md
 </code></pre>
 <ul>
-<li><code>MyProject/bin/</code> (YAML cards live here)</li>
-<li><code>MyProject/Library/</code></li>
-<li><code>MyProject/Workshop/</code></li>
-<li><code>MyProject/Result/</code></li>
+<li>📁 <code>bin</code> : YAML task cards live here.</li>
+<li>📁 <code>data</code> : External data files that may be helpful to your project but are not directly related to Jarvis scan tasks.</li>
+<li>📁 <code>deps</code> : Packages and everything related to Jarvis scan tasks. Jarvis creates a default environment requirement list card here, :yaml: <code>enviroment_default.yaml</code> .</li>
 </ul>
 <h3 id="2-edit-the-yaml-task-card">2) Edit the YAML task card</h3>
-<p>Open the default card location:</p>
-<ul>
-<li><code>MyProject/bin/task.yaml</code></li>
-</ul>
-<p>At minimum, verify the following before running:</p>
-<ul>
-<li>Input files / model settings paths are correct</li>
-<li>Output locations are within the project (recommended)</li>
-<li>Runtime settings (threads / concurrency / timeouts) are reasonable</li>
-</ul>
+<p>You can find example YAML task cards in the <code>Eggbox</code> project (<a href="https://www.notion.so/Eggbox-a-minimal-black-box-example-324b3a9dafc580d2b72bd0318e1512c2?pvs=21">Eggbox: a minimal black box example </a>). For a detailed reference, see <a href="https://www.notion.so/Task-YAML-Structure-2efa5abf356449c7ba5da14090b1e160?pvs=21">Task YAML Structure</a>.</p>
+<p>We'll skip editing for now and use the <code>Eggbox</code> example in the next step. Download it via the Jarvis project engine, see <a href="https://www.notion.so/Command-Line-Tools-1a4adeac12864a929506f532e4016e98?pvs=21">Command Line Tools</a> </p>
+<pre><code>Jarvis project fetch Eggbox 
+</code></pre>
 <h3 id="3-run-the-scan-default-mode">3) Run the scan (default mode)</h3>
-<p>Run Jarvis on the task card:</p>
-<pre><code class="language-bash">Jarvis MyProject/bin/task.yaml
+<p>Navigate to the Eggbox directory and run Jarvis on the task card:</p>
+<pre><code class="language-bash">cd Eggbox
+Jarvis ./bin/Example_Bridson.yaml
 </code></pre>
-<p>During a normal run, Jarvis will:</p>
+<p>The interface during execution is shown below. Here, following the actual execution sequence, I'll explain what Jarvis does internally. Generally, users don't need to pay much attention to Jarvis's output—the terminal display shows only the status of the sampler and factory. I'll break them into pieces and explain each briefly below:</p>
 <ul>
-<li>Load and validate the YAML card</li>
-<li>Prepare runtime directories</li>
-<li>Build the workflow</li>
-<li>Launch the scan</li>
+<li>A Jarvis-HEP icon and version information appear. This means the Jarvis logging system has launched.</li>
 </ul>
-<p>Typical outputs are written under the run directory (commonly including <code>SAMPLE/</code>, <code>LOG/</code>, and <code>DATABASE/</code>).</p>
-<h3 id="4-export-csv-optional">4) Export CSV (optional)</h3>
-<p>After the scan finishes, you can regenerate CSV output from the database without rerunning the scan:</p>
-<pre><code class="language-bash">Jarvis MyProject/bin/task.yaml --convert
+<pre><code class="language-bash"> Jarvis-HEP 
+    -&gt; 03-17 15:46:24.644 - [WARNING] &gt;&gt;&gt; 
+
+ ███ ███         ██╗ █████╗ ██████╗ ██╗   ██╗██╗███████╗ 
+█████████        ██║██╔══██╗██╔══██╗██║   ██║██║██╔════╝ 
+█══███══█        ██║███████║██████╔╝██║   ██║██║███████╗ 
+╚╗█████╔╝   ██   ██║██╔══██║██╔══██╗╚██╗ ██╔╝██║╚════██║ 
+ ╚█═══█╝    ╚█████╔╝██║  ██║██║  ██║ ╚████╔╝ ██║███████║ 
+  █████      ╚════╝ ╚═╝  ╚═╝╚═╝  ╚═╝  ╚═══╝  ╚═╝╚══════╝ 
+________________________________________________________
+=== Jarvis-HEP ===
+     Just a Robust and Versatile Interface Suite for HEP  
+          Author:   Pengxuan Zhu, Erdong Guo. 
+          Version:  1.6.9 
+ Jarvis-HEP 
+    -&gt; 03-17 15:46:24.645 - [WARNING] &gt;&gt;&gt; 
+Jarvis-HEP logging system initialized successful! 
 </code></pre>
-<p>Use this when:</p>
 <ul>
-<li>You changed schema / export rules</li>
-<li>You want a fresh CSV export for analysis or plotting</li>
+<li>Check YAML via schema parser system. The following output means you have written the YAML task card with correct Jarvis-HEP grammar.</li>
 </ul>
+<pre><code class="language-bash"> Jarvis-HEP.ConfigParser 
+    -&gt; 03-17 15:46:26.128 - [WARNING] &gt;&gt;&gt; 
+Validation successful. The input YAML file meets the schema requirement. 
+</code></pre>
+<ul>
+<li>Successfully initialized the sampler (using the Bridson sampling method).</li>
+</ul>
+<pre><code class="language-bash">
+ Jarvis-HEP.Bridson 
+    -&gt; 03-17 15:46:26.136 - [WARNING] &gt;&gt;&gt; 
+Sampling method initializaing ... 
+ Jarvis-HEP.Bridson 
+    -&gt; 03-17 15:46:26.142 - [WARNING] &gt;&gt;&gt; 
+Sample archive worker started
+Field | Value                                                                   
+----- | ---------------------------
+pid   | 83483                                                                    
+ Jarvis-HEP.Bridson 
+    -&gt; 03-17 15:46:26.143 - [WARNING] &gt;&gt;&gt; 
+Initializing the Bridson Sampling 
+</code></pre>
+<ul>
+<li>Calculation flow was successfully parsed, and Worker factory is successfully initialized. Eggbox instances are reloaded here. This happens when you run a repeated scan task, avoiding recompilation of external packages to save time.</li>
+</ul>
+<pre><code class="language-bash"> Jarvis-HEP.Factory 
+    -&gt; 03-17 15:46:29.317 - [WARNING] &gt;&gt;&gt; 
+Building the factory for workers ... 
+ Jarvis-HEP.Factory.Manager 
+    -&gt; 03-17 15:46:29.317 - [WARNING] &gt;&gt;&gt; 
+Manager adding ModulePool EggBox.  
+ Jarvis-HEP.Workflow.EggBox 
+    -&gt; 03-17 15:46:29.317 - [WARNING] &gt;&gt;&gt; 
+Trying to loac the installed instance information for mudule -&gt; EggBox 
+ Jarvis-HEP.Workflow.EggBox 
+    -&gt; 03-17 15:46:29.326 - [WARNING] &gt;&gt;&gt; 
+Instance reloaded! 
+</code></pre>
+<ul>
+<li>The factory builds the worker pipeline for the task, and the calculation flowchart is plotted automatically. Factory is ready.</li>
+</ul>
+<pre><code class="language-bash"> Jarvis-HEP 
+    -&gt; 03-17 15:46:28.914 - [WARNING] &gt;&gt;&gt; 
+Draw workflow chart into /Users/p.zhu/Jarvis-Workshop/Jarvis-Examples/Eggbox/images/EggBox_Bridson/flowchart.png 
+ Jarvis-HEP.Bridson 
+    -&gt; 03-17 15:46:29.597 - [WARNING] &gt;&gt;&gt; 
+WorkerFactory is ready for Bridson sampler 
+</code></pre>
+<p><img alt="flowchart.png" src="../workflow/flowchart.png" /></p>
+<pre><code>Calculation flowchart for Eggbox. For each sample, the sampler generates two values, x and y. The factory then calls the eggbox module to calculate the z value.
+</code></pre>
+<ul>
+<li>Sampling started. Running state information is shown periodically.</li>
+</ul>
+<pre><code class="language-bash"> Jarvis-HEP.Bridson 
+    -&gt; 03-17 15:46:31.358 - [WARNING] &gt;&gt;&gt; 
+10‰ of 101/10028 samples submited in 00:00:01.753 
+
+...
+
+ Jarvis-HEP.Factory 
+    -&gt; 03-17 15:48:01.154 - [WARNING] &gt;&gt;&gt; 
+Submitted 5000 tasks, time for last 1000 tasks: 00:00:18.566, total time: 00:01:31.838 
+
+...
+</code></pre>
+<ul>
+<li>Sampling finished:</li>
+</ul>
+<p>A.  Sampler stops sampling.</p>
+<pre><code class="language-bash"> Jarvis-HEP.Bridson 
+    -&gt; 03-17 15:49:34.406 - [WARNING] &gt;&gt;&gt; 
+1000‰ of 10028/10028 samples submited in 00:03:04.801 
+</code></pre>
+<p>B.  Data writer stopped recording, displayed the summary, and converted the HDF5 files into human-readable CSV format.</p>
+<pre><code class="language-bash">Ϡ Jarvis-HEP.hdf5-Writter 
+    -&gt; 03-17 15:49:34.573 - [WARNING] &gt;&gt;&gt; 
+Global HDF5 writer stopped 
+Ϡ Jarvis-HEP.hdf5-Writter 
+    -&gt; 03-17 15:49:34.574 - [WARNING] &gt;&gt;&gt; 
+Global writer summary
+Field           | Value                                                         
+--------------- | ----------------------------------------------------
+enqueued        | 10028                                            
+flushed         | 10028                                               
+flush_count     | 20                                            
+max_queue_depth | 5
+
+Ϡ Jarvis-HEP.hdf5-Writter 
+    -&gt; 03-17 15:49:35.243 - [WARNING] &gt;&gt;&gt; 
+Converted HDF5 data to CSV at -&gt; /Users/p.zhu/Jarvis-Workshop/Jarvis-Examples/Eggbox/outputs/EggBox_Bridson/DATABASE/samples.0.csv. 
+</code></pre>
+<p>C.  Factory shuts down with a summary information table. The factory handled 54 samples (tasks) per second. If you use the Operas version of the Eggbox example, you'll see a significant performance boost because Operas registers Eggbox in memory, eliminating file I/O overhead.</p>
+<pre><code class="language-bash"> Jarvis-HEP.Factory 
+    -&gt; 03-17 15:49:35.244 - [WARNING] &gt;&gt;&gt; 
+Factory shutdown summary
+Field      | Value                                                   
+---------- | ---------------------------------------------------
+submitted  | 10028                                                 
+ok         | 10028                                                 
+failed     | 0                                                     
+unfinished | 0                                                     
+tail_tasks | 28                                                   
+total_time | 00:03:05.929                                           
+avg_rate   | 53.93 tasks/s        
+</code></pre>
+<p>After the sampling is finished, the directory tree is like </p>
+<pre><code class="language-bash">Eggbox
+├── bin
+│   ├── Example_Bridson_Operas.yaml
+│   └── Example_Bridson.yaml
+├── calculators
+│   └── runtime
+│       └── program
+│           └── EggBox
+│               ├── 001
+│               │   ├── eggbox.py
+│               │   ├── input.json
+│               │   ├── Installation_EggBox-001.log
+│               │   └── output.json
+│            ....
+│               └── EggBox_instance_info.json
+├── deps
+├── images
+│   └── EggBox_Bridson
+│       └── flowchart.png
+├── logs
+│   └── EggBox_Bridson
+│       ├── Bridson.log
+│       ├── EggBox_Bridson.log
+│       └── Factory.log
+├── outputs
+│   └── EggBox_Bridson
+│       ├── DATABASE
+│       │   ├── archive_manifest.jsonl
+│       │   ├── running.json
+│       │   ├── samples.0.csv
+│       │   ├── samples.0.hdf5
+│       │   └── samples.schema.json
+│       ├── Example_Bridson.pkl
+│       ├── run_summary.csv
+│       ├── run_summary.json
+│       ├── run_summary.txt
+│       └── SAMPLE
+│           ├── 000001.tar.gz
+│           ...
+│           └── 000050.tar.gz
+└── README.md
+
+... directories, ... files
+</code></pre>
+<ul>
+<li>📁 <code>calculator</code> : The folder containing HEP Package instances, each of which will be called by the Factory. In the Eggbox examples, this folder is created automatically by the factory. Users can use a different name—this is just a conventional choice.</li>
+<li>📁 <code>logs</code>: Detailed logging files for the sampler and factory.</li>
+<li>📁  <code>output</code> : The <code>output</code> folder holds scan task results and contains two subfolders: <code>DATABASE</code> and <code>SAMPLE</code>. The former records the dataset generated by the scan task; the latter contains detailed information for all samples. The <code>SAMPLE</code> folder is compressed, with complete information recorded in the <code>DATABASE/archive_manifest.jsonl</code> file.</li>
+</ul>
+<h3 id="4-convert-data-files-to-csv-optional">4) Convert data files to CSV (optional)</h3>
+<p>Before the scan finishes, you can convert the HDF5 format data into CSV output in a new terminal. This operation will not affect the Jarvis scanning process. This allows you to check the data while Jarvis is running a time-consuming task and use <code>JarvisPLOT</code> to visualize the CSV files during the scan. </p>
+<pre><code class="language-bash">Jarvis ./bin/Example_Bridson.yaml --convert
+</code></pre>
 <h3 id="5-generate-plotting-config-and-make-plots-optional">5) Generate plotting config and make plots (optional)</h3>
 <p>Generate a Jarvis-PLOT YAML configuration from the Jarvis-HEP task card:</p>
-<pre><code class="language-bash">Jarvis MyProject/bin/task.yaml --plot
+<pre><code class="language-bash">Jarvis ./bin/Example_Bridson.yaml --plot
+
+ Jarvis-HEP 
+    -&gt; 03-17 16:47:16.359 - [WARNING] &gt;&gt;&gt; 
+
+ ███ ███         ██╗ █████╗ ██████╗ ██╗   ██╗██╗███████╗ 
+█████████        ██║██╔══██╗██╔══██╗██║   ██║██║██╔════╝ 
+█══███══█        ██║███████║██████╔╝██║   ██║██║███████╗ 
+╚╗█████╔╝   ██   ██║██╔══██║██╔══██╗╚██╗ ██╔╝██║╚════██║ 
+ ╚█═══█╝    ╚█████╔╝██║  ██║██║  ██║ ╚████╔╝ ██║███████║ 
+  █████      ╚════╝ ╚═╝  ╚═╝╚═╝  ╚═╝  ╚═══╝  ╚═╝╚══════╝ 
+________________________________________________________
+=== Jarvis-HEP ===
+     Just a Robust and Versatile Interface Suite for HEP  
+          Author:   Pengxuan Zhu, Erdong Guo. 
+          Version:  1.6.9 
+ Jarvis-HEP 
+    -&gt; 03-17 16:47:16.359 - [WARNING] &gt;&gt;&gt; 
+Jarvis-HEP logging system initialized successful! 
+ Jarvis-PLOT 
+    -&gt; 03-17 16:47:16.365 - [WARNING] &gt;&gt;&gt; 
+Generate JarvisPLOT YAML for Example_Bridson 
+ Jarvis-PLOT 
+    -&gt; 03-17 16:47:16.367 - [WARNING] &gt;&gt;&gt; 
+JarvisPLOT YAML generated: 
+/Users/p.zhu/Jarvis-Workshop/Jarvis-Examples/Eggbox/images/EggBox_Bridson/EggBox_Bridson.yaml 
+ Jarvis-PLOT 
+    -&gt; 03-17 16:47:16.367 - [WARNING] &gt;&gt;&gt; 
+Render with external Jarvis-PLOT CLI: 
+jplot /Users/p.zhu/Jarvis-Workshop/Jarvis-Examples/Eggbox/images/EggBox_Bridson/EggBox_Bridson.yaml %                                      
 </code></pre>
-<p>This produces a plotting YAML (often called <code>figure.yaml</code> or similar) that you can run with <code>jplot</code>:</p>
-<pre><code class="language-bash">jplot figure.yaml
+<p>Use Jarvis-PLOT to visualize the dataset. For more details, see the Jarvis-PLOT documentation.</p>
+<pre><code class="language-bash">jplot ./images/EggBox_Bridson/EggBox_Bridson.yaml 
 </code></pre>
-<h2 id="common-variations">Common variations</h2>
-<ul>
-<li>Debug a configuration quickly:<ul>
-<li><code>Jarvis MyProject/bin/task.yaml --check-modules --debug</code></li>
-</ul>
-</li>
-<li>Monitor a running job:<ul>
-<li><code>Jarvis MyProject/bin/task.yaml --monitor</code></li>
-</ul>
-</li>
-</ul>
-<h2 id="troubleshooting-tips">Troubleshooting tips</h2>
-<ul>
-<li>If <code>Jarvis</code> is not found, ensure you are in the correct environment and <code>pip</code> installed package scripts are on <code>PATH</code>.</li>
-<li>If <code>jplot</code> is not found, install plotting extras in the same environment (e.g. <code>python -m pip install -U JarvisPLOT</code>).</li>
-</ul>
+<p>This will generate plots saved in the directory <code>image/EggBox_Bridson/scatter_x__y.png</code></p>
+<p><img alt="scatter_x__y.png" src="../workflow/scatter_x__y.png" /></p>
+<h3 id="6-monitoring-a-runing-job-optional">6) Monitoring a runing job (optional)</h3>
+<p>Jarvis-HEP allows you to monitor the currently running job. For the above example, open a new terminal and use </p>
+<pre><code class="language-bash">Jarvis ./bin/Example_Bridson.yaml --monitor
+</code></pre>
+<p><img alt="image.png" src="../workflow/image.png" /></p>
+<h2 id="congratulations-you-made-it-from-0-to-1">Congratulations, you made it from 0 to 1!</h2>
+<p>The above workflow demonstrates a complete cycle from project creation, task YAML preparation/reuse, scan initiation, to monitoring and result export/visualization. In practice, you only need to focus on the task card and output directory—Jarvis handles sampling scheduling, Worker execution, and result archiving, making large-scale parameter scans more stable, reproducible, and easier to post-process.</p>
 
 
 

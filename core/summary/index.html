@@ -11,10 +11,10 @@
         <link rel="canonical" href="https://pengxuan-zhu-phys.github.io/Jarvis-Docs/core/summary/">
       
       
-        <link rel="prev" href="../../tutorial/eggbox/">
+        <link rel="prev" href="../cli/">
       
       
-        <link rel="next" href="../samplers/">
+        <link rel="next" href="../yaml_overview/">
       
       
         
@@ -25,7 +25,7 @@
     
     
       
-        <title>Main structure - Jarvis-HEP Documentation</title>
+        <title>Task YAML Structure - Jarvis-HEP Documentation</title>
       
     
     
@@ -67,6 +67,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#task-yaml-structure" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -98,7 +103,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Main structure
+              Task YAML Structure
             
           </span>
         </div>
@@ -247,7 +252,7 @@
   <span class="md-ellipsis">
     
   
-    Get Start
+    Quick Start
   
 
     
@@ -263,7 +268,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Get Start
+    Quick Start
   
 
           </label>
@@ -311,7 +316,35 @@
   <span class="md-ellipsis">
     
   
-    Eggbox (Start Here)
+    First Scan (EggBox)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Command Line Tools
   
 
     
@@ -364,7 +397,7 @@
   <span class="md-ellipsis">
     
   
-    Documentations
+    Write A Scan
   
 
     
@@ -380,58 +413,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Documentations
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-    
-  
-  
-  
-    
-    
-    
-    
-      
-    
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" checked>
-        
-          
-          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    YAML Configuration
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_3_1">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    YAML Configuration
+    Write A Scan
   
 
           </label>
@@ -450,6 +432,26 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Task YAML Structure
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -458,7 +460,7 @@
   <span class="md-ellipsis">
     
   
-    Main structure
+    Task YAML Structure
   
 
     
@@ -468,6 +470,213 @@
 
       </a>
       
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#minimum-working-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Minimum Working Structure
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-typical-scan-card" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A Typical Scan Card
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#top-level-sections" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Top-Level Sections
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Top-Level Sections">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scan
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sampling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sampling
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#calculators" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Calculators
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Operas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#envreqs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EnvReqs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#utils" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Utils
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#libdeps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LibDeps
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#runtime" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Runtime
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recommended-authoring-order" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recommended Authoring Order
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-mistakes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Mistakes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#where-to-continue" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Where To Continue
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../yaml_overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    YAML Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -487,7 +696,7 @@
   <span class="md-ellipsis">
     
   
-    Samplers
+    Samplers Overview
   
 
     
@@ -536,14 +745,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../library/" class="md-nav__link">
+      <a href="../calculator/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Libraries
+    Calculators
   
 
     
@@ -564,14 +773,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../calculator/" class="md-nav__link">
+      <a href="../operas/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Calculators
+    Operas
   
 
     
@@ -613,65 +822,6 @@
 
               
             
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-    
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2" >
-        
-          
-          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Concepts & Conventions
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_2">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Concepts & Conventions
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
               
                 
   
@@ -679,14 +829,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../yaml/yaml_introduction/" class="md-nav__link">
+      <a href="../library/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    YAML Format introduction
+    Libraries
   
 
     
@@ -770,7 +920,7 @@
   <span class="md-ellipsis">
     
   
-    IO file type
+    IO File Types
   
 
     
@@ -790,84 +940,22 @@
     </li>
   
 
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
     
       
       
-  
-  
-  
-  
-    
-    
-    
-    
-      
-        
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
-        
-          
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    High Energy Physics Package Wikis
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    High Energy Physics Package Wikis
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
   
   
   
   
     <li class="md-nav__item">
-      <a href="../../package/summary/" class="md-nav__link">
+      <a href="../../jarvisplot/jarvisplot/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    HEP Packages
+    Jarvis-PLOT
   
 
     
@@ -879,10 +967,9 @@
     </li>
   
 
-              
-            
-              
-                
+    
+      
+      
   
   
   
@@ -907,758 +994,6 @@
     </li>
   
 
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-    
-      
-        
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
-        
-          
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Data Visulisation
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Data Visulisation
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-    
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_1" >
-        
-          
-          <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Jarvis-PLOT
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5_1">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Jarvis-PLOT
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../jarvisplot/jarvisplot/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Overview
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../jarvisplot/quickstart/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Quick Start
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../jarvisplot/cli/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    CLI
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../jarvisplot/yaml-schema/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    YAML Schema
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../jarvisplot/dataset/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    DataSet
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../jarvisplot/figures-layers/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Figures and Layers
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../jarvisplot/transforms/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Transforms
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../jarvisplot/profiling-preprofiling-cache/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Profiling and Cache
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../jarvisplot/methods/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Plot Methods
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../jarvisplot/axes-rect-ternary/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Rect and Ternary Axes
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../jarvisplot/functions-interpolators/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Functions and Interpolators
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../jarvisplot/faq-troubleshooting/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    FAQ
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-    
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_1_13" >
-        
-          
-          <label class="md-nav__link" for="__nav_5_1_13" id="__nav_5_1_13_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Gallery
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_1_13_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5_1_13">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Gallery
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../jarvisplot/pub/eggbox/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    EggBox Dynesty
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../jarvisplot/pub/gm95excess/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    GM95 Excess
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../jarvisplot/pub/hinollp/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    HinoLLP
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../jarvisplot/pub/susy-ewmssm/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    SUSY Run2
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../jarvisplot/pub/cepc/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    CEPC
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-    
-      
-        
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
-        
-          
-          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Case studies
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_6">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Case studies
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../examples/examples/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Published Works
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
     
   </ul>
 </nav>
@@ -1677,6 +1012,176 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#minimum-working-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Minimum Working Structure
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-typical-scan-card" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A Typical Scan Card
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#top-level-sections" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Top-Level Sections
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Top-Level Sections">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scan
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sampling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sampling
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#calculators" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Calculators
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Operas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#envreqs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EnvReqs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#utils" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Utils
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#libdeps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        LibDeps
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#runtime" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Runtime
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recommended-authoring-order" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recommended Authoring Order
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-mistakes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Mistakes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#where-to-continue" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Where To Continue
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -1693,9 +1198,191 @@
 
 
 
-  <h1>Main structure</h1>
+<h1 id="task-yaml-structure">Task YAML Structure</h1>
+<p>A Jarvis-HEP scan is described by one YAML file. For a normal physics scan, you should think of that file as a contract between five pieces:</p>
+<ol>
+<li><code>Scan</code>: where results will be written.</li>
+<li><code>Sampling</code>: which sampler to use, which parameters to scan, and what likelihood to optimize.</li>
+<li><code>Calculators</code> or <code>Operas</code>: how observables are produced.</li>
+<li><code>EnvReqs</code>: which runtime environment is required.</li>
+<li>Optional helper sections: <code>Utils</code>, <code>LibDeps</code>, and <code>Runtime</code>.</li>
+</ol>
+<h2 id="minimum-working-structure">Minimum Working Structure</h2>
+<p>For practical use, a beginner scan card usually needs:</p>
+<ul>
+<li><code>Scan</code></li>
+<li><code>Sampling</code></li>
+<li><code>EnvReqs</code></li>
+<li>At least one non-empty backend:</li>
+<li><code>Calculators.Modules</code>, or</li>
+<li><code>Operas.Modules</code></li>
+</ul>
+<p><code>Calculators</code> is still present in current schemas, so Jarvis-HEP normalizes an empty <code>Calculators</code> section even for <code>Operas</code>-only cards. The runtime requirement is simpler: at least one of <code>Calculators.Modules</code> or <code>Operas.Modules</code> must be non-empty.</p>
+<h2 id="a-typical-scan-card">A Typical Scan Card</h2>
+<pre><code class="language-yaml">Scan:
+  name: &quot;MyFirstScan&quot;
+  save_dir: &quot;&amp;J/Results&quot;
+  sample_directory:
+    limit: 200
+    width: 6
+    archive_samples: true
 
+Sampling:
+  Method: &quot;Random&quot;
+  Variables:
+    - name: m0
+      description: &quot;Scalar mass parameter&quot;
+      distribution:
+        type: Flat
+        parameters:
+          min: 100.0
+          max: 3000.0
+    - name: m12
+      description: &quot;Gaugino mass parameter&quot;
+      distribution:
+        type: Flat
+        parameters:
+          min: 100.0
+          max: 3000.0
+  Point number: 2000
+  LogLikelihood:
+    - name: LogL_Higgs
+      expression: &quot;LogGauss(mh, 125.09, 3.0)&quot;
 
+EnvReqs:
+  OS:
+    - name: linux
+      version: &quot;&gt;=5.10.0&quot;
+    - name: Darwin
+      version: &quot;&gt;=10.14&quot;
+  Python:
+    version: &quot;&gt;=3.10&quot;
+    Dependencies: []
+
+Calculators:
+  make_paraller: 4
+  path: &quot;&amp;J/Workshop/Program&quot;
+  Modules:
+    - name: Spectrum
+      required_modules: []
+      clone_shadow: true
+      path: &quot;&amp;J/Workshop/Program/Spectrum/@PackID&quot;
+      source: &quot;&amp;J/External/Program/Spectrum&quot;
+      installation:
+        - &quot;mkdir -p ${path}&quot;
+      initialization:
+        - &quot;cp ${source}/input.template ${path}/input.json&quot;
+      execution:
+        path: &quot;&amp;J/Workshop/Program/Spectrum/@PackID&quot;
+        commands:
+          - &quot;${source}/run_spectrum.sh ./input.json&quot;
+        input:
+          - name: SpectrumInput
+            path: &quot;&amp;J/Workshop/Program/Spectrum/@PackID/input.json&quot;
+            type: &quot;Json&quot;
+            save: false
+            actions:
+              - type: &quot;Dump&quot;
+                variables:
+                  - {name: &quot;m0&quot;}
+                  - {name: &quot;m12&quot;}
+        output:
+          - name: SpectrumOutput
+            path: &quot;&amp;J/Workshop/Program/Spectrum/@PackID/output.json&quot;
+            type: &quot;Json&quot;
+            save: true
+            variables:
+              - {name: mh, entry: &quot;Higgs.mass&quot;}
+</code></pre>
+<h2 id="top-level-sections">Top-Level Sections</h2>
+<h3 id="scan"><code>Scan</code></h3>
+<p><code>Scan</code> controls where the run lives on disk.</p>
+<ul>
+<li><code>name</code>: result directory name.</li>
+<li><code>save_dir</code>: parent directory of the run.</li>
+<li><code>sample_directory</code>: optional bucket/archiving controls for <code>SAMPLE/</code>.</li>
+</ul>
+<p>Runtime defaults for <code>sample_directory</code> are:</p>
+<ul>
+<li><code>limit: 200</code></li>
+<li><code>width: 6</code></li>
+<li><code>archive_samples: true</code></li>
+<li><code>archive_prune: false</code></li>
+</ul>
+<p>If you omit <code>sample_directory</code>, Jarvis-HEP fills these values automatically.</p>
+<h3 id="sampling"><code>Sampling</code></h3>
+<p><code>Sampling</code> is the center of the card.</p>
+<p>Always define:</p>
+<ul>
+<li><code>Method</code></li>
+<li><code>Variables</code></li>
+<li><code>LogLikelihood</code></li>
+</ul>
+<p>Then add the method-specific control keys for your sampler, for example:</p>
+<ul>
+<li><code>Point number</code> for <code>Random</code></li>
+<li><code>Bounds</code> for many MCMC and nested methods</li>
+<li><code>Radius</code> and <code>MaxAttempt</code> for <code>Bridson</code></li>
+</ul>
+<p>See <a href="../samplers/">Samplers Overview</a> and the detailed sampler pages under <a href="../../samplers/">Sampler Details</a>.</p>
+<h3 id="calculators"><code>Calculators</code></h3>
+<p>Use <code>Calculators</code> when you need to run external programs, scripts, or compiled HEP tools. Typical examples are:</p>
+<ul>
+<li><code>FlexibleSUSY</code></li>
+<li><code>SPheno</code></li>
+<li><code>micrOMEGAs</code></li>
+<li>collider recasting tools</li>
+<li>custom Python/C++ wrappers</li>
+</ul>
+<p>The exact key name is <code>make_paraller</code>, not <code>make_parallel</code>.</p>
+<p>Full reference: <a href="../calculator/">Calculators</a></p>
+<h3 id="operas"><code>Operas</code></h3>
+<p>Use <code>Operas</code> when your observable pipeline can run inside Python through registered Jarvis-Operas operators. This is the lightest way to prototype a scan because you do not need per-sample shadow directories or file adapters.</p>
+<p>Full reference: <a href="../operas/">Operas</a></p>
+<h3 id="envreqs"><code>EnvReqs</code></h3>
+<p><code>EnvReqs</code> lets you state platform requirements before the scan starts.</p>
+<p>Typical beginner usage includes:</p>
+<ul>
+<li>supported operating systems</li>
+<li>minimum Python version</li>
+<li>Python packages</li>
+<li>optional default dependency merge</li>
+</ul>
+<p>Full reference: <a href="../environment/">EnvReqs</a></p>
+<h3 id="utils"><code>Utils</code></h3>
+<p><code>Utils</code> defines helper functions that can be reused inside symbolic expressions. The main current feature is <code>interpolations_1D</code>, which is useful for exclusion curves, tabulated efficiencies, and detector-response approximations.</p>
+<p>Full reference: <a href="../utils/">Utils</a></p>
+<h3 id="libdeps"><code>LibDeps</code></h3>
+<p><code>LibDeps</code> is an optional setup layer for shared libraries or assets that should be installed once before calculator modules run.</p>
+<p>Full reference: <a href="../library/">Libraries</a></p>
+<h3 id="runtime"><code>Runtime</code></h3>
+<p><code>Runtime</code> is optional advanced tuning. The most relevant block is <code>Runtime.Subprocess</code>, which controls subprocess scheduler behavior such as concurrency and logging policy.</p>
+<p>For first scans, you can normally omit it.</p>
+<h2 id="recommended-authoring-order">Recommended Authoring Order</h2>
+<p>Write a new scan YAML in this order:</p>
+<ol>
+<li>Fill <code>Scan</code>.</li>
+<li>Choose one sampler and complete <code>Sampling</code>.</li>
+<li>Decide whether your physics workflow belongs in <code>Calculators</code> or <code>Operas</code>.</li>
+<li>Define the observables that your <code>LogLikelihood</code> needs.</li>
+<li>Add <code>EnvReqs</code>.</li>
+<li>Add <code>Utils</code> only if your likelihood or module expressions need interpolation functions.</li>
+<li>Add <code>LibDeps</code> only if your modules depend on shared installed resources.</li>
+</ol>
+<h2 id="common-mistakes">Common Mistakes</h2>
+<ul>
+<li>Using the wrong key spelling, such as <code>make_parallel</code> instead of <code>make_paraller</code>.</li>
+<li>Forgetting that key names are case-sensitive, for example <code>Point number</code> and <code>LogLikelihood</code>.</li>
+<li>Writing a <code>LogLikelihood</code> expression that depends on observables your modules never produce.</li>
+<li>Mixing up <code>&amp;J</code> and <code>&amp;SRC</code>.</li>
+<li>Treating sampler-specific options as universal. Different methods use different control keys.</li>
+</ul>
+<h2 id="where-to-continue">Where To Continue</h2>
+<ul>
+<li>Start from <a href="../yaml_overview/">YAML Overview</a> for a full walk-through.</li>
+<li>Read <a href="../samplers/">Samplers Overview</a> before choosing a method.</li>
+<li>Use <a href="../calculator/">Calculators</a> or <a href="../operas/">Operas</a> to build the physics workflow.</li>
+</ul>
 
 
 

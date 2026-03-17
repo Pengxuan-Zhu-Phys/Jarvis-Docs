@@ -14,7 +14,7 @@
         <link rel="prev" href="../Installation/">
       
       
-        <link rel="next" href="../../core/summary/">
+        <link rel="next" href="../../core/cli/">
       
       
         
@@ -25,7 +25,7 @@
     
     
       
-        <title>Eggbox (Start Here) - Jarvis-HEP Documentation</title>
+        <title>First Scan (EggBox) - Jarvis-HEP Documentation</title>
       
     
     
@@ -68,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#tutorial-declarative-scanning-with-a-2d-eggbox-example" class="md-skip">
+        <a href="#tutorial-write-your-first-jarvis-hep-scan-card" class="md-skip">
           Skip to content
         </a>
       
@@ -103,7 +103,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Eggbox (Start Here)
+              First Scan (EggBox)
             
           </span>
         </div>
@@ -252,7 +252,7 @@
   <span class="md-ellipsis">
     
   
-    Get Start
+    Quick Start
   
 
     
@@ -268,7 +268,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Get Start
+    Quick Start
   
 
           </label>
@@ -325,7 +325,7 @@
   <span class="md-ellipsis">
     
   
-    Eggbox (Start Here)
+    First Scan (EggBox)
   
 
     
@@ -343,7 +343,7 @@
   <span class="md-ellipsis">
     
   
-    Eggbox (Start Here)
+    First Scan (EggBox)
   
 
     
@@ -369,34 +369,221 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#the-problem-pattern" class="md-nav__link">
+  <a href="#what-you-will-learn" class="md-nav__link">
     <span class="md-ellipsis">
       
-        The Problem Pattern
+        What You Will Learn
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="The Problem Pattern">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#eggbox-function-as-an-simplifed-package" class="md-nav__link">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-black-box-model" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Eggbox Function as an Simplifed Package
+        The Black-Box Model
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Eggbox Function as an Simplifed Package">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#before-you-write-yaml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Before You Write YAML
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1-create-the-scan-section" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Create The Scan Section
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-2-add-the-sampling-section" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Add The Sampling Section
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3-add-envreqs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Add EnvReqs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-4-declare-the-calculator-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: Declare The Calculator Workflow
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 4: Declare The Calculator Workflow">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#eggbox-package-code-see-eggbox" class="md-nav__link">
+  <a href="#the-calculator-section" class="md-nav__link">
     <span class="md-ellipsis">
       
-        EggBox package （Code see eggbox）
+        The Calculator Section
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-each-part-means" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Each Part Means
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What Each Part Means">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#make_paraller" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        make_paraller
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#path" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        path
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modules
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clone_shadow-true" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        clone_shadow: true
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#path-packid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        path: ".../@PackID"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#source" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        source
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        installation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#initialization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        initialization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#executioncommands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        execution.commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#executioninput" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        execution.input
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#executionoutput" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        execution.output
       
     </span>
   </a>
@@ -414,10 +601,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#how-jarvis-hep-models-the-problem" class="md-nav__link">
+  <a href="#step-5-put-everything-together" class="md-nav__link">
     <span class="md-ellipsis">
       
-        How Jarvis-HEP Models the Problem
+        Step 5: Put Everything Together
       
     </span>
   </a>
@@ -425,10 +612,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#step-1-name-the-scan-and-outputs" class="md-nav__link">
+  <a href="#step-6-run-the-scan" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step 1: Name the Scan and Outputs
+        Step 6: Run The Scan
       
     </span>
   </a>
@@ -436,10 +623,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#step-2-choose-a-sampling-method" class="md-nav__link">
+  <a href="#step-7-inspect-the-results" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step 2: Choose a Sampling Method
+        Step 7: Inspect The Results
       
     </span>
   </a>
@@ -447,76 +634,82 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#step-3-set-sampler-controls" class="md-nav__link">
+  <a href="#how-to-adapt-this-to-your-own-physics-case" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step 3: Set Sampler Controls
+        How To Adapt This To Your Own Physics Case
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How To Adapt This To Your Own Physics Case">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#replace-the-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Replace The Parameters
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#step-4-declare-the-calculation" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#replace-the-calculator" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step 4: Declare the Calculation
+        Replace The Calculator
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#step-5-connect-inputs-and-outputs" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#replace-the-input-mapping" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step 5: Connect Inputs and Outputs
+        Replace The Input Mapping
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#step-6-check-the-environment" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#replace-the-output-mapping" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step 6: Check the Environment
+        Replace The Output Mapping
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#step-7-optional-utilities" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#replace-the-likelihood" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step 7: Optional Utilities
+        Replace The Likelihood
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#what-jarvis-hep-does-automatically" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        What Jarvis-HEP Does Automatically
-      
-    </span>
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#adapting-this-to-your-own-problem" class="md-nav__link">
+  <a href="#common-beginner-errors" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Adapting This to Your Own Problem
+        Common Beginner Errors
       
     </span>
   </a>
@@ -527,7 +720,7 @@
   <a href="#what-to-read-next" class="md-nav__link">
     <span class="md-ellipsis">
       
-        What to Read Next
+        What To Read Next
       
     </span>
   </a>
@@ -538,6 +731,34 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/cli/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Command Line Tools
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -582,7 +803,7 @@
   <span class="md-ellipsis">
     
   
-    Documentations
+    Write A Scan
   
 
     
@@ -598,58 +819,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Documentations
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-    
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_1" >
-        
-          
-          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    YAML Configuration
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_1">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    YAML Configuration
+    Write A Scan
   
 
           </label>
@@ -669,7 +839,35 @@
   <span class="md-ellipsis">
     
   
-    Main structure
+    Task YAML Structure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/yaml_overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    YAML Overview
   
 
     
@@ -697,7 +895,7 @@
   <span class="md-ellipsis">
     
   
-    Samplers
+    Samplers Overview
   
 
     
@@ -746,14 +944,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../core/library/" class="md-nav__link">
+      <a href="../../core/calculator/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Libraries
+    Calculators
   
 
     
@@ -774,14 +972,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../core/calculator/" class="md-nav__link">
+      <a href="../../core/operas/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Calculators
+    Operas
   
 
     
@@ -823,65 +1021,6 @@
 
               
             
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-    
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3_2" >
-        
-          
-          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Concepts & Conventions
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_2">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Concepts & Conventions
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
               
                 
   
@@ -889,14 +1028,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../yaml/yaml_introduction/" class="md-nav__link">
+      <a href="../../core/library/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    YAML Format introduction
+    Libraries
   
 
     
@@ -980,7 +1119,7 @@
   <span class="md-ellipsis">
     
   
-    IO file type
+    IO File Types
   
 
     
@@ -1000,84 +1139,22 @@
     </li>
   
 
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
     
       
       
-  
-  
-  
-  
-    
-    
-    
-    
-      
-        
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
-        
-          
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    High Energy Physics Package Wikis
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    High Energy Physics Package Wikis
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
   
   
   
   
     <li class="md-nav__item">
-      <a href="../../package/summary/" class="md-nav__link">
+      <a href="../../jarvisplot/jarvisplot/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    HEP Packages
+    Jarvis-PLOT
   
 
     
@@ -1089,10 +1166,9 @@
     </li>
   
 
-              
-            
-              
-                
+    
+      
+      
   
   
   
@@ -1114,758 +1190,6 @@
   
 
       </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-    
-      
-        
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
-        
-          
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Data Visulisation
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Data Visulisation
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-    
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_1" >
-        
-          
-          <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Jarvis-PLOT
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5_1">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Jarvis-PLOT
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../jarvisplot/jarvisplot/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Overview
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../jarvisplot/quickstart/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Quick Start
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../jarvisplot/cli/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    CLI
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../jarvisplot/yaml-schema/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    YAML Schema
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../jarvisplot/dataset/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    DataSet
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../jarvisplot/figures-layers/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Figures and Layers
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../jarvisplot/transforms/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Transforms
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../jarvisplot/profiling-preprofiling-cache/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Profiling and Cache
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../jarvisplot/methods/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Plot Methods
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../jarvisplot/axes-rect-ternary/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Rect and Ternary Axes
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../jarvisplot/functions-interpolators/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Functions and Interpolators
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../jarvisplot/faq-troubleshooting/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    FAQ
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-    
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_1_13" >
-        
-          
-          <label class="md-nav__link" for="__nav_5_1_13" id="__nav_5_1_13_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Gallery
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_1_13_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5_1_13">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Gallery
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../jarvisplot/pub/eggbox/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    EggBox Dynesty
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../jarvisplot/pub/gm95excess/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    GM95 Excess
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../jarvisplot/pub/hinollp/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    HinoLLP
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../jarvisplot/pub/susy-ewmssm/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    SUSY Run2
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../jarvisplot/pub/cepc/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    CEPC
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-    
-      
-        
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-        
-        
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
-        
-          
-          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Case studies
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_6">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Case studies
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../examples/examples/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Published Works
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
     </li>
   
 
@@ -1897,34 +1221,221 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#the-problem-pattern" class="md-nav__link">
+  <a href="#what-you-will-learn" class="md-nav__link">
     <span class="md-ellipsis">
       
-        The Problem Pattern
+        What You Will Learn
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="The Problem Pattern">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#eggbox-function-as-an-simplifed-package" class="md-nav__link">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-black-box-model" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Eggbox Function as an Simplifed Package
+        The Black-Box Model
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Eggbox Function as an Simplifed Package">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#before-you-write-yaml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Before You Write YAML
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1-create-the-scan-section" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Create The Scan Section
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-2-add-the-sampling-section" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Add The Sampling Section
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3-add-envreqs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Add EnvReqs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-4-declare-the-calculator-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: Declare The Calculator Workflow
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 4: Declare The Calculator Workflow">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#eggbox-package-code-see-eggbox" class="md-nav__link">
+  <a href="#the-calculator-section" class="md-nav__link">
     <span class="md-ellipsis">
       
-        EggBox package （Code see eggbox）
+        The Calculator Section
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-each-part-means" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What Each Part Means
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What Each Part Means">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#make_paraller" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        make_paraller
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#path" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        path
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modules
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clone_shadow-true" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        clone_shadow: true
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#path-packid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        path: ".../@PackID"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#source" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        source
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        installation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#initialization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        initialization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#executioncommands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        execution.commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#executioninput" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        execution.input
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#executionoutput" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        execution.output
       
     </span>
   </a>
@@ -1942,10 +1453,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#how-jarvis-hep-models-the-problem" class="md-nav__link">
+  <a href="#step-5-put-everything-together" class="md-nav__link">
     <span class="md-ellipsis">
       
-        How Jarvis-HEP Models the Problem
+        Step 5: Put Everything Together
       
     </span>
   </a>
@@ -1953,10 +1464,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#step-1-name-the-scan-and-outputs" class="md-nav__link">
+  <a href="#step-6-run-the-scan" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step 1: Name the Scan and Outputs
+        Step 6: Run The Scan
       
     </span>
   </a>
@@ -1964,10 +1475,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#step-2-choose-a-sampling-method" class="md-nav__link">
+  <a href="#step-7-inspect-the-results" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step 2: Choose a Sampling Method
+        Step 7: Inspect The Results
       
     </span>
   </a>
@@ -1975,76 +1486,82 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#step-3-set-sampler-controls" class="md-nav__link">
+  <a href="#how-to-adapt-this-to-your-own-physics-case" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step 3: Set Sampler Controls
+        How To Adapt This To Your Own Physics Case
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="How To Adapt This To Your Own Physics Case">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#replace-the-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Replace The Parameters
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#step-4-declare-the-calculation" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#replace-the-calculator" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step 4: Declare the Calculation
+        Replace The Calculator
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#step-5-connect-inputs-and-outputs" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#replace-the-input-mapping" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step 5: Connect Inputs and Outputs
+        Replace The Input Mapping
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#step-6-check-the-environment" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#replace-the-output-mapping" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step 6: Check the Environment
+        Replace The Output Mapping
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#step-7-optional-utilities" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#replace-the-likelihood" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step 7: Optional Utilities
+        Replace The Likelihood
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#what-jarvis-hep-does-automatically" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        What Jarvis-HEP Does Automatically
-      
-    </span>
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#adapting-this-to-your-own-problem" class="md-nav__link">
+  <a href="#common-beginner-errors" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Adapting This to Your Own Problem
+        Common Beginner Errors
       
     </span>
   </a>
@@ -2055,7 +1572,7 @@
   <a href="#what-to-read-next" class="md-nav__link">
     <span class="md-ellipsis">
       
-        What to Read Next
+        What To Read Next
       
     </span>
   </a>
@@ -2079,184 +1596,356 @@
 
 
 
-<h1 id="tutorial-declarative-scanning-with-a-2d-eggbox-example">Tutorial: Declarative Scanning with a 2D Eggbox Example</h1>
-<p>This tutorial uses <code>Example_Bridson.yaml</code> as a <strong>working example</strong>.</p>
-<p>The point is not the Eggbox model.
-The point is <strong>how to describe a scan in Jarvis-HEP</strong>.</p>
-<p>If you can follow this example, you can adapt Jarvis-HEP to other problems.</p>
-<hr />
-<h2 id="the-problem-pattern">The Problem Pattern</h2>
-<p>To study a Beyond Standard Model numerically, one typically needs to scan its parameter space. Most scan problems look like this:</p>
+<h1 id="tutorial-write-your-first-jarvis-hep-scan-card">Tutorial: Write Your First Jarvis-HEP Scan Card</h1>
+<p>This tutorial is for a HEP researcher who wants to write a Jarvis-HEP YAML file from scratch.</p>
+<p>We use the simple <code>EggBox</code> calculator as a stand-in for a real physics package. The goal is not the EggBox function itself. The goal is to learn the authoring pattern you will reuse for your own model.</p>
+<h2 id="what-you-will-learn">What You Will Learn</h2>
+<p>By the end of this page, you will know how to write a YAML card that:</p>
 <ul>
-<li>Pick some parameters</li>
-<li>Explore their values with a sampler</li>
-<li>Run an external program at each point</li>
-<li>Save the results</li>
+<li>defines a scan</li>
+<li>samples two parameters</li>
+<li>runs one external calculator</li>
+<li>reads one observable from the calculator output</li>
+<li>builds a log-likelihood from that observable</li>
 </ul>
-<p>Jarvis-HEP is built for this pattern. </p>
-<h3 id="eggbox-function-as-an-simplifed-package">Eggbox Function as an Simplifed Package</h3>
-<p>We begin with the Eggbox function, a purely mathematical function.</p>
-<p>The Eggbox function here is defined as a two-dimensional function of two real variables,
-denoted by <code>x</code> and <code>y</code>.</p>
-<p><code>z(x, y) = (sin(x) * cos(y) + 2)^5</code></p>
-<p>For each input point <code>(x, y)</code>, the function returns a single scalar value <code>z</code>. In a realistic physics study, <code>z</code> could represent any theoretical prediction or observable, for example the Higgs boson mass in the MSSM. Without a numerical scan, it is hard to see how such an observable behaves across the parameter space.</p>
+<p>The same pattern works for real HEP tools such as spectrum generators, dark matter codes, or collider recasting pipelines.</p>
+<h2 id="the-black-box-model">The Black-Box Model</h2>
+<p>Jarvis-HEP treats your physics code as a black box.</p>
+<p>For each sampled point, Jarvis-HEP does the following:</p>
+<ol>
+<li>writes one input file</li>
+<li>runs your code</li>
+<li>reads one output file</li>
+<li>stores the requested observables</li>
+<li>evaluates the <code>LogLikelihood</code></li>
+</ol>
+<p>For the EggBox example, the external program reads <code>input.json</code> and writes <code>output.json</code>.</p>
+<p>The function is:</p>
+<pre><code class="language-text">z(x, y) = (sin(x) * cos(y) + 2)^5
+</code></pre>
+<p>We pretend that an experiment measures:</p>
+<pre><code class="language-text">z = 100 +/- 10
+</code></pre>
+<p>So the scan goal is to find parameter points where the predicted <code>z</code> value is compatible with that target.</p>
 <p><img alt="Eggbox surface" src="../../assets/eggbox_vis.png" /></p>
-<p>As shown in the above figure, a three-dimensional surface plot of <code>z(xx, yy)</code> clearly illustrates this structure. This function has several characteristic features:
-- It is smooth and continuous
-- It exhibits a highly structured, multi-peak landscape
-- Many local maxima and minima appear across the parameter space</p>
-<p>These features make the Eggbox function a standard test case
-for sampling algorithms and scanning workflows.</p>
-<hr />
-<p>Suppose an experiment measures this observable as</p>
-<p><code>z = 100 ± 10</code>.</p>
-<p>Our task is then to identify which regions in the <code>(x, y)</code> parameter space
-are compatible with this measurement.</p>
-<p>To make this numerical study practical, we implement a small package
-that computes <code>z</code> for any given <code>(x, y)</code>.</p>
-<hr />
-<h4 id="eggbox-package-code-see-eggbox">EggBox package （Code see <a href="../External/Inertial/EggBox">eggbox</a>）</h4>
-<p>We now move from the mathematical description
-to the computational abstraction used by Jarvis-HEP.</p>
-<p>In Jarvis-HEP, an <em>input point</em> refers to one complete set of parameter values.
-For the Eggbox example, one input point is the pair <code>(xx, yy)</code>.</p>
-<p>The Eggbox calculation is not treated as a direct function call.
-Instead, it is packaged as a small external program,
-referred to as a <strong>calculator</strong>.</p>
-<p>The calculator follows a strict input–output contract:</p>
+<h2 id="before-you-write-yaml">Before You Write YAML</h2>
+<p>Think in this order:</p>
 <ol>
-<li>Jarvis-HEP writes the current input point to <code>input.json</code></li>
-<li>Jarvis-HEP executes the calculator program</li>
-<li>The calculator reads <code>input.json</code> and computes the Eggbox value</li>
-<li>The calculator writes results to <code>output.json</code></li>
-<li>Jarvis-HEP reads <code>output.json</code> and records the requested outputs</li>
+<li>Which parameters do I scan?</li>
+<li>Which program computes my observables?</li>
+<li>Which output values do I want to save?</li>
+<li>Which likelihood should Jarvis-HEP use?</li>
 </ol>
-<p>In this example, the calculator writes:
-- <code>z</code>: the value of the Eggbox function
-- <code>Time</code>: a dummy field used to mimic runtime information</p>
-<p>From Jarvis-HEP’s perspective, the calculator is a complete black box.
-Jarvis-HEP does not inspect the internal code or the mathematical expression.</p>
-<p>This example demonstrates the core abstraction used by Jarvis-HEP:
-any function or model can be used,
-as long as it can be packaged as a program
-with well-defined inputs and outputs.</p>
-<h2 id="how-jarvis-hep-models-the-problem">How Jarvis-HEP Models the Problem</h2>
-<p>Jarvis-HEP splits the task into parts:</p>
+<p>For this tutorial, the answers are:</p>
 <ul>
-<li><strong>Sampling</strong>: which points to try</li>
-<li><strong>Calculation</strong>: what to run at each point</li>
-<li><strong>Workflow</strong>: how everything is connected and executed</li>
+<li>sampled parameters: <code>x</code>, <code>y</code></li>
+<li>calculator: <code>EggBox</code></li>
+<li>observable: <code>z</code></li>
+<li>likelihood: <code>LogGauss(z, 100, 10)</code></li>
 </ul>
-<p>You do not write scripts to glue these together.
-You <strong>declare</strong> them in YAML.</p>
-<p>See:
-- <a href="../../yaml/yaml_introduction/">Guide to YAML</a></p>
-<hr />
-<h2 id="step-1-name-the-scan-and-outputs">Step 1: Name the Scan and Outputs</h2>
-<p>Open <code>Example_Bridson.yaml</code>.</p>
-<p>The <code>Scan</code> section does basic setup:
-- A scan name
-- Output paths
-- Bookkeeping info</p>
-<p>This section does not change physics or algorithms.</p>
-<p>See:
-- <a href="scan.md">Scan</a></p>
-<hr />
-<h2 id="step-2-choose-a-sampling-method">Step 2: Choose a Sampling Method</h2>
-<p>The <code>Sampling</code> section answers two questions:
-- Which sampler is used?
-- Which variables are sampled?</p>
-<p>In this example:
-- The sampler is <code>Bridson</code>
-- Two variables are defined
-- Each variable has bounds</p>
-<p>Jarvis-HEP uses this to generate points.
-Nothing is executed yet.</p>
-<p>See:
-- <a href="sampling.md">Sampling</a></p>
-<hr />
-<h2 id="step-3-set-sampler-controls">Step 3: Set Sampler Controls</h2>
-<p>Some samplers need extra settings.</p>
-<p>In <code>Example_Bridson.yaml</code> these include:
-- A radius
-- A limit on attempts</p>
-<p>These settings affect <em>how points are proposed</em>.
-They do not affect calculations.</p>
-<hr />
-<h2 id="step-4-declare-the-calculation">Step 4: Declare the Calculation</h2>
-<p>The <code>Calculators</code> section describes an external program.</p>
-<p>Jarvis-HEP treats it as a <strong>black box</strong>.</p>
-<p>You declare:
-- How inputs are prepared
-- How the program is run
-- Where outputs are read from</p>
-<p>Jarvis-HEP handles:
-- Working directories
-- Execution order
-- Parallel runs</p>
-<p>No glue scripts are needed.</p>
-<p>See:
-- <a href="calculators.md">Calculators</a></p>
-<hr />
-<h2 id="step-5-connect-inputs-and-outputs">Step 5: Connect Inputs and Outputs</h2>
-<p>Inside <code>Calculators</code>, mappings are defined.</p>
-<p>These mappings say:
-- Which sampled variables go to which inputs
-- Which files or values are read as outputs</p>
-<p>This is the only place where sampling meets calculation.</p>
-<hr />
-<h2 id="step-6-check-the-environment">Step 6: Check the Environment</h2>
-<p>The <code>EnvReqs</code> section lists requirements:
-- Supported systems
-- Required tools or libraries</p>
-<p>Jarvis-HEP checks these before running.</p>
-<p>See:
-- <a href="envreqs.md">EnvReqs</a></p>
-<hr />
-<h2 id="step-7-optional-utilities">Step 7: Optional Utilities</h2>
-<p>The <code>Utils</code> section defines shared helpers.</p>
-<p>Examples:
-- Tables
-- Interpolations
-- Reusable data</p>
-<p>These helpers do not control sampling or execution.</p>
-<p>See:
-- <a href="utils.md">Utils</a></p>
-<hr />
-<h2 id="what-jarvis-hep-does-automatically">What Jarvis-HEP Does Automatically</h2>
-<p>From one YAML file, Jarvis-HEP will:
-- Build the workflow
-- Generate sampling points
-- Run the external program
-- Collect outputs
-- Save results in a fixed layout</p>
-<p>You do not manage loops or job control.</p>
-<hr />
-<h2 id="adapting-this-to-your-own-problem">Adapting This to Your Own Problem</h2>
-<p>To use Jarvis-HEP for a new task:</p>
-<ol>
-<li>List the parameters you want to scan</li>
-<li>Pick a sampling method</li>
-<li>Treat your code as a black box</li>
-<li>Declare inputs and outputs in YAML</li>
-<li>Run Jarvis-HEP</li>
-</ol>
-<p>If your task fits this list, it fits Jarvis-HEP.</p>
-<hr />
-<h2 id="what-to-read-next">What to Read Next</h2>
+<h2 id="step-1-create-the-scan-section">Step 1: Create The <code>Scan</code> Section</h2>
+<p>Start with the run name and result directory.</p>
+<pre><code class="language-yaml">Scan:
+  name: &quot;EggBox_Random_Tutorial&quot;
+  save_dir: &quot;&amp;J/Results&quot;
+</code></pre>
+<p>This tells Jarvis-HEP to create:</p>
+<pre><code class="language-text">&amp;J/Results/EggBox_Random_Tutorial/
+</code></pre>
+<p>Inside that directory, Jarvis-HEP will create:</p>
 <ul>
-<li>YAML keys and options:</li>
-<li>
-<p><a href="yaml_reference.md">YAML Reference</a></p>
-</li>
-<li>
-<p>More examples:</p>
-</li>
-<li><a href="examples.md">Examples</a></li>
+<li><code>SAMPLE/</code></li>
+<li><code>LOG/</code></li>
+<li><code>DATABASE/</code></li>
 </ul>
-<p>Read this tutorial once.
-Then copy an example and modify it.
-````</p>
+<p>Reference: <a href="../../core/summary/">Task YAML Structure</a></p>
+<h2 id="step-2-add-the-sampling-section">Step 2: Add The <code>Sampling</code> Section</h2>
+<p>For a first tutorial, use <code>Random</code>. It is the simplest sampler to understand.</p>
+<pre><code class="language-yaml">Sampling:
+  Method: &quot;Random&quot;
+  Variables:
+    - name: x
+      description: &quot;First scan coordinate&quot;
+      distribution:
+        type: Flat
+        parameters:
+          min: 0.0
+          max: 5.0
+    - name: y
+      description: &quot;Second scan coordinate&quot;
+      distribution:
+        type: Flat
+        parameters:
+          min: 0.0
+          max: 5.0
+  Point number: 2000
+  LogLikelihood:
+    - name: LogL_Z
+      expression: &quot;LogGauss(z, 100, 10)&quot;
+</code></pre>
+<p>Important details:</p>
+<ul>
+<li><code>Method</code> chooses the sampler.</li>
+<li><code>Variables</code> defines the sampled parameters.</li>
+<li><code>Point number</code> is the exact control key for <code>Random</code>.</li>
+<li><code>LogLikelihood</code> uses the observable <code>z</code>, which will be produced later by the calculator.</li>
+</ul>
+<p>Reference: <a href="../../core/samplers/">Samplers Overview</a></p>
+<h2 id="step-3-add-envreqs">Step 3: Add <code>EnvReqs</code></h2>
+<p>Now declare the minimum runtime requirements.</p>
+<pre><code class="language-yaml">EnvReqs:
+  OS:
+    - name: linux
+      version: &quot;&gt;=5.10.0&quot;
+    - name: Darwin
+      version: &quot;&gt;=10.14&quot;
+  Python:
+    version: &quot;&gt;=3.10&quot;
+    Dependencies: []
+</code></pre>
+<p>For a first card, this is usually enough.</p>
+<p>Reference: <a href="../../core/environment/">EnvReqs</a></p>
+<h2 id="step-4-declare-the-calculator-workflow">Step 4: Declare The Calculator Workflow</h2>
+<p>This is the part that most users actually need to learn.</p>
+<p>You must tell Jarvis-HEP:</p>
+<ul>
+<li>where the external code lives</li>
+<li>where each sample should run</li>
+<li>how to build the input file</li>
+<li>how to run the program</li>
+<li>how to read the output file</li>
+</ul>
+<h3 id="the-calculator-section">The Calculator Section</h3>
+<pre><code class="language-yaml">Calculators:
+  make_paraller: 4
+  path: &quot;&amp;J/Workshop/Program&quot;
+  Modules:
+    - name: EggBox
+      required_modules: []
+      clone_shadow: true
+      path: &quot;&amp;J/Workshop/Program/EggBox/@PackID&quot;
+      source: &quot;&amp;J/External/Inertial/EggBox&quot;
+      installation:
+        - &quot;cp -r ${source}/* ${path}&quot;
+      initialization:
+        - &quot;cp ${source}/input.json ${path}/input.json&quot;
+        - &quot;rm -f ${path}/output.json&quot;
+      execution:
+        path: &quot;&amp;J/Workshop/Program/EggBox/@PackID&quot;
+        commands:
+          - &quot;./eggbox.py&quot;
+        input:
+          - name: EggBoxInput
+            path: &quot;&amp;J/Workshop/Program/EggBox/@PackID/input.json&quot;
+            type: &quot;Json&quot;
+            save: false
+            actions:
+              - type: &quot;Dump&quot;
+                variables:
+                  - {name: &quot;xx&quot;, expression: &quot;x * Pi&quot;}
+                  - {name: &quot;yy&quot;, expression: &quot;y * Pi&quot;}
+        output:
+          - name: EggBoxOutput
+            path: &quot;&amp;J/Workshop/Program/EggBox/@PackID/output.json&quot;
+            type: &quot;Json&quot;
+            save: true
+            variables:
+              - {name: z}
+</code></pre>
+<h3 id="what-each-part-means">What Each Part Means</h3>
+<h4 id="make_paraller"><code>make_paraller</code></h4>
+<p>Number of worker slots for calculator execution. The key spelling is historical and must remain <code>make_paraller</code>.</p>
+<h4 id="path"><code>path</code></h4>
+<p>Base directory for per-sample calculator workspaces.</p>
+<h4 id="modules"><code>Modules</code></h4>
+<p>List of calculator modules. Here we only have one module, <code>EggBox</code>.</p>
+<h4 id="clone_shadow-true"><code>clone_shadow: true</code></h4>
+<p>Run each sample in its own shadow directory. This is the safe default for external tools that write files.</p>
+<h4 id="path-packid"><code>path: ".../@PackID"</code></h4>
+<p><code>@PackID</code> is replaced by the current sample work directory id.</p>
+<h4 id="source"><code>source</code></h4>
+<p>Location of the external code template or installed package.</p>
+<h4 id="installation"><code>installation</code></h4>
+<p>Commands used to copy or prepare the program directory.</p>
+<h4 id="initialization"><code>initialization</code></h4>
+<p>Commands run before each sample evaluation.</p>
+<p>Here we:</p>
+<ul>
+<li>copy the template <code>input.json</code></li>
+<li>remove any stale <code>output.json</code></li>
+</ul>
+<h4 id="executioncommands"><code>execution.commands</code></h4>
+<p>Actual commands used to run the external calculator.</p>
+<h4 id="executioninput"><code>execution.input</code></h4>
+<p>Defines how Jarvis-HEP writes the calculator input file.</p>
+<p>In this example:</p>
+<ul>
+<li>the file type is <code>Json</code></li>
+<li>the action type is <code>Dump</code></li>
+<li><code>x</code> and <code>y</code> are converted into the file fields <code>xx</code> and <code>yy</code></li>
+<li>we multiply them by <code>Pi</code> before writing, to match the EggBox code convention</li>
+</ul>
+<h4 id="executionoutput"><code>execution.output</code></h4>
+<p>Defines how Jarvis-HEP reads calculator output back into observables.</p>
+<p>Here the JSON output contains a key <code>z</code>, so we expose it as the Jarvis observable <code>z</code>.</p>
+<p>Reference: <a href="../../core/calculator/">Calculators</a></p>
+<h2 id="step-5-put-everything-together">Step 5: Put Everything Together</h2>
+<p>This is the complete tutorial card.</p>
+<pre><code class="language-yaml">Scan:
+  name: &quot;EggBox_Random_Tutorial&quot;
+  save_dir: &quot;&amp;J/Results&quot;
+
+Sampling:
+  Method: &quot;Random&quot;
+  Variables:
+    - name: x
+      description: &quot;First scan coordinate&quot;
+      distribution:
+        type: Flat
+        parameters:
+          min: 0.0
+          max: 5.0
+    - name: y
+      description: &quot;Second scan coordinate&quot;
+      distribution:
+        type: Flat
+        parameters:
+          min: 0.0
+          max: 5.0
+  Point number: 2000
+  LogLikelihood:
+    - name: LogL_Z
+      expression: &quot;LogGauss(z, 100, 10)&quot;
+
+EnvReqs:
+  OS:
+    - name: linux
+      version: &quot;&gt;=5.10.0&quot;
+    - name: Darwin
+      version: &quot;&gt;=10.14&quot;
+  Python:
+    version: &quot;&gt;=3.10&quot;
+    Dependencies: []
+
+Calculators:
+  make_paraller: 4
+  path: &quot;&amp;J/Workshop/Program&quot;
+  Modules:
+    - name: EggBox
+      required_modules: []
+      clone_shadow: true
+      path: &quot;&amp;J/Workshop/Program/EggBox/@PackID&quot;
+      source: &quot;&amp;J/External/Inertial/EggBox&quot;
+      installation:
+        - &quot;cp -r ${source}/* ${path}&quot;
+      initialization:
+        - &quot;cp ${source}/input.json ${path}/input.json&quot;
+        - &quot;rm -f ${path}/output.json&quot;
+      execution:
+        path: &quot;&amp;J/Workshop/Program/EggBox/@PackID&quot;
+        commands:
+          - &quot;./eggbox.py&quot;
+        input:
+          - name: EggBoxInput
+            path: &quot;&amp;J/Workshop/Program/EggBox/@PackID/input.json&quot;
+            type: &quot;Json&quot;
+            save: false
+            actions:
+              - type: &quot;Dump&quot;
+                variables:
+                  - {name: &quot;xx&quot;, expression: &quot;x * Pi&quot;}
+                  - {name: &quot;yy&quot;, expression: &quot;y * Pi&quot;}
+        output:
+          - name: EggBoxOutput
+            path: &quot;&amp;J/Workshop/Program/EggBox/@PackID/output.json&quot;
+            type: &quot;Json&quot;
+            save: true
+            variables:
+              - {name: z}
+</code></pre>
+<h2 id="step-6-run-the-scan">Step 6: Run The Scan</h2>
+<p>If your project workspace is already prepared, run:</p>
+<pre><code class="language-bash">Jarvis /path/to/your/project/bin/EggBox_Random_Tutorial.yaml
+</code></pre>
+<p>If you are working inside the source tree example, you can also compare with the shipped cards under <code>Jarvis-HEP/bin/EggBox/</code>.</p>
+<h2 id="step-7-inspect-the-results">Step 7: Inspect The Results</h2>
+<p>After the run, inspect:</p>
+<ul>
+<li><code>Results/EggBox_Random_Tutorial/LOG/</code></li>
+<li><code>Results/EggBox_Random_Tutorial/SAMPLE/</code></li>
+<li><code>Results/EggBox_Random_Tutorial/DATABASE/</code></li>
+</ul>
+<p>The most important products are:</p>
+<ul>
+<li>the main log file in <code>LOG/</code></li>
+<li>the HDF5 database in <code>DATABASE/</code></li>
+<li>any saved calculator output files under <code>SAMPLE/</code></li>
+</ul>
+<p>Reference: <a href="../../core/io_summary/">IO File Types</a></p>
+<h2 id="how-to-adapt-this-to-your-own-physics-case">How To Adapt This To Your Own Physics Case</h2>
+<p>Replace the tutorial ingredients one by one.</p>
+<h3 id="replace-the-parameters">Replace The Parameters</h3>
+<p>Change <code>x</code> and <code>y</code> to your model parameters:</p>
+<ul>
+<li><code>M1</code></li>
+<li><code>M2</code></li>
+<li><code>TanBETA</code></li>
+<li>couplings</li>
+<li>masses</li>
+<li>nuisance inputs</li>
+</ul>
+<h3 id="replace-the-calculator">Replace The Calculator</h3>
+<p>Change the <code>EggBox</code> module into your real code:</p>
+<ul>
+<li><code>FlexibleSUSY</code></li>
+<li><code>SPheno</code></li>
+<li><code>micrOMEGAs</code></li>
+<li>your own Python wrapper</li>
+<li>your own executable</li>
+</ul>
+<h3 id="replace-the-input-mapping">Replace The Input Mapping</h3>
+<p>Instead of dumping <code>xx</code> and <code>yy</code>, map your physics parameters into:</p>
+<ul>
+<li>JSON fields</li>
+<li>SLHA placeholders</li>
+<li>SLHA blocks and entries</li>
+</ul>
+<h3 id="replace-the-output-mapping">Replace The Output Mapping</h3>
+<p>Instead of reading <code>z</code>, read your real observables:</p>
+<ul>
+<li>Higgs masses</li>
+<li>relic density</li>
+<li>direct-detection cross sections</li>
+<li>flavor observables</li>
+<li>collider likelihood terms</li>
+</ul>
+<h3 id="replace-the-likelihood">Replace The Likelihood</h3>
+<p>Instead of:</p>
+<pre><code class="language-yaml">expression: &quot;LogGauss(z, 100, 10)&quot;
+</code></pre>
+<p>write the likelihood you actually need, for example:</p>
+<pre><code class="language-yaml">expression: &quot;LogGauss(mh1, 125.09, 3.0)&quot;
+</code></pre>
+<p>or combine several terms:</p>
+<pre><code class="language-yaml">LogLikelihood:
+  - {name: LogL_Higgs, expression: &quot;LogGauss(mh1, 125.09, 3.0)&quot;}
+  - {name: LogL_DM, expression: &quot;LogGauss(Omega_h2, 0.120, 0.012)&quot;}
+</code></pre>
+<h2 id="common-beginner-errors">Common Beginner Errors</h2>
+<ul>
+<li>forgetting the exact key name <code>Point number</code></li>
+<li>forgetting the exact key name <code>make_paraller</code></li>
+<li>using a likelihood expression that depends on an observable you never read from output</li>
+<li>writing paths without understanding <code>&amp;J</code>, <code>&amp;SRC</code>, and <code>@PackID</code></li>
+<li>copying a sampler-specific setting from the wrong sampler page</li>
+</ul>
+<h2 id="what-to-read-next">What To Read Next</h2>
+<ul>
+<li><a href="../../core/yaml_overview/">How To Write A Scan YAML</a></li>
+<li><a href="../../core/calculator/">Calculators</a></li>
+<li><a href="../../core/io_summary/">IO File Types</a></li>
+<li><a href="../../core/samplers/">Samplers Overview</a></li>
+</ul>
 
 
 

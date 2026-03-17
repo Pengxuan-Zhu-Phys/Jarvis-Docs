@@ -2,7 +2,7 @@
 
 ## YAML and Run
 
-- YAML: [SUSYRun2_EWMSSM.yaml](../SUSYRun2/SUSYRun2_EWMSSM.yaml)
+- YAML: [SUSYRun2_EWMSSM.yaml](SUSYRun2/SUSYRun2_EWMSSM.yaml)
 
 ```bash
 jplot SUSYRun2_EWMSSM.yaml

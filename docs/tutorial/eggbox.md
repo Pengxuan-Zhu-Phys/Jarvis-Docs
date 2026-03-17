@@ -1,254 +1,442 @@
-# Tutorial: Declarative Scanning with a 2D Eggbox Example
+# Tutorial: Write Your First Jarvis-HEP Scan Card
 
-This tutorial uses `Example_Bridson.yaml` as a **working example**.
+This tutorial is for a HEP researcher who wants to write a Jarvis-HEP YAML file from scratch.
 
-The point is not the Eggbox model.
-The point is **how to describe a scan in Jarvis-HEP**.
+We use the simple `EggBox` calculator as a stand-in for a real physics package. The goal is not the EggBox function itself. The goal is to learn the authoring pattern you will reuse for your own model.
 
-If you can follow this example, you can adapt Jarvis-HEP to other problems.
+## What You Will Learn
 
----
+By the end of this page, you will know how to write a YAML card that:
 
-## The Problem Pattern
+- defines a scan
+- samples two parameters
+- runs one external calculator
+- reads one observable from the calculator output
+- builds a log-likelihood from that observable
 
-To study a Beyond Standard Model numerically, one typically needs to scan its parameter space. Most scan problems look like this:
+The same pattern works for real HEP tools such as spectrum generators, dark matter codes, or collider recasting pipelines.
 
-- Pick some parameters
-- Explore their values with a sampler
-- Run an external program at each point
-- Save the results
+## The Black-Box Model
 
-Jarvis-HEP is built for this pattern. 
+Jarvis-HEP treats your physics code as a black box.
 
-### Eggbox Function as an Simplifed Package
+For each sampled point, Jarvis-HEP does the following:
 
-We begin with the Eggbox function, a purely mathematical function.
+1. writes one input file
+2. runs your code
+3. reads one output file
+4. stores the requested observables
+5. evaluates the `LogLikelihood`
 
-The Eggbox function here is defined as a two-dimensional function of two real variables,
-denoted by `x` and `y`.
+For the EggBox example, the external program reads `input.json` and writes `output.json`.
 
-`z(x, y) = (sin(x) * cos(y) + 2)^5`
+The function is:
 
-For each input point `(x, y)`, the function returns a single scalar value `z`. In a realistic physics study, `z` could represent any theoretical prediction or observable, for example the Higgs boson mass in the MSSM. Without a numerical scan, it is hard to see how such an observable behaves across the parameter space.
+```text
+z(x, y) = (sin(x) * cos(y) + 2)^5
+```
+
+We pretend that an experiment measures:
+
+```text
+z = 100 +/- 10
+```
+
+So the scan goal is to find parameter points where the predicted `z` value is compatible with that target.
 
 ![Eggbox surface](../assets/eggbox_vis.png)
 
-As shown in the above figure, a three-dimensional surface plot of `z(xx, yy)` clearly illustrates this structure. This function has several characteristic features:
-- It is smooth and continuous
-- It exhibits a highly structured, multi-peak landscape
-- Many local maxima and minima appear across the parameter space
+## Before You Write YAML
 
-These features make the Eggbox function a standard test case
-for sampling algorithms and scanning workflows.
+Think in this order:
 
----
+1. Which parameters do I scan?
+2. Which program computes my observables?
+3. Which output values do I want to save?
+4. Which likelihood should Jarvis-HEP use?
 
-Suppose an experiment measures this observable as
+For this tutorial, the answers are:
 
-`z = 100 ± 10`.
+- sampled parameters: `x`, `y`
+- calculator: `EggBox`
+- observable: `z`
+- likelihood: `LogGauss(z, 100, 10)`
 
-Our task is then to identify which regions in the `(x, y)` parameter space
-are compatible with this measurement.
+## Step 1: Create The `Scan` Section
 
-To make this numerical study practical, we implement a small package
-that computes `z` for any given `(x, y)`.
+Start with the run name and result directory.
 
----
-#### EggBox package （Code see [eggbox](../External/Inertial/EggBox)）
+```yaml
+Scan:
+  name: "EggBox_Random_Tutorial"
+  save_dir: "&J/Results"
+```
 
+This tells Jarvis-HEP to create:
 
-We now move from the mathematical description
-to the computational abstraction used by Jarvis-HEP.
+```text
+&J/Results/EggBox_Random_Tutorial/
+```
 
-In Jarvis-HEP, an *input point* refers to one complete set of parameter values.
-For the Eggbox example, one input point is the pair `(xx, yy)`.
+Inside that directory, Jarvis-HEP will create:
 
-The Eggbox calculation is not treated as a direct function call.
-Instead, it is packaged as a small external program,
-referred to as a **calculator**.
+- `SAMPLE/`
+- `LOG/`
+- `DATABASE/`
 
-The calculator follows a strict input–output contract:
+Reference: [Task YAML Structure](../core/summary.md)
 
-1. Jarvis-HEP writes the current input point to `input.json`
-2. Jarvis-HEP executes the calculator program
-3. The calculator reads `input.json` and computes the Eggbox value
-4. The calculator writes results to `output.json`
-5. Jarvis-HEP reads `output.json` and records the requested outputs
+## Step 2: Add The `Sampling` Section
 
-In this example, the calculator writes:
-- `z`: the value of the Eggbox function
-- `Time`: a dummy field used to mimic runtime information
+For a first tutorial, use `Random`. It is the simplest sampler to understand.
 
-From Jarvis-HEP’s perspective, the calculator is a complete black box.
-Jarvis-HEP does not inspect the internal code or the mathematical expression.
+```yaml
+Sampling:
+  Method: "Random"
+  Variables:
+    - name: x
+      description: "First scan coordinate"
+      distribution:
+        type: Flat
+        parameters:
+          min: 0.0
+          max: 5.0
+    - name: y
+      description: "Second scan coordinate"
+      distribution:
+        type: Flat
+        parameters:
+          min: 0.0
+          max: 5.0
+  Point number: 2000
+  LogLikelihood:
+    - name: LogL_Z
+      expression: "LogGauss(z, 100, 10)"
+```
 
-This example demonstrates the core abstraction used by Jarvis-HEP:
-any function or model can be used,
-as long as it can be packaged as a program
-with well-defined inputs and outputs.
-## How Jarvis-HEP Models the Problem
+Important details:
 
-Jarvis-HEP splits the task into parts:
+- `Method` chooses the sampler.
+- `Variables` defines the sampled parameters.
+- `Point number` is the exact control key for `Random`.
+- `LogLikelihood` uses the observable `z`, which will be produced later by the calculator.
 
-- **Sampling**: which points to try
-- **Calculation**: what to run at each point
-- **Workflow**: how everything is connected and executed
+Reference: [Samplers Overview](../core/samplers.md)
 
-You do not write scripts to glue these together.
-You **declare** them in YAML.
+## Step 3: Add `EnvReqs`
 
-See:
-- [Guide to YAML](../yaml/yaml_introduction.md)
+Now declare the minimum runtime requirements.
 
----
+```yaml
+EnvReqs:
+  OS:
+    - name: linux
+      version: ">=5.10.0"
+    - name: Darwin
+      version: ">=10.14"
+  Python:
+    version: ">=3.10"
+    Dependencies: []
+```
 
-## Step 1: Name the Scan and Outputs
+For a first card, this is usually enough.
 
-Open `Example_Bridson.yaml`.
+Reference: [EnvReqs](../core/environment.md)
 
-The `Scan` section does basic setup:
-- A scan name
-- Output paths
-- Bookkeeping info
+## Step 4: Declare The Calculator Workflow
 
-This section does not change physics or algorithms.
+This is the part that most users actually need to learn.
 
-See:
-- [Scan](scan.md)
+You must tell Jarvis-HEP:
 
----
+- where the external code lives
+- where each sample should run
+- how to build the input file
+- how to run the program
+- how to read the output file
 
-## Step 2: Choose a Sampling Method
+### The Calculator Section
 
-The `Sampling` section answers two questions:
-- Which sampler is used?
-- Which variables are sampled?
+```yaml
+Calculators:
+  make_paraller: 4
+  path: "&J/Workshop/Program"
+  Modules:
+    - name: EggBox
+      required_modules: []
+      clone_shadow: true
+      path: "&J/Workshop/Program/EggBox/@PackID"
+      source: "&J/External/Inertial/EggBox"
+      installation:
+        - "cp -r ${source}/* ${path}"
+      initialization:
+        - "cp ${source}/input.json ${path}/input.json"
+        - "rm -f ${path}/output.json"
+      execution:
+        path: "&J/Workshop/Program/EggBox/@PackID"
+        commands:
+          - "./eggbox.py"
+        input:
+          - name: EggBoxInput
+            path: "&J/Workshop/Program/EggBox/@PackID/input.json"
+            type: "Json"
+            save: false
+            actions:
+              - type: "Dump"
+                variables:
+                  - {name: "xx", expression: "x * Pi"}
+                  - {name: "yy", expression: "y * Pi"}
+        output:
+          - name: EggBoxOutput
+            path: "&J/Workshop/Program/EggBox/@PackID/output.json"
+            type: "Json"
+            save: true
+            variables:
+              - {name: z}
+```
+
+### What Each Part Means
+
+#### `make_paraller`
+
+Number of worker slots for calculator execution. The key spelling is historical and must remain `make_paraller`.
+
+#### `path`
+
+Base directory for per-sample calculator workspaces.
+
+#### `Modules`
+
+List of calculator modules. Here we only have one module, `EggBox`.
+
+#### `clone_shadow: true`
+
+Run each sample in its own shadow directory. This is the safe default for external tools that write files.
+
+#### `path: ".../@PackID"`
+
+`@PackID` is replaced by the current sample work directory id.
+
+#### `source`
+
+Location of the external code template or installed package.
+
+#### `installation`
+
+Commands used to copy or prepare the program directory.
+
+#### `initialization`
+
+Commands run before each sample evaluation.
+
+Here we:
+
+- copy the template `input.json`
+- remove any stale `output.json`
+
+#### `execution.commands`
+
+Actual commands used to run the external calculator.
+
+#### `execution.input`
+
+Defines how Jarvis-HEP writes the calculator input file.
 
 In this example:
-- The sampler is `Bridson`
-- Two variables are defined
-- Each variable has bounds
 
-Jarvis-HEP uses this to generate points.
-Nothing is executed yet.
+- the file type is `Json`
+- the action type is `Dump`
+- `x` and `y` are converted into the file fields `xx` and `yy`
+- we multiply them by `Pi` before writing, to match the EggBox code convention
 
-See:
-- [Sampling](sampling.md)
+#### `execution.output`
 
----
+Defines how Jarvis-HEP reads calculator output back into observables.
 
-## Step 3: Set Sampler Controls
+Here the JSON output contains a key `z`, so we expose it as the Jarvis observable `z`.
 
-Some samplers need extra settings.
+Reference: [Calculators](../core/calculator.md)
 
-In `Example_Bridson.yaml` these include:
-- A radius
-- A limit on attempts
+## Step 5: Put Everything Together
 
-These settings affect *how points are proposed*.
-They do not affect calculations.
+This is the complete tutorial card.
 
----
+```yaml
+Scan:
+  name: "EggBox_Random_Tutorial"
+  save_dir: "&J/Results"
 
-## Step 4: Declare the Calculation
+Sampling:
+  Method: "Random"
+  Variables:
+    - name: x
+      description: "First scan coordinate"
+      distribution:
+        type: Flat
+        parameters:
+          min: 0.0
+          max: 5.0
+    - name: y
+      description: "Second scan coordinate"
+      distribution:
+        type: Flat
+        parameters:
+          min: 0.0
+          max: 5.0
+  Point number: 2000
+  LogLikelihood:
+    - name: LogL_Z
+      expression: "LogGauss(z, 100, 10)"
 
-The `Calculators` section describes an external program.
+EnvReqs:
+  OS:
+    - name: linux
+      version: ">=5.10.0"
+    - name: Darwin
+      version: ">=10.14"
+  Python:
+    version: ">=3.10"
+    Dependencies: []
 
-Jarvis-HEP treats it as a **black box**.
+Calculators:
+  make_paraller: 4
+  path: "&J/Workshop/Program"
+  Modules:
+    - name: EggBox
+      required_modules: []
+      clone_shadow: true
+      path: "&J/Workshop/Program/EggBox/@PackID"
+      source: "&J/External/Inertial/EggBox"
+      installation:
+        - "cp -r ${source}/* ${path}"
+      initialization:
+        - "cp ${source}/input.json ${path}/input.json"
+        - "rm -f ${path}/output.json"
+      execution:
+        path: "&J/Workshop/Program/EggBox/@PackID"
+        commands:
+          - "./eggbox.py"
+        input:
+          - name: EggBoxInput
+            path: "&J/Workshop/Program/EggBox/@PackID/input.json"
+            type: "Json"
+            save: false
+            actions:
+              - type: "Dump"
+                variables:
+                  - {name: "xx", expression: "x * Pi"}
+                  - {name: "yy", expression: "y * Pi"}
+        output:
+          - name: EggBoxOutput
+            path: "&J/Workshop/Program/EggBox/@PackID/output.json"
+            type: "Json"
+            save: true
+            variables:
+              - {name: z}
+```
 
-You declare:
-- How inputs are prepared
-- How the program is run
-- Where outputs are read from
+## Step 6: Run The Scan
 
-Jarvis-HEP handles:
-- Working directories
-- Execution order
-- Parallel runs
+If your project workspace is already prepared, run:
 
-No glue scripts are needed.
+```bash
+Jarvis /path/to/your/project/bin/EggBox_Random_Tutorial.yaml
+```
 
-See:
-- [Calculators](calculators.md)
+If you are working inside the source tree example, you can also compare with the shipped cards under `Jarvis-HEP/bin/EggBox/`.
 
----
+## Step 7: Inspect The Results
 
-## Step 5: Connect Inputs and Outputs
+After the run, inspect:
 
-Inside `Calculators`, mappings are defined.
+- `Results/EggBox_Random_Tutorial/LOG/`
+- `Results/EggBox_Random_Tutorial/SAMPLE/`
+- `Results/EggBox_Random_Tutorial/DATABASE/`
 
-These mappings say:
-- Which sampled variables go to which inputs
-- Which files or values are read as outputs
+The most important products are:
 
-This is the only place where sampling meets calculation.
+- the main log file in `LOG/`
+- the HDF5 database in `DATABASE/`
+- any saved calculator output files under `SAMPLE/`
 
----
+Reference: [IO File Types](../core/io_summary.md)
 
-## Step 6: Check the Environment
+## How To Adapt This To Your Own Physics Case
 
-The `EnvReqs` section lists requirements:
-- Supported systems
-- Required tools or libraries
+Replace the tutorial ingredients one by one.
 
-Jarvis-HEP checks these before running.
+### Replace The Parameters
 
-See:
-- [EnvReqs](envreqs.md)
+Change `x` and `y` to your model parameters:
 
----
+- `M1`
+- `M2`
+- `TanBETA`
+- couplings
+- masses
+- nuisance inputs
 
-## Step 7: Optional Utilities
+### Replace The Calculator
 
-The `Utils` section defines shared helpers.
+Change the `EggBox` module into your real code:
 
-Examples:
-- Tables
-- Interpolations
-- Reusable data
+- `FlexibleSUSY`
+- `SPheno`
+- `micrOMEGAs`
+- your own Python wrapper
+- your own executable
 
-These helpers do not control sampling or execution.
+### Replace The Input Mapping
 
-See:
-- [Utils](utils.md)
+Instead of dumping `xx` and `yy`, map your physics parameters into:
 
----
+- JSON fields
+- SLHA placeholders
+- SLHA blocks and entries
 
-## What Jarvis-HEP Does Automatically
+### Replace The Output Mapping
 
-From one YAML file, Jarvis-HEP will:
-- Build the workflow
-- Generate sampling points
-- Run the external program
-- Collect outputs
-- Save results in a fixed layout
+Instead of reading `z`, read your real observables:
 
-You do not manage loops or job control.
+- Higgs masses
+- relic density
+- direct-detection cross sections
+- flavor observables
+- collider likelihood terms
 
----
+### Replace The Likelihood
 
-## Adapting This to Your Own Problem
+Instead of:
 
-To use Jarvis-HEP for a new task:
+```yaml
+expression: "LogGauss(z, 100, 10)"
+```
 
-1. List the parameters you want to scan
-2. Pick a sampling method
-3. Treat your code as a black box
-4. Declare inputs and outputs in YAML
-5. Run Jarvis-HEP
+write the likelihood you actually need, for example:
 
-If your task fits this list, it fits Jarvis-HEP.
+```yaml
+expression: "LogGauss(mh1, 125.09, 3.0)"
+```
 
----
+or combine several terms:
 
-## What to Read Next
+```yaml
+LogLikelihood:
+  - {name: LogL_Higgs, expression: "LogGauss(mh1, 125.09, 3.0)"}
+  - {name: LogL_DM, expression: "LogGauss(Omega_h2, 0.120, 0.012)"}
+```
 
-- YAML keys and options:
-  - [YAML Reference](yaml_reference.md)
+## Common Beginner Errors
 
-- More examples:
-  - [Examples](examples.md)
+- forgetting the exact key name `Point number`
+- forgetting the exact key name `make_paraller`
+- using a likelihood expression that depends on an observable you never read from output
+- writing paths without understanding `&J`, `&SRC`, and `@PackID`
+- copying a sampler-specific setting from the wrong sampler page
 
-Read this tutorial once.
-Then copy an example and modify it.
-````
+## What To Read Next
+
+- [How To Write A Scan YAML](../core/yaml_overview.md)
+- [Calculators](../core/calculator.md)
+- [IO File Types](../core/io_summary.md)
+- [Samplers Overview](../core/samplers.md)

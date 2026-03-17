@@ -1,133 +1,119 @@
 # Installation
 
-`Jarvis-HEP` is a **pure Python** project.
-No compilation is required, and no system-level dependencies are enforced by default.
+This page helps you get Jarvis running in a few minutes.
 
-In practice, installing `Jarvis-HEP` only involves:
+## What you install
 
-1. Downloading the source code
-   
-2. Installing the required Python dependencies
-   
-3. Running it directly
+Jarvis is a small ecosystem of Python packages on PyPI:
 
----
+- `Jarvis-HEP`: core runner + scan orchestration
+- `Jarvis-Operas`: in-process operators / advanced orchestration (optional)
+- `JarvisPLOT`: plotting utilities (optional)
+
+Most users should install from PyPI (you typically do not need a GitHub checkout).
 
 ## Requirements
 
-- Python **≥ 3.10** (newest Python version prefered)
-- Any Python 3 environment is acceptable, including the system Python,
-  provided that package installation permissions are available.
-  Using an isolated environment (`venv`, `conda`, or `pyenv`) is recommended
-  but not required.
+- Python >= 3.10
 
-`Jarvis-HEP` does not rely on any graphical backend and can be safely used on
-servers, clusters, and other headless environments.
+Tip: A clean virtual environment is recommended.
 
----
+## Quick install (most users)
 
-## Getting the Source Code
-
-### Clone the repository from GitHub:
+1. Install:
 
 ```bash
-git clone https://github.com/pengxuan-zhu-phys/Jarvis-HEP.git
-cd Jarvis-HEP
+python3 -m pip install -U Jarvis-HEP
 ```
 
-
-You may also download the source archive manually if preferred.
-
-### Downloading a Released Version (Recommended)
-
-In addition to cloning the development repository, `Jarvis-HEP` provides
-stable **released versions**.
-
-Released versions are recommended for users who prefer a fixed and
-well-tested snapshot of the code.
-
-You can download a released source archive from the [GitHub Releases page](https://github.com/Pengxuan-Zhu-Phys/Jarvis-HEP/releases):
-
-- Navigate to the *Releases* section of the repository
-- Download the corresponding `.zip` or `.tar.gz` source archive
-- Extract it and enter the project directory
-
-This installation guide applies equally to both the development version
-(cloned from Git) and released source archives.
-
----
-
-## Installing Dependencies
-
-All required Python dependencies are listed in `requirements.txt`.
+2. Check it works:
 
 ```bash
-python -m pip install -r requirements.txt
+Jarvis --version
+Jarvis --help
 ```
 
-It is also recommended to install them inside a virtual environment. Below we show a minimal and reproducible setup using `pyenv`. Other environment managers can be used equivalently.
+- Example output: Jarvis --version (logo + version)
+    
+```bash
+Jarvis --version 
+ ███ ███         ██╗ █████╗ ██████╗ ██╗   ██╗██╗███████╗ 
+█████████        ██║██╔══██╗██╔══██╗██║   ██║██║██╔════╝ 
+█══███══█        ██║███████║██████╔╝██║   ██║██║███████╗ 
+╚╗█████╔╝   ██   ██║██╔══██║██╔══██╗╚██╗ ██╔╝██║╚════██║ 
+ ╚█═══█╝    ╚█████╔╝██║  ██║██║  ██║ ╚████╔╝ ██║███████║ 
+  █████      ╚════╝ ╚═╝  ╚═╝╚═╝  ╚═╝  ╚═══╝  ╚═╝╚══════╝ 
+________________________________________________________
+=== Jarvis-HEP ===
+     Just a Robust and Versatile Interface Suite for HEP  
+          Author:   Pengxuan Zhu, Erdong Guo. 
+          Version:  1.6.9
 
+Resources:
+	Online docs:	https://pengxuan-zhu-phys.github.io/Jarvis-Docs/
+	Homepage:	https://github.com/Pengxuan-Zhu-Phys/Jarvis-HEP
 
-### Using `pyenv` (optional): example with Python 3.10.12
+```
+    
+- Example output: Jarvis -h (full help text)
+    
+```bash
+Jarvis --help 
+Usage:
+  Jarvis [file] [options]
+  Jarvis project <command> [arguments]
 
-The version number `3.10.12` is used here as an example. Any newer Python `3.x` version compatible with the listed dependencies can be used instead.
+Jarvis Program Help Center
+
+Main entry points:
+  file                  Run Jarvis with a YAML input file
+  project               Manage Jarvis standalone projects
+
+General options:
+  -h, --help            Show this help message and exit
+  -d, --debug           Run Jarvis-HEP in debug mode
+  -v, --version         Print version and runtime package information
+
+Workflow options:
+  --plot                Run plotting mode
+  --convert             Convert sample.hdf5 into CSV format
+  --monitor             Start a real-time resource monitor
+  --check-modules       Run calculator/module checks
+  --skip-library-installation
+                        Skip library installation
+  --skip-draw-flowchart
+                        Skip flowchart drawing
+
+Hint:
+  Run `Jarvis project -h` to see project workflow commands.
+```
+    
+
+## Full install (optional)
+
+If you also want Operas + plotting:
+
+```bash
+python3 -m pip install -U Jarvis-HEP Jarvis-Operas JarvisPLOT
+```
+
+You should then have:
+
+- `Jarvis`
+- `jopera`
+- `jplot`
+
+CLI reference: [Command Line Tools](https://www.notion.so/Command-Line-Tools-1a4adeac12864a929506f532e4016e98?pvs=21)
+
+## (Optional) Create a clean environment
+
+Example using `pyenv` + `virtualenv`:
 
 ```bash
 pyenv install 3.10.12
-pyenv virtualenv 3.10.12 jarvis
-pyenv activate jarvis
-pip install -r requirements.txt
+pyenv virtualenv 3.10.12 jarvis-hep
+pyenv activate jarvis-hep
+python3 -m pip install -U Jarvis-HEP Jarvis-Operas JarvisPLOT
 ```
 
----
-
-## Running Jarvis-HEP
-
-`Jarvis-HEP` does not require a formal installation step.
-
-Once the dependencies are installed, it can be executed directly from the
-source directory:
-
-```bash
-Jarvis ./bin/EggBox/Example_Bridson.yaml
-```
-
-To run the EggBox example, which is detailed explained in the [next](./eggbox.md) page. 
-
-Alternatively, `Jarvis-HEP` can be imported and used as a Python module in
-custom scripts.
-
----
-
-## External Physics Tools
-
-`Jarvis-HEP` serves as a workflow and sampling engine.
-
-External physics packages (such as spectrum generators, event generators,
-or likelihood codes) are not bundled and should be installed separately
-according to the requirements of each analysis.
-
-Please refer to the corresponding tutorials for concrete examples.
-
----
-
-## Common Issues
-
-- **Missing dependencies**  
-  Ensure all packages listed in `requirements.txt` are installed in the active Python environment.
-
-- **Multiple Python versions**  
-  Verify that `python` and `pip` refer to the same environment:
-  ```bash
-  which python
-  which pip
-  ```
-
----
-
-## Next Steps
-
-After installation, proceed to:
-
-- [Quick Start with Eggbox](./eggbox.md)
-- [YAML Format Introduction](../yaml/yaml_introduction.md)
+Any environment manager is fine (conda/uv/venv, etc.) as long as it gives you an isolated Python environment.

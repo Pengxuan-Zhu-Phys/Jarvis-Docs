@@ -18,46 +18,27 @@ extra_css:
 plugins:
   - search
 
+validation:
+  nav:
+    omitted_files: ignore
+
 nav:
   - Home: index.md
-  - Get Start:
+  - Quick Start:
       - Installation: tutorial/Installation.md
-      - Eggbox (Start Here): tutorial/eggbox.md
-  - Documentations:
-      - YAML Configuration:    
-          - Main structure: core/summary.md 
-          - Samplers:   core/samplers.md 
-          - Sampler Details: samplers/index.md
-          - Libraries:  core/library.md
-          - Calculators: core/calculator.md
-          - EnvReqs:    core/environment.md
-      - Concepts & Conventions:
-          - YAML Format introduction: yaml/yaml_introduction.md
-          - Symbolic Expressions: core/symbol.md
-          - Utils:  core/utils.md
-          - IO file type: core/io_summary.md
-  - High Energy Physics Package Wikis: 
-      - HEP Packages: package/summary.md 
-      - Jarvis-Operas: package/jarvis-operas.md
-  - Data Visulisation:
-      - Jarvis-PLOT:
-          - Overview: jarvisplot/jarvisplot.md
-          - Quick Start: jarvisplot/quickstart.md
-          - CLI: jarvisplot/cli.md
-          - YAML Schema: jarvisplot/yaml-schema.md
-          - DataSet: jarvisplot/dataset.md
-          - Figures and Layers: jarvisplot/figures-layers.md
-          - Transforms: jarvisplot/transforms.md
-          - Profiling and Cache: jarvisplot/profiling-preprofiling-cache.md
-          - Plot Methods: jarvisplot/methods.md
-          - Rect and Ternary Axes: jarvisplot/axes-rect-ternary.md
-          - Functions and Interpolators: jarvisplot/functions-interpolators.md
-          - FAQ: jarvisplot/faq-troubleshooting.md
-          - Gallery:
-              - EggBox Dynesty: jarvisplot/pub/eggbox.md
-              - GM95 Excess: jarvisplot/pub/gm95excess.md
-              - HinoLLP: jarvisplot/pub/hinollp.md
-              - SUSY Run2: jarvisplot/pub/susy-ewmssm.md
-              - CEPC: jarvisplot/pub/cepc.md
-  - Case studies: 
-      - Published Works: examples/examples.md
+      - First Scan (EggBox): tutorial/eggbox.md
+      - Command Line Tools: core/cli.md
+  - Write A Scan:
+      - Task YAML Structure: core/summary.md
+      - YAML Overview: core/yaml_overview.md
+      - Samplers Overview: core/samplers.md
+      - Sampler Details: samplers/index.md
+      - Calculators: core/calculator.md
+      - Operas: core/operas.md
+      - EnvReqs: core/environment.md
+      - Libraries: core/library.md
+      - Symbolic Expressions: core/symbol.md
+      - Utils: core/utils.md
+      - IO File Types: core/io_summary.md
+  - Jarvis-PLOT: jarvisplot/jarvisplot.md
+  - Jarvis-Operas: package/jarvis-operas.md

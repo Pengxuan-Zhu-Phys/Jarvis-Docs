@@ -1,65 +1,64 @@
 #![Jarvis-HEP](assets/title_docs.png)
 
-**Still in construction, coming soon**
+Jarvis-HEP is a Python framework for parameter scanning, workflow orchestration, and structured data output in high-energy physics.
 
-Jarvis-HEP (Just a Robust and Versatile Interface Suite for High Energy) is a `Python` project to deploy parameter scan, packages link and data visulization. 
+This documentation is organized around one main goal:
+
+> help a physicist write and run a scan YAML quickly
 
 ## Quick Start
 
-- [**Installation**](tutorial/Installation.md)
+1. [Installation](tutorial/Installation.md)
+2. [Write Your First Scan Card](tutorial/eggbox.md)
+3. [From 0 to 1: commen workflow in Jarvis-HEP](tutorial/Common_workflow.md)
+4. [Command Line Tools](core/cli.md)
+5. [Task YAML Structure](core/summary.md)
+6. [How To Write A Scan YAML](core/yaml_overview.md)
 
-- [**Eggbox tutorial**](tutorial/eggbox.md) — a minimal end-to-end scan example
+## Install From PyPI
 
-## Core Concepts
+Minimum installation:
 
-- [**YAML configuration**](core/yaml_overview.md) — structure, blocks, and common patterns:
-  
-    - [**Sampler**](core/samplers.md): defines how parameter points are proposed and explored
-    - [**EnvReqs**](core/environment.md): runtime environment and dependency requirements
-    - [**Library**](core/library.md): backends and external packages for calculations
-    - [**Calculator**](core/calculator_contract.md): input → execution → output contract
+```bash
+python3 -m pip install -U Jarvis-HEP
+```
 
+Full ecosystem installation:
 
-- **Concepts & Conventions**: 
-    - [**IO Files**](core/io_files.md): standardized input, output, and intermediate data formats
-    - [**Symbolic Expressions**](core/symbolic_expressions.md): analytical definitions and symbolic parameter relations
-    - [**Utils**](core/utils.md): shared helper functions and common utilities
+```bash
+python3 -m pip install -U Jarvis-HEP Jarvis-Operas jarvisplot
+```
 
-## [**High Energy Physics Package Wikis**](package/summary.md)
-how external HEP codes are interfaced and configured within Jarvis-HEP
+## Core Pages
 
-## [**Data Visualisation**](jarvisplot/jarvisplot.md)
-visualisation logic built on top of Jarvis-HEP scan outputs
+- [Task YAML Structure](core/summary.md)
+- [How To Write A Scan YAML](core/yaml_overview.md)
+- [Samplers Overview](core/samplers.md)
+- [Command Line Tools](core/cli.md)
+- [Calculators](core/calculator.md)
+- [Operas](core/operas.md)
+- [EnvReqs](core/environment.md)
+- [Symbolic Expressions](core/symbol.md)
+- [IO File Types](core/io_summary.md)
 
-## [**Case Studies**](examples/examples.md)
-published projects using Jarvis-HEP, with YAML configurations and notes on Jarvis-HEP’s role
+## Optional Related Docs
 
-## Projects
+- [Jarvis-Operas User Guide](package/jarvis-operas.md)
+- [Jarvis-PLOT CLI](jarvisplot/cli.md)
+- [Published Works](examples/examples.md)
 
-- **Jarvis-HEP** — main framework repository  
-  
-    - GitHub: [https://github.com/Pengxuan-Zhu-Phys/Jarvis-HEP](https://github.com/Pengxuan-Zhu-Phys/Jarvis-HEP)  
-    - Download the latest version: [https://github.com/Pengxuan-Zhu-Phys/Jarvis-HEP/releases](https://github.com/Pengxuan-Zhu-Phys/Jarvis-HEP/releases)
+## Project Links
 
-- **JarvisPLOT** — companion data visualisation framework  
-  
-    - GitHub: [https://github.com/Pengxuan-Zhu-Phys/Jarvis-PLOT](https://github.com/Pengxuan-Zhu-Phys/Jarvis-PLOT)  
-  
+- Jarvis-HEP: [GitHub](https://github.com/Pengxuan-Zhu-Phys/Jarvis-HEP)
+- Jarvis-Operas: [GitHub](https://github.com/Pengxuan-Zhu-Phys/Jarvis-Operas)
+- Jarvis-PLOT: [GitHub](https://github.com/Pengxuan-Zhu-Phys/Jarvis-PLOT)
 
-    - Installation via `PyPI` (Recommanded): 
-      ``` 
-      pip install jarvisplot
-      ```
+## Feedback
 
-      
-     - Or download the latest version in GitHub: [https://github.com/Pengxuan-Zhu-Phys/Jarvis-PLOT/releases](https://github.com/Pengxuan-Zhu-Phys/Jarvis-PLOT/releases)
+If you encounter bugs or unclear behavior, please open an issue:
 
+- [Jarvis-HEP Issues](https://github.com/Pengxuan-Zhu-Phys/Jarvis-HEP/issues)
 
-## Citing Jarvis-HEP Tools
+## License
 
-## Note 
-Jarvis-HEP is a **User demand driven** project. 
-If you encounter any bugs or unexpected behaviour and/or any functional requests, you are encouraged to report a bug and/or to write down your needs in our [Github Issues pages](https://github.com/Pengxuan-Zhu-Phys/Jarvis-HEP/issues).
-
-## License 
-All Jarvis-HEP Tools (including Jarvis-HEP and Jarvis-PLOT) are released under the [MIT](https://choosealicense.com/licenses/mit/) license. The generated output code of Jarvis-HEP can be freely used according to the MIT license, but as they rely on other (PyPI) released libraries also their License has to be taken into account.
+All Jarvis-HEP tools are released under the [MIT license](https://choosealicense.com/licenses/mit/).

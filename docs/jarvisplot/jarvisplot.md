@@ -1,37 +1,67 @@
-# JarvisPLOT Documentation
+# Jarvis-PLOT
 
-JarvisPLOT is a standalone plotting module built around one idea:
+`Jarvis-PLOT` is the plotting layer in the Jarvis ecosystem.
 
-- you describe plotting intent in YAML
-- the engine handles data loading, transform pipelines, caching, and rendering
+Its purpose is simple:
 
-This design keeps plotting reproducible and scalable, especially when the same large dataset is reused across many figures.
+- you describe figures in YAML
+- `Jarvis-PLOT` loads data, applies transforms, caches intermediate results, and renders the plots
 
-## How JarvisPLOT thinks about a run
+In the main site navigation, `Jarvis-PLOT` now appears as a single entry. Use this page as the index for the full Jarvis-PLOT interface.
 
-At runtime, JarvisPLOT treats your YAML in three layers:
+## Install
 
-1. **DataSet**: where raw data comes from and how it should be identified.
-2. **Figures/Layers**: what each figure should draw and how layers combine.
-3. **Transforms/Methods**: how data is reduced and which visual primitive is used.
+```bash
+python3 -m pip install -U jarvisplot
+```
 
-For large tables, JarvisPLOT also applies preprofiling and project-local caching so repeated redraws do not repeatedly scan the full source data.
+Main CLI:
 
-## Recommended reading order
+```bash
+jplot --help
+```
 
-- [Quick Start](quickstart.md)
-- [CLI Reference](cli.md)
-- [YAML Schema](yaml-schema.md)
+## What Jarvis-PLOT Covers
+
+At runtime, Jarvis-PLOT works through three layers:
+
+1. `DataSet`: where the input data comes from
+2. `Figures` and `Layers`: what to draw
+3. `Transforms` and plotting methods: how to manipulate the data before drawing
+
+It also supports project-local caching so repeated redraws do not repeatedly scan the full source data.
+
+## Start Here
+
+If you are new to Jarvis-PLOT, read in this order:
+
+1. [Quick Start](quickstart.md)
+2. [CLI](cli.md)
+3. [YAML Schema](yaml-schema.md)
+
+## Full Interface Index
+
+### Data And Figure Model
+
 - [DataSet](dataset.md)
 - [Figures and Layers](figures-layers.md)
+- [Rect and Ternary Axes](axes-rect-ternary.md)
+
+### Data Processing
+
 - [Transforms](transforms.md)
 - [Profiling, Preprofiling, and Cache](profiling-preprofiling-cache.md)
-- [Plot Methods](methods.md)
-- [Rect and Ternary Axes](axes-rect-ternary.md)
 - [Functions and Interpolators](functions-interpolators.md)
+
+### Rendering
+
+- [Plot Methods](methods.md)
+
+### User Support
+
 - [FAQ and Troubleshooting](faq-troubleshooting.md)
 
-## Example guides
+## Gallery And Examples
 
 - [EggBox Dynesty](pub/eggbox.md)
 - [GM95 Excess](pub/gm95excess.md)
@@ -39,14 +69,14 @@ For large tables, JarvisPLOT also applies preprofiling and project-local caching
 - [SUSY Run2 (EWMSSM)](pub/susy-ewmssm.md)
 - [CEPC](pub/cepc.md)
 
-## Covered feature set
+## Common Feature Set
 
-From the current reference YAML set, common features are:
+From the current reference YAML set, common Jarvis-PLOT features include:
 
-- Data types: `csv`, `hdf5`
-- Layer methods: `voronoi`, `voronoif`, `scatter`, `plot`, `fill`, `hist`, `tripcolor`
-- Transforms: `add_column`, `filter`, `sortby`, `profile`
-- Profile grids: `rect`, `ternary`
-- Shared layer data: `share_data`
-- Optional runtime interpolation helpers: `Functions`
-- Project-local cache: `project.workdir/.cache`
+- data types: `csv`, `hdf5`
+- layer methods: `voronoi`, `voronoif`, `scatter`, `plot`, `fill`, `hist`, `tripcolor`
+- transforms: `add_column`, `filter`, `sortby`, `profile`
+- profile grids: `rect`, `ternary`
+- shared layer data: `share_data`
+- runtime interpolation helpers via `Functions`
+- project-local cache in `project.workdir/.cache`

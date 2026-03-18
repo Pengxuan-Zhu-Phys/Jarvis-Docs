@@ -1,0 +1,1864 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://pengxuan-zhu-phys.github.io/Jarvis-Docs/tutorial/cli/">
+      
+      
+        <link rel="prev" href="../Common_workflow/">
+      
+      
+        <link rel="next" href="../../core/summary/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/JarvisHEP.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.4">
+    
+    
+      
+        <title>Command Line Tools - Jarvis-HEP Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.gm95.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#command-line-tools" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Jarvis-HEP Documentation" class="md-header__button md-logo" aria-label="Jarvis-HEP Documentation" data-md-component="logo">
+      
+  <img src="../../assets/JarvisHEP.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Jarvis-HEP Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Command Line Tools
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Jarvis-HEP Documentation" class="md-nav__button md-logo" aria-label="Jarvis-HEP Documentation" data-md-component="logo">
+      
+  <img src="../../assets/JarvisHEP.png" alt="logo">
+
+    </a>
+    Jarvis-HEP Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Quick Start
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Common_workflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    First Scan (EggBox)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Command Line Tools
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Command Line Tools
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#quick-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick reference
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-where-does-jarvis-come-from" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1) Where does Jarvis come from?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-cli-contract-syntax-entry-points-and-scope" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2) CLI contract (syntax, entry points, and scope)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2) CLI contract (syntax, entry points, and scope)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-top-level-usage-as-shown-by-jarvis-h" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Top-level usage (as shown by Jarvis -h)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-two-entry-points-two-scopes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Two entry points, two scopes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-argument-and-parsing-rules-make-these-explicit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 Argument and parsing rules (make these explicit)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-mutual-exclusions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 Mutual exclusions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-exit-codes-and-scripting-optional-but-very-helpful" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5 Exit codes and scripting (optional, but very helpful)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-the-task-card-taskyaml-and-path-resolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3) The task card (task.yaml) and path resolution
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3) The task card (task.yaml) and path resolution">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#working-directory-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Working directory matters
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-outputs-what-gets-written-and-where" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4) Outputs: what gets written, and where
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4) Outputs: what gets written, and where">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#output-root-the-most-important-rule" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Output root (the most important rule)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#overwrite-vs-new-run-append" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overwrite vs new run, APPEND
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#where-to-look-first-when-debugging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Where to look first when debugging
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-core-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5) Core commands
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#51-create-a-standalone-project-scaffold-jarvis-project-create" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 Create a standalone project scaffold: Jarvis project create
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#52-run-a-scan-default-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 Run a scan (default mode)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-workflow-modes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6) Workflow modes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#61-plot-generate-jarvis-plot-config" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 --plot (generate Jarvis-PLOT config)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#62-monitor-live-monitor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 --monitor (live monitor)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#63-check-modules-sanity-check" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3 --check-modules (sanity check)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#64-skip-library-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.4 --skip-library-installation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#65-skip-draw-flowchart" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.5 --skip-draw-flowchart
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#66-d-debug" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.6 -d, --debug
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#jarvis-command-not-found" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Jarvis command not found
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#yaml-loads-but-the-scan-does-not-run" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        YAML loads but the scan does not run
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Write A Scan
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Write A Scan
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/summary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Task YAML Structure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/yaml_overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    YAML Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/samplers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Samplers Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../samplers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sampler Details
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/calculator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Calculators
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/operas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Operas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/environment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    EnvReqs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/library/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Libraries
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/symbol/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Symbolic Expressions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/utils/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Utils
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/io_summary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IO File Types
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../jarvisplot/jarvisplot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Jarvis-PLOT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../package/jarvis-operas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Jarvis-Operas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#quick-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick reference
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-where-does-jarvis-come-from" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1) Where does Jarvis come from?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-cli-contract-syntax-entry-points-and-scope" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2) CLI contract (syntax, entry points, and scope)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2) CLI contract (syntax, entry points, and scope)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-top-level-usage-as-shown-by-jarvis-h" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Top-level usage (as shown by Jarvis -h)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-two-entry-points-two-scopes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 Two entry points, two scopes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-argument-and-parsing-rules-make-these-explicit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 Argument and parsing rules (make these explicit)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-mutual-exclusions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 Mutual exclusions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-exit-codes-and-scripting-optional-but-very-helpful" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5 Exit codes and scripting (optional, but very helpful)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-the-task-card-taskyaml-and-path-resolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3) The task card (task.yaml) and path resolution
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3) The task card (task.yaml) and path resolution">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#working-directory-matters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Working directory matters
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-outputs-what-gets-written-and-where" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4) Outputs: what gets written, and where
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4) Outputs: what gets written, and where">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#output-root-the-most-important-rule" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Output root (the most important rule)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#overwrite-vs-new-run-append" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overwrite vs new run, APPEND
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#where-to-look-first-when-debugging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Where to look first when debugging
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-core-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5) Core commands
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#51-create-a-standalone-project-scaffold-jarvis-project-create" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 Create a standalone project scaffold: Jarvis project create
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#52-run-a-scan-default-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 Run a scan (default mode)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-workflow-modes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6) Workflow modes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#61-plot-generate-jarvis-plot-config" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 --plot (generate Jarvis-PLOT config)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#62-monitor-live-monitor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 --monitor (live monitor)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#63-check-modules-sanity-check" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3 --check-modules (sanity check)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#64-skip-library-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.4 --skip-library-installation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#65-skip-draw-flowchart" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.5 --skip-draw-flowchart
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#66-d-debug" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.6 -d, --debug
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#jarvis-command-not-found" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Jarvis command not found
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#yaml-loads-but-the-scan-does-not-run" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        YAML loads but the scan does not run
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="command-line-tools">Command line tools</h1>
+<p>This page documents the <strong>Jarvis-HEP</strong> command-line interface (CLI): the <code>Jarvis</code> executable.</p>
+<blockquote>
+<p><strong>Audience:</strong> people who want to run a scan from a <code>task.yaml</code> and understand what gets created on disk.
+</p>
+</blockquote>
+<h2 id="quick-reference">Quick reference</h2>
+<ul>
+<li>Run with a YAML input file:<ul>
+<li><code>Jarvis /path/to/task.yaml</code></li>
+</ul>
+</li>
+<li>Manage standalone projects:<ul>
+<li><code>Jarvis project --help</code></li>
+<li><code>Jarvis project create MyProject</code></li>
+</ul>
+</li>
+<li>Workflow utilities (operate on an existing run):<ul>
+<li><code>Jarvis /path/to/task.yaml --debug</code>: Lower the default logging level from <code>[warning]</code> to <code>[debug]</code>. This may flood the screen with logging information.</li>
+<li><code>Jarvis /path/to/task.yaml --convert</code>: convert <code>sample.hdf5</code> → CSV. Only works when the scan task is running.</li>
+<li><code>Jarvis /path/to/task.yaml --plot</code>: Generate a YAML file for <code>Jarvis-PLOT</code>. Only works when the data file exists. If the task is running, use <code>--convert</code> to create a snapshot of the current HDF5 file into CSV.</li>
+<li><code>Jarvis /path/to/task.yaml --monitor</code>: Real-time resource monitor. Only works when the scan task is running, because the PID is not accessible after the task finishes or is killed.</li>
+<li><code>Jarvis /path/to/task.yaml --check-modules</code> (calculator/module checks): Jarvis will run a small scan (a few samples) so you can verify the output matches expectations.</li>
+</ul>
+</li>
+<li>General:<ul>
+<li><code>Jarvis --help</code>, <code>Jarvis --version</code></li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="1-where-does-jarvis-come-from">1) Where does <code>Jarvis</code> come from?</h2>
+<p><code>Jarvis</code> is installed as a <strong>Python console entry point</strong>.</p>
+<p>In other words, after you install Jarvis-HEP with <code>pip</code>, <code>pip</code> registers the <code>Jarvis</code> executable into the active Python environment’s <em>scripts/bin</em> directory.</p>
+<p>You can confirm where your <code>Jarvis</code> comes from with:</p>
+<pre><code class="language-bash">which Jarvis
+# Example:
+# /Users/p.zhu/.pyenv/versions/3.13/bin/Jarvis
+</code></pre>
+<p>The above information shows that the Python environment is managed by <strong><code>pyenv</code></strong>, so <code>Jarvis</code> is located under the <code>pyenv</code> version’s <code>bin/</code> directory.</p>
+<p>If <code>Jarvis</code> is not found:</p>
+<ul>
+<li>Make sure you are in the same <code>Python</code> environment where you installed <code>Jarvis-HEP</code>.</li>
+<li>Ensure that the environment’s <code>bin/</code> (or scripts) directory is on your <code>PATH</code>.</li>
+</ul>
+<p>For the canonical installation commands, See: <a href="../Installation/">Installation</a> </p>
+<h2 id="2-cli-contract-syntax-entry-points-and-scope">2) CLI contract (syntax, entry points, and scope)</h2>
+<p>This section defines the <strong>ground rules</strong> for how the <code>Jarvis</code> command is structured.</p>
+<p>If a user understands only one thing from this page, it should be this section.</p>
+<h3 id="21-top-level-usage-as-shown-by-jarvis-h">2.1 Top-level usage (as shown by <code>Jarvis -h</code>)</h3>
+<pre><code class="language-bash">Jarvis [file] [options]
+Jarvis project &lt;command&gt; [arguments]
+</code></pre>
+<h3 id="22-two-entry-points-two-scopes">2.2 Two entry points, two scopes</h3>
+<p>There are two top-level entry points:</p>
+<p>1) <strong>File entry point</strong>: <code>Jarvis &lt;file&gt; [options]</code></p>
+<ul>
+<li>Runs Jarvis-HEP using a YAML task card.</li>
+<li>This is what you use for scans, convert, plot, monitor, and checks.</li>
+</ul>
+<p>2) <strong>Project entry point</strong>: <code>Jarvis project &lt;command&gt; [arguments]</code></p>
+<ul>
+<li>This creates, packs, browses, fetches, and inspects standalone project templates.</li>
+<li>Manages <strong>standalone projects</strong>. A standalone project is a fully self-contained Jarvis-HEP workspace on disk, intended to keep task cards, libraries, outputs, and project metadata together so it can be moved, shared, packed, and reproduced independently of the Jarvis-HEP source tree.<br />
+Concretely:</li>
+<li>You can create, move, copy, and pack a project without changing Jarvis-HEP code.</li>
+<li>A project can contain <strong>multiple</strong> YAML task cards.</li>
+<li>By convention, YAML task cards live in the project’s <code>bin/</code> directory. Example: <code>MyProject/bin/task.yaml</code>, <code>MyProject/bin/task_2.yaml</code> , and etc. </li>
+<li>By convention, external HEP source packages live in the project’s <code>deps/</code> directory. </li>
+</ul>
+<h3 id="23-argument-and-parsing-rules-make-these-explicit">2.3 Argument and parsing rules (make these explicit)</h3>
+<ol>
+<li>The YAML file path is a <strong>positional argument</strong> for <code>Jarvis [file] [options]</code>.</li>
+<li>Options including <code>--plot</code>, <code>--convert</code>, <code>--monitor</code>, <code>--check-modules</code>, and <code>--debug</code> apply to the file entry point.</li>
+<li>Jarvis accepts both orders:</li>
+<li><code>Jarvis task.yaml --convert</code> (file first)</li>
+<li><code>Jarvis --convert task.yaml</code> (option first)</li>
+<li>Jarvis accepts only <strong>one</strong> YAML file per invocation.</li>
+<li>Normally, Jarvis will stop and exit if it encounters unexpected or conflicting arguments: <code>Jarvis project task.yaml</code> ; <code>Jarvis task.yaml project create ...</code></li>
+</ol>
+<h3 id="24-mutual-exclusions">2.4 Mutual exclusions</h3>
+<ul>
+<li><code>Jarvis project ...</code> commands do not take a YAML task card.</li>
+<li><code>Jarvis [file] ...</code> commands only specifies one workflow option at one time. Normally, if a user specifies multiple workflow options simultaneously (for example, <code>--convert</code> and <code>--plot</code>), Jarvis cannot correctly identify the mode and will exit immediately. These options are mutually exclusive; only one can be used at a time.</li>
+</ul>
+<h3 id="25-exit-codes-and-scripting-optional-but-very-helpful">2.5 Exit codes and scripting (optional, but very helpful)</h3>
+<p>Jarvis does not currently use stable exit codes for automation purposes. </p>
+<ul>
+<li>The <code>--check-modules</code> option runs a small scan to test your setup.</li>
+</ul>
+<hr />
+<h2 id="3-the-task-card-taskyaml-and-path-resolution">3) The task card (<code>task.yaml</code>) and path resolution</h2>
+<p>A Jarvis-HEP run is configured by a single YAML task card (commonly named <code>task.yaml</code>).</p>
+<p>Recommended conventions:</p>
+<ul>
+<li><code>Jarvis project create</code> creates <code>MyProject/bin/</code>, and task cards are typically stored there.</li>
+<li>The filename is arbitrary; it does not have to be <code>task.yaml</code>.</li>
+</ul>
+<h3 id="working-directory-matters">Working directory matters</h3>
+<p>Many “file not found” issues come from running <code>Jarvis</code> from a different directory than expected. </p>
+<p>Jarvis does not expect relative paths in the task card. We recommend all paths start with <code>&amp;J</code>, i.e. the root path of your project <code>MyProject/</code>.</p>
+<p>While command lists (for example, the commands in <code>Calculator.Module.execution</code>) support <code>cd</code> and relative paths inside a terminal command, it’s best to keep paths in the task card absolute via <code>&amp;J</code>.</p>
+<hr />
+<h2 id="4-outputs-what-gets-written-and-where">4) Outputs: what gets written, and where</h2>
+<h3 id="output-root-the-most-important-rule">Output root (the most important rule)</h3>
+<p>After Jarvis task is finished, the general file directory structure is as follows: </p>
+<pre><code class="language-prolog">MyProject
+├── bin
+│   ├── task_01.yaml
+│   └── task_02.yaml
+├── calculators
+├── deps
+├── images
+│   └── &lt;TASK-NAME&gt;
+│       └── flowchart.png
+├── logs
+│   └── &lt;TASK-NAME&gt;
+│       ├── Bridson.log
+│       ├── EggBox_Bridson.log
+│       └── Factory.log
+├── outputs
+│   └── &lt;TASK-NAME&gt;
+│       ├── DATABASE
+│       └── SAMPLE
+└── README.md
+
+... directories, ... files
+</code></pre>
+<p>All outputs related with this task are created under <code>&lt;TASK-NAME&gt;</code>, where <code>&lt;TASK-NAME&gt;</code> the option <code>Scan.name</code>  in the task card. </p>
+<h3 id="overwrite-vs-new-run-append">Overwrite vs new run, APPEND</h3>
+<p>If you run <code>Jarvis task.yaml</code> twice, Jarvis will not overwrite your first output. New data will be appended to the existing data file in the SAMPLE directory. To keep each run separate, manually change the <code>Scan.name</code> value in your task card. </p>
+<h3 id="where-to-look-first-when-debugging">Where to look first when debugging</h3>
+<p>All information for each sample is stored in <code>SAMPLE/&lt;Nobatch&gt;/&lt;SampleID&gt;/</code>. You can start a small-scale scan test (or use <code>--check-modules</code>), then open a sample folder to verify everything is as expected. </p>
+<hr />
+<h2 id="5-core-commands">5) Core commands</h2>
+<h2 id="51-create-a-standalone-project-scaffold-jarvis-project-create">5.1 Create a standalone project scaffold: <code>Jarvis project create</code></h2>
+<pre><code class="language-bash">Jarvis project create MyProject
+</code></pre>
+<p>Creates a standard local project layout:</p>
+<ul>
+<li><code>MyProject/bin</code> : recommended location for task cards</li>
+<li><code>MyProject/deps</code> : recommended location for external HEP package sources</li>
+<li><code>MyProject/data</code> : recommended location for external data</li>
+<li>Other directories, such as <code>MyProject/logs</code>, are automatically created when a task runs.</li>
+</ul>
+<p>Related commands:</p>
+<ul>
+<li><code>Jarvis project pack [path]</code>: Pack a local project for sharing/reproduction</li>
+<li><code>Jarvis project browse</code>: List verified official projects</li>
+<li><code>Jarvis project fetch &lt;name&gt;</code>: Fetch an official project into the current directory</li>
+<li><code>Jarvis project info &lt;name&gt;</code>: Show details for an official project</li>
+</ul>
+<hr />
+<h2 id="52-run-a-scan-default-mode">5.2 Run a scan (default mode)</h2>
+<pre><code class="language-bash">Jarvis /path/to/project/bin/task.yaml
+</code></pre>
+<p>What Jarvis-HEP typically does:</p>
+<ul>
+<li>loads and validates the task card</li>
+<li>prepares runtime directories</li>
+<li>initializes the sampler</li>
+<li>builds the workflow</li>
+<li>runs the scan</li>
+<li>writes outputs under <code>MyProject/outputs/SAMPLE/</code>, <code>MyProject/logs/</code>, and <code>MyProject/outputs/DATABASE/</code> .</li>
+</ul>
+<p>See <a href="../Common_workflow/">From 0 to 1: Common workflow </a> for more details. </p>
+<hr />
+<h2 id="6-workflow-modes">6) Workflow modes</h2>
+<h2 id="61-plot-generate-jarvis-plot-config">6.1 <code>--plot</code> (generate Jarvis-PLOT config)</h2>
+<pre><code class="language-bash">Jarvis /path/to/task.yaml --plot
+</code></pre>
+<p><strong>Purpose:</strong></p>
+<p>Generates a Jarvis-PLOT YAML configuration from a Jarvis-HEP task card.</p>
+<p><strong>Preconditions:</strong></p>
+<p>Requires an existing data file.</p>
+<p><strong>Outputs:</strong></p>
+<p>Outputs only the plot card. You can then create plots, for example:</p>
+<pre><code class="language-prolog">jplot MyProject/images/&lt;TASK-NAME&gt;/&lt;TASK-NAME&gt;.yaml
+</code></pre>
+<hr />
+<h2 id="62-monitor-live-monitor">6.2 <code>--monitor</code> (live monitor)</h2>
+<pre><code class="language-bash">Jarvis /path/to/task.yaml --monitor
+</code></pre>
+<p><strong>Purpose:</strong></p>
+<ul>
+<li>Opens the real-time resource and subprocess monitor for a running job.</li>
+</ul>
+<p><strong>Preconditions:</strong></p>
+<ul>
+<li>A job is currently running.</li>
+<li>Jarvis can locate the job state (PID file and working directory).</li>
+</ul>
+<p><strong>Notes:</strong></p>
+<ul>
+<li>Press <code>q</code> to exit.</li>
+</ul>
+<p><img alt="Example Jarvis-HEP --monitor screen" src="../workflow/image.png" /></p>
+<p>Example Jarvis-HEP <code>--monitor</code> screen</p>
+<hr />
+<h2 id="63-check-modules-sanity-check">6.3 <code>--check-modules</code> (sanity check)</h2>
+<pre><code class="language-bash">Jarvis /path/to/task.yaml --check-modules --debug
+</code></pre>
+<p><strong>Purpose:</strong></p>
+<ul>
+<li>Runs a fast wiring check instead of a full scan.</li>
+</ul>
+<p><strong>Behavior:</strong></p>
+<ul>
+<li>Creates output directories and logs.</li>
+<li>Executes external tools and completes the calculation flow for a few samples.</li>
+</ul>
+<hr />
+<h2 id="64-skip-library-installation">6.4 <code>--skip-library-installation</code></h2>
+<pre><code class="language-bash">Jarvis /path/to/task.yaml --skip-library-installation
+</code></pre>
+<p><strong>Purpose:</strong></p>
+<ul>
+<li>Skips the <code>LibDeps</code> (library dependency) installation phase.</li>
+</ul>
+<p><strong>When to use:</strong></p>
+<ul>
+<li>You have already installed/built all required shared libraries for this project.</li>
+<li>You are iterating on the scan configuration and want faster startup.</li>
+<li>You are running on a compute node where building dependencies is slow or disallowed.</li>
+</ul>
+<p><strong>Notes / gotchas:</strong></p>
+<ul>
+<li>If a required library is missing or outdated, later stages of the workflow may fail (typically when a calculator executable is launched or a module is imported/loaded).</li>
+<li>This flag is best used after you have successfully completed at least one normal run (without this flag) for the same project/environment.</li>
+</ul>
+<hr />
+<h2 id="65-skip-draw-flowchart">6.5 <code>--skip-draw-flowchart</code></h2>
+<pre><code class="language-bash">Jarvis /path/to/task.yaml --skip-draw-flowchart
+</code></pre>
+<p><strong>Purpose:</strong></p>
+<ul>
+<li>Skips generating the workflow flowchart artifact (e.g. <code>flowchart.png</code>).</li>
+</ul>
+<p><strong>When to use:</strong></p>
+<ul>
+<li>You are running many short tests and want to reduce overhead.</li>
+<li>You are debugging a task where flowchart generation fails or is unnecessary.</li>
+</ul>
+<p><strong>Notes:</strong></p>
+<ul>
+<li>This does not change the scan logic; it only disables flowchart output.</li>
+</ul>
+<hr />
+<h2 id="66-d-debug">6.6 <code>-d</code>, <code>--debug</code></h2>
+<pre><code class="language-bash">Jarvis /path/to/task.yaml --debug
+</code></pre>
+<p><strong>Purpose:</strong></p>
+<ul>
+<li>Enables verbose diagnostics in the terminal.</li>
+</ul>
+<p><strong>What it changes:</strong></p>
+<ul>
+<li>Lowers the screen logging threshold (typically from <code>[warning]</code> to <code>[debug]</code>).</li>
+</ul>
+<p><strong>What it does not change:</strong></p>
+<ul>
+<li>File logging still records all log levels (debug/info/warning/error), regardless of this flag.</li>
+</ul>
+<p><strong>Tips:</strong></p>
+<ul>
+<li>Combine with <code>--check-modules</code> for fast troubleshooting:<ul>
+<li><code>Jarvis /path/to/task.yaml --check-modules --debug</code></li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="troubleshooting">Troubleshooting</h2>
+<h3 id="jarvis-command-not-found"><code>Jarvis</code> command not found</h3>
+<ul>
+<li>Make sure you are in the Python environment where you installed Jarvis-HEP.</li>
+<li>If you installed with <code>pip --user</code>, ensure your user scripts directory is on <code>PATH</code>.</li>
+</ul>
+<h3 id="yaml-loads-but-the-scan-does-not-run">YAML loads but the scan does not run</h3>
+<p>This is usually a task card authoring or configuration issue rather than an installation issue.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.expand", "navigation.top", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

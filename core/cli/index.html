@@ -11,10 +11,6 @@
         <link rel="canonical" href="https://pengxuan-zhu-phys.github.io/Jarvis-Docs/core/cli/">
       
       
-        <link rel="prev" href="../../tutorial/eggbox/">
-      
-      
-        <link rel="next" href="../summary/">
       
       
         
@@ -224,8 +220,6 @@
       
   
   
-    
-  
   
   
     
@@ -238,11 +232,13 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
@@ -263,7 +259,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -309,7 +305,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tutorial/eggbox/" class="md-nav__link">
+      <a href="../../tutorial/Common_workflow/" class="md-nav__link">
         
   
   
@@ -334,37 +330,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Command Line Tools
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../tutorial/cli/" class="md-nav__link">
         
   
   
@@ -380,386 +349,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#1-jarvis-hep-cli" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. Jarvis-HEP CLI
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#quick-reference" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Quick Reference
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#basic-usage" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Basic Usage
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Basic Usage">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#run-a-normal-scan" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Run A Normal Scan
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#create-a-project-workspace" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Create A Project Workspace
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#print-version-information" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Print Version Information
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#yaml-file-argument" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        YAML File Argument
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#main-workflow-modes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Main Workflow Modes
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Main Workflow Modes">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#default-scan-mode" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Default Scan Mode
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#-convert" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        --convert
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#-plot" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        --plot
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#-monitor" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        --monitor
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#-check-modules" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        --check-modules
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#general-options" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        General Options
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="General Options">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#-d-debug" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        -d, --debug
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#-skip-library-installation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        --skip-library-installation
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#-skip-draw-flowchart" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        --skip-draw-flowchart
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#runtime-override-options" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Runtime Override Options
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Runtime Override Options">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#-max-concurrency" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        --max-concurrency
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#-per-task-timeout-sec" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        --per-task-timeout-sec
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#-progress-interval-sec" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        --progress-interval-sec
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#-log-policy" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        --log-policy
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#common-command-patterns" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Common Command Patterns
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Common Command Patterns">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#first-project-setup" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        First project setup
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#first-full-run" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        First full run
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#re-export-csv-after-a-finished-run" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Re-export CSV after a finished run
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#generate-a-plotting-yaml" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Generate a plotting YAML
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#test-workflow-wiring-before-a-large-campaign" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Test workflow wiring before a large campaign
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-jarvis-plot-cli" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. Jarvis-PLOT CLI
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-jarvis-operas-cli" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. Jarvis-Operas CLI
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 

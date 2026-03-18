@@ -2,7 +2,7 @@
 
 ## Design Philosophy
 
-![concept-flow.png](common_workflow/concept-flow.png)
+![concept-flow.png](workflow/concept-flow.png)
 
 This diagram summarizes the end-to-end Jarvis workflow: you prepare the packages, write a scan card (Task YAML), and choose a sampler. Jarvis orchestrates the execution—including environment requirements and calculator backends—runs the scan, and produces structured outputs that can be post-processed and visualized (e.g., with Jarvis-PLOT).
 
@@ -46,9 +46,9 @@ You should see a folder :folders: `MyProject` contains (at least):
 
 ### 2) Edit the YAML task card
 
-You can find example YAML task cards in the `Eggbox` project ([Eggbox: a minimal black box example ](https://www.notion.so/Eggbox-a-minimal-black-box-example-324b3a9dafc580d2b72bd0318e1512c2?pvs=21)). For a detailed reference, see [Task YAML Structure](https://www.notion.so/Task-YAML-Structure-2efa5abf356449c7ba5da14090b1e160?pvs=21).
+You can find example YAML task cards in the `Eggbox` project ([Eggbox: a minimal black box example ](./eggbox.md)). For a detailed reference, see [Task YAML Structure](../core/yaml_overview.md).
 
-We'll skip editing for now and use the `Eggbox` example in the next step. Download it via the Jarvis project engine, see [Command Line Tools](https://www.notion.so/Command-Line-Tools-1a4adeac12864a929506f532e4016e98?pvs=21) 
+We'll skip editing for now and use the `Eggbox` example in the next step. Download it via the Jarvis project engine, see [Command Line Tools](../core/cli.md) 
 
 ```
 Jarvis project fetch Eggbox 
@@ -141,9 +141,9 @@ Draw workflow chart into /Users/p.zhu/Jarvis-Workshop/Jarvis-Examples/Eggbox/ima
 WorkerFactory is ready for Bridson sampler 
 ```
     
-![flowchart.png](common_workflow/flowchart.png)
+![flowchart.png](workflow/flowchart.png)
     
-    Calculation flowchart for Eggbox. For each sample, the sampler generates two values, x and y. The factory then calls the eggbox module to calculate the z value. 
+Calculation flowchart for Eggbox. For each sample, the sampler generates two values, x and y. The factory then calls the eggbox module to calculate the z value. 
     
 - Sampling started. Running state information is shown periodically.
     
@@ -315,7 +315,7 @@ jplot ./images/EggBox_Bridson/EggBox_Bridson.yaml
 
 This will generate plots saved in the directory `image/EggBox_Bridson/scatter_x__y.png`
 
-![scatter_x__y.png](common_workflow/scatter_x__y.png)
+![scatter_x__y.png](workflow/scatter_x__y.png)
 
 ### 6) Monitoring a runing job (optional)
 
@@ -325,7 +325,7 @@ Jarvis-HEP allows you to monitor the currently running job. For the above exampl
 Jarvis ./bin/Example_Bridson.yaml --monitor
 ```
 
-![image.png](common_workflow/image.png)
+![image.png](workflow/image.png)
 
 ## Congratulations, you made it from 0 to 1! 
 

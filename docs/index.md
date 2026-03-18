@@ -1,4 +1,11 @@
 #![Jarvis-HEP](assets/title_docs.png)
+<p align="center">
+<img alt="Static Badge" src="https://img.shields.io/badge/arXiv-2603.12345-yellow?style=plastic&logo=arxiv&logoColor=red">
+<img alt="GitHub Actions Workflow Status" src="https://img.shields.io/github/actions/workflow/status/Pengxuan-Zhu-Phys/Jarvis-HEP/ci.yml?style=plastic&logo=github">
+<img alt="PyPI - Downloads" src="https://img.shields.io/pypi/dd/Jarvis-HEP?style=plastic&logo=pypi">
+<img alt="PyPI - License" src="https://img.shields.io/pypi/l/Jarvis-HEP?style=plastic&logo=pypi">
+<img alt="GitHub Release" src="https://img.shields.io/github/v/release/Pengxuan-Zhu-Phys/Jarvis-HEP?style=plastic&logo=github">
+</p>
 
 Jarvis-HEP is a Python framework for parameter scanning, workflow orchestration, and structured data output in high-energy physics.
 
@@ -9,9 +16,9 @@ This documentation is organized around one main goal:
 ## Quick Start
 
 1. [Installation](tutorial/Installation.md)
-2. [Write Your First Scan Card](tutorial/eggbox.md)
-3. [From 0 to 1: commen workflow in Jarvis-HEP](tutorial/Common_workflow.md)
-4. [Command Line Tools](core/cli.md)
+2. [From 0 to 1: commen workflow in Jarvis-HEP](tutorial/Common_workflow.md)
+3. [Command Line Tools](tutorial/cli.md)
+4. [Write Your First Scan Card](tutorial/eggbox.md)
 5. [Task YAML Structure](core/summary.md)
 6. [How To Write A Scan YAML](core/yaml_overview.md)
 

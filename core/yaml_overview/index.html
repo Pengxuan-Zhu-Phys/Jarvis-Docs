@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://pengxuan-zhu-phys.github.io/Jarvis-Docs/core/yaml_overview/">
       
       
-        <link rel="prev" href="../summary/">
+        <link rel="prev" href="../../tutorial/eggbox/">
       
       
         <link rel="next" href="../samplers/">
@@ -25,7 +25,7 @@
     
     
       
-        <title>YAML Overview - Jarvis-HEP Documentation</title>
+        <title>Task YAML Structure - Jarvis-HEP Documentation</title>
       
     
     
@@ -68,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#how-to-write-a-scan-yaml" class="md-skip">
+        <a href="#task-yaml-structure" class="md-skip">
           Skip to content
         </a>
       
@@ -103,7 +103,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              YAML Overview
+              Task YAML Structure
             
           </span>
         </div>
@@ -358,6 +358,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/eggbox/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    First Module (EggBox)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -397,7 +425,7 @@
   <span class="md-ellipsis">
     
   
-    Write A Scan
+    Jarvis-HEP Summary
   
 
     
@@ -413,39 +441,11 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Write A Scan
+    Jarvis-HEP Summary
   
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../summary/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Task YAML Structure
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
             
               
                 
@@ -470,7 +470,7 @@
   <span class="md-ellipsis">
     
   
-    YAML Overview
+    Task YAML Structure
   
 
     
@@ -488,7 +488,7 @@
   <span class="md-ellipsis">
     
   
-    YAML Overview
+    Task YAML Structure
   
 
     
@@ -514,10 +514,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#mental-model" class="md-nav__link">
+  <a href="#task-card-mental-model" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Mental Model
+        Task card mental model
       
     </span>
   </a>
@@ -525,44 +525,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#step-1-define-the-run-location" class="md-nav__link">
+  <a href="#yaml-structure-overview" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step 1: Define The Run Location
+        YAML structure (overview)
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#step-2-choose-a-sampler" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Step 2: Choose A Sampler
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#step-3-define-the-scan-variables" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Step 3: Define The Scan Variables
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Step 3: Define The Scan Variables">
+    <nav class="md-nav" aria-label="YAML structure (overview)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#supported-distribution-patterns" class="md-nav__link">
+  <a href="#quick-checklist-required-vs-optional" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Supported Distribution Patterns
+        Quick checklist (required vs optional)
       
     </span>
   </a>
@@ -575,44 +553,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#step-4-add-sampler-specific-controls" class="md-nav__link">
+  <a href="#scan-run-location-and-output-layout" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step 4: Add Sampler-Specific Controls
+        Scan (run location and output layout)
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#step-5-write-the-likelihood-objective" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Step 5: Write The Likelihood Objective
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#step-6-choose-how-observables-are-produced" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Step 6: Choose How Observables Are Produced
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Step 6: Choose How Observables Are Produced">
+    <nav class="md-nav" aria-label="Scan (run location and output layout)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#option-a-calculators" class="md-nav__link">
+  <a href="#minimal-copy-paste" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Option A: Calculators
+        Minimal (copy-paste)
       
     </span>
   </a>
@@ -620,10 +576,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#option-b-operas" class="md-nav__link">
+  <a href="#common-options" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Option B: Operas
+        Common options
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#output-directory-layout" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Output directory layout
       
     </span>
   </a>
@@ -636,10 +603,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#step-7-add-environment-requirements" class="md-nav__link">
+  <a href="#sampling-how-points-are-generated" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step 7: Add Environment Requirements
+        Sampling (how points are generated)
       
     </span>
   </a>
@@ -647,10 +614,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#step-8-add-optional-helper-functions" class="md-nav__link">
+  <a href="#libdeps-shared-external-backends" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step 8: Add Optional Helper Functions
+        LibDeps (shared external backends)
       
     </span>
   </a>
@@ -658,10 +625,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#a-minimal-complete-example-with-operas" class="md-nav__link">
+  <a href="#calculators-external-executables-backend" class="md-nav__link">
     <span class="md-ellipsis">
       
-        A Minimal Complete Example With Operas
+        Calculators (external executables backend)
       
     </span>
   </a>
@@ -669,10 +636,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#authoring-checklist" class="md-nav__link">
+  <a href="#operas-in-process-operators-backend" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Authoring Checklist
+        Operas (in-process operators backend)
       
     </span>
   </a>
@@ -680,10 +647,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#debugging-checklist" class="md-nav__link">
+  <a href="#envreqs-platform-and-dependencies" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Debugging Checklist
+        EnvReqs (platform and dependencies)
       
     </span>
   </a>
@@ -691,10 +658,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#next-pages" class="md-nav__link">
+  <a href="#utils-helper-functions" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Next Pages
+        Utils (helper functions)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#expressions-and-io" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Expressions and I/O
       
     </span>
   </a>
@@ -724,231 +702,7 @@
   <span class="md-ellipsis">
     
   
-    Samplers Overview
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../samplers/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Sampler Details
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../calculator/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Calculators
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../operas/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Operas
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../environment/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    EnvReqs
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../library/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Libraries
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../symbol/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Symbolic Expressions
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../utils/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Utils
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../io_summary/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    IO File Types
+    Sampler Summary
   
 
     
@@ -975,6 +729,60 @@
   
   
   
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Jarvis-PLOT Summary
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Jarvis-PLOT Summary
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
     <li class="md-nav__item">
       <a href="../../jarvisplot/jarvisplot/" class="md-nav__link">
         
@@ -983,7 +791,7 @@
   <span class="md-ellipsis">
     
   
-    Jarvis-PLOT
+    Overview
   
 
     
@@ -995,9 +803,71 @@
     </li>
   
 
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
     
       
       
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Jarvis-Operas Summary
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Jarvis-Operas Summary
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
   
   
   
@@ -1010,7 +880,7 @@
   <span class="md-ellipsis">
     
   
-    Jarvis-Operas
+    Overview
   
 
     
@@ -1019,6 +889,14 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -1050,10 +928,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#mental-model" class="md-nav__link">
+  <a href="#task-card-mental-model" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Mental Model
+        Task card mental model
       
     </span>
   </a>
@@ -1061,44 +939,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#step-1-define-the-run-location" class="md-nav__link">
+  <a href="#yaml-structure-overview" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step 1: Define The Run Location
+        YAML structure (overview)
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#step-2-choose-a-sampler" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Step 2: Choose A Sampler
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#step-3-define-the-scan-variables" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Step 3: Define The Scan Variables
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Step 3: Define The Scan Variables">
+    <nav class="md-nav" aria-label="YAML structure (overview)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#supported-distribution-patterns" class="md-nav__link">
+  <a href="#quick-checklist-required-vs-optional" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Supported Distribution Patterns
+        Quick checklist (required vs optional)
       
     </span>
   </a>
@@ -1111,44 +967,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#step-4-add-sampler-specific-controls" class="md-nav__link">
+  <a href="#scan-run-location-and-output-layout" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step 4: Add Sampler-Specific Controls
+        Scan (run location and output layout)
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#step-5-write-the-likelihood-objective" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Step 5: Write The Likelihood Objective
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#step-6-choose-how-observables-are-produced" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Step 6: Choose How Observables Are Produced
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Step 6: Choose How Observables Are Produced">
+    <nav class="md-nav" aria-label="Scan (run location and output layout)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#option-a-calculators" class="md-nav__link">
+  <a href="#minimal-copy-paste" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Option A: Calculators
+        Minimal (copy-paste)
       
     </span>
   </a>
@@ -1156,10 +990,21 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#option-b-operas" class="md-nav__link">
+  <a href="#common-options" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Option B: Operas
+        Common options
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#output-directory-layout" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Output directory layout
       
     </span>
   </a>
@@ -1172,10 +1017,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#step-7-add-environment-requirements" class="md-nav__link">
+  <a href="#sampling-how-points-are-generated" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step 7: Add Environment Requirements
+        Sampling (how points are generated)
       
     </span>
   </a>
@@ -1183,10 +1028,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#step-8-add-optional-helper-functions" class="md-nav__link">
+  <a href="#libdeps-shared-external-backends" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step 8: Add Optional Helper Functions
+        LibDeps (shared external backends)
       
     </span>
   </a>
@@ -1194,10 +1039,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#a-minimal-complete-example-with-operas" class="md-nav__link">
+  <a href="#calculators-external-executables-backend" class="md-nav__link">
     <span class="md-ellipsis">
       
-        A Minimal Complete Example With Operas
+        Calculators (external executables backend)
       
     </span>
   </a>
@@ -1205,10 +1050,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#authoring-checklist" class="md-nav__link">
+  <a href="#operas-in-process-operators-backend" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Authoring Checklist
+        Operas (in-process operators backend)
       
     </span>
   </a>
@@ -1216,10 +1061,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#debugging-checklist" class="md-nav__link">
+  <a href="#envreqs-platform-and-dependencies" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Debugging Checklist
+        EnvReqs (platform and dependencies)
       
     </span>
   </a>
@@ -1227,10 +1072,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#next-pages" class="md-nav__link">
+  <a href="#utils-helper-functions" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Next Pages
+        Utils (helper functions)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#expressions-and-io" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Expressions and I/O
       
     </span>
   </a>
@@ -1254,247 +1110,136 @@
 
 
 
-<h1 id="how-to-write-a-scan-yaml">How To Write A Scan YAML</h1>
-<p>This page is written for a physicist who wants to go from "I know my model and my observables" to "I can write a Jarvis-HEP scan card myself".</p>
-<h2 id="mental-model">Mental Model</h2>
+<h1 id="task-yaml-structure">Task YAML Structure</h1>
+<aside>
+🧭
+
+This page is a  <strong>structure reference</strong> for a Jarvis-HEP task card (scan YAML).
+
+It lists the <strong>top-level blocks</strong> and common sub-keys, with links to dedicated pages for details.
+
+</aside>
+
+<h2 id="task-card-mental-model">Task card mental model</h2>
 <p>A Jarvis-HEP run does three things:</p>
 <ol>
 <li>Draw a parameter point.</li>
-<li>Evaluate one workflow that turns that point into observables.</li>
+<li>Run a workflow that turns that point into observables.</li>
 <li>Compute a <code>LogLikelihood</code> from those observables.</li>
 </ol>
-<p>If you can describe those three steps in YAML, you can run a scan.</p>
-<h2 id="step-1-define-the-run-location">Step 1: Define The Run Location</h2>
-<p>Start with <code>Scan</code>.</p>
-<pre><code class="language-yaml">Scan:
-  name: &quot;MSSM_Run&quot;
-  save_dir: &quot;&amp;J/Results&quot;
-</code></pre>
-<p>This creates a result directory like:</p>
-<pre><code class="language-text">&amp;J/Results/MSSM_Run/
-</code></pre>
-<p>Inside it, Jarvis-HEP creates:</p>
+<hr />
+<h2 id="yaml-structure-overview">YAML structure (overview)</h2>
+<p>New to YAML? Start here: <a href="https://www.notion.so/YAML-format-overview-329b3a9dafc580d58006f43333bff206?pvs=21">YAML format overview</a></p>
+<h3 id="quick-checklist-required-vs-optional">Quick checklist (required vs optional)</h3>
 <ul>
-<li><code>SAMPLE/</code>: per-sample working files</li>
-<li><code>LOG/</code>: run logs</li>
-<li><code>DATABASE/</code>: HDF5 output and converted CSV/schema products</li>
+<li><strong>Required</strong>: <code>Scan</code>, <code>Sampling</code></li>
+<li><strong>Recommended</strong>: <code>EnvReqs</code></li>
+<li><strong>Choose one workflow backend</strong>: <code>Calculators</code> <strong>or</strong> <code>Operas</code></li>
+<li><strong>Optional</strong>: <code>LibDeps</code>, <code>Utils</code></li>
 </ul>
-<p>If you want explicit sample bucket control, add:</p>
+<p>A typical card is organized like this:</p>
+<pre><code class="language-yaml">Scan:               # run name + output location
+Sampling:           # how points are drawn + objective
+LibDeps:            # shared backend deps installed once (optional)
+Calculators:        # external-program workflow (optional)
+Operas:             # in-process workflow (optional)
+EnvReqs:            # platform + dependency contract (recommended)
+Utils:              # helper functions (optional)
+</code></pre>
+<aside>
+ℹ️
+
+In most cards, you use <strong>either</strong> `Calculators` <strong>or</strong> `Operas` as the workflow backend.
+
+</aside>
+
+<hr />
+<h2 id="scan-run-location-and-output-layout"><code>Scan</code> (run location and output layout)</h2>
+<p><code>Scan</code> defines the run name and where outputs are written.</p>
+<h3 id="minimal-copy-paste">Minimal (copy-paste)</h3>
 <pre><code class="language-yaml">Scan:
   name: &quot;MSSM_Run&quot;
-  save_dir: &quot;&amp;J/Results&quot;
+  save_dir: &quot;&amp;J/outputs&quot;
+</code></pre>
+<p>For a standalone project, Jarvis writes outputs under the project root using <code>&lt;TASK-NAME&gt; = Scan.name</code>:</p>
+<pre><code>&amp;J/outputs/&lt;TASK-NAME&gt;/
+</code></pre>
+<p>Path placeholders and resolution: <a href="https://www.notion.so/Placeholder-in-path-resolution-f5ac794f959d4f7c8d4d477801fa37b0?pvs=21">Placeholder in path resolution</a></p>
+<h3 id="common-options">Common options</h3>
+<pre><code class="language-yaml">Scan:
+  name: &quot;MSSM_Run&quot;
+  save_dir: &quot;&amp;J/outputs&quot;
   sample_directory:
     limit: 200
     width: 6
     archive_samples: true
 </code></pre>
-<h2 id="step-2-choose-a-sampler">Step 2: Choose A Sampler</h2>
-<p>Now define <code>Sampling.Method</code>.</p>
-<p>A practical beginner rule is:</p>
 <ul>
-<li>Use <code>Random</code> if you want a simple, robust first scan.</li>
-<li>Use <code>Bridson</code> if you want broad space-filling exploration.</li>
-<li>Use <code>Dynesty</code> or <code>MultiNest</code> if you need nested sampling.</li>
-<li>Use one of the MCMC-family samplers when you already know why chain-based exploration is the right tool.</li>
+<li><code>sample_directory</code>: configures how sample data is stored or displayed.</li>
+<li><code>limit: 200</code>: caps the number of samples kept in the directory at 200.</li>
+<li><code>width: 6</code>: sets the display width to six items per row or column.</li>
+<li><code>archive_samples: true</code>: archives samples that exceed retention limits, removing them from active view.</li>
 </ul>
-<p>Example:</p>
-<pre><code class="language-yaml">Sampling:
-  Method: &quot;Random&quot;
-</code></pre>
-<h2 id="step-3-define-the-scan-variables">Step 3: Define The Scan Variables</h2>
-<p>Every sampled parameter goes into <code>Sampling.Variables</code>.</p>
-<pre><code class="language-yaml">Sampling:
-  Method: &quot;Random&quot;
-  Variables:
-    - name: M1
-      description: &quot;Bino soft mass&quot;
-      distribution:
-        type: Flat
-        parameters:
-          min: -3000.0
-          max: 3000.0
-
-    - name: TanBETA
-      description: &quot;tan(beta)&quot;
-      distribution:
-        type: Flat
-        parameters:
-          min: 1.0
-          max: 60.0
-</code></pre>
-<h3 id="supported-distribution-patterns">Supported Distribution Patterns</h3>
-<p>Common patterns are:</p>
+<h3 id="output-directory-layout">Output directory layout</h3>
+<p>The output layout follows the CLI contract: <a href="https://www.notion.so/Command-line-tools-1a4adeac12864a929506f532e4016e98?pvs=21">Command line tools</a></p>
+<p>Common locations:</p>
 <ul>
-<li><code>Flat</code> with <code>min</code> and <code>max</code></li>
-<li><code>Log</code> with <code>min</code> and <code>max</code></li>
-<li><code>Normal</code> with <code>mean</code> and <code>stddev</code></li>
-<li>sampler-dependent extensions described on the individual sampler pages</li>
+<li><code>&amp;J/outputs/&lt;TASK-NAME&gt;/SAMPLE/</code>: per-sample working files</li>
+<li><code>&amp;J/outputs/&lt;TASK-NAME&gt;/DATABASE/</code>: structured outputs and converted products</li>
+<li><code>&amp;J/logs/&lt;TASK-NAME&gt;/</code>: run logs</li>
+<li><code>&amp;J/images/&lt;TASK-NAME&gt;/</code>: flowchart and plots</li>
 </ul>
-<p>The safest beginner choice is <code>Flat</code>.</p>
-<h2 id="step-4-add-sampler-specific-controls">Step 4: Add Sampler-Specific Controls</h2>
-<p>Different samplers use different control keys in the same <code>Sampling</code> block.</p>
-<p>For <code>Random</code>, the main control is:</p>
+<hr />
+<h2 id="sampling-how-points-are-generated"><code>Sampling</code> (how points are generated)</h2>
+<p>High-level shape (reference):</p>
 <pre><code class="language-yaml">Sampling:
-  Point number: 5000
+  Method: &quot;Random&quot;        # sampler name
+  Variables: []            # scan variables
+  Bounds: {}               # sampler-specific controls (optional)
+  LogLikelihood: []        # objective definition
 </code></pre>
-<p>For <code>Bridson</code>, you would instead set keys such as <code>Radius</code> and <code>MaxAttempt</code>. For nested or MCMC samplers, you will usually define a <code>Bounds</code> block. Do not guess these names; use the sampler-specific reference page.</p>
-<h2 id="step-5-write-the-likelihood-objective">Step 5: Write The Likelihood Objective</h2>
-<p><code>Sampling.LogLikelihood</code> tells Jarvis-HEP what to optimize or record as the scan objective.</p>
-<pre><code class="language-yaml">Sampling:
-  LogLikelihood:
-    - name: LogL_Higgs
-      expression: &quot;LogGauss(mh, 125.09, 3.0)&quot;
-    - name: LogL_DM
-      expression: &quot;LogGauss(Omega_h2, 0.120, 0.012)&quot;
+<p><strong>Details</strong>: <a href="../samplers/">Samplers</a>;      <a href="../variables/">Variables</a></p>
+<hr />
+<h2 id="libdeps-shared-external-backends"><code>LibDeps</code> (shared external backends)</h2>
+<p><code>LibDeps</code> lists external program packages that are <strong>not</strong> part of the per-sample workflow.</p>
+<p>Use it for backends that you install once (per machine or per environment) and then reuse across scans.</p>
+<p>High-level shape (conceptual):</p>
+<pre><code class="language-yaml">LibDeps:
+  # shared backend packages
 </code></pre>
-<p>The total log-likelihood is the sum of the listed expressions.</p>
-<p>Important rule: every symbol in these expressions must come from one of three places:</p>
-<ul>
-<li>a sampled parameter name</li>
-<li>an observable produced by <code>Calculators</code> or <code>Operas</code></li>
-<li>a built-in constant or function, such as <code>Pi</code>, <code>sqrt</code>, or <code>LogGauss</code></li>
-</ul>
-<p>Reference: <a href="../symbol/">Symbolic Expressions</a></p>
-<h2 id="step-6-choose-how-observables-are-produced">Step 6: Choose How Observables Are Produced</h2>
-<p>At this point you decide between two backends.</p>
-<h3 id="option-a-calculators">Option A: <code>Calculators</code></h3>
-<p>Use <code>Calculators</code> when your workflow depends on files and external executables.</p>
-<p>Typical pattern:</p>
-<ol>
-<li>Copy or prepare an input file.</li>
-<li>Replace placeholders or dump JSON input values.</li>
-<li>Run the external code.</li>
-<li>Read the output file and map results into Jarvis observable names.</li>
-</ol>
-<p>Reference: <a href="../calculator/">Calculators</a></p>
-<h3 id="option-b-operas">Option B: <code>Operas</code></h3>
-<p>Use <code>Operas</code> when the computation already exists as a Python operator registered in Jarvis-Operas.</p>
-<p>Typical pattern:</p>
-<ol>
-<li>Map sampled parameters into operator inputs.</li>
-<li>Call the operator directly in Python.</li>
-<li>Map the operator return payload back to Jarvis observables.</li>
-</ol>
-<p>Reference: <a href="../operas/">Operas</a></p>
-<h2 id="step-7-add-environment-requirements">Step 7: Add Environment Requirements</h2>
-<p>Most cards should declare a minimum platform contract.</p>
+<p><strong>Details:</strong> <a href="../library/">Library dependencies</a></p>
+<hr />
+<h2 id="calculators-external-executables-backend"><code>Calculators</code> (external executables backend)</h2>
+<p>High-level shape (conceptual):</p>
+<pre><code class="language-yaml">Calculators:
+  # one or more calculators / steps
+</code></pre>
+<p>Details: <a href="https://www.notion.so/Calculators-0359d3d55e7340e28450501bb4a22f88?pvs=21">Calculators</a></p>
+<hr />
+<h2 id="operas-in-process-operators-backend"><code>Operas</code> (in-process operators backend)</h2>
+<p>High-level shape (conceptual):</p>
+<pre><code class="language-yaml">Operas:
+  # modules/operators and mappings
+</code></pre>
+<p>Details: <a href="https://www.notion.so/Operas-329b3a9dafc580f297d1e4716d97f88c?pvs=21">Operas</a></p>
+<hr />
+<h2 id="envreqs-platform-and-dependencies"><code>EnvReqs</code> (platform and dependencies)</h2>
+<p>High-level shape:</p>
 <pre><code class="language-yaml">EnvReqs:
-  OS:
-    - name: linux
-      version: &quot;&gt;=5.10.0&quot;
-    - name: Darwin
-      version: &quot;&gt;=10.14&quot;
-  Python:
-    version: &quot;&gt;=3.10&quot;
-    Dependencies:
-      - name: numpy
-        required: true
-        version: &quot;&gt;=1.24&quot;
+  OS: []
+  Python: {}
+  Check_default_dependences: {}   # optional
 </code></pre>
-<p>If you want Jarvis-HEP to merge a shared dependency card before validation, add:</p>
-<pre><code class="language-yaml">EnvReqs:
-  Check_default_dependences:
-    required: true
-    default_yaml_path: &quot;&amp;SRC/card/environment_default.yaml&quot;
-</code></pre>
-<p>Reference: <a href="../environment/">EnvReqs</a></p>
-<h2 id="step-8-add-optional-helper-functions">Step 8: Add Optional Helper Functions</h2>
-<p>If your likelihood or module expressions need an interpolation function, add it under <code>Utils</code>.</p>
-<pre><code class="language-yaml">Utils:
-  interpolations_1D:
-    - name: XenonSD2019
-      file: &quot;&amp;J/External/Data/xenon_sd_2019.csv&quot;
-      logX: false
-      logY: true
-      kind: cubic
-</code></pre>
-<p>Then you can use <code>XenonSD2019(mN1)</code> inside later expressions.</p>
-<p>Reference: <a href="../utils/">Utils</a></p>
-<h2 id="a-minimal-complete-example-with-operas">A Minimal Complete Example With <code>Operas</code></h2>
-<p>This is the shortest full scan card pattern to learn from.</p>
-<pre><code class="language-yaml">Scan:
-  name: &quot;EggBox_Quickstart&quot;
-  save_dir: &quot;&amp;J/Results&quot;
-
-Sampling:
-  Method: &quot;MultiNest&quot;
-  Variables:
-    - name: xx
-      description: &quot;First scan coordinate&quot;
-      distribution:
-        type: Flat
-        parameters:
-          min: 0.0
-          max: 5.0
-    - name: yy
-      description: &quot;Second scan coordinate&quot;
-      distribution:
-        type: Flat
-        parameters:
-          min: 0.0
-          max: 5.0
-  Bounds:
-    nlive: 48
-    rseed: 21
-    run_nested:
-      maxcall: 120
-      print_progress: false
-  LogLikelihood:
-    - name: LogL_Z
-      expression: &quot;LogGauss(z, 100, 10)&quot;
-
-EnvReqs:
-  OS:
-    - name: linux
-      version: &quot;&gt;=3.10.0&quot;
-    - name: Darwin
-      version: &quot;&gt;=10.14&quot;
-  Python:
-    version: &quot;&gt;=3.10&quot;
-    Dependencies: []
-
-Operas:
-  make_paraller: 4
-  Modules:
-    - name: EggBox
-      operator: &quot;helper.eggbox2d&quot;
-      call_mode: call
-      required_modules: []
-      input:
-        - {name: x, expression: &quot;xx * Pi&quot;}
-        - {name: y, expression: &quot;yy * Pi&quot;}
-      output:
-        - {name: z, entry: z}
-</code></pre>
-<h2 id="authoring-checklist">Authoring Checklist</h2>
-<p>Before you run a new YAML, check these points:</p>
+<p>Details: <a href="https://www.notion.so/Environment-Requirements-324b3a9dafc580e2be17f6f52b57141f?pvs=21">Environment Requirements</a></p>
+<hr />
+<h2 id="utils-helper-functions"><code>Utils</code> (helper functions)</h2>
+<p>Common uses: interpolation tables, reusable functions used by expressions.</p>
+<p>Details: (if you have a Utils page later, link it here)</p>
+<hr />
+<h2 id="expressions-and-io">Expressions and I/O</h2>
 <ul>
-<li><code>Scan.name</code> and <code>Scan.save_dir</code> are set.</li>
-<li><code>Sampling.Method</code> is correct.</li>
-<li>every variable has a clear name, description, and valid distribution.</li>
-<li>sampler-specific control keys match the selected method.</li>
-<li><code>LogLikelihood</code> depends only on available symbols.</li>
-<li>one backend is active: <code>Calculators</code> or <code>Operas</code>.</li>
-<li>every input/output path uses the correct root marker.</li>
-<li><code>EnvReqs</code> matches the machine where you will run the scan.</li>
-</ul>
-<h2 id="debugging-checklist">Debugging Checklist</h2>
-<p>If Jarvis-HEP rejects your YAML or the scan produces empty output, check these first:</p>
-<ul>
-<li>spelling and capitalization of keys</li>
-<li>missing observables in <code>LogLikelihood</code></li>
-<li>unsupported sampler keys copied from another method</li>
-<li>wrong path roots (<code>&amp;J</code> versus <code>&amp;SRC</code>)</li>
-<li>missing external program output files</li>
-<li><code>Operas</code> operators or aliases not installed in the runtime environment</li>
-</ul>
-<h2 id="next-pages">Next Pages</h2>
-<ul>
-<li><a href="../calculator/">Calculators</a></li>
-<li><a href="../operas/">Operas</a></li>
-<li><a href="../environment/">EnvReqs</a></li>
-<li><a href="../io_summary/">IO File Types</a></li>
-<li><a href="../../samplers/">Sampler Details</a></li>
+<li>Symbolic expressions used in likelihoods and mappings: <a href="https://www.notion.so/Symbolic-Expression-329b3a9dafc580a4b692cca4d0ac5109?pvs=21">Symbolic Expression</a></li>
+<li>Input and output file formats and conventions: <a href="https://www.notion.so/IO-files-329b3a9dafc5801b9ef1d6381901b0f3?pvs=21">IO files</a></li>
 </ul>
 
 
@@ -1555,6 +1300,8 @@ Operas:
     
     
       <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

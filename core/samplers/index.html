@@ -14,7 +14,7 @@
         <link rel="prev" href="../yaml_overview/">
       
       
-        <link rel="next" href="../../samplers/">
+        <link rel="next" href="../../jarvisplot/jarvisplot/">
       
       
         
@@ -25,7 +25,7 @@
     
     
       
-        <title>Samplers Overview - Jarvis-HEP Documentation</title>
+        <title>Sampler Summary - Jarvis-HEP Documentation</title>
       
     
     
@@ -68,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#samplers-overview" class="md-skip">
+        <a href="#samplers" class="md-skip">
           Skip to content
         </a>
       
@@ -103,7 +103,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Samplers Overview
+              Sampler Summary
             
           </span>
         </div>
@@ -358,6 +358,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorial/eggbox/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    First Module (EggBox)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -397,7 +425,7 @@
   <span class="md-ellipsis">
     
   
-    Write A Scan
+    Jarvis-HEP Summary
   
 
     
@@ -413,39 +441,11 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Write A Scan
+    Jarvis-HEP Summary
   
 
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../summary/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Task YAML Structure
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
             
               
                 
@@ -461,7 +461,7 @@
   <span class="md-ellipsis">
     
   
-    YAML Overview
+    Task YAML Structure
   
 
     
@@ -498,7 +498,7 @@
   <span class="md-ellipsis">
     
   
-    Samplers Overview
+    Sampler Summary
   
 
     
@@ -516,7 +516,7 @@
   <span class="md-ellipsis">
     
   
-    Samplers Overview
+    Sampler Summary
   
 
     
@@ -542,10 +542,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#how-to-choose-a-sampler" class="md-nav__link">
+  <a href="#overview" class="md-nav__link">
     <span class="md-ellipsis">
       
-        How To Choose A Sampler
+        Overview
       
     </span>
   </a>
@@ -553,15 +553,37 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#sampler-families" class="md-nav__link">
+  <a href="#choosing-a-sampler" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Sampler Families
+        Choosing a sampler
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Sampler Families">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sampler-categories" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sampler categories
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#main-samplers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Main samplers
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Main samplers">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -576,10 +598,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#machine-learning-sampler" class="md-nav__link">
+  <a href="#ml-guided-sampler" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Machine-learning sampler
+        ML-guided sampler
       
     </span>
   </a>
@@ -617,13 +639,102 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="MCMC family">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#random-walk-baseline-metropolis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Random-walk / baseline Metropolis
+      
+    </span>
+  </a>
+  
 </li>
         
           <li class="md-nav__item">
-  <a href="#nuisance-sampler" class="md-nav__link">
+  <a href="#adaptive-metropolis-auto-tunes-the-proposal" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Nuisance sampler
+        Adaptive Metropolis (auto-tunes the proposal)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#differential-evolution-population-based" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Differential Evolution / population-based
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ensemble-parallel-tempering-style" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ensemble / parallel-tempering style
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gradient-based-hamiltonian-langevin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gradient-based (Hamiltonian / Langevin)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-specialised" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other / specialised
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nuisance-samplers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Nuisance samplers
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Nuisance samplers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nuisance-profiling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Nuisance profiling
       
     </span>
   </a>
@@ -636,10 +747,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#what-is-common-across-all-samplers" class="md-nav__link">
+  <a href="#typical-outputs-and-diagnostics" class="md-nav__link">
     <span class="md-ellipsis">
       
-        What Is Common Across All Samplers
+        Typical outputs and diagnostics
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-structure-across-samplers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common structure across samplers
       
     </span>
   </a>
@@ -650,7 +772,7 @@
   <a href="#important-reminder" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Important Reminder
+        Important reminder
       
     </span>
   </a>
@@ -666,21 +788,46 @@
 
               
             
-              
-                
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
   
   
   
   
-    <li class="md-nav__item">
-      <a href="../../samplers/" class="md-nav__link">
+    
+    
+    
+    
+      
         
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
   
   
   <span class="md-ellipsis">
     
   
-    Sampler Details
+    Jarvis-PLOT Summary
   
 
     
@@ -688,11 +835,19 @@
   
   
 
-      </a>
-    </li>
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Jarvis-PLOT Summary
   
 
-              
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
             
               
                 
@@ -701,182 +856,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../calculator/" class="md-nav__link">
+      <a href="../../jarvisplot/jarvisplot/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Calculators
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../operas/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Operas
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../environment/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    EnvReqs
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../library/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Libraries
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../symbol/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Symbolic Expressions
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../utils/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Utils
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../io_summary/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    IO File Types
+    Overview
   
 
     
@@ -903,15 +890,33 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../../jarvisplot/jarvisplot/" class="md-nav__link">
+    
+    
+    
+    
+      
         
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
   
   
   <span class="md-ellipsis">
     
   
-    Jarvis-PLOT
+    Jarvis-Operas Summary
   
 
     
@@ -919,13 +924,22 @@
   
   
 
-      </a>
-    </li>
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Jarvis-Operas Summary
   
 
-    
-      
-      
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
   
   
   
@@ -938,7 +952,7 @@
   <span class="md-ellipsis">
     
   
-    Jarvis-Operas
+    Overview
   
 
     
@@ -947,6 +961,14 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -978,10 +1000,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#how-to-choose-a-sampler" class="md-nav__link">
+  <a href="#overview" class="md-nav__link">
     <span class="md-ellipsis">
       
-        How To Choose A Sampler
+        Overview
       
     </span>
   </a>
@@ -989,15 +1011,37 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#sampler-families" class="md-nav__link">
+  <a href="#choosing-a-sampler" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Sampler Families
+        Choosing a sampler
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Sampler Families">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sampler-categories" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sampler categories
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#main-samplers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Main samplers
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Main samplers">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1012,10 +1056,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#machine-learning-sampler" class="md-nav__link">
+  <a href="#ml-guided-sampler" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Machine-learning sampler
+        ML-guided sampler
       
     </span>
   </a>
@@ -1053,13 +1097,102 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="MCMC family">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#random-walk-baseline-metropolis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Random-walk / baseline Metropolis
+      
+    </span>
+  </a>
+  
 </li>
         
           <li class="md-nav__item">
-  <a href="#nuisance-sampler" class="md-nav__link">
+  <a href="#adaptive-metropolis-auto-tunes-the-proposal" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Nuisance sampler
+        Adaptive Metropolis (auto-tunes the proposal)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#differential-evolution-population-based" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Differential Evolution / population-based
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ensemble-parallel-tempering-style" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ensemble / parallel-tempering style
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gradient-based-hamiltonian-langevin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gradient-based (Hamiltonian / Langevin)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-specialised" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other / specialised
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nuisance-samplers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Nuisance samplers
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Nuisance samplers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nuisance-profiling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Nuisance profiling
       
     </span>
   </a>
@@ -1072,10 +1205,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#what-is-common-across-all-samplers" class="md-nav__link">
+  <a href="#typical-outputs-and-diagnostics" class="md-nav__link">
     <span class="md-ellipsis">
       
-        What Is Common Across All Samplers
+        Typical outputs and diagnostics
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-structure-across-samplers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common structure across samplers
       
     </span>
   </a>
@@ -1086,7 +1230,7 @@
   <a href="#important-reminder" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Important Reminder
+        Important reminder
       
     </span>
   </a>
@@ -1110,64 +1254,124 @@
 
 
 
-<h1 id="samplers-overview">Samplers Overview</h1>
-<p>Jarvis-HEP provides a broad sampler collection for HEP scans, global fits, and profile-likelihood studies. All sampler-specific configuration still lives inside the same <code>Sampling</code> section of your YAML card.</p>
-<h2 id="how-to-choose-a-sampler">How To Choose A Sampler</h2>
-<p>A practical rule for first-time users is:</p>
+<h1 id="samplers">Samplers</h1>
+<p>🧭
+<strong>How to use this page</strong></p>
 <ul>
-<li>Start with <code>Random</code> if you want the simplest possible scan.</li>
-<li>Use <code>Bridson</code> when you want broad space-filling coverage.</li>
-<li>Use <code>Dynesty</code> or <code>MultiNest</code> when you need nested sampling.</li>
-<li>Use an MCMC-family method only when you already know the chain behavior you want.</li>
-<li>Use <code>Diver</code> when you want an evolutionary search.</li>
-<li>Use <code>DNN</code> for machine-learning-guided exploration.</li>
-<li>Use <code>Profile1D</code> only for nuisance profiling, not for the main parameter scan.</li>
+<li>This page is a high-level guide for choosing a <strong>sampler family</strong> and navigating to the right method page.</li>
+<li>For the exact YAML keys/options of a specific method, open that sampler’s dedicated page.</li>
+<li>The shared structure of the <code>Sampling</code> block is documented in <strong>Task YAML Structure</strong>.</li>
 </ul>
-<h2 id="sampler-families">Sampler Families</h2>
+<h2 id="overview">Overview</h2>
+<p>Jarvis-HEP provides samplers for parameter scans, global fits, and profile-likelihood studies. Sampler configuration is defined in the <code>Sampling</code> section of your YAML card. This page focuses on choosing a sampler and understanding high-level differences—exact method-specific YAML keys are documented on each sampler's dedicated page.</p>
+<h2 id="choosing-a-sampler">Choosing a sampler</h2>
+<p>Use this as a quick decision guide (goal → recommended starting point):</p>
+<ul>
+<li><strong>Quick workflow test / plumbing check</strong> → <code>Random</code></li>
+<li><strong>Broad space-filling scan (coverage first)</strong> → <code>Bridson</code> (or <code>Grid</code> if you need axis-aligned evaluation)</li>
+<li><strong>Posterior / Bayesian sampling</strong> → MCMC-family (posterior chains) or <code>Dynesty</code> / <code>MultiNest</code> (nested sampling)</li>
+<li><strong>Evidence / model comparison</strong> → <code>Dynesty</code> or <code>MultiNest</code></li>
+<li><strong>Global optimisation / best-fit discovery</strong> → <code>Diver</code></li>
+<li><strong>ML-guided exploration</strong> → <code>DNN</code></li>
+<li><strong>Nuisance profiling only (inner optimisation step)</strong> → <code>Profile1D</code></li>
+</ul>
+<p>Most first runs should begin with <code>Random</code> or <code>Bridson</code> to validate the model and parameterisation, then switch to a more specialised sampler once the workflow is stable.</p>
+<h2 id="sampler-categories">Sampler categories</h2>
+<p>Jarvis-HEP groups samplers into:</p>
+<ul>
+<li><strong>Main samplers</strong>: choose the physics parameter points that drive the scan.</li>
+<li><strong>Nuisance samplers</strong>: optional inner steps used to optimise/profile nuisance parameters around each main point.</li>
+</ul>
+<p>Each group below includes a one-line “When to use” hint.</p>
+<h2 id="main-samplers">Main samplers</h2>
 <h3 id="basic-exploratory-samplers">Basic exploratory samplers</h3>
+<p>When to use: fast, simple coverage to map a parameter space before committing to heavier inference.</p>
 <ul>
-<li><a href="../../samplers/bridson/">Bridson</a></li>
-<li><a href="../../samplers/random/">Random</a></li>
+<li><a href="../../samplers/random/">Random Sampler</a> </li>
 <li><a href="../../samplers/grid/">Grid</a></li>
+<li><a href="../../samplers/bridson/">Bridson</a></li>
 </ul>
-<h3 id="machine-learning-sampler">Machine-learning sampler</h3>
+<h3 id="ml-guided-sampler">ML-guided sampler</h3>
+<p>When to use: guided exploration (surrogate/ML-assisted) to focus evaluations where they matter.</p>
 <ul>
 <li><a href="../../samplers/dnn/">DNN</a></li>
 </ul>
 <h3 id="evolutionary-sampler">Evolutionary sampler</h3>
+<p>When to use: global optimisation / rugged landscapes where evolutionary search can outperform local proposals.</p>
 <ul>
 <li><a href="../../samplers/diver/">Diver</a></li>
 </ul>
 <h3 id="nested-samplers">Nested samplers</h3>
+<p>When to use: you need evidence (marginal likelihood) and robust handling of multi-modality.</p>
 <ul>
 <li><a href="../../samplers/dynesty/">Dynesty</a></li>
 <li><a href="../../samplers/multinest/">MultiNest</a></li>
 </ul>
 <h3 id="mcmc-family">MCMC family</h3>
+<p>When to use: posterior sampling (uncertainties) when you are willing to run and check convergence diagnostics.</p>
+<p>MCMC methods mainly differ in how proposals are generated and how efficiently they explore correlated and/or multi-modal targets.</p>
+<h4 id="random-walk-baseline-metropolis">Random-walk / baseline Metropolis</h4>
+<p>When to use: a simple, robust starting point for low–medium dimensional problems.</p>
 <ul>
-<li><a href="../../samplers/mcmc/">MCMC</a></li>
-<li><a href="../../samplers/toymcmc/">ToyMCMC</a></li>
-<li><a href="../../samplers/ammcmc/">AMMCMC</a></li>
-<li><a href="../../samplers/robustam/">RobustAM</a></li>
-<li><a href="../../samplers/dram/">DRAM</a></li>
-<li><a href="../../samplers/demcmc/">DEMCMC</a></li>
-<li><a href="../../samplers/dream/">DREAM</a></li>
-<li><a href="../../samplers/dreamlite/">DREAMLite</a></li>
-<li><a href="../../samplers/ensemblemcmc/">EnsembleMCMC</a></li>
-<li><a href="../../samplers/tpmcmc/">TPMCMC</a></li>
-<li><a href="../../samplers/ptensemble/">PTEnsemble</a></li>
-<li><a href="../../samplers/slicemcmc/">SliceMCMC</a></li>
-<li><a href="../../samplers/ess/">ESS</a></li>
-<li><a href="../../samplers/mala/">MALA</a></li>
-<li><a href="../../samplers/hmc/">HMC</a></li>
-<li><a href="../../samplers/nuts/">NUTS</a></li>
+<li><a href="../../samplers/mcmc/">MCMC</a> — baseline random-walk Metropolis</li>
+<li><a href="../../samplers/toymcmc/">ToyMCMC</a> — lightweight/testing variant</li>
 </ul>
-<h3 id="nuisance-sampler">Nuisance sampler</h3>
+<h4 id="adaptive-metropolis-auto-tunes-the-proposal">Adaptive Metropolis (auto-tunes the proposal)</h4>
+<p>When to use: strong parameter correlations, or when hand-tuning proposal scales/covariances is painful.</p>
 <ul>
-<li><a href="../../samplers/nuisance-profile1d/">Profile1D</a></li>
+<li><a href="../../samplers/ammcmc/">AMMCMC</a> — adaptive Metropolis</li>
+<li><a href="../../samplers/robustam/">RobustAM</a> — robust adaptive Metropolis</li>
+<li><a href="../../samplers/dram/">DRAM</a> — delayed rejection + adaptive Metropolis</li>
 </ul>
-<h2 id="what-is-common-across-all-samplers">What Is Common Across All Samplers</h2>
-<p>Every sampler page documents the exact keys for that method, but the common structure is always:</p>
+<h4 id="differential-evolution-population-based">Differential Evolution / population-based</h4>
+<p>When to use: multi-modal targets or rugged landscapes; more compute, often more robust exploration.</p>
+<ul>
+<li><a href="../../samplers/demcmc/">DEMCMC</a> — differential evolution MCMC</li>
+<li><a href="../../samplers/dream/">DREAM</a> — differential evolution adaptive MCMC</li>
+<li><a href="../../samplers/dreamlite/">DREAMLite</a> — lighter DREAM variant</li>
+</ul>
+<h4 id="ensemble-parallel-tempering-style">Ensemble / parallel-tempering style</h4>
+<p>When to use: mode hopping (multi-modality) and/or when you can exploit parallel resources.</p>
+<ul>
+<li><a href="../../samplers/ensemblemcmc/">EnsembleMCMC</a> — ensemble sampler</li>
+<li><a href="../../samplers/ptensemble/">PTEnsemble</a> — parallel-tempered ensemble</li>
+<li><a href="../../samplers/tpmcmc/">TPMCMC</a> — tempering / parallel tempering MCMC</li>
+</ul>
+<h4 id="gradient-based-hamiltonian-langevin">Gradient-based (Hamiltonian / Langevin)</h4>
+<p>When to use: higher-dimensional, smooth continuous targets; typically efficient per effective sample when gradients are available.</p>
+<ul>
+<li><a href="../../samplers/mala/">MALA</a> — Metropolis-adjusted Langevin algorithm</li>
+<li><a href="../../samplers/hmc/">HMC</a> — Hamiltonian Monte Carlo</li>
+<li><a href="../../samplers/nuts/">NUTS</a> — No-U-Turn Sampler (auto-tuned HMC)</li>
+</ul>
+<h4 id="other-specialised">Other / specialised</h4>
+<p>When to use: only if you know why you want the specific move strategy.</p>
+<ul>
+<li><a href="../../samplers/slicemcmc/">SliceMCMC</a> — slice sampling moves</li>
+<li><a href="../../samplers/ess/">ESS</a> — elliptical slice sampling</li>
+</ul>
+<h2 id="nuisance-samplers">Nuisance samplers</h2>
+<p>When to use: optimize nuisance parameters at each physics point rather than sampling them together with the parameters of interest.</p>
+<ul>
+<li>A <strong>main sampler</strong> chooses the physics parameter points that drive the scan.</li>
+<li>A <strong>nuisance sampler</strong> is an additional inner step run around each main point to optimise/profile nuisance parameters.</li>
+<li>A nuisance sampler does <strong>not</strong> replace the main sampler; it augments the main scan.</li>
+</ul>
+<h3 id="nuisance-profiling">Nuisance profiling</h3>
+<ul>
+<li><a href="../../samplers/nuisance-profile1d/">Profile1D</a> — walks a single nuisance parameter's 1‑D range (with optional LogLikelihood and PassCondition hooks) to drive profile scans before the main analysis runs.</li>
+</ul>
+<h2 id="typical-outputs-and-diagnostics">Typical outputs and diagnostics</h2>
+<p>What to inspect after a run (keep it practical; method pages cover details):</p>
+<ul>
+<li><strong>Random / Bridson / Grid</strong>: coverage, parameter-space spread, missed regions (if any), and basic sanity checks of the likelihood.</li>
+<li><strong>MCMC-family</strong>: trace plots, acceptance rate, autocorrelation / mixing, and effective sample size (ESS) where available.</li>
+<li><strong>Nested samplers</strong>: weights / posterior samples, live-point behaviour, stability of evidence-related outputs.</li>
+<li><strong>Diver / evolutionary</strong>: best-fit improvement over time, population stability/diversity, and repeatability across seeds.</li>
+<li><strong>Profile1D</strong>: profiled nuisance best-fit values and the resulting log-likelihood behaviour (e.g. smoothness / stability of the profile).</li>
+</ul>
+<h2 id="common-structure-across-samplers">Common structure across samplers</h2>
+<p>Every sampler page documents the exact keys for that method, but the shared skeleton typically looks like:</p>
 <pre><code class="language-yaml">Sampling:
   Method: &quot;SamplerName&quot;
   Variables:
@@ -1178,19 +1382,17 @@
         parameters:
           min: 0.0
           max: 1.0
+
   LogLikelihood:
     - name: LogL_Total
       expression: &quot;...&quot;
 </code></pre>
-<p>Then you add the sampler-specific keys required by that method.</p>
-<h2 id="important-reminder">Important Reminder</h2>
-<p>Do not copy the control keys from one sampler into another. For example:</p>
-<ul>
-<li><code>Point number</code> is meaningful for <code>Random</code></li>
-<li><code>Radius</code> is meaningful for <code>Bridson</code></li>
-<li><code>Bounds</code> is used by many MCMC and nested samplers, but the contents differ by method</li>
-</ul>
-<p>The detailed pages under <a href="../../samplers/">Sampler Details</a> are written to be self-contained, so you can configure each method without opening another sampler page.</p>
+<p>Then add the sampler-specific control keys required by the chosen method.</p>
+<p><a href="../variables/"><strong>Variables</strong> details</a> </p>
+<h2 id="important-reminder">Important reminder</h2>
+<p>Sampler control keys are <strong>not interchangeable</strong> across methods.</p>
+<p>Even when two samplers use similar concepts (e.g. “bounds”, “step size”, “population”), the exact key names, defaults, and meanings may differ.</p>
+<p>Use the dedicated sampler page as the source of truth (for example: <code>Point number</code> is specific to <code>Random</code>, and <code>Radius</code> is specific to <code>Bridson</code>).</p>
 
 
 
@@ -1250,6 +1452,8 @@
     
     
       <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

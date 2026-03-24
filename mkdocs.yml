@@ -17,7 +17,11 @@ extra_css:
 
 plugins:
   - search
-
+markdown_extensions:
+  - pymdownx.arithmatex:
+      generic: true
+extra_javascript:
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 validation:
   nav:
     omitted_files: ignore
@@ -28,17 +32,11 @@ nav:
       - Installation: tutorial/Installation.md
       - First Scan (EggBox): tutorial/Common_workflow.md
       - Command Line Tools: tutorial/cli.md
-  - Write A Scan:
-      - Task YAML Structure: core/summary.md
-      - YAML Overview: core/yaml_overview.md
-      - Samplers Overview: core/samplers.md
-      - Sampler Details: samplers/index.md
-      - Calculators: core/calculator.md
-      - Operas: core/operas.md
-      - EnvReqs: core/environment.md
-      - Libraries: core/library.md
-      - Symbolic Expressions: core/symbol.md
-      - Utils: core/utils.md
-      - IO File Types: core/io_summary.md
-  - Jarvis-PLOT: jarvisplot/jarvisplot.md
-  - Jarvis-Operas: package/jarvis-operas.md
+      - First Module (EggBox): tutorial/eggbox.md
+  - Jarvis-HEP Summary:
+      - Task YAML Structure: core/yaml_overview.md
+      - Sampler Summary: core/samplers.md
+  - Jarvis-PLOT Summary:
+      - Overview: jarvisplot/jarvisplot.md
+  - Jarvis-Operas Summary:
+      - Overview: package/jarvis-operas.md

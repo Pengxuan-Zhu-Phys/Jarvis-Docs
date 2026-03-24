@@ -1,306 +1,189 @@
-# How To Write A Scan YAML
+# Task YAML Structure
 
-This page is written for a physicist who wants to go from "I know my model and my observables" to "I can write a Jarvis-HEP scan card myself".
+<aside>
+🧭
 
-## Mental Model
+This page is a  <strong>structure reference</strong> for a Jarvis-HEP task card (scan YAML).
+
+It lists the <strong>top-level blocks</strong> and common sub-keys, with links to dedicated pages for details.
+
+</aside>
+
+## Task card mental model
 
 A Jarvis-HEP run does three things:
 
 1. Draw a parameter point.
-2. Evaluate one workflow that turns that point into observables.
+2. Run a workflow that turns that point into observables.
 3. Compute a `LogLikelihood` from those observables.
 
-If you can describe those three steps in YAML, you can run a scan.
+---
 
-## Step 1: Define The Run Location
+## YAML structure (overview)
 
-Start with `Scan`.
+New to YAML? Start here: [YAML format overview](https://www.notion.so/YAML-format-overview-329b3a9dafc580d58006f43333bff206?pvs=21)
+
+### Quick checklist (required vs optional)
+
+- **Required**: `Scan`, `Sampling`
+- **Recommended**: `EnvReqs`
+- **Choose one workflow backend**: `Calculators` **or** `Operas`
+- **Optional**: `LibDeps`, `Utils`
+
+A typical card is organized like this:
+
+```yaml
+Scan:               # run name + output location
+Sampling:           # how points are drawn + objective
+LibDeps:            # shared backend deps installed once (optional)
+Calculators:        # external-program workflow (optional)
+Operas:             # in-process workflow (optional)
+EnvReqs:            # platform + dependency contract (recommended)
+Utils:              # helper functions (optional)
+```
+
+<aside>
+ℹ️
+
+In most cards, you use <strong>either</strong> `Calculators` <strong>or</strong> `Operas` as the workflow backend.
+
+</aside>
+
+---
+
+## `Scan` (run location and output layout)
+
+`Scan` defines the run name and where outputs are written.
+
+### Minimal (copy-paste)
 
 ```yaml
 Scan:
   name: "MSSM_Run"
-  save_dir: "&J/Results"
+  save_dir: "&J/outputs"
 ```
 
-This creates a result directory like:
+For a standalone project, Jarvis writes outputs under the project root using `<TASK-NAME> = Scan.name`:
 
-```text
-&J/Results/MSSM_Run/
+```
+&J/outputs/<TASK-NAME>/
 ```
 
-Inside it, Jarvis-HEP creates:
+Path placeholders and resolution: [Placeholder in path resolution](https://www.notion.so/Placeholder-in-path-resolution-f5ac794f959d4f7c8d4d477801fa37b0?pvs=21)
 
-- `SAMPLE/`: per-sample working files
-- `LOG/`: run logs
-- `DATABASE/`: HDF5 output and converted CSV/schema products
-
-If you want explicit sample bucket control, add:
+### Common options
 
 ```yaml
 Scan:
   name: "MSSM_Run"
-  save_dir: "&J/Results"
+  save_dir: "&J/outputs"
   sample_directory:
     limit: 200
     width: 6
     archive_samples: true
 ```
 
-## Step 2: Choose A Sampler
+- `sample_directory`: configures how sample data is stored or displayed.
+- `limit: 200`: caps the number of samples kept in the directory at 200.
+- `width: 6`: sets the display width to six items per row or column.
+- `archive_samples: true`: archives samples that exceed retention limits, removing them from active view.
 
-Now define `Sampling.Method`.
+### Output directory layout
 
-A practical beginner rule is:
+The output layout follows the CLI contract: [Command line tools](https://www.notion.so/Command-line-tools-1a4adeac12864a929506f532e4016e98?pvs=21)
 
-- Use `Random` if you want a simple, robust first scan.
-- Use `Bridson` if you want broad space-filling exploration.
-- Use `Dynesty` or `MultiNest` if you need nested sampling.
-- Use one of the MCMC-family samplers when you already know why chain-based exploration is the right tool.
+Common locations:
 
-Example:
+- `&J/outputs/<TASK-NAME>/SAMPLE/`: per-sample working files
+- `&J/outputs/<TASK-NAME>/DATABASE/`: structured outputs and converted products
+- `&J/logs/<TASK-NAME>/`: run logs
+- `&J/images/<TASK-NAME>/`: flowchart and plots
 
-```yaml
-Sampling:
-  Method: "Random"
-```
+---
 
-## Step 3: Define The Scan Variables
+## `Sampling` (how points are generated)
 
-Every sampled parameter goes into `Sampling.Variables`.
-
-```yaml
-Sampling:
-  Method: "Random"
-  Variables:
-    - name: M1
-      description: "Bino soft mass"
-      distribution:
-        type: Flat
-        parameters:
-          min: -3000.0
-          max: 3000.0
-
-    - name: TanBETA
-      description: "tan(beta)"
-      distribution:
-        type: Flat
-        parameters:
-          min: 1.0
-          max: 60.0
-```
-
-### Supported Distribution Patterns
-
-Common patterns are:
-
-- `Flat` with `min` and `max`
-- `Log` with `min` and `max`
-- `Normal` with `mean` and `stddev`
-- sampler-dependent extensions described on the individual sampler pages
-
-The safest beginner choice is `Flat`.
-
-## Step 4: Add Sampler-Specific Controls
-
-Different samplers use different control keys in the same `Sampling` block.
-
-For `Random`, the main control is:
+High-level shape (reference):
 
 ```yaml
 Sampling:
-  Point number: 5000
+  Method: "Random"        # sampler name
+  Variables: []            # scan variables
+  Bounds: {}               # sampler-specific controls (optional)
+  LogLikelihood: []        # objective definition
 ```
 
-For `Bridson`, you would instead set keys such as `Radius` and `MaxAttempt`. For nested or MCMC samplers, you will usually define a `Bounds` block. Do not guess these names; use the sampler-specific reference page.
+**Details**: [Samplers](samplers.md);      [Variables](variables.md)
 
-## Step 5: Write The Likelihood Objective
+---
 
-`Sampling.LogLikelihood` tells Jarvis-HEP what to optimize or record as the scan objective.
+## `LibDeps` (shared external backends)
+
+`LibDeps` lists external program packages that are **not** part of the per-sample workflow.
+
+Use it for backends that you install once (per machine or per environment) and then reuse across scans.
+
+High-level shape (conceptual):
 
 ```yaml
-Sampling:
-  LogLikelihood:
-    - name: LogL_Higgs
-      expression: "LogGauss(mh, 125.09, 3.0)"
-    - name: LogL_DM
-      expression: "LogGauss(Omega_h2, 0.120, 0.012)"
+LibDeps:
+  # shared backend packages
 ```
 
-The total log-likelihood is the sum of the listed expressions.
+**Details:** [Library dependencies](library.md)
 
-Important rule: every symbol in these expressions must come from one of three places:
+---
 
-- a sampled parameter name
-- an observable produced by `Calculators` or `Operas`
-- a built-in constant or function, such as `Pi`, `sqrt`, or `LogGauss`
+## `Calculators` (external executables backend)
 
-Reference: [Symbolic Expressions](symbol.md)
-
-## Step 6: Choose How Observables Are Produced
-
-At this point you decide between two backends.
-
-### Option A: `Calculators`
-
-Use `Calculators` when your workflow depends on files and external executables.
-
-Typical pattern:
-
-1. Copy or prepare an input file.
-2. Replace placeholders or dump JSON input values.
-3. Run the external code.
-4. Read the output file and map results into Jarvis observable names.
-
-Reference: [Calculators](calculator.md)
-
-### Option B: `Operas`
-
-Use `Operas` when the computation already exists as a Python operator registered in Jarvis-Operas.
-
-Typical pattern:
-
-1. Map sampled parameters into operator inputs.
-2. Call the operator directly in Python.
-3. Map the operator return payload back to Jarvis observables.
-
-Reference: [Operas](operas.md)
-
-## Step 7: Add Environment Requirements
-
-Most cards should declare a minimum platform contract.
+High-level shape (conceptual):
 
 ```yaml
-EnvReqs:
-  OS:
-    - name: linux
-      version: ">=5.10.0"
-    - name: Darwin
-      version: ">=10.14"
-  Python:
-    version: ">=3.10"
-    Dependencies:
-      - name: numpy
-        required: true
-        version: ">=1.24"
+Calculators:
+  # one or more calculators / steps
 ```
 
-If you want Jarvis-HEP to merge a shared dependency card before validation, add:
+Details: [Calculators](https://www.notion.so/Calculators-0359d3d55e7340e28450501bb4a22f88?pvs=21)
+
+---
+
+## `Operas` (in-process operators backend)
+
+High-level shape (conceptual):
 
 ```yaml
-EnvReqs:
-  Check_default_dependences:
-    required: true
-    default_yaml_path: "&SRC/card/environment_default.yaml"
-```
-
-Reference: [EnvReqs](environment.md)
-
-## Step 8: Add Optional Helper Functions
-
-If your likelihood or module expressions need an interpolation function, add it under `Utils`.
-
-```yaml
-Utils:
-  interpolations_1D:
-    - name: XenonSD2019
-      file: "&J/External/Data/xenon_sd_2019.csv"
-      logX: false
-      logY: true
-      kind: cubic
-```
-
-Then you can use `XenonSD2019(mN1)` inside later expressions.
-
-Reference: [Utils](utils.md)
-
-## A Minimal Complete Example With `Operas`
-
-This is the shortest full scan card pattern to learn from.
-
-```yaml
-Scan:
-  name: "EggBox_Quickstart"
-  save_dir: "&J/Results"
-
-Sampling:
-  Method: "MultiNest"
-  Variables:
-    - name: xx
-      description: "First scan coordinate"
-      distribution:
-        type: Flat
-        parameters:
-          min: 0.0
-          max: 5.0
-    - name: yy
-      description: "Second scan coordinate"
-      distribution:
-        type: Flat
-        parameters:
-          min: 0.0
-          max: 5.0
-  Bounds:
-    nlive: 48
-    rseed: 21
-    run_nested:
-      maxcall: 120
-      print_progress: false
-  LogLikelihood:
-    - name: LogL_Z
-      expression: "LogGauss(z, 100, 10)"
-
-EnvReqs:
-  OS:
-    - name: linux
-      version: ">=3.10.0"
-    - name: Darwin
-      version: ">=10.14"
-  Python:
-    version: ">=3.10"
-    Dependencies: []
-
 Operas:
-  make_paraller: 4
-  Modules:
-    - name: EggBox
-      operator: "helper.eggbox2d"
-      call_mode: call
-      required_modules: []
-      input:
-        - {name: x, expression: "xx * Pi"}
-        - {name: y, expression: "yy * Pi"}
-      output:
-        - {name: z, entry: z}
+  # modules/operators and mappings
 ```
 
-## Authoring Checklist
+Details: [Operas](https://www.notion.so/Operas-329b3a9dafc580f297d1e4716d97f88c?pvs=21)
 
-Before you run a new YAML, check these points:
+---
 
-- `Scan.name` and `Scan.save_dir` are set.
-- `Sampling.Method` is correct.
-- every variable has a clear name, description, and valid distribution.
-- sampler-specific control keys match the selected method.
-- `LogLikelihood` depends only on available symbols.
-- one backend is active: `Calculators` or `Operas`.
-- every input/output path uses the correct root marker.
-- `EnvReqs` matches the machine where you will run the scan.
+## `EnvReqs` (platform and dependencies)
 
-## Debugging Checklist
+High-level shape:
 
-If Jarvis-HEP rejects your YAML or the scan produces empty output, check these first:
+```yaml
+EnvReqs:
+  OS: []
+  Python: {}
+  Check_default_dependences: {}   # optional
+```
 
-- spelling and capitalization of keys
-- missing observables in `LogLikelihood`
-- unsupported sampler keys copied from another method
-- wrong path roots (`&J` versus `&SRC`)
-- missing external program output files
-- `Operas` operators or aliases not installed in the runtime environment
+Details: [Environment Requirements](https://www.notion.so/Environment-Requirements-324b3a9dafc580e2be17f6f52b57141f?pvs=21)
 
-## Next Pages
+---
 
-- [Calculators](calculator.md)
-- [Operas](operas.md)
-- [EnvReqs](environment.md)
-- [IO File Types](io_summary.md)
-- [Sampler Details](../samplers/index.md)
+## `Utils` (helper functions)
+
+Common uses: interpolation tables, reusable functions used by expressions.
+
+Details: (if you have a Utils page later, link it here)
+
+---
+
+## Expressions and I/O
+
+- Symbolic expressions used in likelihoods and mappings: [Symbolic Expression](https://www.notion.so/Symbolic-Expression-329b3a9dafc580a4b692cca4d0ac5109?pvs=21)
+- Input and output file formats and conventions: [IO files](https://www.notion.so/IO-files-329b3a9dafc5801b9ef1d6381901b0f3?pvs=21)

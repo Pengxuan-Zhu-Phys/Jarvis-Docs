@@ -1,36 +1,20 @@
-# Random
+# Random Sampler
 
-## Purpose
+<aside>
+🎲
+</aside>
+**Random Sampler** draws independent uniform samples in unit space (first sample in [0,1], then map to your configured parameter distributions).
 
-Random draws independent uniform samples in unit space, then maps them to configured parameter distributions.
 
-## Full `Sampling` Section Keys
-
-- `Sampling.Method` (required): must be `Random`.
-- `Sampling.Point number` (required, integer): total number of accepted samples.
-- `Sampling.Variables` (required, array):
-  - `name` (required, string)
-  - `description` (required, string)
-  - `distribution.type` (required, string)
-  - `distribution.parameters` (required, object)
-  - Runtime-safe distribution parameter sets:
-    - `Flat`: `min`, `max`
-    - `Log`: `min`, `max`
-    - `Normal`: `mean`, `stddev`
-    - `Log-Normal`: `mean`, `stddev`
-    - `Logit`: `location`, `scale`
-- `Sampling.LogLikelihood` (required, array): `{name, expression}`
-- `Sampling.selection` (optional, string): filter expression. Rejected points are resampled.
-
-## Full Skeleton
+## Minimal example
 
 ```yaml
 Sampling:
   Method: "Random"
-  Point number: 10000
+  Point number: 1000
   Variables:
-    - name: p1
-      description: parameter 1
+    - name: x
+      description: "example variable"
       distribution:
         type: Flat
         parameters:
@@ -38,33 +22,45 @@ Sampling:
           max: 1.0
   LogLikelihood:
     - name: L_total
-      expression: "-0.5*((obs-100.0)/10.0)^2"
-  selection: "p1 > 0"
+      expression: "-0.5*(x-0.5)^2"
 ```
 
-## Example
+### Field meanings
 
-```yaml
-Sampling:
-  Method: "Random"
-  Point number: 20000
-  Variables:
-    - name: m0
-      description: universal scalar mass
-      distribution:
-        type: Flat
-        parameters:
-          min: 100
-          max: 3000
-    - name: tanb
-      description: tan beta
-      distribution:
-        type: Flat
-        parameters:
-          min: 2
-          max: 60
-  LogLikelihood:
-    - name: L_higgs
-      expression: "-0.5*((mh-125.09)/3.0)^2"
-  selection: "m0 > 200 and tanb < 55"
-```
+- `Sampling`: root configuration block.
+- `Method`: must be `Random`.
+- `Point number`: number of **accepted samples** to return. If a `selection` cut is used, more raw points may be generated internally to reach this accepted count.
+- `Variables`: See [Scan Parameters (Sampler Variables Schema)](../core/variables.md)
+- `LogLikelihood`: list of named likelihood terms. See [Likelihood](../core/likelihood.md)
+    - `name`: likelihood term name.
+    - `expression`: expression evaluated per point.
+
+## Purpose
+
+Use the Random sampler when you want simple, independent sampling with an optional selection cut.
+
+Random is not the right choice for posterior sampling, correlated exploration, or evidence estimation.
+
+## Required configuration
+
+- `Sampling.Method`: `Random`
+- `Sampling.Point number`: integer (accepted samples)
+- `Sampling.Variables`: variable definitions
+- `Sampling.LogLikelihood`: named likelihood expressions
+
+## Optional configuration
+
+- `Sampling.selection`: selection cut expression that must evaluate to a boolean; it should remain simple, deterministic, and free of side effects. **Rejected points** are resampled.
+
+## LogLikelihood schema
+
+Each entry in `Sampling.LogLikelihood` must contain:
+
+- `name`: string
+- `expression`: string
+
+<aside>
+✅
+</aside>
+
+Keep `selection` simple and deterministic. Rejected points are resampled until the requested number of accepted points is reached.

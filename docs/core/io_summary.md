@@ -11,9 +11,9 @@ There are two separate questions:
 
 Input files are defined in `Calculators.Modules[].execution.input`.
 
-### `Json`
+### `JSON`
 
-Use `Json` when the external program reads JSON input.
+Use `JSON` when the external program reads JSON input.
 
 Supported action:
 
@@ -31,7 +31,7 @@ Example:
 input:
   - name: ModelInput
     path: "&J/Workshop/Program/MyCode/@PackID/input.json"
-    type: "Json"
+    type: "JSON"
     save: false
     actions:
       - type: "Dump"
@@ -83,7 +83,7 @@ input:
 
 Output files are defined in `Calculators.Modules[].execution.output`.
 
-### `Json`
+### `JSON`
 
 Reads observables from JSON files.
 
@@ -98,7 +98,7 @@ Example:
 output:
   - name: MOJson
     path: "&J/Workshop/Program/microMEGAs/@PackID/micro_output.json"
-    type: "Json"
+    type: "JSON"
     save: true
     variables:
       - {name: Omega_h2, entry: "relic_density"}

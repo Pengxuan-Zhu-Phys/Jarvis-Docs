@@ -99,7 +99,7 @@ When to use: mode hopping (multi-modality) and/or when you can exploit parallel 
 
 - [EnsembleMCMC](../samplers/ensemblemcmc.md) — ensemble sampler
 - [PTEnsemble](../samplers/ptensemble.md) — parallel-tempered ensemble
-- [TPMCMC](../samplers/tpmcmc.md) — tempering / parallel tempering MCMC
+- [PTMCMC](../samplers/tpmcmc.md) — tempering / parallel tempering MCMC
 
 #### Gradient-based (Hamiltonian / Langevin)
 

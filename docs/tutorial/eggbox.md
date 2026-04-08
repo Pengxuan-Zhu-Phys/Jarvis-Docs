@@ -132,7 +132,7 @@ EnvReqs:
       version: ">=3.10.0"
     - name: Darwin
       version: ">=10.0"
-  Check_default_dependences:
+  Check_default_dependencies:
     required: True 
     default_yaml_path:  "&J/deps/environment_default.yaml"
 ```
@@ -179,7 +179,7 @@ Calculators:
         input:
           - name: EggBoxInput
             path: "&J/Workshop/Program/EggBox/@PackID/input.json"
-            type: "Json"
+            type: "JSON"
             save: false
             actions:
               - type: "Dump"
@@ -189,7 +189,7 @@ Calculators:
         output:
           - name: EggBoxOutput
             path: "&J/Workshop/Program/EggBox/@PackID/output.json"
-            type: "Json"
+            type: "JSON"
             save: true
             variables:
               - {name: z}
@@ -213,7 +213,7 @@ Calculators:
         2. delete any leftover `output.json` from previous runs. 
     - `execution.commands`: The actual shell commands used to run your external calculator program.
     - `execution.input`: Tells Jarvis-HEP how to generate the calculator's input file. For this example:
-        1. we use `Json` file format
+        1. we use `JSON` file format
         2. the action type is `Dump`
         3. scan parameters `x` and `y` are mapped to JSON fields `xx` and `yy`
         4. each value is multiplied by `Pi` before writing, matching the EggBox code's expected input convention
@@ -259,7 +259,7 @@ Now let's see how to adapt each component of the EggBox example to your own phys
 
 2. **Replace The Calculator**: In the `Calculators.Modules` section, replace `EggBox` with your own external tool. Change the `source` path to point to your tool's location, and update the `installation` and `initialization` commands to match how your tool is set up and prepared for execution.
 
-3. **Replace The Input Mapping**: In `execution.input`, specify how your scan parameters map to your calculator's input file format. If your tool expects SLHA format instead of JSON, change `type: "Json"` to `type: "SLHA"` and adjust the `actions` accordingly. Update the `variables` list to match the parameter names and expressions your tool expects.
+3. **Replace The Input Mapping**: In `execution.input`, specify how your scan parameters map to your calculator's input file format. If your tool expects SLHA format instead of JSON, change `type: "JSON"` to `type: "SLHA"` and adjust the `actions` accordingly. Update the `variables` list to match the parameter names and expressions your tool expects.
 
 4. **Replace The Output Mapping**: In `execution.output`, tell Jarvis-HEP which observables to extract from your calculator's output file. Replace the variable `z` with the physical quantities your tool produces (e.g., masses, cross-sections, branching ratios). Make sure the `type` matches your output file format (JSON, SLHA, plain text, etc.).
 

@@ -36,7 +36,7 @@ EnvReqs:
       version: ">=5.10.0"
     - name: Darwin
       version: ">=10.14"
-  Check_default_dependences:
+  Check_default_dependencies:
     required: true
     default_yaml_path: "&SRC/card/environment_default.yaml"
 
@@ -144,7 +144,7 @@ Keep the normal environment check path.
 The most common choice is:
 
 ```yaml
-Check_default_dependences:
+Check_default_dependencies:
   required: true
   default_yaml_path: "&SRC/card/environment_default.yaml"
 ```
@@ -222,7 +222,7 @@ This describes how Jarvis writes sample-specific inputs.
 Current input file types:
 
 - `SLHA`
-- `Json`
+- `JSON`
 
 For `SLHA`, the current write actions are:
 
@@ -230,7 +230,7 @@ For `SLHA`, the current write actions are:
 - `SLHA`
 - `File`
 
-For `Json`, the current write action is:
+For `JSON`, the current write action is:
 
 - `Dump`
 
@@ -267,7 +267,7 @@ Current output file types:
 
 - `SLHA`
 - `xSLHA`
-- `Json`
+- `JSON`
 - `File`
 
 This is the point where the external package becomes useful to the rest of the Jarvis workflow. Names declared here are the names used later by:

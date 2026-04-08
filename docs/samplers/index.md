@@ -18,7 +18,7 @@ Each page is self-contained and documents the full `Sampling` section for one sa
 - [DREAM](dream.md)
 - [DREAMLite](dreamlite.md)
 - [EnsembleMCMC](ensemblemcmc.md)
-- [TPMCMC](tpmcmc.md)
+- [PTMCMC](tpmcmc.md)
 - [PTEnsemble](ptensemble.md)
 - [SliceMCMC](slicemcmc.md)
 - [ESS](ess.md)

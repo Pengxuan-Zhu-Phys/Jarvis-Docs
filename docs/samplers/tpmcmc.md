@@ -1,12 +1,12 @@
-# TPMCMC
+# PTMCMC
 
 ## Purpose
 
-TPMCMC runs parallel-tempered MCMC with periodic chain exchanges.
+PTMCMC runs parallel-tempered MCMC with periodic chain exchanges.
 
 ## Full `Sampling` Section Keys
 
-- `Sampling.Method` (required): must be `TPMCMC`.
+- `Sampling.Method` (required): must be `PTMCMC`.
 - `Sampling.Variables` (required):
   - `name`, `description`, `distribution.type`, `distribution.parameters`
   - runtime-safe parameter sets: `Flat(min,max)`, `Log(min,max)`, `Normal(mean,stddev)`, `Log-Normal(mean,stddev)`, `Logit(location,scale)`
@@ -23,7 +23,7 @@ TPMCMC runs parallel-tempered MCMC with periodic chain exchanges.
 
 ```yaml
 Sampling:
-  Method: "TPMCMC"
+  Method: "PTMCMC"
   Variables:
     - name: p1
       description: parameter 1
@@ -48,7 +48,7 @@ Sampling:
 
 ```yaml
 Sampling:
-  Method: "TPMCMC"
+  Method: "PTMCMC"
   Variables:
     - name: p1
       description: parameter 1

@@ -168,7 +168,7 @@ High-level shape:
 EnvReqs:
   OS: []
   Python: {}
-  Check_default_dependences: {}   # optional
+  Check_default_dependencies: {}   # optional
 ```
 
 Details: [Environment Requirements](https://www.notion.so/Environment-Requirements-324b3a9dafc580e2be17f6f52b57141f?pvs=21)

@@ -17,7 +17,7 @@ EnvReqs:
       - name: numpy
         required: true
         version: ">=1.24"
-  Check_default_dependences:
+  Check_default_dependencies:
     required: true
     default_yaml_path: "&SRC/card/environment_default.yaml"
   CERN_ROOT:
@@ -81,7 +81,7 @@ Python:
 
 If a required package is missing or too old, Jarvis-HEP stops and prints a `pip install -U ...` command.
 
-### `Check_default_dependences`
+### `Check_default_dependencies`
 
 Optional pre-merge of a shared environment card.
 
@@ -95,7 +95,7 @@ If `required: true`, Jarvis-HEP loads the YAML at `default_yaml_path` and merges
 Example:
 
 ```yaml
-Check_default_dependences:
+Check_default_dependencies:
   required: true
   default_yaml_path: "&SRC/card/environment_default.yaml"
 ```
@@ -148,7 +148,7 @@ EnvReqs:
     Dependencies: []
 ```
 
-Then add `Check_default_dependences` if your group maintains a shared default environment card.
+Then add `Check_default_dependencies` if your group maintains a shared default environment card.
 
 Only add `CERN_ROOT` if the scan really depends on ROOT-based tooling.
 
@@ -173,7 +173,7 @@ EnvReqs:
       - name: xslha
         required: true
         version: ">=0.2"
-  Check_default_dependences:
+  Check_default_dependencies:
     required: true
     default_yaml_path: "&SRC/card/environment_default.yaml"
 ```

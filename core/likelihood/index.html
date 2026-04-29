@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://pengxuan-zhu-phys.github.io/Jarvis-Docs/core/operas/">
+        <link rel="canonical" href="https://pengxuan-zhu-phys.github.io/Jarvis-Docs/core/likelihood/">
       
       
-        <link rel="prev" href="../library/">
+        <link rel="prev" href="../variables/">
       
       
-        <link rel="next" href="../environment/">
+        <link rel="next" href="../calculator/">
       
       
         
@@ -25,7 +25,7 @@
     
     
       
-        <title>Operas - Jarvis-HEP Documentation</title>
+        <title>LogLikelihood - Jarvis-HEP Documentation</title>
       
     
     
@@ -68,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#operas" class="md-skip">
+        <a href="#loglikelihood" class="md-skip">
           Skip to content
         </a>
       
@@ -103,7 +103,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Operas
+              LogLikelihood
             
           </span>
         </div>
@@ -624,10 +624,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../likelihood/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LogLikelihood
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -643,6 +670,70 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#minimal-form" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Minimal form
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multiple-terms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multiple terms
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#expression-inputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Expression inputs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-pages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Related pages
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -708,37 +799,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Operas
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../operas/" class="md-nav__link">
         
   
   
@@ -754,214 +818,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#when-to-use-operas" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        When To Use Operas
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#section-shape" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Section Shape
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#top-level-keys" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Top-Level Keys
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Top-Level Keys">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#make_paraller" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        make_paraller
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#functions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Functions
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#modules" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Modules
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#module-keys" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Module Keys
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Module Keys">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#name" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        name
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#operator" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        operator
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#call_mode" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        call_mode
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#required_modules" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        required_modules
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#input" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        input
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#kwargs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        kwargs
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#output" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        output
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#example-operas-only-eggbox-scan" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Example: Operas-Only EggBox Scan
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#practical-advice" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Practical Advice
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1581,10 +1437,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#when-to-use-operas" class="md-nav__link">
+  <a href="#minimal-form" class="md-nav__link">
     <span class="md-ellipsis">
       
-        When To Use Operas
+        Minimal form
       
     </span>
   </a>
@@ -1592,10 +1448,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#section-shape" class="md-nav__link">
+  <a href="#multiple-terms" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Section Shape
+        Multiple terms
       
     </span>
   </a>
@@ -1603,154 +1459,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#top-level-keys" class="md-nav__link">
+  <a href="#expression-inputs" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Top-Level Keys
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Top-Level Keys">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#make_paraller" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        make_paraller
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#functions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Functions
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#modules" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Modules
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#module-keys" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Module Keys
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Module Keys">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#name" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        name
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#operator" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        operator
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#call_mode" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        call_mode
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#required_modules" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        required_modules
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#input" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        input
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#kwargs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        kwargs
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#output" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        output
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#example-operas-only-eggbox-scan" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Example: Operas-Only EggBox Scan
+        Expression inputs
       
     </span>
   </a>
@@ -1758,10 +1470,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#practical-advice" class="md-nav__link">
+  <a href="#related-pages" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Practical Advice
+        Related pages
       
     </span>
   </a>
@@ -1785,175 +1497,45 @@
 
 
 
-<h1 id="operas">Operas</h1>
-<p>Use <code>Operas</code> when your workflow can be evaluated directly in Python through Jarvis-Operas operators. This avoids per-sample external file orchestration and is often the fastest way to prototype a scan.</p>
-<h2 id="when-to-use-operas">When To Use <code>Operas</code></h2>
-<p>Choose <code>Operas</code> when:</p>
-<ul>
-<li>the observable calculation already exists as a registered operator</li>
-<li>you want a light-weight prototype before building a file-based calculator pipeline</li>
-<li>your workflow is algebraic or array-based and does not need external executables</li>
-</ul>
-<p>Choose <a href="../calculator/">Calculators</a> instead when you must drive external HEP packages through files and shell commands.</p>
-<h2 id="section-shape">Section Shape</h2>
-<pre><code class="language-yaml">Operas:
-  make_paraller: 4
-  Functions:
-    - name: helper.eggbox2d
-      alias: eggbox2d
-      inputs: [x, y]
-  Modules:
-    - name: EggBox
-      operator: &quot;helper.eggbox2d&quot;
-      call_mode: call
-      required_modules: []
-      input:
-        - {name: x, expression: &quot;xx * Pi&quot;}
-        - {name: y, expression: &quot;yy * Pi&quot;}
-      kwargs: {}
-      output:
-        - {name: z, entry: z}
-</code></pre>
-<h2 id="top-level-keys">Top-Level Keys</h2>
-<h3 id="make_paraller"><code>make_paraller</code></h3>
-<p>Worker count for <code>Operas</code> execution.</p>
-<ul>
-<li>Type: integer</li>
-<li>Default in runtime normalization: <code>4</code></li>
-<li>Keep the exact key spelling: <code>make_paraller</code></li>
-</ul>
-<h3 id="functions"><code>Functions</code></h3>
-<p>Optional function whitelist used to expose selected Jarvis-Operas functions to symbolic expressions.</p>
-<p>Each item supports:</p>
-<ul>
-<li><code>name</code>: full registered function name</li>
-<li><code>alias</code>: optional short name used inside expressions</li>
-<li><code>inputs</code>: ordered input names for wrapper generation</li>
-</ul>
-<p>This is useful when you want to call an operator function inside a likelihood or other symbolic expression.</p>
-<h3 id="modules"><code>Modules</code></h3>
-<p>List of operator modules that participate in the workflow.</p>
-<h2 id="module-keys">Module Keys</h2>
-<h3 id="name"><code>name</code></h3>
-<p>Unique module name used in logs and dependency resolution.</p>
-<h3 id="operator"><code>operator</code></h3>
-<p>Registered Jarvis-Operas operator name.</p>
-<p>Example:</p>
-<pre><code class="language-yaml">operator: &quot;helper.eggbox2d&quot;
-</code></pre>
-<h3 id="call_mode"><code>call_mode</code></h3>
-<p>How the operator is invoked.</p>
-<p>Allowed values are:</p>
-<ul>
-<li><code>call</code></li>
-<li><code>acall</code></li>
-</ul>
-<p>If omitted, Jarvis-HEP uses <code>call</code>.</p>
-<h3 id="required_modules"><code>required_modules</code></h3>
-<p>List of upstream module names that must run first.</p>
-<p>If omitted, Jarvis-HEP normalizes it to an empty list.</p>
-<h3 id="input"><code>input</code></h3>
-<p>List of operator input mappings.</p>
-<p>Each item may be either:</p>
-<ul>
-<li>a string, meaning "forward this observable under the same name", or</li>
-<li>a mapping with explicit keys</li>
-</ul>
-<p>Mapping form supports:</p>
-<ul>
-<li><code>name</code>: operator argument name or payload field name</li>
-<li><code>expression</code>: optional symbolic expression evaluated from current observables</li>
-<li><code>entry</code>: optional source field name when forwarding an existing observable under a new name</li>
-</ul>
-<p>Examples:</p>
-<pre><code class="language-yaml">input:
-  - &quot;mh&quot;
-  - {name: x, expression: &quot;xx * Pi&quot;}
-  - {name: sigma, entry: &quot;direct_detection.sigma_si&quot;}
-</code></pre>
-<h3 id="kwargs"><code>kwargs</code></h3>
-<p>Optional fixed keyword arguments passed to the operator.</p>
-<pre><code class="language-yaml">kwargs:
-  mode: fast
-  use_cache: true
-</code></pre>
-<p>Jarvis-HEP filters out keyword arguments not accepted by the resolved operator signature, and logs what was dropped.</p>
-<h3 id="output"><code>output</code></h3>
-<p>List of mappings from operator return payload to Jarvis observable names.</p>
-<p>Each item may be:</p>
-<ul>
-<li>a string, which means <code>name</code> and <code>entry</code> are identical, or</li>
-<li>a mapping with:</li>
-<li><code>name</code></li>
-<li><code>entry</code> (optional, defaults to <code>name</code>)</li>
-</ul>
-<p>Examples:</p>
-<pre><code class="language-yaml">output:
-  - z
-  - {name: chi2, entry: total_chi2}
-</code></pre>
-<p>At least one output mapping is required.</p>
-<h2 id="example-operas-only-eggbox-scan">Example: Operas-Only EggBox Scan</h2>
-<pre><code class="language-yaml">Scan:
-  name: &quot;EggBox_MultiNest_Operas&quot;
-  save_dir: &quot;&amp;J/Results&quot;
-
-Sampling:
-  Method: &quot;MultiNest&quot;
-  Variables:
-    - name: xx
-      description: &quot;First scan coordinate&quot;
-      distribution:
-        type: Flat
-        parameters:
-          min: 0.0
-          max: 5.0
-    - name: yy
-      description: &quot;Second scan coordinate&quot;
-      distribution:
-        type: Flat
-        parameters:
-          min: 0.0
-          max: 5.0
-  Bounds:
-    nlive: 48
-    rseed: 21
-    run_nested:
-      maxcall: 120
-      print_progress: false
+<h1 id="loglikelihood">LogLikelihood</h1>
+<p><code>LogLikelihood</code> defines the objective terms evaluated for each sampled point.</p>
+<p>It appears under the <code>Sampling</code> block and is shared by samplers that need a likelihood or score value.</p>
+<h2 id="minimal-form">Minimal form</h2>
+<pre><code class="language-yaml">Sampling:
   LogLikelihood:
-    - name: LogL_Z
-      expression: &quot;LogGauss(z, 100, 10)&quot;
-
-EnvReqs:
-  OS:
-    - name: linux
-      version: &quot;&gt;=3.10.0&quot;
-    - name: Darwin
-      version: &quot;&gt;=10.14&quot;
-  Python:
-    version: &quot;&gt;=3.10&quot;
-    Dependencies: []
-
-Operas:
-  make_paraller: 4
-  Modules:
-    - name: EggBox
-      operator: &quot;helper.eggbox2d&quot;
-      call_mode: call
-      required_modules: []
-      input:
-        - {name: x, expression: &quot;xx * Pi&quot;}
-        - {name: y, expression: &quot;yy * Pi&quot;}
-      output:
-        - {name: z, entry: z}
+    - name: L_total
+      expression: &quot;-0.5 * chi2&quot;
 </code></pre>
-<h2 id="practical-advice">Practical Advice</h2>
+<p>Each entry contains:</p>
 <ul>
-<li>Use <code>Operas</code> for rapid iteration and small prototype workflows.</li>
-<li>Keep operator output names simple and stable.</li>
-<li>Use <code>entry</code> when the operator returns nested dictionaries.</li>
-<li>Use <code>Functions</code> only when you need to expose operator functions into symbolic expressions.</li>
+<li><code>name</code>: stable name for the likelihood term.</li>
+<li><code>expression</code>: symbolic expression evaluated after scan variables and workflow outputs are available.</li>
+</ul>
+<h2 id="multiple-terms">Multiple terms</h2>
+<p>Use multiple entries when you want to keep contributions inspectable:</p>
+<pre><code class="language-yaml">Sampling:
+  LogLikelihood:
+    - name: L_higgs
+      expression: &quot;-0.5 * chi2_higgs&quot;
+    - name: L_flavor
+      expression: &quot;-0.5 * chi2_flavor&quot;
+    - name: L_total
+      expression: &quot;L_higgs + L_flavor&quot;
+</code></pre>
+<p>Keep the final combined term explicitly named when downstream analysis expects a single likelihood column.</p>
+<h2 id="expression-inputs">Expression inputs</h2>
+<p>Likelihood expressions can use:</p>
+<ul>
+<li>scan variables from <code>Sampling.Variables</code></li>
+<li>calculator or opera outputs mapped into the sample record</li>
+<li>derived symbolic quantities documented in <a href="../symbol/">Symbolic Expressions</a></li>
+</ul>
+<h2 id="related-pages">Related pages</h2>
+<ul>
+<li><a href="../yaml_overview/">Task YAML Structure</a></li>
+<li><a href="../samplers/">Sampler Summary</a></li>
+<li><a href="../variables/">Scan Parameters</a></li>
+<li><a href="../io_summary/">I/O formats</a></li>
 </ul>
 
 

@@ -8,20 +8,24 @@
       
       
       
-        <link rel="canonical" href="https://pengxuan-zhu-phys.github.io/Jarvis-Docs/Private%20%26%20Shared%203/Random%20Sampler%2032db3a9dafc5806c923ac22eddcfd934/">
+        <link rel="canonical" href="https://pengxuan-zhu-phys.github.io/Jarvis-Docs/samplers/nuisance/">
       
       
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../../jarvisplot/jarvisplot/">
       
       
         
       
       
       <link rel="icon" href="../../assets/JarvisHEP.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.4">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>Random Sampler - Jarvis-HEP Documentation</title>
+        <title>Nuisance Samplers - Jarvis-HEP Documentation</title>
       
     
     
@@ -64,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#random-sampler" class="md-skip">
+        <a href="#nuisance-samplers" class="md-skip">
           Skip to content
         </a>
       
@@ -99,7 +103,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Random Sampler
+              Nuisance Samplers
             
           </span>
         </div>
@@ -248,7 +252,7 @@
   <span class="md-ellipsis">
     
   
-    Quick Start
+    YAML Basics
   
 
     
@@ -261,6 +265,95 @@
         
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    YAML Basics
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../yaml/yaml_introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Practical YAML Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -411,17 +504,17 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
             
   
   
   <span class="md-ellipsis">
     
   
-    Jarvis-HEP Summary
+    Jarvis-HEP
   
 
     
@@ -432,12 +525,12 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             
   
-    Jarvis-HEP Summary
+    Jarvis-HEP
   
 
           </label>
@@ -499,6 +592,472 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/variables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scan Parameters
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/likelihood/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LogLikelihood
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/calculator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Calculators
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/library/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Library Dependencies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/operas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Operas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/environment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Environment Requirements
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/symbol/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Symbolic Expressions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/io_summary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    I/O Formats
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/utils/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Utils
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../core/cli/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Core CLI Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Samplers
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Samplers
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Core Samplers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Nuisance Samplers
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Nuisance Samplers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#available-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Available Methods
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#where-they-appear" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Where They Appear
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -528,17 +1087,17 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
         
           
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
             
   
   
   <span class="md-ellipsis">
     
   
-    Jarvis-PLOT Summary
+    Jarvis-PLOT
   
 
     
@@ -549,12 +1108,12 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             
   
-    Jarvis-PLOT Summary
+    Jarvis-PLOT
   
 
           </label>
@@ -574,7 +1133,35 @@
   <span class="md-ellipsis">
     
   
-    Overview
+    Plotting Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../jarvisplot/gallery/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Figure Gallery
   
 
     
@@ -617,17 +1204,17 @@
         
           
         
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
         
           
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
             
   
   
   <span class="md-ellipsis">
     
   
-    Jarvis-Operas Summary
+    Jarvis-Operas
   
 
     
@@ -638,12 +1225,12 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
             
   
-    Jarvis-Operas Summary
+    Jarvis-Operas
   
 
           </label>
@@ -663,7 +1250,124 @@
   <span class="md-ellipsis">
     
   
-    Overview
+    Operas Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../package/functions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Function Catalog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Research Examples
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Research Examples
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../examples/examples/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Published Research Using Jarvis
   
 
     
@@ -711,38 +1415,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#minimal-example" class="md-nav__link">
+  <a href="#available-methods" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Minimal example
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Minimal example">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#field-meanings" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Field meanings
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#purpose" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Purpose
+        Available Methods
       
     </span>
   </a>
@@ -750,32 +1426,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#required-configuration" class="md-nav__link">
+  <a href="#where-they-appear" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Required configuration
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#optional-configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Optional configuration
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#loglikelihood-schema" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        LogLikelihood schema
+        Where They Appear
       
     </span>
   </a>
@@ -799,68 +1453,19 @@
 
 
 
-<h1 id="random-sampler">Random Sampler</h1>
-<aside>
-🎲
-
-**Random Sampler** draws independent uniform samples in unit space (first sample in [0,1], then map to your configured parameter distributions).
-
-</aside>
-
-<h2 id="minimal-example">Minimal example</h2>
+<h1 id="nuisance-samplers">Nuisance Samplers</h1>
+<p>Nuisance samplers handle nested profiling or constrained nuisance-variable scans inside a main <code>Sampling</code> workflow.</p>
+<h2 id="available-methods">Available Methods</h2>
+<ul>
+<li><a href="../nuisance-profile1d/">Profile1D</a>: one-dimensional nuisance profiling with golden-section search.</li>
+</ul>
+<h2 id="where-they-appear">Where They Appear</h2>
+<p>Nuisance samplers are configured under <code>Sampling.Nuisance</code> rather than as the top-level <code>Sampling.Method</code>.</p>
 <pre><code class="language-yaml">Sampling:
-  Method: &quot;Random&quot;
-  Point number: 1000
-  Variables:
-    - name: x
-      description: &quot;example variable&quot;
-      distribution:
-        type: Flat
-        parameters:
-          min: 0.0
-          max: 1.0
-  LogLikelihood:
-    - name: L_total
-      expression: &quot;-0.5*(x-0.5)^2&quot;
+  Method: &quot;Bridson&quot;
+  Nuisance:
+    Method: Profile1D
 </code></pre>
-<h3 id="field-meanings">Field meanings</h3>
-<ul>
-<li><code>Sampling</code>: root configuration block.</li>
-<li><code>Method</code>: must be <code>Random</code>.</li>
-<li><code>Point number</code>: number of <strong>accepted samples</strong> to return. If a <code>selection</code> cut is used, more raw points may be generated internally to reach this accepted count.</li>
-<li><code>Variables</code>: See <a href="https://www.notion.so/Scan-Parameters-Sampler-Variables-Schema-f34db1ec13264c32a608f5fadd37bc6a?pvs=21">Scan Parameters (Sampler Variables Schema)</a></li>
-<li><code>LogLikelihood</code>: list of named likelihood terms. See <a href="https://www.notion.so/Likelihood-32db3a9dafc5807b8b63d77a35aaf699?pvs=21">Likelihood</a><ul>
-<li><code>name</code>: likelihood term name.</li>
-<li><code>expression</code>: expression evaluated per point.</li>
-</ul>
-</li>
-</ul>
-<h2 id="purpose">Purpose</h2>
-<p>Use the Random sampler when you want simple, independent sampling with an optional selection cut.</p>
-<p>Random is not the right choice for posterior sampling, correlated exploration, or evidence estimation.</p>
-<h2 id="required-configuration">Required configuration</h2>
-<ul>
-<li><code>Sampling.Method</code>: <code>Random</code></li>
-<li><code>Sampling.Point number</code>: integer (accepted samples)</li>
-<li><code>Sampling.Variables</code>: variable definitions</li>
-<li><code>Sampling.LogLikelihood</code>: named likelihood expressions</li>
-</ul>
-<h2 id="optional-configuration">Optional configuration</h2>
-<ul>
-<li><code>Sampling.selection</code>: selection cut expression that must evaluate to a boolean; it should remain simple, deterministic, and free of side effects. <strong>Rejected points</strong> are resampled.</li>
-</ul>
-<h2 id="loglikelihood-schema">LogLikelihood schema</h2>
-<p>Each entry in <code>Sampling.LogLikelihood</code> must contain:</p>
-<ul>
-<li><code>name</code>: string</li>
-<li><code>expression</code>: string</li>
-</ul>
-<aside>
-✅
-
-Keep `selection` simple and deterministic. Rejected points are resampled until the requested number of accepted points is reached.
-
-</aside>
 
 
 

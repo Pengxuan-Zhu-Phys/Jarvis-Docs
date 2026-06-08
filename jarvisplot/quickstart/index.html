@@ -1342,10 +1342,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#install" class="md-nav__link">
+  <a href="#install-and-run" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Install
+        Install and run
       
     </span>
   </a>
@@ -1353,10 +1353,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#run-a-yaml" class="md-nav__link">
+  <a href="#a-complete-minimal-yaml" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Run a YAML
+        A complete minimal YAML
       
     </span>
   </a>
@@ -1364,32 +1364,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#rebuild-cache-when-needed" class="md-nav__link">
+  <a href="#anatomy-of-the-file" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Rebuild cache (when needed)
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#minimal-yaml" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Minimal YAML
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#what-happens-after-jplot-starts" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        What happens after jplot starts
+        Anatomy of the file
       
     </span>
   </a>
@@ -1401,6 +1379,17 @@
     <span class="md-ellipsis">
       
         Path and output defaults
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next steps
       
     </span>
   </a>
@@ -1425,27 +1414,22 @@
 
 
 <h1 id="quick-start">Quick Start</h1>
-<h2 id="install">Install</h2>
-<pre><code class="language-bash">pip install jarvisplot
+<h2 id="install-and-run">Install and run</h2>
+<pre><code class="language-bash">python3 -m pip install -U jarvisplot
+jplot path/to/config.yaml
 </code></pre>
-<h2 id="run-a-yaml">Run a YAML</h2>
-<pre><code class="language-bash">jplot path/to/config.yaml
-</code></pre>
-<h2 id="rebuild-cache-when-needed">Rebuild cache (when needed)</h2>
-<pre><code class="language-bash">jplot path/to/config.yaml --rebuild-cache
-</code></pre>
-<p>Use <code>--rebuild-cache</code> when you want to fully refresh cached preprocessing outputs.</p>
-<h2 id="minimal-yaml">Minimal YAML</h2>
-<pre><code class="language-yaml">output:
-  dpi: 300
-  formats: [png]
+<p>That is the whole workflow: edit the YAML, run <code>jplot</code>, look at the output images.</p>
+<h2 id="a-complete-minimal-yaml">A complete minimal YAML</h2>
+<p>This draws a scatter plot from a CSV. It is a full, runnable file — copy it, change the
+paths and column names, and run it.</p>
+<pre><code class="language-yaml">version: &quot;0.3&quot;
 
 project:
   name: Demo
-  # workdir is optional
+  # workdir is optional; defaults to the folder containing this YAML
 
 DataSet:
-  - name: df
+  - name: df                 # logical name, referenced below by `source: df`
     path: ./data/example.csv
     type: csv
 
@@ -1455,9 +1439,9 @@ Figures:
     style: [a4paper_2x1, rectcmap]
     frame:
       ax:
-        labels:
-          x: x
-          y: y
+        labels: {x: &quot;$x$&quot;, y: &quot;$y$&quot;}
+        xlim: [0, 5]
+        ylim: [0, 5]
     layers:
       - name: points
         data:
@@ -1465,31 +1449,80 @@ Figures:
         axes: ax
         method: scatter
         coordinates:
-          x: {expr: x}
-          y: {expr: y}
+          x: {expr: x}       # column `x` → horizontal axis
+          y: {expr: y}       # column `y` → vertical axis
         style:
           s: 2
+          color: blue
+
+output:
+  dir: ./plots
+  dpi: 300
+  formats: [png, pdf]
 </code></pre>
-<h2 id="what-happens-after-jplot-starts">What happens after <code>jplot</code> starts</h2>
-<ol>
-<li>YAML is loaded.</li>
-<li><code>project.workdir</code> and output/cache locations are resolved.</li>
-<li>datasets are registered lazily (loaded only when a pipeline needs them).</li>
-<li>profile-related prebuild pipelines may be prepared.</li>
-<li>layers are rendered and files are saved.</li>
-</ol>
-<p>This is why you can keep YAML declarative while still getting optimized behavior for large inputs.</p>
+<p>Run it:</p>
+<pre><code class="language-bash">jplot demo.yaml
+</code></pre>
+<p>Output files are written to <code>./plots/demo_scatter.png</code> and <code>.pdf</code>.</p>
+<h2 id="anatomy-of-the-file">Anatomy of the file</h2>
+<table>
+<thead>
+<tr>
+<th>Block</th>
+<th style="text-align: center;">Required</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>version</code></td>
+<td style="text-align: center;">no</td>
+<td>schema version string, e.g. <code>"0.3"</code></td>
+</tr>
+<tr>
+<td><code>project</code></td>
+<td style="text-align: center;">recommended</td>
+<td>project name and working directory</td>
+</tr>
+<tr>
+<td><code>DataSet</code></td>
+<td style="text-align: center;"><strong>yes</strong></td>
+<td>input data sources — see <a href="../dataset/">DataSet</a></td>
+</tr>
+<tr>
+<td><code>Figures</code></td>
+<td style="text-align: center;"><strong>yes</strong></td>
+<td>the figures to draw — see <a href="../figures-layers/">Figures and Layers</a></td>
+</tr>
+<tr>
+<td><code>Functions</code></td>
+<td style="text-align: center;">no</td>
+<td>reusable interpolators — see <a href="../functions-interpolators/">Functions and Interpolators</a></td>
+</tr>
+<tr>
+<td><code>output</code></td>
+<td style="text-align: center;">recommended</td>
+<td>output folder, DPI, and file formats</td>
+</tr>
+</tbody>
+</table>
 <h2 id="path-and-output-defaults">Path and output defaults</h2>
-<p>For <code>DataSet.path</code>:</p>
+<p><code>DataSet.path</code>:</p>
 <ul>
-<li>absolute path: used as-is</li>
-<li>relative path: resolved from <code>project.workdir</code></li>
-<li>if <code>project.workdir</code> is omitted: YAML file directory is used</li>
+<li>absolute path → used as-is</li>
+<li>relative path → resolved against <code>project.workdir</code></li>
+<li>if <code>project.workdir</code> is omitted → resolved against the YAML file's folder</li>
 </ul>
-<p>For outputs:</p>
+<p><code>output</code>:</p>
 <ul>
-<li>if <code>output.dir</code> is omitted, JarvisPLOT uses <code>&lt;workdir&gt;/plots/</code></li>
-<li>cache is stored in <code>&lt;workdir&gt;/.cache/</code></li>
+<li>if <code>output.dir</code> is omitted → defaults to <code>&lt;workdir&gt;/plots/</code></li>
+<li>the data cache lives in <code>&lt;workdir&gt;/.cache/</code> (see <a href="../profiling-preprofiling-cache/">Cache</a>)</li>
+</ul>
+<h2 id="next-steps">Next steps</h2>
+<ul>
+<li>The complete list of top-level keys: <a href="../yaml-schema/">YAML Schema</a></li>
+<li>Every drawing method (<code>scatter</code>, <code>plot</code>, <code>contourf</code>, <code>pcolormesh</code>, …): <a href="../methods/">Plot Methods</a></li>
+<li>Shaping data before drawing (filter, sort, profile, density): <a href="../transforms/">Transforms</a></li>
 </ul>
 
 

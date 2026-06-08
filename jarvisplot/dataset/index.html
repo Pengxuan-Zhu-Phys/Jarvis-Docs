@@ -1342,28 +1342,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#why-dataset-is-separate-from-figures" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Why DataSet is separate from Figures
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#supported-types" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Supported types
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#common-fields" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1375,10 +1353,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#hdf5-specific-fields" class="md-nav__link">
+  <a href="#csv" class="md-nav__link">
     <span class="md-ellipsis">
       
-        HDF5-specific fields
+        CSV
       
     </span>
   </a>
@@ -1386,10 +1364,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#path-resolution-behavior" class="md-nav__link">
+  <a href="#hdf5" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Path resolution behavior
+        HDF5
       
     </span>
   </a>
@@ -1397,10 +1375,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#lazy-loading-behavior" class="md-nav__link">
+  <a href="#parquet" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Lazy loading behavior
+        Parquet
       
     </span>
   </a>
@@ -1408,10 +1386,32 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#summary-output-and-summary-cache" class="md-nav__link">
+  <a href="#combining-several-sources-in-a-layer" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Summary output and summary cache
+        Combining several sources in a layer
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#path-resolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Path resolution
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lazy-loading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lazy loading
       
     </span>
   </a>
@@ -1436,44 +1436,132 @@
 
 
 <h1 id="dataset">DataSet</h1>
-<h2 id="why-dataset-is-separate-from-figures">Why DataSet is separate from Figures</h2>
-<p><code>DataSet</code> defines raw input once so many figures can reuse it.
-This avoids repeating file paths and keeps figure sections focused on plotting intent.</p>
-<h2 id="supported-types">Supported types</h2>
-<ul>
-<li><code>csv</code></li>
-<li><code>hdf5</code></li>
-</ul>
-<h2 id="common-fields">Common fields</h2>
+<p><code>DataSet</code> is a list of input sources. Each entry loads one file into a DataFrame and gives
+it a logical <code>name</code>. Layers later refer to the data by that name, so paths are written once
+and figures stay focused on plotting.</p>
 <pre><code class="language-yaml">DataSet:
-  - name: df
+  - name: df               # referenced by `source: df` in layers
     path: ./data/large.csv
     type: csv
 </code></pre>
-<h2 id="hdf5-specific-fields">HDF5-specific fields</h2>
+<h2 id="common-fields">Common fields</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th style="text-align: center;">Required</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>name</code></td>
+<td>string</td>
+<td style="text-align: center;"><strong>yes</strong></td>
+<td>Unique logical name, used in <code>layers[].data[].source</code></td>
+</tr>
+<tr>
+<td><code>path</code></td>
+<td>string</td>
+<td style="text-align: center;"><strong>yes</strong></td>
+<td>File path (absolute, or relative to <code>project.workdir</code>)</td>
+</tr>
+<tr>
+<td><code>type</code></td>
+<td>string</td>
+<td style="text-align: center;"><strong>yes</strong></td>
+<td><code>csv</code>, <code>hdf5</code>, or <code>parquet</code></td>
+</tr>
+<tr>
+<td><code>transform</code></td>
+<td>list</td>
+<td style="text-align: center;">no</td>
+<td>Dataset-level <a href="../transforms/">transform</a> chain, applied once at load</td>
+</tr>
+</tbody>
+</table>
+<p>A dataset-level <code>transform</code> runs once when the source is loaded and is shared by every layer
+that uses it — handy for filtering or deriving columns common to all figures.</p>
+<h2 id="csv">CSV</h2>
+<pre><code class="language-yaml">- name: df
+  path: ./data/samples.csv
+  type: csv
+</code></pre>
+<p>The CSV header row supplies the column names used in expressions.</p>
+<h2 id="hdf5">HDF5</h2>
+<p>HDF5 files often have long, structured column paths (common in GAMBIT/Jarvis-HEP output).
+The <code>columns</code> block selects, renames, and cleans them.</p>
+<pre><code class="language-yaml">- name: h5
+  path: ./data/results.hdf5
+  type: hdf5
+  dataset: data                 # HDF5 group to read
+  columns:
+    isvalid_policy: clean       # clean = drop invalid rows; raw = keep all
+    load_whitelist:             # load only these columns (omit to load all)
+      - &quot;Parameters/m_A&quot;
+      - &quot;Loglikelihood&quot;
+    rename:                     # give long paths short, expression-friendly names
+      - source: &quot;data/#L3 @ColliderBit::L3_Conservative_LLike&quot;
+        target: LogL_39
+</code></pre>
+<table>
+<thead>
+<tr>
+<th><code>columns</code> key</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>isvalid_policy</code></td>
+<td><code>clean</code> drops rows flagged invalid; <code>raw</code> keeps everything</td>
+</tr>
+<tr>
+<td><code>load_whitelist</code></td>
+<td>List of source columns to load (skip the rest for speed/memory)</td>
+</tr>
+<tr>
+<td><code>rename</code></td>
+<td>List of <code>{source, target}</code> pairs mapping a raw column to a short name</td>
+</tr>
+</tbody>
+</table>
+<aside>
+📌
+<strong>Auto-discover column names</strong>
+
+Long HDF5 paths are tedious to type. Run
+<code>jplot your.yaml --parse-data --out parsed.yaml</code> to scan the file and write a
+ready-to-edit <code>columns</code>/<code>ColumnMap</code> block back into the YAML. See the
+<a href="../cli/">CLI</a>.
+
+</aside>
+
+<h2 id="parquet">Parquet</h2>
+<pre><code class="language-yaml">- name: df
+  path: ./data/samples.parquet
+  type: parquet
+</code></pre>
+<h2 id="combining-several-sources-in-a-layer">Combining several sources in a layer</h2>
+<p>A layer can read from more than one source. Give <code>source</code> a list and the frames are
+concatenated before transforms run:</p>
+<pre><code class="language-yaml">layers:
+  - data:
+      - source: [df_samples_0, df_samples_1, df_samples_2]   # concatenated
+        transform: [ ... ]
+</code></pre>
+<h2 id="path-resolution">Path resolution</h2>
 <ul>
-<li><code>dataset</code>: select group/root for extraction</li>
-<li><code>is_gambit</code>: apply GAMBIT-style validity filtering when relevant</li>
-<li><code>columnmap</code>: rename raw columns to stable plotting names</li>
+<li>absolute path → used unchanged</li>
+<li>relative path → resolved from <code>project.workdir</code></li>
+<li>if <code>project.workdir</code> is absent → resolved from the YAML file's folder</li>
 </ul>
-<h2 id="path-resolution-behavior">Path resolution behavior</h2>
-<ul>
-<li>absolute path: unchanged</li>
-<li>relative path: resolved from <code>project.workdir</code></li>
-<li>if <code>project.workdir</code> is absent: resolved from YAML directory</li>
-</ul>
-<p>This rule makes moving projects easier: you can relocate the YAML + workdir tree without rewriting every path.</p>
-<h2 id="lazy-loading-behavior">Lazy loading behavior</h2>
-<p>JarvisPLOT registers datasets lazily:</p>
-<ul>
-<li>it reads lightweight metadata first</li>
-<li>full table load happens only when a layer pipeline requests the source</li>
-<li>loaded data is reused through shared context</li>
-</ul>
-<p>This is especially useful when one run contains many figures but only some require heavy data.</p>
-<h2 id="summary-output-and-summary-cache">Summary output and summary cache</h2>
-<p>JarvisPLOT prints table summary information and caches it under <code>.cache/summary</code>.
-If a pipeline later hits cache, summary output can still be emitted for visibility.</p>
+<p>This lets you relocate the YAML + data tree together without rewriting paths.</p>
+<h2 id="lazy-loading">Lazy loading</h2>
+<p>Datasets are registered lazily: a source is only read from disk when a layer actually needs
+it, and the loaded frame is reused across layers. A run with many figures that each touch
+different data therefore does not pay to load everything up front.</p>
 
 
 

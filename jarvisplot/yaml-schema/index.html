@@ -1342,10 +1342,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#output" class="md-nav__link">
+  <a href="#version" class="md-nav__link">
     <span class="md-ellipsis">
       
-        output
+        version
       
     </span>
   </a>
@@ -1357,6 +1357,17 @@
     <span class="md-ellipsis">
       
         project
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#output" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        output
       
     </span>
   </a>
@@ -1414,97 +1425,134 @@
 
 
 <h1 id="yaml-schema">YAML Schema</h1>
-<p>JarvisPLOT YAML is organized so each top-level block answers a different question:</p>
-<ul>
-<li><code>DataSet</code>: what data exists</li>
-<li><code>Figures</code>: what to draw</li>
-<li><code>project/output</code>: where to place work artifacts and outputs</li>
-<li><code>Functions</code> (optional): helper interpolators usable in expressions</li>
-</ul>
-<p>Typical top-level shape:</p>
-<pre><code class="language-yaml">output: ...
-project: ...
-version: ...
-DataSet: ...
-Functions: ...   # optional
-Figures: ...
-</code></pre>
-<h2 id="output"><code>output</code></h2>
-<pre><code class="language-yaml">output:
-  dir: ./Plots            # optional
-  dpi: 300
+<p>A Jarvis-PLOT file is a YAML mapping with a handful of top-level blocks. Each block answers
+a different question.</p>
+<pre><code class="language-yaml">version: &quot;0.3&quot;        # schema version (string)
+
+project:              # project name + working directory
+  name: My Project
+  workdir: /path/to/workdir
+
+DataSet:              # input data sources (list)
+  - name: df
+    path: data.csv
+    type: csv
+
+Functions: []         # optional: reusable interpolators usable in expressions
+
+Figures:              # the figures to draw (list)
+  - name: fig1
+    style: [a4paper_2x1, rectcmap]
+    frame: { ... }
+    layers: [ ... ]
+
+output:               # where/how to write images
+  dir: ./plots
+  dpi: 400
   formats: [png, pdf]
 </code></pre>
-<p>How JarvisPLOT handles it:</p>
-<ul>
-<li>if <code>dir</code> is relative, it is interpreted from <code>project.workdir</code></li>
-<li>if <code>dir</code> is omitted, default becomes <code>&lt;workdir&gt;/plots/</code></li>
-</ul>
+<p>Order does not matter — YAML is a mapping. Only <code>DataSet</code> and <code>Figures</code> are required.</p>
+<h2 id="version"><code>version</code></h2>
+<p>Schema version string, e.g. <code>"0.3"</code>. Informational; keep it present for forward compatibility.</p>
 <h2 id="project"><code>project</code></h2>
 <pre><code class="language-yaml">project:
   name: My Plot Project
   workdir: /path/to/workdir   # optional
 </code></pre>
-<p>How JarvisPLOT handles it:</p>
-<ul>
-<li><code>workdir</code> defines where cache and default outputs live</li>
-<li>if missing, YAML directory is used as workdir</li>
-</ul>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Default</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>name</code></td>
+<td>—</td>
+<td>Project label (shown in logs/output)</td>
+</tr>
+<tr>
+<td><code>workdir</code></td>
+<td>folder of the YAML file</td>
+<td>Base folder for relative paths, the cache, and default output</td>
+</tr>
+</tbody>
+</table>
+<p><code>workdir</code> is the anchor for everything relative: relative <code>DataSet.path</code>, the default
+output folder, and the <code>.cache</code> directory all hang off it.</p>
+<h2 id="output"><code>output</code></h2>
+<pre><code class="language-yaml">output:
+  dir: ./plots            # optional
+  dpi: 400
+  formats: [png, pdf]
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Default</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>dir</code></td>
+<td><code>&lt;workdir&gt;/plots/</code></td>
+<td>Output folder (relative paths resolve from <code>workdir</code>)</td>
+</tr>
+<tr>
+<td><code>dpi</code></td>
+<td>—</td>
+<td>Raster resolution; 300–600 is typical for publication</td>
+</tr>
+<tr>
+<td><code>formats</code></td>
+<td>—</td>
+<td>List of output formats: <code>png</code>, <code>pdf</code>, <code>eps</code>, …</td>
+</tr>
+</tbody>
+</table>
+<p>One file is written per figure, named after the figure's <code>name</code>, in each requested format.</p>
 <h2 id="dataset"><code>DataSet</code></h2>
+<p>A list of input sources. Each source has a logical <code>name</code> that layers reference.</p>
 <pre><code class="language-yaml">DataSet:
   - name: df
     path: ./data/file.csv
     type: csv
 </code></pre>
-<p>HDF5 variant:</p>
-<pre><code class="language-yaml">DataSet:
-  - name: h5
-    path: ./data/file.hdf5
-    type: hdf5
-    dataset: data
-    is_gambit: true
-    columnmap:
-      list:
-        - source_name: old_col
-          new_name: new_col
-</code></pre>
-<p>Design intent:</p>
-<ul>
-<li>keep source definition explicit</li>
-<li>allow later layers to reference data by stable logical name (<code>name</code>)</li>
-</ul>
+<p>Full field list, CSV/HDF5/Parquet differences, and column mapping: <strong><a href="../dataset/">DataSet</a></strong>.</p>
 <h2 id="functions-optional"><code>Functions</code> (optional)</h2>
+<p>Predefine reusable interpolation helpers once, then call them by name inside any expression.</p>
 <pre><code class="language-yaml">Functions:
   - name: F1
-    source:
-      type: csv
-      path: ./Fns/f1.csv
-      x: &quot;x&quot;
-      y: &quot;y&quot;
-      sort_by: &quot;x&quot;
+    source: {type: csv, path: ./Fns/f1.csv, x: &quot;x&quot;, y: &quot;y&quot;, sort_by: &quot;x&quot;}
     method: interp1d
-    options:
-      kind: linear
-      bounds: clamp
+    options: {kind: linear, bounds: clamp}
 </code></pre>
-<p>Design intent:</p>
-<ul>
-<li>predefine reusable helper functions once</li>
-<li>call them later inside expressions without duplicating logic</li>
-</ul>
+<p>Details: <strong><a href="../functions-interpolators/">Functions and Interpolators</a></strong>.</p>
 <h2 id="figures"><code>Figures</code></h2>
+<p>A list of figures. Each figure declares its layout (<code>style</code> + <code>frame</code>) and a list of
+<code>layers</code> that draw onto it.</p>
 <pre><code class="language-yaml">Figures:
   - name: FigureName
-    enable: true
+    enable: true                  # set false to skip this figure
     style: [a4paper_2x1, rectcmap]
-    frame: {...}
-    layers: [...]
+    frame: { ax: {...}, axc: {...} }
+    layers: [ ... ]
 </code></pre>
-<p>Design intent:</p>
-<ul>
-<li>separate visual structure (<code>frame/style</code>) from data flow (<code>layers.data.transform</code>)</li>
-<li>make each layer independently testable and reusable</li>
-</ul>
+<p>The figure / layer model is the heart of the format: <strong><a href="../figures-layers/">Figures and Layers</a></strong>.</p>
+<aside>
+📌
+<strong>Shortcut: encapsulated figure types</strong>
+
+For the two most common physics plots — a 2D posterior density map and a 2D profile-likelihood
+map — you can set <code>type: posterior_2d</code> or <code>type: profile_2d</code> on a figure
+and skip writing the layers by hand. See
+<a href="../figure-types/">Encapsulated Figure Types</a>.
+
+</aside>
 
 
 

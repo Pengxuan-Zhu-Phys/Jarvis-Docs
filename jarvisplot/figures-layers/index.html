@@ -1342,10 +1342,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#design-idea" class="md-nav__link">
+  <a href="#figure-keys" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Design idea
+        Figure keys
       
     </span>
   </a>
@@ -1353,21 +1353,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#figure-structure" class="md-nav__link">
+  <a href="#layer-keys" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Figure structure
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#layer-structure" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Layer structure
+        Layer keys
       
     </span>
   </a>
@@ -1397,10 +1386,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#share_data" class="md-nav__link">
+  <a href="#share_data-reuse-an-expensive-result" class="md-nav__link">
     <span class="md-ellipsis">
       
-        share_data
+        share_data — reuse an expensive result
       
     </span>
   </a>
@@ -1408,10 +1397,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#combine" class="md-nav__link">
+  <a href="#axis-ids" class="md-nav__link">
     <span class="md-ellipsis">
       
-        combine
+        Axis ids
       
     </span>
   </a>
@@ -1419,10 +1408,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#axes-names" class="md-nav__link">
+  <a href="#style-the-layout-card" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Axes names
+        style: the layout card
       
     </span>
   </a>
@@ -1447,75 +1436,242 @@
 
 
 <h1 id="figures-and-layers">Figures and Layers</h1>
-<h2 id="design-idea">Design idea</h2>
-<p>A <code>Figure</code> describes visual layout and render intent.
-A <code>Layer</code> describes one data-to-graphic mapping step.</p>
-<p>This separation makes complex figures easier to maintain:</p>
-<ul>
-<li>frame settings stay stable</li>
-<li>layer pipelines can evolve independently</li>
-</ul>
-<h2 id="figure-structure">Figure structure</h2>
+<p>A <strong>figure</strong> is one output image. It owns the layout (<code>style</code>) and the axes configuration
+(<code>frame</code>), and it holds a list of <strong>layers</strong>. Each layer is one draw call: it takes some
+data, maps columns to axes via <code>coordinates</code>, and renders with a <code>method</code>.</p>
 <pre><code class="language-yaml">Figures:
-  - name: pL2L4_ProfLogL
-    enable: true
+  - name: pL2L4_ProfLogL       # output file name
+    enable: true               # set false to skip this figure
     style: [a4paper_2x1, rectcmap]
     frame:
-      ax: {...}
-      axc: {...}
+      ax:  { ... }             # main axis: labels, limits, scale, ticks
+      axc: { ... }             # colorbar axis (if the style has one)
     layers:
-      - ...
+      - { ... }                # drawn first (bottom)
+      - { ... }                # drawn on top
 </code></pre>
-<h2 id="layer-structure">Layer structure</h2>
-<pre><code class="language-yaml">- name: prof
-  data:
+<h2 id="figure-keys">Figure keys</h2>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th style="text-align: center;">Required</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>name</code></td>
+<td style="text-align: center;"><strong>yes</strong></td>
+<td>Output file name (without extension)</td>
+</tr>
+<tr>
+<td><code>enable</code></td>
+<td style="text-align: center;">no</td>
+<td><code>false</code> skips this figure; default <code>true</code></td>
+</tr>
+<tr>
+<td><code>style</code></td>
+<td style="text-align: center;"><strong>yes</strong></td>
+<td>Style card <code>[family, variant]</code> — see <a href="#style-the-layout-card">below</a></td>
+</tr>
+<tr>
+<td><code>frame</code></td>
+<td style="text-align: center;">no</td>
+<td>Axes and colorbar settings — see <a href="../axes-rect-ternary/">Frame</a></td>
+</tr>
+<tr>
+<td><code>layers</code></td>
+<td style="text-align: center;"><strong>yes</strong></td>
+<td>Ordered list of draw calls</td>
+</tr>
+<tr>
+<td><code>type</code></td>
+<td style="text-align: center;">no</td>
+<td>Encapsulated shortcut — see <a href="../figure-types/">Encapsulated Figure Types</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="layer-keys">Layer keys</h2>
+<pre><code class="language-yaml">- name: prof                   # optional label (used in logs and for share_data)
+  data:                        # one or more sources, each with an optional transform
     - source: df
       transform:
-        - profile: {...}
-  share_data: pL2L4
-  axes: ax
-  method: voronoi
-  coordinates:
+        - profile: { ... }
+  share_data: pL2L4            # optional: publish this layer's result for reuse
+  axes: ax                     # which axis to draw on
+  method: voronoi              # how to draw — see Plot Methods
+  coordinates:                 # which column feeds which visual axis
     x: {expr: xx}
     y: {expr: yy}
     z: {expr: z0}
-  style:
+  style:                       # method keyword arguments (Matplotlib-style)
     cmap: jarvis_rainbow2_r
+    vmin: -50
+    vmax: 0
+  colorbar: axc                # optional: attach this layer's mappable to a colorbar axis
 </code></pre>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th style="text-align: center;">Required</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>data</code></td>
+<td style="text-align: center;"><strong>yes</strong></td>
+<td>List of <code>{source, transform}</code> blocks feeding the layer</td>
+</tr>
+<tr>
+<td><code>method</code></td>
+<td style="text-align: center;"><strong>yes</strong></td>
+<td>Draw method — see <a href="../methods/">Plot Methods</a></td>
+</tr>
+<tr>
+<td><code>coordinates</code></td>
+<td style="text-align: center;"><strong>yes</strong>¹</td>
+<td>Column→axis mapping — see <a href="../coordinates-expressions/">Coordinates</a></td>
+</tr>
+<tr>
+<td><code>axes</code></td>
+<td style="text-align: center;">no</td>
+<td>Target axis id; default <code>ax</code></td>
+</tr>
+<tr>
+<td><code>style</code></td>
+<td style="text-align: center;">no</td>
+<td>Keyword args passed to the method (markers, colors, cmap, …)</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td style="text-align: center;">no</td>
+<td>Layer label; also the default cache key for <code>share_data</code></td>
+</tr>
+<tr>
+<td><code>share_data</code></td>
+<td style="text-align: center;">no</td>
+<td>Cache name to publish this layer's output under</td>
+</tr>
+<tr>
+<td><code>colorbar</code></td>
+<td style="text-align: center;">no</td>
+<td>Colorbar axis id (e.g. <code>axc</code>) to attach a color mapping to</td>
+</tr>
+</tbody>
+</table>
+<p>¹ Methods like <code>hist</code> need only <code>x</code>; image methods need <code>x, y, z</code>.</p>
 <h2 id="how-a-layer-is-processed">How a layer is processed</h2>
 <ol>
-<li>resolve <code>data.source</code></li>
-<li>apply <code>transform</code> chain in order</li>
-<li>evaluate <code>coordinates</code> expressions</li>
-<li>call rendering <code>method</code> with merged style</li>
-<li>optionally publish result via <code>share_data</code></li>
+<li>Resolve each <code>data.source</code> (concatenating a list of sources).</li>
+<li>Apply the <code>transform</code> chain in order — see <a href="../transforms/">Transforms</a>.</li>
+<li>Evaluate the <code>coordinates</code> expressions against the resulting columns.</li>
+<li>Call the <code>method</code> with the merged <code>style</code>.</li>
+<li>If <code>share_data</code> is set, publish the result for later layers.</li>
 </ol>
+<p>Layers are drawn in list order, so later layers sit on top. Use <code>style.zorder</code> for fine control.</p>
 <h2 id="datasource"><code>data.source</code></h2>
-<p>Supports:</p>
-<ul>
-<li>single source name: <code>source: df</code></li>
-<li>list source concatenation: <code>source: [df0, df1, df2]</code></li>
-</ul>
-<h2 id="share_data"><code>share_data</code></h2>
-<p>If set, layer output is stored under that name and can be reused by later layers.
-This is helpful when many layers depend on the same expensive preprocessing.</p>
-<h2 id="combine"><code>combine</code></h2>
-<p>Observed modes:</p>
-<ul>
-<li>default concatenation behavior</li>
-<li>split behavior with <code>combine: seperate</code></li>
-</ul>
-<p>Note:</p>
-<ul>
-<li>current keyword is <code>seperate</code> (kept for compatibility with existing YAML files)</li>
-</ul>
-<h2 id="axes-names">Axes names</h2>
-<p>Common axis ids:</p>
-<ul>
-<li><code>ax</code> for rectangular plots</li>
-<li><code>axtri</code> for ternary plots</li>
-<li><code>ax0</code>, <code>ax1</code>, ... for multi-panel layouts</li>
-</ul>
+<pre><code class="language-yaml">data:
+  - source: df                      # a single DataSet (or a share_data name)
+  - source: [df0, df1, df2]         # a list → concatenated before transforms
+</code></pre>
+<p>A <code>source</code> may name a <code>DataSet</code> <strong>or</strong> a <code>share_data</code> cache published by an earlier layer.</p>
+<h2 id="share_data-reuse-an-expensive-result"><code>share_data</code> — reuse an expensive result</h2>
+<p>When several layers need the same preprocessed data (for example a heavy <code>profile</code>), compute
+it once, publish it with <code>share_data</code>, and read it back by name:</p>
+<pre><code class="language-yaml">layers:
+  - name: prof
+    data:
+      - source: df
+        transform: [ {profile: { ... }} ]   # expensive
+    share_data: grid                          # publish under &quot;grid&quot;
+    axes: ax
+    method: voronoi
+    coordinates: {x: {expr: xx}, y: {expr: yy}, z: {expr: z0}}
+
+  - name: contour
+    data:
+      - source: grid                          # reuse — no re-profiling
+    axes: ax
+    method: contour
+    coordinates: {x: {expr: xx}, y: {expr: yy}, z: {expr: z0}}
+    style: {colors: [black], linewidths: [0.3]}
+</code></pre>
+<h2 id="axis-ids">Axis ids</h2>
+<table>
+<thead>
+<tr>
+<th>Id</th>
+<th>Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ax</code></td>
+<td>The main rectangular axis (default)</td>
+</tr>
+<tr>
+<td><code>axc</code></td>
+<td>The colorbar axis</td>
+</tr>
+<tr>
+<td><code>axtri</code></td>
+<td>A ternary axis — see <a href="../axes-rect-ternary/#ternary-axes-axtri">Frame</a></td>
+</tr>
+<tr>
+<td><code>ax0</code>, <code>ax1</code>, …</td>
+<td>Panels in a multi-panel style card</td>
+</tr>
+</tbody>
+</table>
+<p>The available ids come from the chosen <a href="#style-the-layout-card">style card</a>.</p>
+<h2 id="style-the-layout-card"><code>style</code>: the layout card</h2>
+<p><code>style</code> selects a predefined layout card as <code>[family, variant]</code>:</p>
+<pre><code class="language-yaml">style: [a4paper_2x1, rectcmap]
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Family</th>
+<th>Variants</th>
+<th>Layout</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>a4paper_2x1</code></td>
+<td><code>rect</code>, <code>rectcmap</code>, <code>Ternary</code>, <code>TernaryCmap</code></td>
+<td>A4, 2 columns × 1 row</td>
+</tr>
+<tr>
+<td><code>a4paper_4x1</code></td>
+<td><code>rect</code>, <code>rectcmap</code>, <code>Ternary</code>, <code>TernaryCmap</code></td>
+<td>A4, 4 columns × 1 row</td>
+</tr>
+<tr>
+<td><code>a4paper_1x1</code></td>
+<td><code>Ternary</code></td>
+<td>A4, single panel</td>
+</tr>
+<tr>
+<td><code>gambit_2x1</code></td>
+<td><code>rectcmap</code>, <code>Ternary</code>, <code>TernaryCmap</code></td>
+<td>GAMBIT collaboration style</td>
+</tr>
+<tr>
+<td><code>gambit_1x1</code></td>
+<td><code>Ternary</code></td>
+<td>GAMBIT single panel</td>
+</tr>
+</tbody>
+</table>
+<p>The <code>*cmap</code> variants reserve space for a colorbar axis (<code>axc</code>); plain <code>rect</code>/<code>Ternary</code>
+variants do not. A card defines the figure size, fonts, default tick style, and which axis
+ids exist — you then tune specifics in <a href="../axes-rect-ternary/"><code>frame</code></a>. For the full anatomy of
+a card (the <code>rect</code> positions, figure size, and the <code>debug: true</code> dimension overlay), see
+<a href="../style/">Style Cards and Layout</a>.</p>
 
 
 

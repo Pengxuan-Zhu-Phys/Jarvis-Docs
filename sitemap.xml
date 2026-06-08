@@ -2,266 +2,394 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://pengxuan-zhu-phys.github.io/Jarvis-Docs/</loc>
-         <lastmod>2026-04-29</lastmod>
+         <lastmod>2026-06-08</lastmod>
     </url>
     <url>
          <loc>https://pengxuan-zhu-phys.github.io/Jarvis-Docs/core/calculator/</loc>
-         <lastmod>2026-04-29</lastmod>
+         <lastmod>2026-06-08</lastmod>
     </url>
     <url>
          <loc>https://pengxuan-zhu-phys.github.io/Jarvis-Docs/core/cli/</loc>
-         <lastmod>2026-04-29</lastmod>
+         <lastmod>2026-06-08</lastmod>
     </url>
     <url>
          <loc>https://pengxuan-zhu-phys.github.io/Jarvis-Docs/core/environment/</loc>
-         <lastmod>2026-04-29</lastmod>
+         <lastmod>2026-06-08</lastmod>
     </url>
     <url>
          <loc>https://pengxuan-zhu-phys.github.io/Jarvis-Docs/core/io_summary/</loc>
-         <lastmod>2026-04-29</lastmod>
+         <lastmod>2026-06-08</lastmod>
     </url>
     <url>
          <loc>https://pengxuan-zhu-phys.github.io/Jarvis-Docs/core/library/</loc>
-         <lastmod>2026-04-29</lastmod>
+         <lastmod>2026-06-08</lastmod>
     </url>
     <url>
          <loc>https://pengxuan-zhu-phys.github.io/Jarvis-Docs/core/likelihood/</loc>
-         <lastmod>2026-04-29</lastmod>
+         <lastmod>2026-06-08</lastmod>
     </url>
     <url>
          <loc>https://pengxuan-zhu-phys.github.io/Jarvis-Docs/core/operas/</loc>
-         <lastmod>2026-04-29</lastmod>
+         <lastmod>2026-06-08</lastmod>
     </url>
     <url>
          <loc>https://pengxuan-zhu-phys.github.io/Jarvis-Docs/core/samplers/</loc>
-         <lastmod>2026-04-29</lastmod>
+         <lastmod>2026-06-08</lastmod>
     </url>
     <url>
          <loc>https://pengxuan-zhu-phys.github.io/Jarvis-Docs/core/symbol/</loc>
-         <lastmod>2026-04-29</lastmod>
+         <lastmod>2026-06-08</lastmod>
     </url>
     <url>
          <loc>https://pengxuan-zhu-phys.github.io/Jarvis-Docs/core/utils/</loc>
-         <lastmod>2026-04-29</lastmod>
+         <lastmod>2026-06-08</lastmod>
     </url>
     <url>
          <loc>https://pengxuan-zhu-phys.github.io/Jarvis-Docs/core/variables/</loc>
-         <lastmod>2026-04-29</lastmod>
+         <lastmod>2026-06-08</lastmod>
     </url>
     <url>
          <loc>https://pengxuan-zhu-phys.github.io/Jarvis-Docs/core/yaml_overview/</loc>
-         <lastmod>2026-04-29</lastmod>
+         <lastmod>2026-06-08</lastmod>
     </url>
     <url>
          <loc>https://pengxuan-zhu-phys.github.io/Jarvis-Docs/examples/examples/</loc>
-         <lastmod>2026-04-29</lastmod>
+         <lastmod>2026-06-08</lastmod>
     </url>
     <url>
          <loc>https://pengxuan-zhu-phys.github.io/Jarvis-Docs/jarvisplot/axes-rect-ternary/</loc>
-         <lastmod>2026-04-29</lastmod>
+         <lastmod>2026-06-08</lastmod>
     </url>
     <url>
          <loc>https://pengxuan-zhu-phys.github.io/Jarvis-Docs/jarvisplot/cli/</loc>
-         <lastmod>2026-04-29</lastmod>
+         <lastmod>2026-06-08</lastmod>
+    </url>
+    <url>
+         <loc>https://pengxuan-zhu-phys.github.io/Jarvis-Docs/jarvisplot/coordinates-expressions/</loc>
+         <lastmod>2026-06-08</lastmod>
     </url>
     <url>
          <loc>https://pengxuan-zhu-phys.github.io/Jarvis-Docs/jarvisplot/dataset/</loc>
-         <lastmod>2026-04-29</lastmod>
+         <lastmod>2026-06-08</lastmod>
     </url>
     <url>
          <loc>https://pengxuan-zhu-phys.github.io/Jarvis-Docs/jarvisplot/faq-troubleshooting/</loc>
-         <lastmod>2026-04-29</lastmod>
+         <lastmod>2026-06-08</lastmod>
+    </url>
+    <url>
+         <loc>https://pengxuan-zhu-phys.github.io/Jarvis-Docs/jarvisplot/figure-types/</loc>
+         <lastmod>2026-06-08</lastmod>
     </url>
     <url>
          <loc>https://pengxuan-zhu-phys.github.io/Jarvis-Docs/jarvisplot/figures-layers/</loc>
-         <lastmod>2026-04-29</lastmod>
+         <lastmod>2026-06-08</lastmod>
     </url>
     <url>
          <loc>https://pengxuan-zhu-phys.github.io/Jarvis-Docs/jarvisplot/functions-interpolators/</loc>
-         <lastmod>2026-04-29</lastmod>
+         <lastmod>2026-06-08</lastmod>
     </url>
     <url>
          <loc>https://pengxuan-zhu-phys.github.io/Jarvis-Docs/jarvisplot/gallery/</loc>
-         <lastmod>2026-04-29</lastmod>
+         <lastmod>2026-06-08</lastmod>
     </url>
     <url>
          <loc>https://pengxuan-zhu-phys.github.io/Jarvis-Docs/jarvisplot/jarvisplot/</loc>
-         <lastmod>2026-04-29</lastmod>
+         <lastmod>2026-06-08</lastmod>
     </url>
     <url>
          <loc>https://pengxuan-zhu-phys.github.io/Jarvis-Docs/jarvisplot/methods/</loc>
-         <lastmod>2026-04-29</lastmod>
+         <lastmod>2026-06-08</lastmod>
     </url>
     <url>
          <loc>https://pengxuan-zhu-phys.github.io/Jarvis-Docs/jarvisplot/profiling-preprofiling-cache/</loc>
-         <lastmod>2026-04-29</lastmod>
+         <lastmod>2026-06-08</lastmod>
     </url>
     <url>
          <loc>https://pengxuan-zhu-phys.github.io/Jarvis-Docs/jarvisplot/quickstart/</loc>
-         <lastmod>2026-04-29</lastmod>
+         <lastmod>2026-06-08</lastmod>
+    </url>
+    <url>
+         <loc>https://pengxuan-zhu-phys.github.io/Jarvis-Docs/jarvisplot/style/</loc>
+         <lastmod>2026-06-08</lastmod>
     </url>
     <url>
          <loc>https://pengxuan-zhu-phys.github.io/Jarvis-Docs/jarvisplot/transforms/</loc>
-         <lastmod>2026-04-29</lastmod>
+         <lastmod>2026-06-08</lastmod>
     </url>
     <url>
          <loc>https://pengxuan-zhu-phys.github.io/Jarvis-Docs/jarvisplot/yaml-schema/</loc>
-         <lastmod>2026-04-29</lastmod>
+         <lastmod>2026-06-08</lastmod>
+    </url>
+    <url>
+         <loc>https://pengxuan-zhu-phys.github.io/Jarvis-Docs/jarvisplot/figure-types/posterior_2d/</loc>
+         <lastmod>2026-06-08</lastmod>
+    </url>
+    <url>
+         <loc>https://pengxuan-zhu-phys.github.io/Jarvis-Docs/jarvisplot/figure-types/profile_2d/</loc>
+         <lastmod>2026-06-08</lastmod>
+    </url>
+    <url>
+         <loc>https://pengxuan-zhu-phys.github.io/Jarvis-Docs/jarvisplot/methods/bar/</loc>
+         <lastmod>2026-06-08</lastmod>
+    </url>
+    <url>
+         <loc>https://pengxuan-zhu-phys.github.io/Jarvis-Docs/jarvisplot/methods/barh/</loc>
+         <lastmod>2026-06-08</lastmod>
+    </url>
+    <url>
+         <loc>https://pengxuan-zhu-phys.github.io/Jarvis-Docs/jarvisplot/methods/contour/</loc>
+         <lastmod>2026-06-08</lastmod>
+    </url>
+    <url>
+         <loc>https://pengxuan-zhu-phys.github.io/Jarvis-Docs/jarvisplot/methods/contourf/</loc>
+         <lastmod>2026-06-08</lastmod>
+    </url>
+    <url>
+         <loc>https://pengxuan-zhu-phys.github.io/Jarvis-Docs/jarvisplot/methods/dynesty_runplot/</loc>
+         <lastmod>2026-06-08</lastmod>
+    </url>
+    <url>
+         <loc>https://pengxuan-zhu-phys.github.io/Jarvis-Docs/jarvisplot/methods/errorbar/</loc>
+         <lastmod>2026-06-08</lastmod>
+    </url>
+    <url>
+         <loc>https://pengxuan-zhu-phys.github.io/Jarvis-Docs/jarvisplot/methods/fill/</loc>
+         <lastmod>2026-06-08</lastmod>
+    </url>
+    <url>
+         <loc>https://pengxuan-zhu-phys.github.io/Jarvis-Docs/jarvisplot/methods/fill_between/</loc>
+         <lastmod>2026-06-08</lastmod>
+    </url>
+    <url>
+         <loc>https://pengxuan-zhu-phys.github.io/Jarvis-Docs/jarvisplot/methods/fill_betweenx/</loc>
+         <lastmod>2026-06-08</lastmod>
+    </url>
+    <url>
+         <loc>https://pengxuan-zhu-phys.github.io/Jarvis-Docs/jarvisplot/methods/hist/</loc>
+         <lastmod>2026-06-08</lastmod>
+    </url>
+    <url>
+         <loc>https://pengxuan-zhu-phys.github.io/Jarvis-Docs/jarvisplot/methods/imshow/</loc>
+         <lastmod>2026-06-08</lastmod>
+    </url>
+    <url>
+         <loc>https://pengxuan-zhu-phys.github.io/Jarvis-Docs/jarvisplot/methods/jpcontour/</loc>
+         <lastmod>2026-06-08</lastmod>
+    </url>
+    <url>
+         <loc>https://pengxuan-zhu-phys.github.io/Jarvis-Docs/jarvisplot/methods/jpcontourf/</loc>
+         <lastmod>2026-06-08</lastmod>
+    </url>
+    <url>
+         <loc>https://pengxuan-zhu-phys.github.io/Jarvis-Docs/jarvisplot/methods/jpfield/</loc>
+         <lastmod>2026-06-08</lastmod>
+    </url>
+    <url>
+         <loc>https://pengxuan-zhu-phys.github.io/Jarvis-Docs/jarvisplot/methods/pcolor/</loc>
+         <lastmod>2026-06-08</lastmod>
+    </url>
+    <url>
+         <loc>https://pengxuan-zhu-phys.github.io/Jarvis-Docs/jarvisplot/methods/pcolormesh/</loc>
+         <lastmod>2026-06-08</lastmod>
+    </url>
+    <url>
+         <loc>https://pengxuan-zhu-phys.github.io/Jarvis-Docs/jarvisplot/methods/plot/</loc>
+         <lastmod>2026-06-08</lastmod>
+    </url>
+    <url>
+         <loc>https://pengxuan-zhu-phys.github.io/Jarvis-Docs/jarvisplot/methods/quiver/</loc>
+         <lastmod>2026-06-08</lastmod>
+    </url>
+    <url>
+         <loc>https://pengxuan-zhu-phys.github.io/Jarvis-Docs/jarvisplot/methods/scatter/</loc>
+         <lastmod>2026-06-08</lastmod>
+    </url>
+    <url>
+         <loc>https://pengxuan-zhu-phys.github.io/Jarvis-Docs/jarvisplot/methods/step/</loc>
+         <lastmod>2026-06-08</lastmod>
+    </url>
+    <url>
+         <loc>https://pengxuan-zhu-phys.github.io/Jarvis-Docs/jarvisplot/methods/tricontour/</loc>
+         <lastmod>2026-06-08</lastmod>
+    </url>
+    <url>
+         <loc>https://pengxuan-zhu-phys.github.io/Jarvis-Docs/jarvisplot/methods/tricontourf/</loc>
+         <lastmod>2026-06-08</lastmod>
+    </url>
+    <url>
+         <loc>https://pengxuan-zhu-phys.github.io/Jarvis-Docs/jarvisplot/methods/tripcolor/</loc>
+         <lastmod>2026-06-08</lastmod>
+    </url>
+    <url>
+         <loc>https://pengxuan-zhu-phys.github.io/Jarvis-Docs/jarvisplot/methods/tripcolor_axes/</loc>
+         <lastmod>2026-06-08</lastmod>
+    </url>
+    <url>
+         <loc>https://pengxuan-zhu-phys.github.io/Jarvis-Docs/jarvisplot/methods/triplot/</loc>
+         <lastmod>2026-06-08</lastmod>
+    </url>
+    <url>
+         <loc>https://pengxuan-zhu-phys.github.io/Jarvis-Docs/jarvisplot/methods/voronoi/</loc>
+         <lastmod>2026-06-08</lastmod>
+    </url>
+    <url>
+         <loc>https://pengxuan-zhu-phys.github.io/Jarvis-Docs/jarvisplot/methods/voronoif/</loc>
+         <lastmod>2026-06-08</lastmod>
     </url>
     <url>
          <loc>https://pengxuan-zhu-phys.github.io/Jarvis-Docs/jarvisplot/pub/cepc/</loc>
-         <lastmod>2026-04-29</lastmod>
+         <lastmod>2026-06-08</lastmod>
     </url>
     <url>
          <loc>https://pengxuan-zhu-phys.github.io/Jarvis-Docs/jarvisplot/pub/eggbox/</loc>
-         <lastmod>2026-04-29</lastmod>
+         <lastmod>2026-06-08</lastmod>
     </url>
     <url>
          <loc>https://pengxuan-zhu-phys.github.io/Jarvis-Docs/jarvisplot/pub/gm95excess/</loc>
-         <lastmod>2026-04-29</lastmod>
+         <lastmod>2026-06-08</lastmod>
     </url>
     <url>
          <loc>https://pengxuan-zhu-phys.github.io/Jarvis-Docs/jarvisplot/pub/hinollp/</loc>
-         <lastmod>2026-04-29</lastmod>
+         <lastmod>2026-06-08</lastmod>
     </url>
     <url>
          <loc>https://pengxuan-zhu-phys.github.io/Jarvis-Docs/jarvisplot/pub/susy-ewmssm/</loc>
-         <lastmod>2026-04-29</lastmod>
+         <lastmod>2026-06-08</lastmod>
     </url>
     <url>
          <loc>https://pengxuan-zhu-phys.github.io/Jarvis-Docs/package/functions/</loc>
-         <lastmod>2026-04-29</lastmod>
+         <lastmod>2026-06-08</lastmod>
     </url>
     <url>
          <loc>https://pengxuan-zhu-phys.github.io/Jarvis-Docs/package/jarvis-operas/</loc>
-         <lastmod>2026-04-29</lastmod>
+         <lastmod>2026-06-08</lastmod>
     </url>
     <url>
          <loc>https://pengxuan-zhu-phys.github.io/Jarvis-Docs/package/summary/</loc>
-         <lastmod>2026-04-29</lastmod>
+         <lastmod>2026-06-08</lastmod>
     </url>
     <url>
          <loc>https://pengxuan-zhu-phys.github.io/Jarvis-Docs/samplers/</loc>
-         <lastmod>2026-04-29</lastmod>
+         <lastmod>2026-06-08</lastmod>
     </url>
     <url>
          <loc>https://pengxuan-zhu-phys.github.io/Jarvis-Docs/samplers/ammcmc/</loc>
-         <lastmod>2026-04-29</lastmod>
+         <lastmod>2026-06-08</lastmod>
     </url>
     <url>
          <loc>https://pengxuan-zhu-phys.github.io/Jarvis-Docs/samplers/bridson/</loc>
-         <lastmod>2026-04-29</lastmod>
+         <lastmod>2026-06-08</lastmod>
     </url>
     <url>
          <loc>https://pengxuan-zhu-phys.github.io/Jarvis-Docs/samplers/demcmc/</loc>
-         <lastmod>2026-04-29</lastmod>
+         <lastmod>2026-06-08</lastmod>
     </url>
     <url>
          <loc>https://pengxuan-zhu-phys.github.io/Jarvis-Docs/samplers/diver/</loc>
-         <lastmod>2026-04-29</lastmod>
+         <lastmod>2026-06-08</lastmod>
     </url>
     <url>
          <loc>https://pengxuan-zhu-phys.github.io/Jarvis-Docs/samplers/dnn/</loc>
-         <lastmod>2026-04-29</lastmod>
+         <lastmod>2026-06-08</lastmod>
     </url>
     <url>
          <loc>https://pengxuan-zhu-phys.github.io/Jarvis-Docs/samplers/dram/</loc>
-         <lastmod>2026-04-29</lastmod>
+         <lastmod>2026-06-08</lastmod>
     </url>
     <url>
          <loc>https://pengxuan-zhu-phys.github.io/Jarvis-Docs/samplers/dream/</loc>
-         <lastmod>2026-04-29</lastmod>
+         <lastmod>2026-06-08</lastmod>
     </url>
     <url>
          <loc>https://pengxuan-zhu-phys.github.io/Jarvis-Docs/samplers/dreamlite/</loc>
-         <lastmod>2026-04-29</lastmod>
+         <lastmod>2026-06-08</lastmod>
     </url>
     <url>
          <loc>https://pengxuan-zhu-phys.github.io/Jarvis-Docs/samplers/dynesty/</loc>
-         <lastmod>2026-04-29</lastmod>
+         <lastmod>2026-06-08</lastmod>
     </url>
     <url>
          <loc>https://pengxuan-zhu-phys.github.io/Jarvis-Docs/samplers/ensemblemcmc/</loc>
-         <lastmod>2026-04-29</lastmod>
+         <lastmod>2026-06-08</lastmod>
     </url>
     <url>
          <loc>https://pengxuan-zhu-phys.github.io/Jarvis-Docs/samplers/ess/</loc>
-         <lastmod>2026-04-29</lastmod>
+         <lastmod>2026-06-08</lastmod>
     </url>
     <url>
          <loc>https://pengxuan-zhu-phys.github.io/Jarvis-Docs/samplers/grid/</loc>
-         <lastmod>2026-04-29</lastmod>
+         <lastmod>2026-06-08</lastmod>
     </url>
     <url>
          <loc>https://pengxuan-zhu-phys.github.io/Jarvis-Docs/samplers/hmc/</loc>
-         <lastmod>2026-04-29</lastmod>
+         <lastmod>2026-06-08</lastmod>
     </url>
     <url>
          <loc>https://pengxuan-zhu-phys.github.io/Jarvis-Docs/samplers/mala/</loc>
-         <lastmod>2026-04-29</lastmod>
+         <lastmod>2026-06-08</lastmod>
     </url>
     <url>
          <loc>https://pengxuan-zhu-phys.github.io/Jarvis-Docs/samplers/mcmc/</loc>
-         <lastmod>2026-04-29</lastmod>
+         <lastmod>2026-06-08</lastmod>
     </url>
     <url>
          <loc>https://pengxuan-zhu-phys.github.io/Jarvis-Docs/samplers/multinest/</loc>
-         <lastmod>2026-04-29</lastmod>
+         <lastmod>2026-06-08</lastmod>
     </url>
     <url>
          <loc>https://pengxuan-zhu-phys.github.io/Jarvis-Docs/samplers/nuisance-profile1d/</loc>
-         <lastmod>2026-04-29</lastmod>
+         <lastmod>2026-06-08</lastmod>
     </url>
     <url>
          <loc>https://pengxuan-zhu-phys.github.io/Jarvis-Docs/samplers/nuisance/</loc>
-         <lastmod>2026-04-29</lastmod>
+         <lastmod>2026-06-08</lastmod>
     </url>
     <url>
          <loc>https://pengxuan-zhu-phys.github.io/Jarvis-Docs/samplers/nuts/</loc>
-         <lastmod>2026-04-29</lastmod>
+         <lastmod>2026-06-08</lastmod>
     </url>
     <url>
          <loc>https://pengxuan-zhu-phys.github.io/Jarvis-Docs/samplers/ptensemble/</loc>
-         <lastmod>2026-04-29</lastmod>
+         <lastmod>2026-06-08</lastmod>
     </url>
     <url>
          <loc>https://pengxuan-zhu-phys.github.io/Jarvis-Docs/samplers/random/</loc>
-         <lastmod>2026-04-29</lastmod>
+         <lastmod>2026-06-08</lastmod>
     </url>
     <url>
          <loc>https://pengxuan-zhu-phys.github.io/Jarvis-Docs/samplers/robustam/</loc>
-         <lastmod>2026-04-29</lastmod>
+         <lastmod>2026-06-08</lastmod>
     </url>
     <url>
          <loc>https://pengxuan-zhu-phys.github.io/Jarvis-Docs/samplers/slicemcmc/</loc>
-         <lastmod>2026-04-29</lastmod>
+         <lastmod>2026-06-08</lastmod>
     </url>
     <url>
          <loc>https://pengxuan-zhu-phys.github.io/Jarvis-Docs/samplers/toymcmc/</loc>
-         <lastmod>2026-04-29</lastmod>
+         <lastmod>2026-06-08</lastmod>
     </url>
     <url>
          <loc>https://pengxuan-zhu-phys.github.io/Jarvis-Docs/samplers/tpmcmc/</loc>
-         <lastmod>2026-04-29</lastmod>
+         <lastmod>2026-06-08</lastmod>
     </url>
     <url>
          <loc>https://pengxuan-zhu-phys.github.io/Jarvis-Docs/tutorial/Common_workflow/</loc>
-         <lastmod>2026-04-29</lastmod>
+         <lastmod>2026-06-08</lastmod>
     </url>
     <url>
          <loc>https://pengxuan-zhu-phys.github.io/Jarvis-Docs/tutorial/Installation/</loc>
-         <lastmod>2026-04-29</lastmod>
+         <lastmod>2026-06-08</lastmod>
     </url>
     <url>
          <loc>https://pengxuan-zhu-phys.github.io/Jarvis-Docs/tutorial/cli/</loc>
-         <lastmod>2026-04-29</lastmod>
+         <lastmod>2026-06-08</lastmod>
     </url>
     <url>
          <loc>https://pengxuan-zhu-phys.github.io/Jarvis-Docs/tutorial/eggbox/</loc>
-         <lastmod>2026-04-29</lastmod>
+         <lastmod>2026-06-08</lastmod>
     </url>
     <url>
          <loc>https://pengxuan-zhu-phys.github.io/Jarvis-Docs/yaml/yaml_introduction/</loc>
-         <lastmod>2026-04-29</lastmod>
+         <lastmod>2026-06-08</lastmod>
     </url>
 </urlset>

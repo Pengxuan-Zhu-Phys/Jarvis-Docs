@@ -21,7 +21,7 @@
     
     
       
-        <title>Rect and Ternary Axes - Jarvis-HEP Documentation</title>
+        <title>Frame: Axes and Colorbar - Jarvis-HEP Documentation</title>
       
     
     
@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#rect-and-ternary-axes" class="md-skip">
+        <a href="#frame-axes-and-colorbar" class="md-skip">
           Skip to content
         </a>
       
@@ -99,7 +99,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Rect and Ternary Axes
+              Frame: Axes and Colorbar
             
           </span>
         </div>
@@ -1342,21 +1342,49 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#why-jarvisplot-supports-both" class="md-nav__link">
+  <a href="#frameax-the-main-axis" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Why JarvisPLOT supports both
+        frame.ax — the main axis
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="frame.ax — the main axis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ticks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ticks
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#rectangular-axes-ax" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#text-annotations" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Rectangular axes (ax)
+        Text annotations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#frameaxc-the-colorbar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        frame.axc — the colorbar
       
     </span>
   </a>
@@ -1368,28 +1396,6 @@
     <span class="md-ellipsis">
       
         Ternary axes (axtri)
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#profiling-projection-rule" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Profiling projection rule
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#relation-to-tripcolor" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Relation to tripcolor
       
     </span>
   </a>
@@ -1413,33 +1419,146 @@
 
 
 
-<h1 id="rect-and-ternary-axes">Rect and Ternary Axes</h1>
-<h2 id="why-jarvisplot-supports-both">Why JarvisPLOT supports both</h2>
-<p>Many workflows need standard Cartesian panels and ternary composition views in one project.
-JarvisPLOT keeps both under one layer/method model so pipelines stay consistent.</p>
-<h2 id="rectangular-axes-ax">Rectangular axes (<code>ax</code>)</h2>
-<p>Typical coordinate form:</p>
-<pre><code class="language-yaml">coordinates:
-  x: {expr: xx}
-  y: {expr: yy}
-  z: {expr: z0}
+<h1 id="frame-axes-and-colorbar">Frame: Axes and Colorbar</h1>
+<p><code>frame</code> configures the axes of a figure: labels, limits, scales, ticks, annotations, and the
+colorbar. It sits next to <code>style</code> (which picks the layout card) and <code>layers</code> (which draw).</p>
+<pre><code class="language-yaml">frame:
+  ax:                          # the main rectangular axis
+    labels: {x: &quot;$x$&quot;, y: &quot;$y$&quot;}
+    xlim: [0, 5]
+    ylim: [0, 5]
+    xscale: linear
+    yscale: linear
+  axc:                         # the colorbar axis (with *cmap style cards)
+    label: {ylabel: &quot;$\\log\\mathcal{L}$&quot;}
+    color: {cmap: jarvis_rainbow2_r, vmin: -50, vmax: 0}
 </code></pre>
-<p>Scale and limits are controlled in <code>frame.ax</code>.</p>
+<p>For a multi-panel card, configure each panel under its id (<code>ax0</code>, <code>ax1</code>, …) instead of <code>ax</code>.</p>
+<h2 id="frameax-the-main-axis"><code>frame.ax</code> — the main axis</h2>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Example</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>labels.x</code> / <code>labels.y</code></td>
+<td><code>"$m_A$ [GeV]"</code></td>
+<td>Axis labels (LaTeX via <code>$...$</code>)</td>
+</tr>
+<tr>
+<td><code>xlim</code> / <code>ylim</code></td>
+<td><code>[0, 5]</code></td>
+<td>Axis limits <code>[min, max]</code></td>
+</tr>
+<tr>
+<td><code>xscale</code> / <code>yscale</code></td>
+<td><code>linear</code> / <code>log</code></td>
+<td>Axis scale</td>
+</tr>
+<tr>
+<td><code>ticks</code></td>
+<td>see below</td>
+<td>Tick direction/length/width</td>
+</tr>
+<tr>
+<td><code>text</code></td>
+<td>see below</td>
+<td>Free-floating annotations</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ticks">Ticks</h3>
+<pre><code class="language-yaml">ax:
+  ticks:
+    major: {direction: in, length: 4, width: 0.5}
+    minor: {direction: in, length: 2}
+</code></pre>
+<p><code>direction</code> is <code>in</code> or <code>out</code>. Most defaults come from the style card; override only what you need.</p>
+<h3 id="text-annotations">Text annotations</h3>
+<pre><code class="language-yaml">ax:
+  text:
+    - x: 0.75
+      y: 1.0
+      s: &quot;EWMSSM&quot;
+      ha: right              # left | center | right
+      va: bottom             # top | center | bottom
+      fontsize: x-small      # xx-small … xx-large, or a number
+      fontfamily: STIXGeneral
+      transform: true        # true = axes fraction (0–1); false = data coordinates
+</code></pre>
+<p>With <code>transform: true</code>, <code>x</code>/<code>y</code> are axes fractions (0–1), so <code>(0, 0)</code> is the lower-left
+corner and <code>(1, 1)</code> the upper-right — convenient for captions independent of the data range.</p>
+<h2 id="frameaxc-the-colorbar"><code>frame.axc</code> — the colorbar</h2>
+<p>The colorbar axis exists when the style card is a <code>*cmap</code> variant. A layer attaches to it via
+<code>colorbar: axc</code>.</p>
+<pre><code class="language-yaml">axc:
+  label:
+    ylabel: &quot;posterior density&quot;   # for a vertical colorbar
+    # xlabel: &quot;...&quot;               # for a horizontal colorbar
+  color:
+    cmap: jarvis_rainbow2_r
+    scale: linear                 # linear | log
+    vmin: 0
+    vmax: 0.8                     # or `auto`
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>label.ylabel</code></td>
+<td>Label for a vertical colorbar</td>
+</tr>
+<tr>
+<td><code>label.xlabel</code></td>
+<td>Label for a horizontal colorbar</td>
+</tr>
+<tr>
+<td><code>color.cmap</code></td>
+<td>Colormap name — see <a href="../methods/#colormaps">Plot Methods → Colormaps</a></td>
+</tr>
+<tr>
+<td><code>color.scale</code></td>
+<td>Color normalization: <code>linear</code> or <code>log</code></td>
+</tr>
+<tr>
+<td><code>color.vmin</code> / <code>color.vmax</code></td>
+<td>Color range; <code>auto</code> lets the data decide</td>
+</tr>
+</tbody>
+</table>
+<aside>
+ℹ️
+<strong><code>frame.axc.color</code> vs <code>layer.style</code></strong>
+
+The color range can be set on the colorbar axis (<code>frame.axc.color</code>) <strong>or</strong>
+per layer (<code>style.cmap</code> / <code>style.vmin</code> / <code>style.vmax</code>). Setting
+it on <code>axc</code> keeps every layer that shares the colorbar consistent; setting it on the
+layer is local. Avoid specifying both for the same mappable.
+
+</aside>
+
 <h2 id="ternary-axes-axtri">Ternary axes (<code>axtri</code>)</h2>
-<p>Ternary layers can use:</p>
-<ul>
-<li>projected <code>x</code>, <code>y</code></li>
-<li>or composition-style inputs (<code>left</code>, <code>right</code>, <code>bottom</code>) depending on method</li>
-</ul>
-<h2 id="profiling-projection-rule">Profiling projection rule</h2>
-<p>For ternary preprofiling, JarvisPLOT applies rectangular clustering on projected coordinates:</p>
-<ul>
-<li><code>x = bottom + 0.5 * right</code></li>
-<li><code>y = right</code></li>
-</ul>
-<p>This keeps preprocessing stable and avoids maintaining separate profiling algorithms for rect and ternary paths.</p>
-<h2 id="relation-to-tripcolor">Relation to <code>tripcolor</code></h2>
-<p><code>tripcolor</code> now defaults to axes-space triangulation to keep triangle geometry visually stable under log-scale axes.</p>
+<p>Choose a <code>Ternary</code> style-card variant to get a triangular axis with id <code>axtri</code>. Its three
+sides are configured with <code>left</code> / <code>right</code> / <code>bottom</code> labels:</p>
+<pre><code class="language-yaml">style: [a4paper_2x1, TernaryCmap]
+frame:
+  axtri:
+    labels: {left: &quot;A&quot;, bottom: &quot;B&quot;, right: &quot;C&quot;}
+  axc:
+    label: {ylabel: &quot;$Z$&quot;}
+</code></pre>
+<p>Ternary layers map data with <code>left</code> / <code>right</code> / <code>bottom</code> coordinates (composition inputs)
+and draw with the <code>tri*</code> methods (<code>tripcolor</code>, <code>tricontour</code>, <code>tricontourf</code>, <code>triplot</code>) or
+<code>scatter</code>. See <a href="../methods/">Plot Methods</a>.</p>
 
 
 

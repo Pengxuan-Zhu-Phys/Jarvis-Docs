@@ -1342,10 +1342,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#commonly-used-methods" class="md-nav__link">
+  <a href="#how-a-method-receives-its-data" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Commonly used methods
+        How a method receives its data
       
     </span>
   </a>
@@ -1353,10 +1353,82 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#method-selection-intuition" class="md-nav__link">
+  <a href="#method-reference" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Method selection intuition
+        Method reference
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Method reference">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#2d-primitives" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2D primitives
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#grid-image" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Grid / image
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scatter-interpolate-jarvis-plot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scatter → interpolate (Jarvis-PLOT)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#triangulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Triangulation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#voronoi-special-jarvis-plot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Voronoi &amp; special (Jarvis-PLOT)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#choosing-a-method" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Choosing a method
       
     </span>
   </a>
@@ -1364,21 +1436,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#tripcolor-behavior" class="md-nav__link">
+  <a href="#colormaps" class="md-nav__link">
     <span class="md-ellipsis">
       
-        tripcolor behavior
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#additional-registered-method-keys" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Additional registered method keys
+        Colormaps
       
     </span>
   </a>
@@ -1403,46 +1464,243 @@
 
 
 <h1 id="plot-methods">Plot Methods</h1>
-<p>JarvisPLOT methods map pipeline outputs to concrete visual primitives.</p>
-<h2 id="commonly-used-methods">Commonly used methods</h2>
-<ul>
-<li><code>voronoi</code></li>
-<li><code>voronoif</code></li>
-<li><code>scatter</code></li>
-<li><code>plot</code></li>
-<li><code>fill</code></li>
-<li><code>hist</code></li>
-<li><code>tripcolor</code></li>
-</ul>
-<h2 id="method-selection-intuition">Method selection intuition</h2>
-<ul>
-<li>use <code>scatter</code> for raw sample visibility</li>
-<li>use <code>voronoi</code>/<code>voronoif</code> for profile-like scalar fields over irregular points</li>
-<li>use <code>tripcolor</code> for triangulated continuous coloring</li>
-<li>use <code>hist</code> for 1D distributions and weighted counts</li>
-</ul>
-<h2 id="tripcolor-behavior"><code>tripcolor</code> behavior</h2>
-<p>Current default behavior:</p>
-<ul>
-<li>triangulation and rendering are in axes space (<code>axes.transAxes</code>)</li>
-<li>this avoids geometric distortion under mixed axis transforms such as log scale</li>
-<li>non-finite <code>z</code> values are masked; touching triangles are skipped (holes remain)</li>
-</ul>
-<p>To force data-space triangulation:</p>
-<pre><code class="language-yaml">style:
-  space: data
+<p>The <code>method</code> key of a <a href="../figures-layers/">layer</a> chooses how that layer is drawn. Most method
+names map one-to-one to a Matplotlib <code>Axes</code> method of the same name, so the layer's <code>style</code>
+keys are simply that method's keyword arguments. A few methods (<code>voronoi</code>, <code>jp*</code>,
+<code>dynesty_runplot</code>) are Jarvis-PLOT additions.</p>
+<p>This page explains the rules shared by every method. <strong>Each method has its own reference
+page</strong> — pick one from the tables below.</p>
+<h2 id="how-a-method-receives-its-data">How a method receives its data</h2>
+<p>You never pass positional arguments. Jarvis-PLOT evaluates each entry in <code>coordinates</code> into a
+named array (<code>x</code>, <code>y</code>, <code>z</code>, <code>c</code>, <code>u</code>, <code>v</code>, …) and hands them to the method, together with the
+merged <code>style</code>:</p>
+<pre><code class="language-yaml">- method: scatter
+  coordinates:
+    x: {expr: mass}        # → x
+    y: {expr: xsec}        # → y
+    c: {expr: LogL}        # → c (per-point color)
+  style:
+    s: 4                   # → Matplotlib Axes.scatter(..., s=4)
+    cmap: viridis
 </code></pre>
-<p>To interpolate color inside triangles:</p>
-<pre><code class="language-yaml">style:
-  shading: gouraud
-</code></pre>
-<h2 id="additional-registered-method-keys">Additional registered method keys</h2>
-<p>JarvisPLOT also supports Matplotlib-like keys such as:</p>
+<p>So even for Matplotlib methods whose signature is positional (<code>plot</code>, <code>fill</code>, <code>quiver</code>),
+you still write named <code>coordinates</code>; Jarvis-PLOT forwards them in the right order.</p>
+<p>Everything in <code>style</code> that is not consumed by Jarvis-PLOT is passed straight through to the
+underlying Matplotlib method — so <strong>any keyword the Matplotlib method accepts works</strong>, even if
+it is not listed on the method's page here.</p>
+<h2 id="method-reference">Method reference</h2>
+<h3 id="2d-primitives">2D primitives</h3>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Matplotlib</th>
+<th>Draws</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="scatter/"><code>scatter</code></a></td>
+<td><code>Axes.scatter</code></td>
+<td>Scatter points (optional per-point color)</td>
+</tr>
+<tr>
+<td><a href="plot/"><code>plot</code></a></td>
+<td><code>Axes.plot</code></td>
+<td>Line / marker plot</td>
+</tr>
+<tr>
+<td><a href="step/"><code>step</code></a></td>
+<td><code>Axes.step</code></td>
+<td>Staircase line</td>
+</tr>
+<tr>
+<td><a href="errorbar/"><code>errorbar</code></a></td>
+<td><code>Axes.errorbar</code></td>
+<td>Points with error bars</td>
+</tr>
+<tr>
+<td><a href="bar/"><code>bar</code></a></td>
+<td><code>Axes.bar</code></td>
+<td>Vertical bars</td>
+</tr>
+<tr>
+<td><a href="barh/"><code>barh</code></a></td>
+<td><code>Axes.barh</code></td>
+<td>Horizontal bars</td>
+</tr>
+<tr>
+<td><a href="hist/"><code>hist</code></a></td>
+<td><code>Axes.hist</code></td>
+<td>Histogram (one or many datasets)</td>
+</tr>
+<tr>
+<td><a href="fill/"><code>fill</code></a></td>
+<td><code>Axes.fill</code></td>
+<td>Filled polygon</td>
+</tr>
+<tr>
+<td><a href="fill_between/"><code>fill_between</code></a></td>
+<td><code>Axes.fill_between</code></td>
+<td>Fill between two y-curves</td>
+</tr>
+<tr>
+<td><a href="fill_betweenx/"><code>fill_betweenx</code></a></td>
+<td><code>Axes.fill_betweenx</code></td>
+<td>Fill between two x-curves</td>
+</tr>
+<tr>
+<td><a href="quiver/"><code>quiver</code></a></td>
+<td><code>Axes.quiver</code></td>
+<td>Vector field</td>
+</tr>
+</tbody>
+</table>
+<h3 id="grid-image">Grid / image</h3>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Matplotlib</th>
+<th>Draws</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="pcolormesh/"><code>pcolormesh</code></a></td>
+<td><code>Axes.pcolormesh</code></td>
+<td>Pseudocolor mesh (with built-in gridding)</td>
+</tr>
+<tr>
+<td><a href="pcolor/"><code>pcolor</code></a></td>
+<td><code>Axes.pcolor</code></td>
+<td>Pseudocolor (slower)</td>
+</tr>
+<tr>
+<td><a href="imshow/"><code>imshow</code></a></td>
+<td><code>Axes.imshow</code></td>
+<td>Raster image</td>
+</tr>
+<tr>
+<td><a href="contour/"><code>contour</code></a></td>
+<td><code>Axes.contour</code></td>
+<td>Contour lines (+ HPD / likelihood mode)</td>
+</tr>
+<tr>
+<td><a href="contourf/"><code>contourf</code></a></td>
+<td><code>Axes.contourf</code></td>
+<td>Filled contours</td>
+</tr>
+</tbody>
+</table>
+<h3 id="scatter-interpolate-jarvis-plot">Scatter → interpolate (Jarvis-PLOT)</h3>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Based on</th>
+<th>Draws</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="jpcontour/"><code>jpcontour</code></a></td>
+<td><code>Axes.contour</code></td>
+<td>Interpolate scattered points → contour lines</td>
+</tr>
+<tr>
+<td><a href="jpcontourf/"><code>jpcontourf</code></a></td>
+<td><code>Axes.contourf</code></td>
+<td>Interpolate scattered points → filled contours</td>
+</tr>
+<tr>
+<td><a href="jpfield/"><code>jpfield</code></a></td>
+<td><code>Axes.pcolormesh</code></td>
+<td>Interpolate scattered points → pseudocolor field</td>
+</tr>
+</tbody>
+</table>
+<h3 id="triangulation">Triangulation</h3>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Matplotlib</th>
+<th>Draws</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="tripcolor/"><code>tripcolor</code></a></td>
+<td><code>Axes.tripcolor</code></td>
+<td>Triangulated pseudocolor</td>
+</tr>
+<tr>
+<td><a href="tripcolor_axes/"><code>tripcolor_axes</code></a></td>
+<td><code>Axes.tripcolor</code></td>
+<td><code>tripcolor</code> forced to axes space</td>
+</tr>
+<tr>
+<td><a href="tricontour/"><code>tricontour</code></a></td>
+<td><code>Axes.tricontour</code></td>
+<td>Triangulated contour lines</td>
+</tr>
+<tr>
+<td><a href="tricontourf/"><code>tricontourf</code></a></td>
+<td><code>Axes.tricontourf</code></td>
+<td>Triangulated filled contours</td>
+</tr>
+<tr>
+<td><a href="triplot/"><code>triplot</code></a></td>
+<td><code>Axes.triplot</code></td>
+<td>The triangulation mesh</td>
+</tr>
+</tbody>
+</table>
+<h3 id="voronoi-special-jarvis-plot">Voronoi &amp; special (Jarvis-PLOT)</h3>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Based on</th>
+<th>Draws</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="voronoi/"><code>voronoi</code></a></td>
+<td>custom</td>
+<td>Voronoi cells colored by <code>z</code> (or single fill)</td>
+</tr>
+<tr>
+<td><a href="voronoif/"><code>voronoif</code></a></td>
+<td>custom</td>
+<td>Voronoi cell boundaries with hatched fill</td>
+</tr>
+<tr>
+<td><a href="dynesty_runplot/"><code>dynesty_runplot</code></a></td>
+<td>dynesty</td>
+<td>Nested-sampling diagnostic panel</td>
+</tr>
+</tbody>
+</table>
+<h2 id="choosing-a-method">Choosing a method</h2>
 <ul>
-<li><code>errorbar</code>, <code>bar</code>, <code>barh</code>, <code>step</code></li>
-<li><code>imshow</code>, <code>pcolor</code>, <code>pcolormesh</code></li>
-<li><code>contour</code>, <code>contourf</code>, <code>tricontour</code>, <code>tricontourf</code>, <code>triplot</code></li>
+<li><strong>Raw samples</strong> → <a href="scatter/"><code>scatter</code></a></li>
+<li><strong>Profile-likelihood map</strong> → a <a href="../transforms/#profile"><code>profile</code></a> transform, then
+  <a href="voronoi/"><code>voronoi</code></a> (cells) or <a href="pcolormesh/"><code>pcolormesh</code></a> (smooth)</li>
+<li><strong>Posterior density map</strong> → a <a href="../transforms/#posterior_density-recommended"><code>posterior_density</code></a>
+  transform, then <a href="pcolormesh/"><code>pcolormesh</code></a></li>
+<li><strong>Contours over scattered points</strong> → <a href="jpcontour/"><code>jpcontour</code></a></li>
+<li><strong>Overlaid limits / reference curves</strong> → <a href="plot/"><code>plot</code></a>,
+  <a href="fill/"><code>fill</code></a>, <a href="fill_between/"><code>fill_between</code></a></li>
 </ul>
+<h2 id="colormaps">Colormaps</h2>
+<p>Color-mapped methods accept any Matplotlib colormap name (e.g. <code>viridis</code>, <code>magma</code>,
+<code>terrain</code>) — append <code>_r</code> to reverse any of them. Jarvis-PLOT also ships these custom maps:</p>
+<p><code>jarvis_rainbow</code>, <code>jarvis_rainbow2</code>, <code>gambit_cmap</code>, <code>chrisB</code>, <code>qual22</code>, <code>SpectralB</code>, <code>RdBuB</code></p>
+<p>(reversed forms such as <code>jarvis_rainbow2_r</code> are available too). See
+<a href="https://matplotlib.org/stable/users/explain/colors/colormaps.html">Matplotlib: Choosing colormaps</a>.</p>
 
 
 

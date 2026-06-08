@@ -1342,32 +1342,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#why-this-design" class="md-nav__link">
+  <a href="#quick-reference" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Why this design
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#supported-transforms" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Supported transforms
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#example" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Example
+        Quick reference
       
     </span>
   </a>
@@ -1386,17 +1364,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#add_column" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        add_column
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#sortby" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1408,10 +1375,82 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#add_column" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        add_column
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#keep_columns-drop_columns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        keep_columns / drop_columns
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#profile" class="md-nav__link">
     <span class="md-ellipsis">
       
         profile
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#posterior-density-transforms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Posterior density transforms
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Posterior density transforms">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#posterior_density-recommended" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        posterior_density (recommended)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#make_density_core-and-make_interp_2d" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        make_density_core and make_interp_2d
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#to_csv-to_parquet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        to_csv / to_parquet
       
     </span>
   </a>
@@ -1436,53 +1475,219 @@
 
 
 <h1 id="transforms">Transforms</h1>
-<p>Transforms are the core data pipeline language in JarvisPLOT.
-They are executed in listed order.</p>
-<h2 id="why-this-design">Why this design</h2>
-<p>By chaining small transforms, users can iteratively refine data logic without rewriting plotting code.
-It also allows JarvisPLOT to cache expensive intermediate behavior.</p>
-<h2 id="supported-transforms">Supported transforms</h2>
+<p>A transform is a step in a data pipeline. You list transforms under a <code>data.source</code>, and they
+run <strong>in order</strong>, each step's output feeding the next. They are how you filter, derive
+columns, sort, and reduce raw samples into something a <a href="../methods/">method</a> can draw.</p>
+<p>Transforms can appear in two places:</p>
 <ul>
-<li><code>filter</code></li>
-<li><code>add_column</code></li>
-<li><code>sortby</code></li>
-<li><code>profile</code></li>
+<li><strong>Dataset level</strong> (<code>DataSet[].transform</code>) — applied once when the source loads.</li>
+<li><strong>Layer level</strong> (<code>layers[].data[].transform</code>) — applied for that layer only.</li>
 </ul>
-<h2 id="example">Example</h2>
 <pre><code class="language-yaml">transform:
-  - add_column:
-      name: LogLike_total
-      expr: LogL_01 + LogL_02
-  - sortby: LogLike_total
+  - add_column: {name: LogLike_total, expr: &quot;LogL_01 + LogL_02&quot;}
   - filter: &quot;X2tot &lt; 10&quot;
+  - sortby: LogLike_total
   - profile:
       bin: 150
-      coordinates:
-        x: {expr: Lambda4, scale: linear, name: xx, lim: [-1.5, 1.5]}
-        y: {expr: Lambda2, scale: linear, name: yy, lim: [-1.5, 1.5]}
-        z: {expr: X2tot, scale: linear, name: z0}
       objective: min
       grid_points: rect
+      coordinates:
+        x: {expr: Lambda4, name: xx, lim: [-1.5, 1.5], scale: linear}
+        y: {expr: Lambda2, name: yy, lim: [-1.5, 1.5], scale: linear}
+        z: {expr: X2tot,   name: z0}
 </code></pre>
+<h2 id="quick-reference">Quick reference</h2>
+<table>
+<thead>
+<tr>
+<th>Transform</th>
+<th>Does</th>
+<th>Typical use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>filter</code></td>
+<td>Keep rows matching a boolean expression</td>
+<td>Cut unphysical or low-likelihood points</td>
+</tr>
+<tr>
+<td><code>sortby</code></td>
+<td>Sort rows by a column/expression (ascending)</td>
+<td>Control scatter draw order; pre-reduction order</td>
+</tr>
+<tr>
+<td><code>add_column</code></td>
+<td>Add a computed column</td>
+<td>Combined likelihoods, derived observables</td>
+</tr>
+<tr>
+<td><code>keep_columns</code> / <code>drop_columns</code></td>
+<td>Subset columns</td>
+<td>Trim memory before heavy steps</td>
+</tr>
+<tr>
+<td><code>profile</code></td>
+<td>Reduce samples onto a 2D grid (min/max/mean per bin)</td>
+<td>Profile-likelihood maps</td>
+</tr>
+<tr>
+<td><code>make_density_core</code></td>
+<td>Rebuild a posterior density support from weighted samples</td>
+<td>Posterior density (step 1)</td>
+</tr>
+<tr>
+<td><code>make_interp_2d</code></td>
+<td>Interpolate scattered points onto a regular grid</td>
+<td>Posterior density (step 2)</td>
+</tr>
+<tr>
+<td><code>posterior_density</code></td>
+<td>One-shot posterior density pipeline</td>
+<td>Posterior density (combined)</td>
+</tr>
+<tr>
+<td><code>to_csv</code> / <code>to_parquet</code></td>
+<td>Export the current frame</td>
+<td>Debugging, sharing intermediates</td>
+</tr>
+</tbody>
+</table>
+<p>The first five cover the vast majority of plots. The density transforms are specialist tools
+for Bayesian posterior maps — most users reach them through the
+<a href="../figure-types/"><code>posterior_2d</code> figure type</a> instead of writing them by hand.</p>
+<hr />
 <h2 id="filter"><code>filter</code></h2>
-<p>Use for fast row selection via boolean expressions.
-JarvisPLOT evaluates expressions in dataframe context.</p>
-<h2 id="add_column"><code>add_column</code></h2>
-<p>Use for derived features (for example combined likelihood terms).
-This keeps reusable derived logic in YAML instead of ad-hoc scripts.</p>
+<pre><code class="language-yaml">- filter: &quot;LogL &gt; -100&quot;
+- filter: &quot;(x &gt;= 0) &amp; (x &lt;= 5)&quot;
+- filter: true                  # keep all rows (no-op)
+</code></pre>
+<p>A boolean expression string. Combine conditions with <code>&amp;</code>, <code>|</code>, <code>~</code> and parenthesize each
+comparison. See <a href="../coordinates-expressions/#expressions">Expressions</a>.</p>
 <h2 id="sortby"><code>sortby</code></h2>
-<p>Use before profile-like reductions when order matters.
-Commonly paired with objective-based profiling workflows.</p>
+<pre><code class="language-yaml">- sortby: LogL                  # by column, ascending
+- sortby: &quot;np.abs(x)&quot;           # by an expression
+</code></pre>
+<p>Sorting is always ascending. A common idiom is to sort by likelihood so the most important
+points are drawn last (on top) in a scatter layer.</p>
+<h2 id="add_column"><code>add_column</code></h2>
+<pre><code class="language-yaml">- add_column:
+    name: weight                # new column name
+    expr: &quot;exp(LogL)&quot;           # expression over existing columns
+</code></pre>
+<h2 id="keep_columns-drop_columns"><code>keep_columns</code> / <code>drop_columns</code></h2>
+<pre><code class="language-yaml">- keep_columns: [x, y, weight]          # list form
+- drop_columns: [tmp, debug]
+</code></pre>
+<p>Both also accept a single column name or <code>{columns: [...]}</code>; prefer the list form.</p>
 <h2 id="profile"><code>profile</code></h2>
-<p>Main high-level reduction transform for profile-like maps.
-Key parameters:</p>
-<ul>
-<li><code>bin</code></li>
-<li><code>coordinates</code></li>
-<li><code>objective</code></li>
-<li><code>grid_points</code></li>
-</ul>
-<p>In optimized runs, JarvisPLOT may prebuild a preprofiling stage before runtime profiling.</p>
+<p>Reduce a cloud of samples onto a 2D grid, taking one value per bin. This is the workhorse for
+profile-likelihood maps.</p>
+<pre><code class="language-yaml">- profile:
+    method: bridson             # bridson | grid
+    bin: 100                    # resolution
+    objective: max              # max | min | mean
+    grid_points: rect           # rect | ternary
+    coordinates:
+      x: {expr: mC1, name: xx, lim: [0, 1.4], scale: linear}
+      y: {expr: mN1, name: yy, lim: [0, 1.4], scale: linear}
+      z: {expr: LogL, name: z0}
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Default</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>method</code></td>
+<td><code>bridson</code></td>
+<td><code>grid</code> = uniform bins; <code>bridson</code> = quasi-uniform support points</td>
+</tr>
+<tr>
+<td><code>bin</code></td>
+<td>—</td>
+<td>Resolution (bins per side, or Bridson density)</td>
+</tr>
+<tr>
+<td><code>objective</code></td>
+<td>—</td>
+<td>Reducer per bin: <code>max</code>, <code>min</code>, or <code>mean</code></td>
+</tr>
+<tr>
+<td><code>grid_points</code></td>
+<td><code>rect</code></td>
+<td>Grid geometry: <code>rect</code> or <code>ternary</code></td>
+</tr>
+<tr>
+<td><code>coordinates</code></td>
+<td>—</td>
+<td><code>x</code>/<code>y</code>/<code>z</code> with <code>expr</code> + <code>name</code> (+ <code>lim</code>, <code>scale</code>)</td>
+</tr>
+</tbody>
+</table>
+<p>The output columns are named by <code>coordinates[*].name</code> (e.g. <code>xx</code>, <code>yy</code>, <code>z0</code>), which the
+layer's <code>coordinates</code> then reference. Pair <code>profile</code> with <code>voronoi</code> (cell rendering) or with
+<code>make_interp_2d</code> + <code>pcolormesh</code> (smooth rendering).</p>
+<h2 id="posterior-density-transforms">Posterior density transforms</h2>
+<p>These rebuild a smooth probability density from weighted posterior samples. The compact form
+(<code>x</code>/<code>y</code>/<code>weight</code> at the top level, <code>lim</code> optional) is shown; the legacy nested
+<code>coordinates:</code> form is still accepted.</p>
+<h3 id="posterior_density-recommended"><code>posterior_density</code> (recommended)</h3>
+<p>One transform that runs the whole pipeline and outputs three columns <code>(x, y, density)</code>, ready
+for <code>pcolormesh</code>.</p>
+<pre><code class="language-yaml">- posterior_density:
+    method: voronoi             # voronoi | adaptive | kde | grid
+    x: {expr: xx, lim: [0, 5]}
+    y: {expr: yy, lim: [0, 5]}
+    weight: {expr: &quot;exp(LogL)&quot;}
+    bins: 120                   # support / bin resolution
+    grid: 300                   # interpolation grid (voronoi/adaptive only)
+</code></pre>
+<table>
+<thead>
+<tr>
+<th><code>method</code></th>
+<th>Behavior</th>
+<th>Best for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>voronoi</code></td>
+<td>Mass-conserving Voronoi aggregation + natural-neighbor interpolation</td>
+<td>General posteriors (default)</td>
+</tr>
+<tr>
+<td><code>adaptive</code></td>
+<td><code>voronoi</code> plus adaptive mesh refinement of high-gradient regions</td>
+<td>Multimodal / high-curvature posteriors</td>
+</tr>
+<tr>
+<td><code>kde</code></td>
+<td>Gaussian KDE on a grid (<code>bins</code> sets the output grid; no <code>grid</code>)</td>
+<td>Smooth results; bandwidth studies</td>
+</tr>
+<tr>
+<td><code>grid</code></td>
+<td>Plain 2D histogram (fastest)</td>
+<td>Quick previews</td>
+</tr>
+</tbody>
+</table>
+<h3 id="make_density_core-and-make_interp_2d"><code>make_density_core</code> and <code>make_interp_2d</code></h3>
+<p>The two lower-level steps that <code>posterior_density</code> wraps: <code>make_density_core</code> builds the
+density support <code>(x, y, weight)</code>, then <code>make_interp_2d</code> resamples scattered points onto a
+regular grid. Use them directly only when you need to tune the steps independently.</p>
+<h2 id="to_csv-to_parquet"><code>to_csv</code> / <code>to_parquet</code></h2>
+<pre><code class="language-yaml">- to_csv: ./intermediate.csv
+- to_parquet: ./intermediate.parquet
+</code></pre>
+<p>A pass-through export — it writes the current frame to disk and leaves the data flow
+unchanged. Useful for inspecting what a pipeline produced.</p>
 
 
 

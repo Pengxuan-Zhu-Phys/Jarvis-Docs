@@ -1342,28 +1342,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#why-this-exists" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Why this exists
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#current-common-pattern" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Current common pattern
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#example" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1375,10 +1353,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#runtime-behavior" class="md-nav__link">
+  <a href="#fields" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Runtime behavior
+        Fields
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-it-is-used" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How it is used
       
     </span>
   </a>
@@ -1403,34 +1392,75 @@
 
 
 <h1 id="functions-and-interpolators">Functions and Interpolators</h1>
-<p><code>Functions</code> lets you define reusable interpolation helpers once and call them in expressions later.</p>
-<h2 id="why-this-exists">Why this exists</h2>
-<p>Without <code>Functions</code>, users often duplicate interpolation code in multiple transforms.
-Centralizing helpers in YAML improves consistency and avoids copy-paste errors.</p>
-<h2 id="current-common-pattern">Current common pattern</h2>
-<ul>
-<li><code>method: interp1d</code></li>
-<li>source table from CSV</li>
-<li>options like <code>kind: linear</code> and <code>bounds: clamp</code></li>
-</ul>
+<p>The top-level <code>Functions</code> block defines reusable helper functions — typically interpolators
+built from a table — once, so you can call them by name inside any
+<a href="../coordinates-expressions/#expressions">expression</a> without duplicating logic.</p>
 <h2 id="example">Example</h2>
 <pre><code class="language-yaml">Functions:
-  - name: FASER2
+  - name: FASER2                          # call it as FASER2(...) in any expr
     source:
       type: csv
-      path: ../Workshop/HinoLLP/Fns/FASER2_620.csv
-      x: &quot;np.log(y)&quot;
-      y: &quot;x&quot;
+      path: ./Fns/FASER2_620.csv
+      x: &quot;np.log(y)&quot;                      # expression for the table's x values
+      y: &quot;x&quot;                              # expression for the table's y values
       sort_by: &quot;y&quot;
       drop_duplicates: &quot;y&quot;
     method: interp1d
     options:
-      kind: linear
-      bounds: clamp
+      kind: linear                        # linear | nearest | cubic | ...
+      bounds: clamp                       # behavior outside the table range
 </code></pre>
-<h2 id="runtime-behavior">Runtime behavior</h2>
-<p>JarvisPLOT loads these function specs and registers callable helpers into expression evaluation context.
-After registration, transforms and coordinate expressions can call them directly.</p>
+<p>Once defined, use it like any built-in function:</p>
+<pre><code class="language-yaml">coordinates:
+  y: {expr: &quot;FASER2(np.log10(mass))&quot;}
+</code></pre>
+<h2 id="fields">Fields</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>name</code></td>
+<td>The callable name exposed to expressions</td>
+</tr>
+<tr>
+<td><code>source.type</code></td>
+<td>Table format, e.g. <code>csv</code></td>
+</tr>
+<tr>
+<td><code>source.path</code></td>
+<td>Path to the table (resolved like any <a href="../dataset/#path-resolution">DataSet path</a>)</td>
+</tr>
+<tr>
+<td><code>source.x</code> / <code>source.y</code></td>
+<td>Expressions selecting the table's input/output columns</td>
+</tr>
+<tr>
+<td><code>source.sort_by</code></td>
+<td>Column/expression to sort the table by before building the interpolator</td>
+</tr>
+<tr>
+<td><code>source.drop_duplicates</code></td>
+<td>Drop duplicate rows on this key</td>
+</tr>
+<tr>
+<td><code>method</code></td>
+<td>Interpolator kind, e.g. <code>interp1d</code></td>
+</tr>
+<tr>
+<td><code>options</code></td>
+<td>Interpolator options (<code>kind</code>, <code>bounds</code>, …)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="how-it-is-used">How it is used</h2>
+<p>At load time these specs are compiled into callables and injected into the expression
+runtime. After that, <code>filter</code>, <code>add_column</code>, and any <code>coordinates</code> expression can call them
+directly — the same way Jarvis-Operas-registered operators become available by name.</p>
 
 
 

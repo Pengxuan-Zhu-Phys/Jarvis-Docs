@@ -1353,21 +1353,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#positional-argument" class="md-nav__link">
+  <a href="#options" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Positional argument
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#options-and-intent" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Options and intent
+        Options
       
     </span>
   </a>
@@ -1386,10 +1375,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#practical-guidance" class="md-nav__link">
+  <a href="#guidance" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Practical guidance
+        Guidance
       
     </span>
   </a>
@@ -1417,31 +1406,66 @@
 <h2 id="command">Command</h2>
 <pre><code class="language-bash">jplot &lt;file.yaml&gt; [options]
 </code></pre>
-<h2 id="positional-argument">Positional argument</h2>
-<ul>
-<li><code>file</code>: input YAML path</li>
-</ul>
-<h2 id="options-and-intent">Options and intent</h2>
-<ul>
-<li><code>-h, --help</code>: print command usage</li>
-<li><code>-v, --version</code>: print installed JarvisPLOT version</li>
-<li><code>-d, --debug</code>: show detailed runtime logs (useful for pipeline diagnosis)</li>
-<li><code>--parse-data</code>: parse dataset structure and write mapped fields back to YAML</li>
-<li><code>--out YAML_FILE</code>: write parsed YAML to a new file (with <code>--parse-data</code>)</li>
-<li><code>--inplace</code>: overwrite input YAML in place (with <code>--parse-data</code>)</li>
-<li><code>--print</code>: disable logo panel (<code>axlogo</code>) in output</li>
-<li><code>--rebuild-cache</code>: clear and rebuild <code>workdir/.cache</code> before plotting</li>
-</ul>
+<p><code>&lt;file.yaml&gt;</code> is the plotting config file. In normal use this is the only argument you need.</p>
+<h2 id="options">Options</h2>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-v</code>, <code>--version</code></td>
+<td>Print the installed JarvisPLOT version</td>
+</tr>
+<tr>
+<td><code>-d</code>, <code>--debug</code></td>
+<td>Run in debug mode with detailed pipeline logs</td>
+</tr>
+<tr>
+<td><code>--parse-data</code></td>
+<td>Inspect the datasets (CSV/HDF5), sanitize column names, and write the discovered <code>Variables</code>/<code>ColumnMap</code> back into the YAML</td>
+</tr>
+<tr>
+<td><code>--out PATH</code></td>
+<td>Where to write the parsed YAML (used with <code>--parse-data</code>)</td>
+</tr>
+<tr>
+<td><code>--inplace</code></td>
+<td>Rewrite the input YAML in place (used with <code>--parse-data</code>)</td>
+</tr>
+<tr>
+<td><code>--print</code></td>
+<td>Disable the Jarvis logo panel (<code>axlogo</code>) in the output figure</td>
+</tr>
+<tr>
+<td><code>--rebuild-cache</code></td>
+<td>Ignore and rebuild <code>&lt;workdir&gt;/.cache</code> before plotting</td>
+</tr>
+</tbody>
+</table>
 <h2 id="typical-usage">Typical usage</h2>
-<pre><code class="language-bash">jplot ./bin/GM95excess.yaml
+<pre><code class="language-bash"># Normal run
+jplot ./bin/GM95excess.yaml
+
+# Inspect what went wrong in a pipeline
 jplot ./bin/SUSYRun2_EWMSSM.yaml --debug
+
+# Force a clean redraw after the source data changed
 jplot ./bin/EggBox_Dynesty_06.yaml --rebuild-cache
+
+# Discover HDF5 column names and write them back into the YAML
+jplot ./bin/SUSYRun2_EWMSSM.yaml --parse-data --out parsed.yaml
 </code></pre>
-<h2 id="practical-guidance">Practical guidance</h2>
+<h2 id="guidance">Guidance</h2>
 <ul>
-<li>Start with plain run.</li>
-<li>Add <code>--debug</code> only when you need to inspect pipeline decisions.</li>
-<li>Use <code>--rebuild-cache</code> only when you intentionally want to invalidate cached preprocessing.</li>
+<li>Start with a plain run; only add flags when you need them.</li>
+<li>Use <code>--debug</code> when a transform or layer does not behave as expected.</li>
+<li>Use <code>--rebuild-cache</code> only when you intentionally want to invalidate cached
+  preprocessing (for example, the source file was regenerated). See
+  <a href="../profiling-preprofiling-cache/">Cache</a> for what is cached and when it is reused.</li>
 </ul>
 
 

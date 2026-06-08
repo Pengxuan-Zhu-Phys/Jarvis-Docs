@@ -31,7 +31,7 @@ Sampling:
 - `Method`: must be `Random`.
 - `Point number`: number of **accepted samples** to return. If a `selection` cut is used, more raw points may be generated internally to reach this accepted count.
 - `Variables`: See [Scan Parameters (Sampler Variables Schema)](../core/variables.md)
-- `LogLikelihood`: list of named likelihood terms. See [Likelihood](../core/likelihood.md)
+- `LogLikelihood`: list of named likelihood terms. See [LogLikelihood](../core/likelihood.md)
     - `name`: likelihood term name.
     - `expression`: expression evaluated per point.
 

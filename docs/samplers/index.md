@@ -1,14 +1,25 @@
-# Sampler Documentation Index
+# Core Samplers
 
-Each page is self-contained and documents the full `Sampling` section for one sampler.
+Core sampler pages document the main `Sampling` methods used to generate, optimize, or explore scan points.
 
-- [Bridson](bridson.md)
+## Basic
+
 - [Random](random.md)
 - [Grid](grid.md)
-- [DNN](dnn.md)
+- [Bridson](bridson.md)
+
+## Optimization And ML
+
 - [Diver](diver.md)
+- [DNN](dnn.md)
+
+## Nested
+
 - [Dynesty](dynesty.md)
 - [MultiNest](multinest.md)
+
+## MCMC
+
 - [MCMC](mcmc.md)
 - [ToyMCMC](toymcmc.md)
 - [AMMCMC](ammcmc.md)
@@ -25,4 +36,3 @@ Each page is self-contained and documents the full `Sampling` section for one sa
 - [MALA](mala.md)
 - [HMC](hmc.md)
 - [NUTS](nuts.md)
-- [Nuisance: Profile1D](nuisance-profile1d.md)

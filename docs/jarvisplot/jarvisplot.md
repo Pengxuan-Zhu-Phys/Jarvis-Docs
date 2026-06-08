@@ -1,82 +1,87 @@
 # Jarvis-PLOT
 
-`Jarvis-PLOT` is the plotting layer in the Jarvis ecosystem.
+`Jarvis-PLOT` is the plotting layer of the Jarvis ecosystem.
 
-Its purpose is simple:
-
-- you describe figures in YAML
-- `Jarvis-PLOT` loads data, applies transforms, caches intermediate results, and renders the plots
-
-In the main site navigation, `Jarvis-PLOT` now appears as a single entry. Use this page as the index for the full Jarvis-PLOT interface.
-
-## Install
+You do not write plotting code. You **describe a figure in YAML**, and `jplot` loads the
+data, runs the requested transforms, and renders the figure to image files.
 
 ```bash
 python3 -m pip install -U jarvisplot
+jplot my_figure.yaml
 ```
 
-Main CLI:
+<aside>
+🧭
 
-```bash
-jplot --help
+This section is a <strong>reference for writing the plotting YAML file</strong>.
+If you have used Matplotlib, the mental model is the same — you pick a
+<code>method</code> (<code>scatter</code>, <code>plot</code>, <code>contourf</code>, …) and pass it
+styling keywords — except the whole figure is declared declaratively in YAML.
+
+</aside>
+
+## The mental model
+
+A YAML file is read into a few top-level blocks. Data flows through them like this:
+
+```
+DataSet                              load a file  →  DataFrame
+   ↓
+Figures[].layers[].data[].source     reference a DataSet by name
+   ↓
+   .transform                        optional per-layer data pipeline
+   ↓
+method + coordinates + style         draw onto an axis
+   ↓
+output                               write PNG / PDF
 ```
 
-## What Jarvis-PLOT Covers
+Every layer answers three questions:
 
-At runtime, Jarvis-PLOT works through three layers:
+1. **Where is the data?** → `DataSet`
+2. **What do I draw?** → `Figures` → `layers` → `method`
+3. **Which columns map to which axis?** → `coordinates`
 
-1. `DataSet`: where the input data comes from
-2. `Figures` and `Layers`: what to draw
-3. `Transforms` and plotting methods: how to manipulate the data before drawing
+## Read in this order
 
-It also supports project-local caching so repeated redraws do not repeatedly scan the full source data.
+If you are new, follow these pages top to bottom:
 
-## Start Here
+1. [Quick Start](quickstart.md) — install, run, and a complete minimal YAML
+2. [YAML Schema](yaml-schema.md) — the top-level blocks
+3. [DataSet](dataset.md) — declaring data sources
+4. [Figures and Layers](figures-layers.md) — the figure / layer model
+5. [Coordinates and Expressions](coordinates-expressions.md) — mapping columns and writing expressions
+6. [Plot Methods](methods.md) — the Matplotlib-style method table
+7. [Frame: Axes and Colorbar](axes-rect-ternary.md) — labels, limits, scales, ticks
 
-If you are new to Jarvis-PLOT, read in this order:
+## Reference index
 
-1. [Quick Start](quickstart.md)
-2. [CLI](cli.md)
-3. [YAML Schema](yaml-schema.md)
-
-## Full Interface Index
-
-### Data And Figure Model
+### Data and figure model
 
 - [DataSet](dataset.md)
 - [Figures and Layers](figures-layers.md)
-- [Rect and Ternary Axes](axes-rect-ternary.md)
+- [Frame: Axes and Colorbar](axes-rect-ternary.md)
+- [Style Cards and Layout](style.md) — the JSON cards + `debug: true` dimension overlay
+- [Coordinates and Expressions](coordinates-expressions.md)
 
-### Data Processing
+### Drawing
+
+- [Plot Methods](methods.md) — one page per method (`scatter`, `plot`, `pcolormesh`, …)
+- [Encapsulated Figure Types](figure-types.md) — high-level one-figure shortcuts:
+    - [`posterior_2d`](figure-types/posterior_2d.md) — 2D posterior density map
+    - [`profile_2d`](figure-types/profile_2d.md) — 2D profile-likelihood map
+
+### Data processing
 
 - [Transforms](transforms.md)
-- [Profiling, Preprofiling, and Cache](profiling-preprofiling-cache.md)
 - [Functions and Interpolators](functions-interpolators.md)
+- [Profiling, Preprofiling, and Cache](profiling-preprofiling-cache.md)
 
-### Rendering
+### Operations
 
-- [Plot Methods](methods.md)
-
-### User Support
-
+- [CLI](cli.md)
 - [FAQ and Troubleshooting](faq-troubleshooting.md)
 
-## Gallery And Examples
+## Gallery
 
-- [EggBox Dynesty](pub/eggbox.md)
-- [GM95 Excess](pub/gm95excess.md)
-- [HinoLLP](pub/hinollp.md)
-- [SUSY Run2 (EWMSSM)](pub/susy-ewmssm.md)
-- [CEPC](pub/cepc.md)
-
-## Common Feature Set
-
-From the current reference YAML set, common Jarvis-PLOT features include:
-
-- data types: `csv`, `hdf5`
-- layer methods: `voronoi`, `voronoif`, `scatter`, `plot`, `fill`, `hist`, `tripcolor`
-- transforms: `add_column`, `filter`, `sortby`, `profile`
-- profile grids: `rect`, `ternary`
-- shared layer data: `share_data`
-- runtime interpolation helpers via `Functions`
-- project-local cache in `project.workdir/.cache`
+See worked, publication-grade examples in the [Figure Gallery](gallery.md).

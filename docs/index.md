@@ -1,6 +1,6 @@
 #![Jarvis-HEP](assets/title_docs.png)
 <p align="center">
-<img alt="Static Badge" src="https://img.shields.io/badge/arXiv-2603.12345-yellow?style=plastic&logo=arxiv&logoColor=red">
+<img alt="Static Badge" src="https://img.shields.io/badge/arXiv-2604.25557-yellow?style=plastic&logo=arxiv&logoColor=red">
 <img alt="GitHub Actions Workflow Status" src="https://img.shields.io/github/actions/workflow/status/Pengxuan-Zhu-Phys/Jarvis-HEP/ci.yml?style=plastic&logo=github&logoColor=white">
 <img alt="GitHub Release" src="https://img.shields.io/github/v/release/Pengxuan-Zhu-Phys/Jarvis-HEP?style=plastic&logo=github&logoColor=white">
 <img alt="PyPI - Downloads" src="https://img.shields.io/pypi/dd/Jarvis-HEP?style=plastic&logo=pypi&logoColor=white">

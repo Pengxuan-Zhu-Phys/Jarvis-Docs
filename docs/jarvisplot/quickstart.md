@@ -1,38 +1,28 @@
 # Quick Start
 
-## Install
+## Install and run
 
 ```bash
-pip install jarvisplot
-```
-
-## Run a YAML
-
-```bash
+python3 -m pip install -U jarvisplot
 jplot path/to/config.yaml
 ```
 
-## Rebuild cache (when needed)
+That is the whole workflow: edit the YAML, run `jplot`, look at the output images.
 
-```bash
-jplot path/to/config.yaml --rebuild-cache
-```
+## A complete minimal YAML
 
-Use `--rebuild-cache` when you want to fully refresh cached preprocessing outputs.
-
-## Minimal YAML
+This draws a scatter plot from a CSV. It is a full, runnable file — copy it, change the
+paths and column names, and run it.
 
 ```yaml
-output:
-  dpi: 300
-  formats: [png]
+version: "0.3"
 
 project:
   name: Demo
-  # workdir is optional
+  # workdir is optional; defaults to the folder containing this YAML
 
 DataSet:
-  - name: df
+  - name: df                 # logical name, referenced below by `source: df`
     path: ./data/example.csv
     type: csv
 
@@ -42,9 +32,9 @@ Figures:
     style: [a4paper_2x1, rectcmap]
     frame:
       ax:
-        labels:
-          x: x
-          y: y
+        labels: {x: "$x$", y: "$y$"}
+        xlim: [0, 5]
+        ylim: [0, 5]
     layers:
       - name: points
         data:
@@ -52,31 +42,52 @@ Figures:
         axes: ax
         method: scatter
         coordinates:
-          x: {expr: x}
-          y: {expr: y}
+          x: {expr: x}       # column `x` → horizontal axis
+          y: {expr: y}       # column `y` → vertical axis
         style:
           s: 2
+          color: blue
+
+output:
+  dir: ./plots
+  dpi: 300
+  formats: [png, pdf]
 ```
 
-## What happens after `jplot` starts
+Run it:
 
-1. YAML is loaded.
-2. `project.workdir` and output/cache locations are resolved.
-3. datasets are registered lazily (loaded only when a pipeline needs them).
-4. profile-related prebuild pipelines may be prepared.
-5. layers are rendered and files are saved.
+```bash
+jplot demo.yaml
+```
 
-This is why you can keep YAML declarative while still getting optimized behavior for large inputs.
+Output files are written to `./plots/demo_scatter.png` and `.pdf`.
+
+## Anatomy of the file
+
+| Block | Required | Purpose |
+|-------|:--------:|---------|
+| `version` | no | schema version string, e.g. `"0.3"` |
+| `project` | recommended | project name and working directory |
+| `DataSet` | **yes** | input data sources — see [DataSet](dataset.md) |
+| `Figures` | **yes** | the figures to draw — see [Figures and Layers](figures-layers.md) |
+| `Functions` | no | reusable interpolators — see [Functions and Interpolators](functions-interpolators.md) |
+| `output` | recommended | output folder, DPI, and file formats |
 
 ## Path and output defaults
 
-For `DataSet.path`:
+`DataSet.path`:
 
-- absolute path: used as-is
-- relative path: resolved from `project.workdir`
-- if `project.workdir` is omitted: YAML file directory is used
+- absolute path → used as-is
+- relative path → resolved against `project.workdir`
+- if `project.workdir` is omitted → resolved against the YAML file's folder
 
-For outputs:
+`output`:
 
-- if `output.dir` is omitted, JarvisPLOT uses `<workdir>/plots/`
-- cache is stored in `<workdir>/.cache/`
+- if `output.dir` is omitted → defaults to `<workdir>/plots/`
+- the data cache lives in `<workdir>/.cache/` (see [Cache](profiling-preprofiling-cache.md))
+
+## Next steps
+
+- The complete list of top-level keys: [YAML Schema](yaml-schema.md)
+- Every drawing method (`scatter`, `plot`, `contourf`, `pcolormesh`, …): [Plot Methods](methods.md)
+- Shaping data before drawing (filter, sort, profile, density): [Transforms](transforms.md)

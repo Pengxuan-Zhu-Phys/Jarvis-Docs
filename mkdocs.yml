@@ -25,18 +25,36 @@ extra_javascript:
 validation:
   nav:
     omitted_files: ignore
-
 nav:
   - Home: index.md
+  - YAML Basics:
+      - Practical YAML Introduction: yaml/yaml_introduction.md
   - Quick Start:
       - Installation: tutorial/Installation.md
       - First Scan (EggBox): tutorial/Common_workflow.md
       - Command Line Tools: tutorial/cli.md
       - First Module (EggBox): tutorial/eggbox.md
-  - Jarvis-HEP Summary:
+  - Jarvis-HEP:
       - Task YAML Structure: core/yaml_overview.md
       - Sampler Summary: core/samplers.md
-  - Jarvis-PLOT Summary:
-      - Overview: jarvisplot/jarvisplot.md
-  - Jarvis-Operas Summary:
-      - Overview: package/jarvis-operas.md
+      - Scan Parameters: core/variables.md
+      - LogLikelihood: core/likelihood.md
+      - Calculators: core/calculator.md
+      - Library Dependencies: core/library.md
+      - Operas: core/operas.md
+      - Environment Requirements: core/environment.md
+      - Symbolic Expressions: core/symbol.md
+      - I/O Formats: core/io_summary.md
+      - Utils: core/utils.md
+      - Core CLI Reference: core/cli.md
+  - Samplers:
+      - Core Samplers: samplers/index.md
+      - Nuisance Samplers: samplers/nuisance.md
+  - Jarvis-PLOT:
+      - Plotting Overview: jarvisplot/jarvisplot.md
+      - Figure Gallery: jarvisplot/gallery.md
+  - Jarvis-Operas:
+      - Operas Overview: package/jarvis-operas.md
+      - Function Catalog: package/functions.md
+  - Research Examples:
+      - Published Research Using Jarvis: examples/examples.md
